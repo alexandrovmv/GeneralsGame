@@ -1,6 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.IO;
+using System.Linq;
+using System.Net;
+using System.Net.Sockets;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -23,6 +27,31 @@ namespace GeneralsClient
         public MainWindow()
         {
             InitializeComponent();
+
+            //Client();
+        }
+        public void Client()
+        {
+            IPAddress address = IPAddress.Parse("127.0.0.1");
+            IPEndPoint endpoint = new IPEndPoint(address, 11000);
+            TcpClient client = new TcpClient();
+            client.Connect(endpoint);
+            NetworkStream sw = client.GetStream();
+            StreamWriter sww = new StreamWriter(sw);
+            while (true)
+            {
+                string p = Console.ReadLine();
+                sww.WriteLine(p);
+                sww.Flush();
+                if (p == "exit")
+                {
+                    sww.Close();
+                    client.Close();
+
+                    break;
+                }
+            }
+
         }
     }
 }
