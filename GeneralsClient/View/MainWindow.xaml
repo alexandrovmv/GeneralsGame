@@ -5,6 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:GeneralsClient"
         mc:Ignorable="d"
+
         Title="MainWindow" Height="600" Width="750">
 
     <Grid>
@@ -54,9 +55,6 @@
                 <TabItem Header="Границы"></TabItem>
                 <TabItem Header="Ганералы"></TabItem>
             </TabControl>
-
-
-
 
     </Grid>
 </Window>
