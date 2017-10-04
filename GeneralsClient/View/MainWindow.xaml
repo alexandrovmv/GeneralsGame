@@ -37,10 +37,16 @@
                     <Canvas Grid.Column="0" Grid.Row="0"  Background="LightBlue" HorizontalAlignment="Stretch" >
                             <Label FontSize="16" FontWeight="Bold" FontStyle="Oblique" >Засев зерна</Label>
                         </Canvas>
-
+                    <Canvas Grid.Column="0" Grid.Row="1" Background="LightCyan">
+                        <Label Grid.Column="0" Grid.Row="1" FontSize="14" FontWeight="Bold" Canvas.Left="10" Canvas.Top="73">Стоимость</Label>
                         <Label Grid.Column="0" Grid.Row="1" FontSize="16" FontWeight="Bold" FontStyle="Oblique" Background="LightCyan">Продажа зерна</Label>
-                    <!--<Label Grid.Column="0" Grid.Row="1" FontSize="14" FontWeight="Bold" Margin="10">Количество</Label>
-                    <Label Grid.Column="0" Grid.Row="1" FontSize="14" FontWeight="Bold" Margin="0,2,0,132" Grid.RowSpan="2">Стоимость</Label>-->
+                    <Label Grid.Column="0" Grid.Row="1" FontSize="14" FontWeight="Bold" Margin="10">Количество</Label>
+                    </Canvas>
+
+                        <!--<Label Grid.Column="0" Grid.Row="1" FontSize="16" FontWeight="Bold" FontStyle="Oblique" Background="LightCyan">Продажа зерна</Label>
+                    <Label Grid.Column="0" Grid.Row="1" FontSize="14" FontWeight="Bold" Margin="10">Количество</Label>-->
+                    <!--<TextBlock Grid.Column="0" Grid.Row="1" FontSize="14" FontWeight="Bold">Стоимость</TextBlock>-->
+                    <!--<Label Content="Стоимость" Grid.Column="0" Grid.Row="1" FontSize="14" FontWeight="Bold"></Label>-->
                         <Slider Grid.Column="0" Grid.Row="1" Height="26" Width="184" Maximum="100" Minimum="0" Margin="10,45,50,62"></Slider>
                         <Button Grid.Column="0" Grid.Row="1" Width="30" Height="30" Content="OK" Background="LightGreen" Margin="199,24,15,79"></Button>
 
@@ -60,3 +66,7 @@
 
     </Grid>
 </Window>
+    
+    
+    
+    
