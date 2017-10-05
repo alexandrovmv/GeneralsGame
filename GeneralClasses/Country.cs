@@ -6,8 +6,11 @@ using System.Threading.Tasks;
 
 namespace GeneralClasses
 {
-    class Country
+    public class Country
     {
+        //Уровни науки
+        public ScientificLevels ScienceLevels;     
+
         string _Name;
         public string Name
         {
@@ -16,16 +19,23 @@ namespace GeneralClasses
                 return _Name;
             }
         }
+        // Общий
         public int Balance { get; set; }
         public int Soldiers{ get; set; }
+        public int Scientist { get; set; }
+        
         //Крестьяне
         public int Peasants{ get; set; }
+        public int maxPeasants { get; set; }
+        //Площадь
         public int Teritory{ get; set; }
         //Плотность или максимальное население
         public int Density{ get; set; }
         //Зерно
         public int Seed{ get; set; }
+        //Прирост зерна
         public int SeedIncrement{ get; set; }
+        //Прирост крестьян
         public int PeasantIncrement{ get; set; }
         //Расходы
         public int ExpensesOnSience{ get; set; }
@@ -33,22 +43,20 @@ namespace GeneralClasses
         //Генералы
         public List<General> Generals{ get; set; }
 
-        public Country(string Name, int Balance, int Soldiers, int Peasants, int Teritory, int Density, 
-                       int Seed, int SeedIncrement, int PeasantIncrement, int ExpensesOnSience,
-                       int ExpensesOnArmy, General General)
+        public Country(string Name, int Balance, int Peasants, int Teritory, int Seed)
         {
+            ScienceLevels = new ScientificLevels();
             _Name = Name;
+            //Начальное количество денег
             this.Balance=Balance;
-            this.Soldiers=Soldiers;
+            //Начальная плотность населения 10 человек на единицу площади. В дальнейшем будет увелдичиватся в зависимости от уровня науки в стране
+            this.Density = ScienceLevels.DensityLevel*10;
+            // начальное колдичество крестьян
             this.Peasants=Peasants;
             this.Teritory=Teritory;
-            this.Density=Density;
             this.Seed=Seed;
-            this.SeedIncrement=SeedIncrement;
-            this.PeasantIncrement=PeasantIncrement;
-            this.ExpensesOnSience=ExpensesOnSience;
-            this.ExpensesOnArmy=ExpensesOnArmy;
-            Generals.Add(General);
+            Generals= new List<General>();
         }
     }
+
 }
