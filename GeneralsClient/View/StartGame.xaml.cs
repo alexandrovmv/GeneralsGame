@@ -23,5 +23,7 @@ namespace GeneralsClient.View
         {
             InitializeComponent();
         }
+
+        
     }
 }
