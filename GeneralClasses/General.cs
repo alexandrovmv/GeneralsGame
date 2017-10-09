@@ -20,6 +20,7 @@ namespace GeneralClasses
         public int Skill { get; set; }
         public int State { get; set; }
         public int Inspiration { get; set; }
+        public int Soldiers { get; set; }
         //public General()
         //{
 

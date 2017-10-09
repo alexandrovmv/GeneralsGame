@@ -21,7 +21,6 @@ namespace GeneralClasses
         }
         // Общий
         public int Balance { get; set; }
-        public int Soldiers{ get; set; }
         public int Scientist { get; set; }
         
         //Крестьяне
@@ -33,10 +32,10 @@ namespace GeneralClasses
         public int Density{ get; set; }
         //Зерно
         public int Seed{ get; set; }
-        //Прирост зерна
-        public int SeedIncrement{ get; set; }
-        //Прирост крестьян
-        public int PeasantIncrement{ get; set; }
+        ////Прирост зерна
+        //public int SeedIncrement{ get; set; }
+        ////Прирост крестьян
+        //public int PeasantIncrement{ get; set; }
         //Расходы
         public int ExpensesOnSience{ get; set; }
         public int ExpensesOnArmy{ get; set; }
