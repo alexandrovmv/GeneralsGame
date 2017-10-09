@@ -9,51 +9,202 @@
         Title="MainWindow" Height="600" Width="750">
 
     <Grid>
-        <!--<DockPanel>
-            <Menu DockPanel.Dock="Top">
-                <MenuItem Header="_File">
-                    <MenuItem Header="_Help" />
-                    <MenuItem Header="_Exit" />
-                </MenuItem>
-            </Menu>
-            <TextBox AcceptsReturn="True" />
 
-        </DockPanel>-->
         <TabControl FontSize="16">
-                <TabItem Header="Информация"></TabItem>
-                <TabItem Header="Экономика">
-                <Grid  ShowGridLines="True" Background="LightGray" Margin="0,-5,0,5">
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition />
-                            <ColumnDefinition />
-                            <ColumnDefinition />
-                        </Grid.ColumnDefinitions>
-                        <Grid.RowDefinitions>
-                            <RowDefinition />
-                            <RowDefinition />
-                            <RowDefinition />
-                            <RowDefinition />
-                        </Grid.RowDefinitions>
+            <TabItem Header="Информация"></TabItem>
+            <TabItem Header="Экономика">
+                <Grid  Background="LightGray">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition />
+                        <ColumnDefinition />
+                        <ColumnDefinition />
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition />
+                        <RowDefinition />
+                        <RowDefinition />
+                        <RowDefinition />
+                    </Grid.RowDefinitions>
 
-                    <Canvas Grid.Column="0" Grid.Row="0"  Background="LightBlue" HorizontalAlignment="Stretch" >
-                        <Label FontSize="16" FontWeight="Bold" FontStyle="Oblique" >Засев зерна</Label>
-                    </Canvas>
+                    <Border Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="2" BorderBrush="Black" BorderThickness="4" Margin="3" CornerRadius="15" Width="215">
+                        <Canvas>
+                            <Label Padding="0"  Content="Засев зерна" FontSize="16" FontStyle="Oblique" FontWeight="Bold" HorizontalAlignment="Center" Margin="45 0 0 0" Height="23" Width="145"></Label>
+                            <Slider Padding="0" AutoToolTipPrecision="0" AutoToolTipPlacement="TopLeft" Height="26" Width="160" Maximum="100" TickPlacement="TopLeft"  Name="s0" Canvas.Left="4" Canvas.Top="26" />
+                            <Label Width="45" Height="20" Padding="0" Content="10000" Canvas.Left="166" Canvas.Top="29" ></Label>
+                            <Label Padding="0" Content="Количество" FontSize="14" FontStyle="Oblique" FontWeight="Bold" HorizontalAlignment="Left" Height="18" Width="87" Canvas.Top="54"/>
+                            <TextBlock Padding="0"  Width="79" Height="22" Text="{Binding ElementName=s0, Path=Value, UpdateSourceTrigger=PropertyChanged}" Canvas.Left="93" Canvas.Top="52"/>
+                            <Label Padding="0" Content="Стоимость" FontSize="14" FontStyle="Oblique" FontWeight="Bold" HorizontalAlignment="Left" Height="18" Width="87" Canvas.Top="80"></Label>
+                            <TextBlock Padding="0" Width="80" Height="18" Text="{Binding ElementName=s0, Path=Value, UpdateSourceTrigger=PropertyChanged}" Canvas.Left="93" Canvas.Top="79"/>
+                            <Button BorderBrush="DarkGreen" BorderThickness="3"  Content="OK" Background="Green" FontSize="16" FontWeight="Bold" HorizontalAlignment="Right" RenderTransformOrigin="6.037,-1.28" Canvas.Left="170" Canvas.Top="64"></Button>
+                        </Canvas>
+                    </Border>
+
+                    <Border Grid.Column="0" Grid.Row="1" BorderBrush="Black" BorderThickness="4" Margin="3" CornerRadius="15" >
+                        <Canvas>
+                            <Label Padding="0"  Content="Продажа зерна" FontSize="16" FontStyle="Oblique" FontWeight="Bold" HorizontalAlignment="Center" Margin="45 0 0 0" Height="23" Width="145"></Label>
+                            <Slider Padding="0" AutoToolTipPrecision="0" AutoToolTipPlacement="TopLeft" Height="26" Width="160" Maximum="100" TickPlacement="TopLeft"  Name="s1" Canvas.Left="4" Canvas.Top="26" />
+                            <Label Width="45" Height="20" Padding="0" Content="10000" Canvas.Left="166" Canvas.Top="29" ></Label>
+                            <Label Padding="0" Content="Количество" FontSize="14" FontStyle="Oblique" FontWeight="Bold" HorizontalAlignment="Left" Height="18" Width="87" Canvas.Top="54"/>
+                            <TextBlock Padding="0"  Width="79" Height="22" Text="{Binding ElementName=s1, Path=Value, UpdateSourceTrigger=PropertyChanged}" Canvas.Left="93" Canvas.Top="52"/>
+                            <Label Padding="0" Content="Стоимость" FontSize="14" FontStyle="Oblique" FontWeight="Bold" HorizontalAlignment="Left" Height="18" Width="87" Canvas.Top="80"></Label>
+                            <TextBlock Padding="0" Width="80" Height="18" Text="{Binding ElementName=s1, Path=Value, UpdateSourceTrigger=PropertyChanged}" Canvas.Left="93" Canvas.Top="79"/>
+                            <Button BorderBrush="DarkGreen" BorderThickness="3"  Content="OK" Background="Green" FontSize="16" FontWeight="Bold" HorizontalAlignment="Right" RenderTransformOrigin="6.037,-1.28" Canvas.Left="191" Canvas.Top="71"></Button>
+                        </Canvas>
+                    </Border>
+
+                    <Border Grid.Column="1" Grid.Row="1" BorderBrush="Black" BorderThickness="4" Margin="3" CornerRadius="15" >
+                        <Canvas>
+                            <Label Padding="0"  Content="Покупка зерна" FontSize="16" FontStyle="Oblique" FontWeight="Bold" HorizontalAlignment="Center" Margin="45 0 0 0" Height="23" Width="145"></Label>
+                            <Slider Padding="0" AutoToolTipPrecision="0" AutoToolTipPlacement="TopLeft" Height="26" Width="160" Maximum="100" TickPlacement="TopLeft"  Name="s2" Canvas.Left="4" Canvas.Top="26" />
+                            <Label Width="45" Height="20" Padding="0" Content="10000" Canvas.Left="166" Canvas.Top="29" ></Label>
+                            <Label Padding="0" Content="Количество" FontSize="14" FontStyle="Oblique" FontWeight="Bold" HorizontalAlignment="Left" Height="18" Width="87" Canvas.Top="54"/>
+                            <TextBlock Padding="0"  Width="79" Height="22" Text="{Binding ElementName=s2, Path=Value, UpdateSourceTrigger=PropertyChanged}" Canvas.Left="93" Canvas.Top="52"/>
+                            <Label Padding="0" Content="Стоимость" FontSize="14" FontStyle="Oblique" FontWeight="Bold" HorizontalAlignment="Left" Height="18" Width="87" Canvas.Top="80"></Label>
+                            <TextBlock Padding="0" Width="80" Height="18" Text="{Binding ElementName=s2, Path=Value, UpdateSourceTrigger=PropertyChanged}" Canvas.Left="93" Canvas.Top="79"/>
+                            <Button BorderBrush="DarkGreen" BorderThickness="3"  Content="OK" Background="Green" FontSize="16" FontWeight="Bold" HorizontalAlignment="Right" RenderTransformOrigin="6.037,-1.28" Canvas.Left="191" Canvas.Top="71"></Button>
+                        </Canvas>
+                    </Border>
+
+                    <Border Grid.Column="0" Grid.Row="2" BorderBrush="Black" BorderThickness="4" Margin="3" CornerRadius="15" >
+                        <Canvas>
+                            <Label Padding="0"  Content="Найм ученых" FontSize="16" FontStyle="Oblique" FontWeight="Bold" HorizontalAlignment="Center" Margin="45 0 0 0" Height="23" Width="145"></Label>
+                            <Slider Padding="0" AutoToolTipPrecision="0" AutoToolTipPlacement="TopLeft" Height="26" Width="160" Maximum="100" TickPlacement="TopLeft"  Name="s3" Canvas.Left="4" Canvas.Top="26" />
+                            <Label Width="45" Height="20" Padding="0" Content="10000" Canvas.Left="166" Canvas.Top="29" ></Label>
+                            <Label Padding="0" Content="Количество" FontSize="14" FontStyle="Oblique" FontWeight="Bold" HorizontalAlignment="Left" Height="18" Width="87" Canvas.Top="54"/>
+                            <TextBlock Padding="0"  Width="79" Height="22" Text="{Binding ElementName=s3, Path=Value, UpdateSourceTrigger=PropertyChanged}" Canvas.Left="93" Canvas.Top="52"/>
+                            <Label Padding="0" Content="Стоимость" FontSize="14" FontStyle="Oblique" FontWeight="Bold" HorizontalAlignment="Left" Height="18" Width="87" Canvas.Top="80"></Label>
+                            <TextBlock Padding="0" Width="80" Height="18" Text="{Binding ElementName=s3, Path=Value, UpdateSourceTrigger=PropertyChanged}" Canvas.Left="93" Canvas.Top="79"/>
+                            <Button BorderBrush="DarkGreen" BorderThickness="3"  Content="OK" Background="Green" FontSize="16" FontWeight="Bold" HorizontalAlignment="Right" RenderTransformOrigin="6.037,-1.28" Canvas.Left="191" Canvas.Top="71"></Button>
+                        </Canvas>
+                    </Border>
+
+                    <Border Grid.Column="1" Grid.Row="2" BorderBrush="Black" BorderThickness="4" Margin="3" CornerRadius="15" >
+                        <Canvas>
+                            <Label Padding="0"  Content="Найм солдат" FontSize="16" FontStyle="Oblique" FontWeight="Bold" HorizontalAlignment="Center" Margin="45 0 0 0" Height="23" Width="145"></Label>
+                            <Slider Padding="0" AutoToolTipPrecision="0" AutoToolTipPlacement="TopLeft" Height="26" Width="160" Maximum="100" TickPlacement="TopLeft"  Name="s4" Canvas.Left="4" Canvas.Top="26" />
+                            <Label Width="45" Height="20" Padding="0" Content="10000" Canvas.Left="166" Canvas.Top="29" ></Label>
+                            <Label Padding="0" Content="Количество" FontSize="14" FontStyle="Oblique" FontWeight="Bold" HorizontalAlignment="Left" Height="18" Width="87" Canvas.Top="54"/>
+                            <TextBlock Padding="0"  Width="79" Height="22" Text="{Binding ElementName=s4, Path=Value, UpdateSourceTrigger=PropertyChanged}" Canvas.Left="93" Canvas.Top="52"/>
+                            <Label Padding="0" Content="Стоимость" FontSize="14" FontStyle="Oblique" FontWeight="Bold" HorizontalAlignment="Left" Height="18" Width="87" Canvas.Top="80"></Label>
+                            <TextBlock Padding="0" Width="80" Height="18" Text="{Binding ElementName=s4, Path=Value, UpdateSourceTrigger=PropertyChanged}" Canvas.Left="93" Canvas.Top="79"/>
+                            <Button BorderBrush="DarkGreen" BorderThickness="3"  Content="OK" Background="Green" FontSize="16" FontWeight="Bold" HorizontalAlignment="Right" RenderTransformOrigin="6.037,-1.28" Canvas.Left="191" Canvas.Top="71"></Button>
+                        </Canvas>
+                    </Border>
+
+                    <Border Grid.Column="0" Grid.Row="3" BorderBrush="Black" BorderThickness="4" Margin="3" CornerRadius="15" >
+                        <Canvas>
+                            <Label Padding="0"  Content="Увольнение ученых" FontSize="16" FontStyle="Oblique" FontWeight="Bold" HorizontalAlignment="Center" Height="23" Width="163" Canvas.Left="38"/>
+                            <Slider Padding="0" AutoToolTipPrecision="0" AutoToolTipPlacement="TopLeft" Height="26" Width="160" Maximum="100" TickPlacement="TopLeft"  Name="s5" Canvas.Left="4" Canvas.Top="26" />
+                            <Label Width="45" Height="20" Padding="0" Content="10000" Canvas.Left="166" Canvas.Top="29" ></Label>
+                            <Label Padding="0" Content="Количество" FontSize="14" FontStyle="Oblique" FontWeight="Bold" HorizontalAlignment="Left" Height="18" Width="87" Canvas.Top="54"/>
+                            <TextBlock Padding="0"  Width="79" Height="22" Text="{Binding ElementName=s5, Path=Value, UpdateSourceTrigger=PropertyChanged}" Canvas.Left="93" Canvas.Top="52"/>
+                            <Label Padding="0" Content="Стоимость" FontSize="14" FontStyle="Oblique" FontWeight="Bold" HorizontalAlignment="Left" Height="18" Width="87" Canvas.Top="80"></Label>
+                            <TextBlock Padding="0" Width="80" Height="18" Text="{Binding ElementName=s5, Path=Value, UpdateSourceTrigger=PropertyChanged}" Canvas.Left="93" Canvas.Top="79"/>
+                            <Button BorderBrush="DarkGreen" BorderThickness="3"  Content="OK" Background="Green" FontSize="16" FontWeight="Bold" HorizontalAlignment="Right" RenderTransformOrigin="6.037,-1.28" Canvas.Left="191" Canvas.Top="71"></Button>
+                        </Canvas>
+                    </Border>
+
+                    <Border Grid.Column="1" Grid.Row="3" BorderBrush="Black" BorderThickness="4" Margin="3" CornerRadius="15" >
+                        <Canvas>
+                            <Label Padding="0"  Content="Увольнение солдат" FontSize="16" FontStyle="Oblique" FontWeight="Bold" HorizontalAlignment="Center" Height="23" Width="165" RenderTransformOrigin="0.5,0.5" Canvas.Left="38">
+                                <Label.RenderTransform>
+                                    <TransformGroup>
+                                        <ScaleTransform/>
+                                        <SkewTransform/>
+                                        <RotateTransform Angle="-0.028"/>
+                                        <TranslateTransform/>
+                                    </TransformGroup>
+                                </Label.RenderTransform>
+                            </Label>
+                            <Slider Padding="0" AutoToolTipPrecision="0" AutoToolTipPlacement="TopLeft" Height="26" Width="160" Maximum="100" TickPlacement="TopLeft"  Name="s6" Canvas.Left="4" Canvas.Top="26" />
+                            <Label Width="45" Height="20" Padding="0" Content="10000" Canvas.Left="166" Canvas.Top="29" ></Label>
+                            <Label Padding="0" Content="Количество" FontSize="14" FontStyle="Oblique" FontWeight="Bold" HorizontalAlignment="Left" Height="18" Width="87" Canvas.Top="54"/>
+                            <TextBlock Padding="0"  Width="79" Height="22" Text="{Binding ElementName=s6, Path=Value, UpdateSourceTrigger=PropertyChanged}" Canvas.Left="93" Canvas.Top="52"/>
+                            <Label Padding="0" Content="Стоимость" FontSize="14" FontStyle="Oblique" FontWeight="Bold" HorizontalAlignment="Left" Height="18" Width="87" Canvas.Top="80"></Label>
+                            <TextBlock Padding="0" Width="80" Height="18" Text="{Binding ElementName=s6, Path=Value, UpdateSourceTrigger=PropertyChanged}" Canvas.Left="93" Canvas.Top="79"/>
+                            <Button BorderBrush="DarkGreen" BorderThickness="3"  Content="OK" Background="Green" FontSize="16" FontWeight="Bold" HorizontalAlignment="Right" RenderTransformOrigin="6.037,-1.28" Canvas.Left="191" Canvas.Top="71"></Button>
+                        </Canvas>
+                    </Border>
+
+
+                    <Border Grid.Column="2" Grid.Row="0" Grid.RowSpan="4" BorderBrush="Black" BorderThickness="4" Margin="3" CornerRadius="15">
+                        <StackPanel>
+                            <GroupBox Header="Ваши ресурсы" Height="265" Width="200" HorizontalAlignment="Center" Padding="0" FontSize="20" FontWeight="Bold" >
+                                <Canvas >
+                                    <Label Content="Население:" FontSize="15" FontWeight="Bold" Canvas.Left="10" Canvas.Top="2"/>
+                                    <TextBox Text="1000" HorizontalContentAlignment="Center" IsReadOnly="True" FontWeight="Bold" VerticalAlignment="Center" Canvas.Top="1" RenderTransformOrigin="3.636,-0.524" Canvas.Left="108" Width="80"  ></TextBox>
+                                    <Label Padding="0" FontWeight="Normal" Content="Крестьян:" FontSize="15" Canvas.Top="32" Canvas.Left="22" Height="23"></Label>
+                                    <TextBlock Text="1000" FontWeight="Normal"  VerticalAlignment="Center" Canvas.Top="30" Canvas.Left="108"  ></TextBlock>
+                                    <Label Padding="0" Content="Ученых:" FontWeight="Normal" FontSize="15" Canvas.Top="55" Canvas.Left="33" Height="23"></Label>
+                                    <TextBlock Text="1000" VerticalAlignment="Center" FontWeight="Normal" Canvas.Top="51" Canvas.Left="108"  ></TextBlock>
+                                    <Label Padding="0" Content="Солдат:" FontSize="15" FontWeight="Normal" Canvas.Top="78" Canvas.Left="36" Height="23"></Label>
+                                    <TextBlock Text="1000" VerticalAlignment="Center" FontWeight="Normal" Canvas.Top="74" Canvas.Left="108" RenderTransformOrigin="0.029,0.476"  ></TextBlock>
+                                    <Label Content="Територия:" FontSize="15" FontWeight="Bold" Canvas.Top="97" Canvas.Left="7"></Label>
+                                    <TextBox Text="1000" HorizontalContentAlignment="Center" IsReadOnly="True" FontWeight="Bold" VerticalAlignment="Center" Canvas.Top="98" RenderTransformOrigin="3.636,-0.524" Canvas.Left="108" Width="80"  ></TextBox>
+                                    <TextBlock TextAlignment="Right" Text="Макс население:" FontSize="15" Canvas.Top="125" Canvas.Left="10" Height="40" Width="83" TextWrapping="Wrap"></TextBlock>
+                                    <TextBox Text="1000" HorizontalContentAlignment="Center" IsReadOnly="True" FontWeight="Bold" VerticalAlignment="Center" Canvas.Top="132" RenderTransformOrigin="3.636,-0.524" Canvas.Left="108" Width="80"  ></TextBox>
+                                    <TextBlock TextAlignment="Right" Text="Деньги:" FontSize="15" Canvas.Top="172" Canvas.Left="15" Height="23" Width="83" TextWrapping="Wrap"></TextBlock>
+                                    <TextBox Text="1000" HorizontalContentAlignment="Center" IsReadOnly="True" FontWeight="Bold" VerticalAlignment="Center" Canvas.Top="166" RenderTransformOrigin="3.636,-0.524" Canvas.Left="108" Width="80"  ></TextBox>
+                                    <TextBlock TextAlignment="Right" Text="Зерно:" FontSize="15" Canvas.Top="206" Canvas.Left="15" Height="23" Width="83" TextWrapping="Wrap"></TextBlock>
+                                    <TextBox Text="1000" HorizontalContentAlignment="Center" IsReadOnly="True" FontWeight="Bold" VerticalAlignment="Center" Canvas.Top="200" RenderTransformOrigin="3.636,-0.524" Canvas.Left="108" Width="80"  ></TextBox>
+                                </Canvas>
+                            </GroupBox>
+                            <GroupBox Header="Прирост" Height="100" Width="200" HorizontalAlignment="Center" Padding="0" FontSize="20" FontWeight="Bold" >
+                                <Canvas>
+                                    <TextBlock TextAlignment="Right" Text="Зерно:" FontSize="15"  Height="23" Width="83" TextWrapping="Wrap" Canvas.Left="10" Canvas.Top="9"></TextBlock>
+                                    <TextBox Text="1000" HorizontalContentAlignment="Center" IsReadOnly="True" FontWeight="Bold" VerticalAlignment="Center" RenderTransformOrigin="3.636,-0.524" Canvas.Left="108" Width="80" Canvas.Top="3"  ></TextBox>
+                                    <TextBlock TextAlignment="Right" Text="Население:" FontSize="15" Height="23" Width="83" TextWrapping="Wrap" Canvas.Top="43" Canvas.Left="10"></TextBlock>
+                                    <TextBox Text="1000" HorizontalContentAlignment="Center" IsReadOnly="True" FontWeight="Bold" VerticalAlignment="Center"  RenderTransformOrigin="3.636,-0.524" Canvas.Left="108" Width="80" Canvas.Top="37"  ></TextBox>
+                                </Canvas>
+                            </GroupBox>
+                            <GroupBox Header="Расходы" Height="90" Width="200" HorizontalAlignment="Center" Padding="0" FontSize="20" FontWeight="Bold" >
+                                <WrapPanel>
+                                    <TextBlock Margin="10 0 0 0" TextAlignment="Right" FontSize="15"  Text="Наука:"></TextBlock>
+                                    <TextBlock Margin="50 0 0 0 " TextAlignment="Right" FontSize="15" Text="Армия:"></TextBlock>
+                                    <TextBox Text="1000" Margin="10 5 0 0" IsReadOnly="True" VerticalAlignment="Center" HorizontalContentAlignment="Center" Width="74"></TextBox>
+                                    <TextBox Text="1000" Margin="20 5 0 0" IsReadOnly="True" VerticalAlignment="Center" HorizontalContentAlignment="Center" Width="74"></TextBox>
+                                </WrapPanel>
+                            </GroupBox>
+                            <GroupBox Header="Баланс" Height="60" Width="200" HorizontalAlignment="Center" Padding="0" FontSize="20" FontWeight="Bold" >
+                                <TextBox IsReadOnly="True" Text="1000" VerticalAlignment="Center" HorizontalContentAlignment="Center" Width="100" ></TextBox>
+                            </GroupBox>
+                        </StackPanel>
+                    </Border>
+                </Grid>
+            </TabItem>
+
+            <TabItem Header="Наука">
+                <Grid  Background="LightGray" ShowGridLines="True">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition />
+                        <ColumnDefinition />
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition />
+                        <RowDefinition />
+                        <RowDefinition />
+                        <RowDefinition />
+                    </Grid.RowDefinitions>
+
+                    <Button Content="asdgawg" ></Button>
                     
+                    <Border Grid.Column="0" Grid.Row="1"  BorderBrush="Black" BorderThickness="4" Margin="3" CornerRadius="15" Width="215">
+                    <Canvas>
+                        <Label Padding="0"  Content="Засев зерна" FontSize="16" FontStyle="Oblique" FontWeight="Bold" HorizontalAlignment="Center" Margin="45 0 0 0" Height="23" Width="145"></Label>
+                        <Slider Padding="0" AutoToolTipPrecision="0" AutoToolTipPlacement="TopLeft" Height="26" Width="160" Maximum="100" TickPlacement="TopLeft"   Canvas.Left="4" Canvas.Top="26" />
+                        <Label Width="45" Height="20" Padding="0" Content="10000" Canvas.Left="166" Canvas.Top="29" ></Label>
+                        <Label Padding="0" Content="Количество" FontSize="14" FontStyle="Oblique" FontWeight="Bold" HorizontalAlignment="Left" Height="18" Width="87" Canvas.Top="54"/>
+                        <!--<TextBlock Padding="0"  Width="79" Height="22" Text="{Binding ElementName=s0, Path=Value, UpdateSourceTrigger=PropertyChanged}" Canvas.Left="93" Canvas.Top="52"/>
+                        <Label Padding="0" Content="Стоимость" FontSize="14" FontStyle="Oblique" FontWeight="Bold" HorizontalAlignment="Left" Height="18" Width="87" Canvas.Top="80"></Label>
+                        <TextBlock Padding="0" Width="80" Height="18" Text="{Binding ElementName=s0, Path=Value, UpdateSourceTrigger=PropertyChanged}" Canvas.Left="93" Canvas.Top="79"/>-->
+                        <Button BorderBrush="DarkGreen" BorderThickness="3"  Content="OK" Background="Green" FontSize="16" FontWeight="Bold" HorizontalAlignment="Right" RenderTransformOrigin="6.037,-1.28" Canvas.Left="170" Canvas.Top="64"></Button>
+                    </Canvas>
+                </Border>
 
-                    <Canvas Grid.Column="0" Grid.Row="1" Background="LightCyan">
-                        <Label Grid.Column="0" Grid.Row="1" FontSize="14" FontWeight="Bold" Canvas.Left="10" Canvas.Top="94">Стоимость</Label>
-                        <Label Grid.Column="0" Grid.Row="1" FontSize="16" FontWeight="Bold" FontStyle="Oblique" Background="LightCyan" Canvas.Left="49" Canvas.Top="10">Продажа зерна</Label>
-                        <Label Grid.Column="0" Grid.Row="1" FontSize="14" FontWeight="Bold" Canvas.Left="10" Canvas.Top="65">Количество</Label>
-                        <Slider Grid.Column="0" Grid.Row="1" Height="26" Width="184" Maximum="100" Minimum="0" Margin="31,40,29,67"></Slider>
-                        <Button Grid.Column="0" Grid.Row="1" Width="30" Height="30" Content="OK" Background="LightGreen" Margin="195,80,19,23"></Button>
-                   </Canvas>
 
-                   
 
                 </Grid>
             </TabItem>
-            
-            <TabItem Header="Наука"></TabItem>
             <TabItem Header="Границы"></TabItem>
             <TabItem Header="Ганералы"></TabItem>
         </TabControl>
