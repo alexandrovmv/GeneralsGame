@@ -7,7 +7,7 @@
         mc:Ignorable="d"
   Title="StartGame" Height="373.95" Width="662.185">
      <Window.Background>
-        <ImageBrush ImageSource="C:\Users\student.STEP\Desktop\Generals\Loadpict.jpg"></ImageBrush>
+        <ImageBrush ImageSource="Loadpict.jpg"></ImageBrush>
     </Window.Background>
     <Grid>
         
