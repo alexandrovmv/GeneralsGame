@@ -6,7 +6,11 @@
         xmlns:local="clr-namespace:GeneralsClient.View"
         mc:Ignorable="d"
         Title="StartGame" Height="300" Width="300">
+    
     <Grid>
-        
+        <Button Content="New Game" Margin="212,137,10,114" RenderTransformOrigin="0.402,-0.814"></Button>
+        <Button Content="Settings" Margin="212,185,10,66" RenderTransformOrigin="0.402,-0.814"></Button>
+        <Button Content="Help" Margin="212,161,10,90" RenderTransformOrigin="0.402,-0.814"></Button>
+        <Button Content="Quit" Margin="212,209,10,42" RenderTransformOrigin="0.402,-0.814"></Button>
     </Grid>
 </Window>
