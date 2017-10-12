@@ -10,10 +10,32 @@
         <ImageBrush ImageSource="Loadpict.jpg"></ImageBrush>
     </Window.Background>
     <Grid>
-        
-        <Button  Background="Transparent" BorderThickness="0" Content="Settings" Margin="527,214,39,98" RenderTransformOrigin="6.486,-0.846" Foreground="Aqua"></Button>
-       <Button BorderBrush="Transparent"  Background="Transparent" Content="New Game" Margin="527,176,39,136" RenderTransformOrigin="6.486,-0.846" Foreground="Aqua"></Button>
-        <Button Background="Transparent" Content="Help" Margin="527,254,39,58" RenderTransformOrigin="6.486,-0.846" Foreground="Aqua"></Button>
-        <Button Background="Transparent"  Content="Exit" Margin="527,292,39,20" RenderTransformOrigin="6.486,-0.846" Foreground="Aqua"></Button> 
+        <Grid.RowDefinitions>
+            <RowDefinition Height="2*"/>
+            <RowDefinition Height="180"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="4*"/>
+            <ColumnDefinition Width="200"/>
+        </Grid.ColumnDefinitions>
+        <Grid Grid.Column="1" Grid.Row="1">
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition Height="5*"/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition Width="140" />
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <StackPanel Grid.Column="1" Grid.Row="1" Background="">
+                <Button BorderBrush="Transparent"  Background="Transparent" Content="New Game"  Foreground="WhiteSmoke"  Margin="4"></Button>
+                <Button Background="Transparent" BorderThickness="0" Content="Settings"  Foreground="WhiteSmoke" Margin="4"></Button>
+                <Button Background="Transparent" Content="Help" Foreground="WhiteSmoke"  Margin="4"></Button>
+                <Button Background="Transparent"  Content="Exit" Foreground="WhiteSmoke" Margin="4"></Button>
+            </StackPanel>
+        </Grid>
+
     </Grid>
 </Window>
