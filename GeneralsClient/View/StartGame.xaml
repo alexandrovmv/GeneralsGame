@@ -5,8 +5,15 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:GeneralsClient.View"
         mc:Ignorable="d"
-        Title="StartGame" Height="300" Width="300">
+  Title="StartGame" Height="373.95" Width="662.185">
+     <Window.Background>
+        <ImageBrush ImageSource="Loadpict.jpg"></ImageBrush>
+    </Window.Background>
     <Grid>
         
+        <Button  Background="Transparent" BorderThickness="0" Content="Settings" Margin="527,214,39,98" RenderTransformOrigin="6.486,-0.846" Foreground="Aqua"></Button>
+       <Button BorderBrush="Transparent"  Background="Transparent" Content="New Game" Margin="527,176,39,136" RenderTransformOrigin="6.486,-0.846" Foreground="Aqua"></Button>
+        <Button Background="Transparent" Content="Help" Margin="527,254,39,58" RenderTransformOrigin="6.486,-0.846" Foreground="Aqua"></Button>
+        <Button Background="Transparent"  Content="Exit" Margin="527,292,39,20" RenderTransformOrigin="6.486,-0.846" Foreground="Aqua"></Button> 
     </Grid>
 </Window>
