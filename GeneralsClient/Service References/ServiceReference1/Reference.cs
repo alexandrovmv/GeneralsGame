@@ -44,6 +44,18 @@ namespace GeneralsClient.ServiceReference1 {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGeneral/AddUser", ReplyAction="http://tempuri.org/IGeneral/AddUserResponse")]
         System.Threading.Tasks.Task AddUserAsync(string name);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGeneral/Registr", ReplyAction="http://tempuri.org/IGeneral/RegistrResponse")]
+        void Registr(string login, string password);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGeneral/Registr", ReplyAction="http://tempuri.org/IGeneral/RegistrResponse")]
+        System.Threading.Tasks.Task RegistrAsync(string login, string password);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGeneral/Autorise", ReplyAction="http://tempuri.org/IGeneral/AutoriseResponse")]
+        bool Autorise(string login, string password);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGeneral/Autorise", ReplyAction="http://tempuri.org/IGeneral/AutoriseResponse")]
+        System.Threading.Tasks.Task<bool> AutoriseAsync(string login, string password);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -111,6 +123,22 @@ namespace GeneralsClient.ServiceReference1 {
         
         public System.Threading.Tasks.Task AddUserAsync(string name) {
             return base.Channel.AddUserAsync(name);
+        }
+        
+        public void Registr(string login, string password) {
+            base.Channel.Registr(login, password);
+        }
+        
+        public System.Threading.Tasks.Task RegistrAsync(string login, string password) {
+            return base.Channel.RegistrAsync(login, password);
+        }
+        
+        public bool Autorise(string login, string password) {
+            return base.Channel.Autorise(login, password);
+        }
+        
+        public System.Threading.Tasks.Task<bool> AutoriseAsync(string login, string password) {
+            return base.Channel.AutoriseAsync(login, password);
         }
     }
 }
