@@ -6,559 +6,614 @@
         xmlns:local="clr-namespace:GeneralsClient"
         mc:Ignorable="d"
 
-        Title="MainWindow" Height="600" Width="750">
+        Title="MainWindow" Height="631" Width="760">
 
     <Grid>
+        <DockPanel>
+            <Menu DockPanel.Dock="Top" Margin="0 0 0 -5">
+                <MenuItem FontSize="16" Header="Меню">
+                    <MenuItem Header="Настройки" />
+                    <MenuItem Header="Выход" />
+                </MenuItem>
+            </Menu>
 
-        <TabControl FontSize="16">
-            <TabItem Header="Информация">
-                <Grid >
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="293*" />
-                        <ColumnDefinition Width="439*" />
-                    </Grid.ColumnDefinitions>
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="344*" />
-                        <RowDefinition Height="189*" />
-                    </Grid.RowDefinitions>
+            <TabControl FontSize="16" >
+                <TabItem Header="Информация">
+                    <Grid >
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="293*" />
+                            <ColumnDefinition Width="439*" />
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="344*" />
+                            <RowDefinition Height="189*" />
+                        </Grid.RowDefinitions>
 
-                    <Rectangle Grid.ColumnSpan="2" Grid.RowSpan="2">
-                        <Rectangle.Fill>
-                            <LinearGradientBrush>
-                                <GradientStop Color="LightBlue" Offset="0"></GradientStop>
-                                <GradientStop Color="LightGray" Offset="0.5"></GradientStop>
-                                <GradientStop Color="Gray" Offset="0.9"></GradientStop>
-                            </LinearGradientBrush>
-                        </Rectangle.Fill>
-                    </Rectangle>
+                        <Rectangle Grid.ColumnSpan="2" Grid.RowSpan="2" Margin="-5,-58,-5,-5">
+                            <Rectangle.Fill>
+                                <LinearGradientBrush>
+                                    <GradientStop Color="LightBlue" Offset="0"></GradientStop>
+                                    <GradientStop Color="LightGray" Offset="0.5"></GradientStop>
+                                    <GradientStop Color="Gray" Offset="0.9"></GradientStop>
+                                </LinearGradientBrush>
+                            </Rectangle.Fill>
+                        </Rectangle>
 
-                    <GroupBox  Grid.Column="0" Grid.Row="0">
-                        <Canvas >
-                            <TextBlock FontWeight="Bold" FontSize="16" Text="Ваши достижения в этом году:" Canvas.Left="10" Canvas.Top="5"></TextBlock>
-                            <TextBox Height="297" Width="261" Canvas.Top="31" Canvas.Left="10"/>
-                        </Canvas>
-                    </GroupBox>
-                    <GroupBox Grid.Column="0" Grid.Row="1">
-                        <Canvas>
-                            <TextBlock FontWeight="Bold" FontSize="16" Text="Битвы:" Canvas.Left="10" Canvas.Top="5"></TextBlock>
-                            <TextBox Height="142" Width="261" Canvas.Top="31" Canvas.Left="10"/>
-                        </Canvas>
-                    </GroupBox>
-                    <GroupBox Grid.Column="1" Grid.Row="0" Grid.RowSpan="2" >
-                        <Canvas>
-                            <TextBlock FontWeight="Bold" FontSize="16" Text="Военные действия:" Canvas.Left="10" Canvas.Top="5"></TextBlock>
-                            <TextBox Height="486" Width="407" Canvas.Top="31" Canvas.Left="10"/>
-                        </Canvas>
-                    </GroupBox>
+                        <GroupBox  Grid.Column="0" Grid.Row="0">
+                            <Canvas >
+                                <TextBlock FontWeight="Bold" FontSize="16" Text="Ваши достижения в этом году:" Canvas.Left="10" Canvas.Top="5"></TextBlock>
+                                <TextBox Height="297" Width="261" Canvas.Top="31" Canvas.Left="10"/>
+                            </Canvas>
+                        </GroupBox>
+                        <GroupBox Grid.Column="0" Grid.Row="1">
+                            <Canvas>
+                                <TextBlock FontWeight="Bold" FontSize="16" Text="Битвы:" Canvas.Left="10" Canvas.Top="5"></TextBlock>
+                                <TextBox Height="142" Width="261" Canvas.Top="26" Canvas.Left="10"/>
+                            </Canvas>
+                        </GroupBox>
+                        <GroupBox Grid.Column="1" Grid.Row="0" Grid.RowSpan="2" >
+                            <Canvas>
+                                <TextBlock FontWeight="Bold" FontSize="16" Text="Военные действия:" Canvas.Left="10" Canvas.Top="5"></TextBlock>
+                                <TextBox Height="486" Width="407" Canvas.Top="31" Canvas.Left="10"/>
+                            </Canvas>
+                        </GroupBox>
 
-                </Grid>
-            </TabItem>
-            <TabItem Header="Экономика">
-                <Grid  Background="LightGray">
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition />
-                        <ColumnDefinition />
-                        <ColumnDefinition />
-                    </Grid.ColumnDefinitions>
-                    <Grid.RowDefinitions>
-                        <RowDefinition />
-                        <RowDefinition />
-                        <RowDefinition />
-                        <RowDefinition />
-                    </Grid.RowDefinitions>
+                    </Grid>
+                </TabItem>
 
-                    <Rectangle Grid.ColumnSpan="2" Grid.RowSpan="4">
-                        <Rectangle.Fill>
-                            <LinearGradientBrush>
-                                <GradientStop Color="LightBlue" Offset="0"></GradientStop>
-                                <GradientStop Color="LightGray" Offset="0.5"></GradientStop>
-                                <GradientStop Color="Gray" Offset="0.9"></GradientStop>
-                            </LinearGradientBrush>
-                        </Rectangle.Fill>
-                    </Rectangle>
+                <TabItem Header="Экономика">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="247*" />
+                            <ColumnDefinition Width="91*" />
+                            <ColumnDefinition Width="157*"/>
+                            <ColumnDefinition Width="21*" />
+                            <ColumnDefinition Width="226*"/>
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition />
+                            <RowDefinition />
+                            <RowDefinition />
+                            <RowDefinition />
+                        </Grid.RowDefinitions>
 
-                    <Border Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="2" BorderBrush="Black" BorderThickness="4" Margin="136,3,114,3" CornerRadius="15">
-                        <Canvas>
-                            <Label Padding="0"  Content="Засев зерна" FontSize="16" FontStyle="Oblique" FontWeight="Bold" HorizontalAlignment="Center" Margin="45 0 0 0" Height="23" Width="145"></Label>
-                            <Slider Padding="0" AutoToolTipPrecision="0" AutoToolTipPlacement="TopLeft" Height="26" Width="160" Maximum="100" TickPlacement="TopLeft"  Name="s0" Canvas.Left="4" Canvas.Top="26" />
-                            <Label Width="45" Height="20" Padding="0" Content="10000" Canvas.Left="166" Canvas.Top="29" ></Label>
-                            <Label Padding="0" Content="Количество" FontSize="14" FontStyle="Oblique" FontWeight="Bold" HorizontalAlignment="Left" Height="18" Width="87" Canvas.Top="54"/>
-                            <TextBlock Padding="0"  Width="79" Height="22" Text="{Binding ElementName=s0, Path=Value, UpdateSourceTrigger=PropertyChanged, StringFormat={}{0:0}}" Canvas.Left="93" Canvas.Top="52"/>
-                            <Label Padding="0" Content="Стоимость" FontSize="14" FontStyle="Oblique" FontWeight="Bold" HorizontalAlignment="Left" Height="18" Width="87" Canvas.Top="80"></Label>
-                            <TextBlock Padding="0" Width="80" Height="18" Text="{Binding ElementName=s0, Path=Value, UpdateSourceTrigger=PropertyChanged, StringFormat={}{0:0}}" Canvas.Left="93" Canvas.Top="79"/>
-                            <Button BorderBrush="DarkGreen" BorderThickness="3"  Content="OK" Background="Green" FontSize="16" FontWeight="Bold" HorizontalAlignment="Right" RenderTransformOrigin="6.037,-1.28" Canvas.Left="170" Canvas.Top="64"></Button>
-                        </Canvas>
-                    </Border>
+                        <Rectangle Grid.ColumnSpan="5" Grid.RowSpan="4" Margin="-5,-58,-9,-5">
+                            <Rectangle.Fill>
+                                <LinearGradientBrush>
+                                    <GradientStop Color="LightBlue" Offset="0"></GradientStop>
+                                    <GradientStop Color="LightGray" Offset="0.5"></GradientStop>
+                                    <GradientStop Color="Gray" Offset="0.9"></GradientStop>
+                                </LinearGradientBrush>
+                            </Rectangle.Fill>
+                        </Rectangle>
 
-                    <Border Grid.Column="0" Grid.Row="1" BorderBrush="Black" BorderThickness="4" Margin="3" CornerRadius="15" >
-                        <Canvas>
-                            <Label Padding="0"  Content="Продажа зерна" FontSize="16" FontStyle="Oblique" FontWeight="Bold" HorizontalAlignment="Center" Margin="45 0 0 0" Height="23" Width="145"></Label>
-                            <Slider Padding="0" AutoToolTipPrecision="0" AutoToolTipPlacement="TopLeft" Height="26" Width="160" Maximum="100" TickPlacement="TopLeft"  Name="s1" Canvas.Left="4" Canvas.Top="26" />
-                            <Label Width="45" Height="20" Padding="0" Content="10000" Canvas.Left="166" Canvas.Top="29" ></Label>
-                            <Label Padding="0" Content="Количество" FontSize="14" FontStyle="Oblique" FontWeight="Bold" HorizontalAlignment="Left" Height="18" Width="87" Canvas.Top="54"/>
-                            <TextBlock Padding="0"  Width="79" Height="22" Text="{Binding ElementName=s1, Path=Value, UpdateSourceTrigger=PropertyChanged, StringFormat={}{0:0}}" Canvas.Left="93" Canvas.Top="52"/>
-                            <Label Padding="0" Content="Стоимость" FontSize="14" FontStyle="Oblique" FontWeight="Bold" HorizontalAlignment="Left" Height="18" Width="87" Canvas.Top="80"></Label>
-                            <TextBlock Padding="0" Width="80" Height="18" Text="{Binding ElementName=s1, Path=Value, UpdateSourceTrigger=PropertyChanged, StringFormat={}{0:0}}" Canvas.Left="93" Canvas.Top="79"/>
-                            <Button BorderBrush="DarkGreen" BorderThickness="3"  Content="OK" Background="Green" FontSize="16" FontWeight="Bold" HorizontalAlignment="Right" RenderTransformOrigin="6.037,-1.28" Canvas.Left="191" Canvas.Top="71"></Button>
-                        </Canvas>
-                    </Border>
+                        <Border Grid.Column="0" Grid.Row="0" BorderBrush="Black" BorderThickness="4" Margin="3" CornerRadius="15">
+                            <Canvas>
+                                <Label Padding="0"  Content="Засев зерна" FontSize="16" FontStyle="Oblique" FontWeight="Bold" HorizontalAlignment="Center" Margin="45 0 0 0" Height="23" Width="145"></Label>
+                                <Slider Padding="0" AutoToolTipPrecision="0" AutoToolTipPlacement="TopLeft" Height="26" Width="160" Maximum="100" TickPlacement="TopLeft"  Name="s0" Canvas.Left="4" Canvas.Top="26" />
+                                <Label Width="45" Height="20" Padding="0" Content="10000" Canvas.Left="166" Canvas.Top="29" ></Label>
+                                <Label Padding="0" Content="Количество" FontSize="14" FontStyle="Oblique" FontWeight="Bold" HorizontalAlignment="Left" Height="18" Width="87" Canvas.Top="54"/>
+                                <TextBlock Padding="0"  Width="79" Height="22" Text="{Binding ElementName=s0, Path=Value, UpdateSourceTrigger=PropertyChanged, StringFormat={}{0:0}}" Canvas.Left="93" Canvas.Top="52"/>
+                                <Label Padding="0" Content="Стоимость" FontSize="14" FontStyle="Oblique" FontWeight="Bold" HorizontalAlignment="Left" Height="18" Width="87" Canvas.Top="80"></Label>
+                                <TextBlock Padding="0" Width="80" Height="18" Text="{Binding ElementName=s0, Path=Value, UpdateSourceTrigger=PropertyChanged, StringFormat={}{0:0}}" Canvas.Left="93" Canvas.Top="79"/>
+                                <Button Content="OK" FontWeight="Bold" Canvas.Left="179" Canvas.Top="54" Click="Button_Click">
+                                    <Button.Template>
+                                        <ControlTemplate TargetType="Button">
+                                            <Grid Height="44" Width="44" RenderTransformOrigin="0.231,0.455">
+                                                <Ellipse Fill="Green"/>
+                                                <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                            </Grid>
+                                        </ControlTemplate>
+                                    </Button.Template>
+                                </Button>
+                                <Button BorderBrush="Black"  Content="ХОД" Background="Green" FontSize="16" FontWeight="Bold" HorizontalAlignment="Right" RenderTransformOrigin="6.037,-1.28" Canvas.Left="359" Height="38" Width="113"/>
 
-                    <Border Grid.Column="1" Grid.Row="1" BorderBrush="Black" BorderThickness="4" Margin="3" CornerRadius="15" >
-                        <Canvas>
-                            <Label Padding="0"  Content="Покупка зерна" FontSize="16" FontStyle="Oblique" FontWeight="Bold" HorizontalAlignment="Center" Margin="45 0 0 0" Height="23" Width="145"></Label>
-                            <Slider Padding="0" AutoToolTipPrecision="0" AutoToolTipPlacement="TopLeft" Height="26" Width="160" Maximum="100" TickPlacement="TopLeft"  Name="s2" Canvas.Left="4" Canvas.Top="26" />
-                            <Label Width="45" Height="20" Padding="0" Content="10000" Canvas.Left="166" Canvas.Top="29" ></Label>
-                            <Label Padding="0" Content="Количество" FontSize="14" FontStyle="Oblique" FontWeight="Bold" HorizontalAlignment="Left" Height="18" Width="87" Canvas.Top="54"/>
-                            <TextBlock Padding="0"  Width="79" Height="22" Text="{Binding ElementName=s2, Path=Value, UpdateSourceTrigger=PropertyChanged, StringFormat={}{0:0}}" Canvas.Left="93" Canvas.Top="52"/>
-                            <Label Padding="0" Content="Стоимость" FontSize="14" FontStyle="Oblique" FontWeight="Bold" HorizontalAlignment="Left" Height="18" Width="87" Canvas.Top="80"></Label>
-                            <TextBlock Padding="0" Width="80" Height="18" Text="{Binding ElementName=s2, Path=Value, UpdateSourceTrigger=PropertyChanged, StringFormat={}{0:0}}" Canvas.Left="93" Canvas.Top="79"/>
-                            <Button BorderBrush="DarkGreen" BorderThickness="3"  Content="OK" Background="Green" FontSize="16" FontWeight="Bold" HorizontalAlignment="Right" RenderTransformOrigin="6.037,-1.28" Canvas.Left="191" Canvas.Top="71"></Button>
-                        </Canvas>
-                    </Border>
+                            </Canvas>
+                        </Border>
 
-                    <Border Grid.Column="0" Grid.Row="2" BorderBrush="Black" BorderThickness="4" Margin="3" CornerRadius="15" >
-                        <Canvas>
-                            <Label Padding="0"  Content="Найм ученых" FontSize="16" FontStyle="Oblique" FontWeight="Bold" HorizontalAlignment="Center" Margin="45 0 0 0" Height="23" Width="145"></Label>
-                            <Slider Padding="0" AutoToolTipPrecision="0" AutoToolTipPlacement="TopLeft" Height="26" Width="160" Maximum="100" TickPlacement="TopLeft"  Name="s3" Canvas.Left="4" Canvas.Top="26" />
-                            <Label Width="45" Height="20" Padding="0" Content="10000" Canvas.Left="166" Canvas.Top="29" ></Label>
-                            <Label Padding="0" Content="Количество" FontSize="14" FontStyle="Oblique" FontWeight="Bold" HorizontalAlignment="Left" Height="18" Width="87" Canvas.Top="54"/>
-                            <TextBlock Padding="0"  Width="79" Height="22" Text="{Binding ElementName=s3, Path=Value, UpdateSourceTrigger=PropertyChanged, StringFormat={}{0:0}}" Canvas.Left="93" Canvas.Top="52"/>
-                            <Label Padding="0" Content="Стоимость" FontSize="14" FontStyle="Oblique" FontWeight="Bold" HorizontalAlignment="Left" Height="18" Width="87" Canvas.Top="80"></Label>
-                            <TextBlock Padding="0" Width="80" Height="18" Text="{Binding ElementName=s3, Path=Value, UpdateSourceTrigger=PropertyChanged, StringFormat={}{0:0}}" Canvas.Left="93" Canvas.Top="79"/>
-                            <Button BorderBrush="DarkGreen" BorderThickness="3"  Content="OK" Background="Green" FontSize="16" FontWeight="Bold" HorizontalAlignment="Right" RenderTransformOrigin="6.037,-1.28" Canvas.Left="191" Canvas.Top="71"></Button>
-                        </Canvas>
-                    </Border>
+                        <Border Grid.Column="0" Grid.Row="1" BorderBrush="Black" BorderThickness="4" Margin="3" CornerRadius="15" >
+                            <Canvas>
+                                <Label Padding="0"  Content="Продажа зерна" FontSize="16" FontStyle="Oblique" FontWeight="Bold" HorizontalAlignment="Center" Margin="45 0 0 0" Height="23" Width="145"></Label>
+                                <Slider Padding="0" AutoToolTipPrecision="0" AutoToolTipPlacement="TopLeft" Height="26" Width="160" Maximum="100" TickPlacement="TopLeft"  Name="s1" Canvas.Left="4" Canvas.Top="26" />
+                                <Label Width="45" Height="20" Padding="0" Content="10000" Canvas.Left="166" Canvas.Top="29" ></Label>
+                                <Label Padding="0" Content="Количество" FontSize="14" FontStyle="Oblique" FontWeight="Bold" HorizontalAlignment="Left" Height="18" Width="87" Canvas.Top="54"/>
+                                <TextBlock Padding="0"  Width="79" Height="22" Text="{Binding ElementName=s1, Path=Value, UpdateSourceTrigger=PropertyChanged, StringFormat={}{0:0}}" Canvas.Left="93" Canvas.Top="52"/>
+                                <Label Padding="0" Content="Стоимость" FontSize="14" FontStyle="Oblique" FontWeight="Bold" HorizontalAlignment="Left" Height="18" Width="87" Canvas.Top="80"></Label>
+                                <TextBlock Padding="0" Width="80" Height="18" Text="{Binding ElementName=s1, Path=Value, UpdateSourceTrigger=PropertyChanged, StringFormat={}{0:0}}" Canvas.Left="93" Canvas.Top="79"/>
+                                <Button Content="OK" FontWeight="Bold" Canvas.Left="179" Canvas.Top="54">
+                                    <Button.Template>
+                                        <ControlTemplate TargetType="Button">
+                                            <Grid Height="44" Width="44" RenderTransformOrigin="0.231,0.455">
+                                                <Ellipse Fill="Green"/>
+                                                <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                            </Grid>
+                                        </ControlTemplate>
+                                    </Button.Template>
+                                </Button>
+                            </Canvas>
+                        </Border>
 
-                    <Border Grid.Column="1" Grid.Row="2" BorderBrush="Black" BorderThickness="4" Margin="3" CornerRadius="15" >
-                        <Canvas>
-                            <Label Padding="0"  Content="Найм солдат" FontSize="16" FontStyle="Oblique" FontWeight="Bold" HorizontalAlignment="Center" Margin="45 0 0 0" Height="23" Width="145"></Label>
-                            <Slider Padding="0" AutoToolTipPrecision="0" AutoToolTipPlacement="TopLeft" Height="26" Width="160" Maximum="100" TickPlacement="TopLeft"  Name="s4" Canvas.Left="4" Canvas.Top="26" />
-                            <Label Width="45" Height="20" Padding="0" Content="10000" Canvas.Left="166" Canvas.Top="29" ></Label>
-                            <Label Padding="0" Content="Количество" FontSize="14" FontStyle="Oblique" FontWeight="Bold" HorizontalAlignment="Left" Height="18" Width="87" Canvas.Top="54"/>
-                            <TextBlock Padding="0"  Width="79" Height="22" Text="{Binding ElementName=s4, Path=Value, UpdateSourceTrigger=PropertyChanged, StringFormat={}{0:0}}" Canvas.Left="93" Canvas.Top="52"/>
-                            <Label Padding="0" Content="Стоимость" FontSize="14" FontStyle="Oblique" FontWeight="Bold" HorizontalAlignment="Left" Height="18" Width="87" Canvas.Top="80"></Label>
-                            <TextBlock Padding="0" Width="80" Height="18" Text="{Binding ElementName=s4, Path=Value, UpdateSourceTrigger=PropertyChanged, StringFormat={}{0:0}}" Canvas.Left="93" Canvas.Top="79"/>
-                            <Button BorderBrush="DarkGreen" BorderThickness="3"  Content="OK" Background="Green" FontSize="16" FontWeight="Bold" HorizontalAlignment="Right" RenderTransformOrigin="6.037,-1.28" Canvas.Left="191" Canvas.Top="71"></Button>
-                        </Canvas>
-                    </Border>
+                        <Border Grid.Column="1" Grid.Row="1" BorderBrush="Black" BorderThickness="4" Margin="3" CornerRadius="15" Grid.ColumnSpan="2" >
+                            <Canvas>
+                                <Label Padding="0"  Content="Покупка зерна" FontSize="16" FontStyle="Oblique" FontWeight="Bold" HorizontalAlignment="Center" Margin="45 0 0 0" Height="23" Width="145"></Label>
+                                <Slider Padding="0" AutoToolTipPrecision="0" AutoToolTipPlacement="TopLeft" Height="26" Width="160" Maximum="100" TickPlacement="TopLeft"  Name="s2" Canvas.Left="4" Canvas.Top="26" />
+                                <Label Width="45" Height="20" Padding="0" Content="10000" Canvas.Left="166" Canvas.Top="29" ></Label>
+                                <Label Padding="0" Content="Количество" FontSize="14" FontStyle="Oblique" FontWeight="Bold" HorizontalAlignment="Left" Height="18" Width="87" Canvas.Top="54"/>
+                                <TextBlock Padding="0"  Width="79" Height="22" Text="{Binding ElementName=s2, Path=Value, UpdateSourceTrigger=PropertyChanged, StringFormat={}{0:0}}" Canvas.Left="93" Canvas.Top="52"/>
+                                <Label Padding="0" Content="Стоимость" FontSize="14" FontStyle="Oblique" FontWeight="Bold" HorizontalAlignment="Left" Height="18" Width="87" Canvas.Top="80"></Label>
+                                <TextBlock Padding="0" Width="80" Height="18" Text="{Binding ElementName=s2, Path=Value, UpdateSourceTrigger=PropertyChanged, StringFormat={}{0:0}}" Canvas.Left="93" Canvas.Top="79"/>
+                                <Button Content="OK" FontWeight="Bold" Canvas.Left="179" Canvas.Top="54">
+                                    <Button.Template>
+                                        <ControlTemplate TargetType="Button">
+                                            <Grid Height="44" Width="44" RenderTransformOrigin="0.231,0.455">
+                                                <Ellipse Fill="Green"/>
+                                                <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                            </Grid>
+                                        </ControlTemplate>
+                                    </Button.Template>
+                                </Button>
+                            </Canvas>
+                        </Border>
 
-                    <Border Grid.Column="0" Grid.Row="3" BorderBrush="Black" BorderThickness="4" Margin="3" CornerRadius="15" >
-                        <Canvas>
-                            <Label Padding="0"  Content="Увольнение ученых" FontSize="16" FontStyle="Oblique" FontWeight="Bold" HorizontalAlignment="Center" Height="23" Width="163" Canvas.Left="38"/>
-                            <Slider Padding="0" AutoToolTipPrecision="0" AutoToolTipPlacement="TopLeft" Height="26" Width="160" Maximum="100" TickPlacement="TopLeft"  Name="s5" Canvas.Left="4" Canvas.Top="26" />
-                            <Label Width="45" Height="20" Padding="0" Content="10000" Canvas.Left="166" Canvas.Top="29" ></Label>
-                            <Label Padding="0" Content="Количество" FontSize="14" FontStyle="Oblique" FontWeight="Bold" HorizontalAlignment="Left" Height="18" Width="87" Canvas.Top="54"/>
-                            <TextBlock Padding="0"  Width="79" Height="22" Text="{Binding ElementName=s5, Path=Value, UpdateSourceTrigger=PropertyChanged, StringFormat={}{0:0}}" Canvas.Left="93" Canvas.Top="52"/>
-                            <Label Padding="0" Content="Стоимость" FontSize="14" FontStyle="Oblique" FontWeight="Bold" HorizontalAlignment="Left" Height="18" Width="87" Canvas.Top="80"></Label>
-                            <TextBlock Padding="0" Width="80" Height="18" Text="{Binding ElementName=s5, Path=Value, UpdateSourceTrigger=PropertyChanged, StringFormat={}{0:0}}" Canvas.Left="93" Canvas.Top="79"/>
-                            <Button BorderBrush="DarkGreen" BorderThickness="3"  Content="OK" Background="Green" FontSize="16" FontWeight="Bold" HorizontalAlignment="Right" RenderTransformOrigin="6.037,-1.28" Canvas.Left="191" Canvas.Top="71"></Button>
-                        </Canvas>
-                    </Border>
+                        <Border Grid.Column="0" Grid.Row="2" BorderBrush="Black" BorderThickness="4" Margin="3" CornerRadius="15" >
+                            <Canvas>
+                                <Label Padding="0"  Content="Найм ученых" FontSize="16" FontStyle="Oblique" FontWeight="Bold" HorizontalAlignment="Center" Margin="45 0 0 0" Height="23" Width="145"></Label>
+                                <Slider Padding="0" AutoToolTipPrecision="0" AutoToolTipPlacement="TopLeft" Height="26" Width="160" Maximum="100" TickPlacement="TopLeft"  Name="s3" Canvas.Left="4" Canvas.Top="26" />
+                                <Label Width="45" Height="20" Padding="0" Content="10000" Canvas.Left="166" Canvas.Top="29" ></Label>
+                                <Label Padding="0" Content="Количество" FontSize="14" FontStyle="Oblique" FontWeight="Bold" HorizontalAlignment="Left" Height="18" Width="87" Canvas.Top="54"/>
+                                <TextBlock Padding="0"  Width="79" Height="22" Text="{Binding ElementName=s3, Path=Value, UpdateSourceTrigger=PropertyChanged, StringFormat={}{0:0}}" Canvas.Left="93" Canvas.Top="52"/>
+                                <Label Padding="0" Content="Стоимость" FontSize="14" FontStyle="Oblique" FontWeight="Bold" HorizontalAlignment="Left" Height="18" Width="87" Canvas.Top="80"></Label>
+                                <TextBlock Padding="0" Width="80" Height="18" Text="{Binding ElementName=s3, Path=Value, UpdateSourceTrigger=PropertyChanged, StringFormat={}{0:0}}" Canvas.Left="93" Canvas.Top="79"/>
+                                <Button Content="OK" FontWeight="Bold" Canvas.Left="179" Canvas.Top="54">
+                                    <Button.Template>
+                                        <ControlTemplate TargetType="Button">
+                                            <Grid Height="44" Width="44" RenderTransformOrigin="0.231,0.455">
+                                                <Ellipse Fill="Green"/>
+                                                <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                            </Grid>
+                                        </ControlTemplate>
+                                    </Button.Template>
+                                </Button>
+                            </Canvas>
+                        </Border>
 
-                    <Border Grid.Column="1" Grid.Row="3" BorderBrush="Black" BorderThickness="4" Margin="3" CornerRadius="15" >
-                        <Canvas>
-                            <Label Padding="0"  Content="Увольнение солдат" FontSize="16" FontStyle="Oblique" FontWeight="Bold" HorizontalAlignment="Center" Height="23" Width="165" RenderTransformOrigin="0.5,0.5" Canvas.Left="38">
-                                <Label.RenderTransform>
-                                    <TransformGroup>
-                                        <ScaleTransform/>
-                                        <SkewTransform/>
-                                        <RotateTransform Angle="-0.028"/>
-                                        <TranslateTransform/>
-                                    </TransformGroup>
-                                </Label.RenderTransform>
-                            </Label>
-                            <Slider Padding="0" AutoToolTipPrecision="0" AutoToolTipPlacement="TopLeft" Height="26" Width="160" Maximum="100" TickPlacement="TopLeft"  Name="s6" Canvas.Left="4" Canvas.Top="26" />
-                            <Label Width="45" Height="20" Padding="0" Content="10000" Canvas.Left="166" Canvas.Top="29" ></Label>
-                            <Label Padding="0" Content="Количество" FontSize="14" FontStyle="Oblique" FontWeight="Bold" HorizontalAlignment="Left" Height="18" Width="87" Canvas.Top="54"/>
-                            <TextBlock Padding="0"  Width="79" Height="22" Text="{Binding ElementName=s6, Path=Value, UpdateSourceTrigger=PropertyChanged, StringFormat={}{0:0}}" Canvas.Left="93" Canvas.Top="52"/>
-                            <Label Padding="0" Content="Стоимость" FontSize="14" FontStyle="Oblique" FontWeight="Bold" HorizontalAlignment="Left" Height="18" Width="87" Canvas.Top="80"></Label>
-                            <TextBlock Padding="0" Width="80" Height="18" Text="{Binding ElementName=s6, Path=Value, UpdateSourceTrigger=PropertyChanged, StringFormat={}{0:0}}" Canvas.Left="93" Canvas.Top="79"/>
-                            <Button BorderBrush="DarkGreen" BorderThickness="3"  Content="OK" Background="Green" FontSize="16" FontWeight="Bold" HorizontalAlignment="Right" RenderTransformOrigin="6.037,-1.28" Canvas.Left="191" Canvas.Top="71"></Button>
-                        </Canvas>
-                    </Border>
+                        <Border Grid.Column="1" Grid.Row="2" BorderBrush="Black" BorderThickness="4" Margin="3" CornerRadius="15" Grid.ColumnSpan="2" >
+                            <Canvas>
+                                <Label Padding="0"  Content="Найм солдат" FontSize="16" FontStyle="Oblique" FontWeight="Bold" HorizontalAlignment="Center" Margin="45 0 0 0" Height="23" Width="145"></Label>
+                                <Slider Padding="0" AutoToolTipPrecision="0" AutoToolTipPlacement="TopLeft" Height="26" Width="160" Maximum="100" TickPlacement="TopLeft"  Name="s4" Canvas.Left="4" Canvas.Top="26" />
+                                <Label Width="45" Height="20" Padding="0" Content="10000" Canvas.Left="166" Canvas.Top="29" ></Label>
+                                <Label Padding="0" Content="Количество" FontSize="14" FontStyle="Oblique" FontWeight="Bold" HorizontalAlignment="Left" Height="18" Width="87" Canvas.Top="54"/>
+                                <TextBlock Padding="0"  Width="79" Height="22" Text="{Binding ElementName=s4, Path=Value, UpdateSourceTrigger=PropertyChanged, StringFormat={}{0:0}}" Canvas.Left="93" Canvas.Top="52"/>
+                                <Label Padding="0" Content="Стоимость" FontSize="14" FontStyle="Oblique" FontWeight="Bold" HorizontalAlignment="Left" Height="18" Width="87" Canvas.Top="80"></Label>
+                                <TextBlock Padding="0" Width="80" Height="18" Text="{Binding ElementName=s4, Path=Value, UpdateSourceTrigger=PropertyChanged, StringFormat={}{0:0}}" Canvas.Left="93" Canvas.Top="79"/>
+                                <Button Content="OK" FontWeight="Bold" Canvas.Left="179" Canvas.Top="54">
+                                    <Button.Template>
+                                        <ControlTemplate TargetType="Button">
+                                            <Grid Height="44" Width="44" RenderTransformOrigin="0.231,0.455">
+                                                <Ellipse Fill="Green"/>
+                                                <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                            </Grid>
+                                        </ControlTemplate>
+                                    </Button.Template>
+                                </Button>
+                            </Canvas>
+                        </Border>
 
-                    <Border Grid.Column="2" Grid.Row="0" Grid.RowSpan="4" BorderBrush="Black" BorderThickness="4" Margin="3" CornerRadius="15">
-                        <StackPanel>
-                            <GroupBox Header="Ваши ресурсы" Height="265" Width="200" HorizontalAlignment="Center" Padding="0" FontSize="20" FontWeight="Bold" >
-                                <Canvas >
-                                    <Label Content="Население:" FontSize="15" FontWeight="Bold" Canvas.Left="10" Canvas.Top="2"/>
-                                    <TextBox Text="1000" HorizontalContentAlignment="Center" IsReadOnly="True" FontWeight="Bold" VerticalAlignment="Center" Canvas.Top="1" RenderTransformOrigin="3.636,-0.524" Canvas.Left="108" Width="80"  ></TextBox>
-                                    <Label Padding="0" FontWeight="Normal" Content="Крестьян:" FontSize="15" Canvas.Top="32" Canvas.Left="22" Height="23"></Label>
-                                    <TextBlock Text="1000" FontWeight="Normal"  VerticalAlignment="Center" Canvas.Top="30" Canvas.Left="108"  ></TextBlock>
-                                    <Label Padding="0" Content="Ученых:" FontWeight="Normal" FontSize="15" Canvas.Top="55" Canvas.Left="33" Height="23"></Label>
-                                    <TextBlock Text="1000" VerticalAlignment="Center" FontWeight="Normal" Canvas.Top="51" Canvas.Left="108"  ></TextBlock>
-                                    <Label Padding="0" Content="Солдат:" FontSize="15" FontWeight="Normal" Canvas.Top="78" Canvas.Left="36" Height="23"></Label>
-                                    <TextBlock Text="1000" VerticalAlignment="Center" FontWeight="Normal" Canvas.Top="74" Canvas.Left="108" RenderTransformOrigin="0.029,0.476"  ></TextBlock>
-                                    <Label Content="Територия:" FontSize="15" FontWeight="Bold" Canvas.Top="97" Canvas.Left="7"></Label>
-                                    <TextBox Text="1000" HorizontalContentAlignment="Center" IsReadOnly="True" FontWeight="Bold" VerticalAlignment="Center" Canvas.Top="98" RenderTransformOrigin="3.636,-0.524" Canvas.Left="108" Width="80"  ></TextBox>
-                                    <TextBlock TextAlignment="Right" Text="Макс население:" FontSize="15" Canvas.Top="125" Canvas.Left="10" Height="40" Width="83" TextWrapping="Wrap"></TextBlock>
-                                    <TextBox Text="1000" HorizontalContentAlignment="Center" IsReadOnly="True" FontWeight="Bold" VerticalAlignment="Center" Canvas.Top="132" RenderTransformOrigin="3.636,-0.524" Canvas.Left="108" Width="80"  ></TextBox>
-                                    <TextBlock TextAlignment="Right" Text="Деньги:" FontSize="15" Canvas.Top="172" Canvas.Left="15" Height="23" Width="83" TextWrapping="Wrap"></TextBlock>
-                                    <TextBox Text="1000" HorizontalContentAlignment="Center" IsReadOnly="True" FontWeight="Bold" VerticalAlignment="Center" Canvas.Top="166" RenderTransformOrigin="3.636,-0.524" Canvas.Left="108" Width="80"  ></TextBox>
-                                    <TextBlock TextAlignment="Right" Text="Зерно:" FontSize="15" Canvas.Top="206" Canvas.Left="15" Height="23" Width="83" TextWrapping="Wrap"></TextBlock>
-                                    <TextBox Text="1000" HorizontalContentAlignment="Center" IsReadOnly="True" FontWeight="Bold" VerticalAlignment="Center" Canvas.Top="200" RenderTransformOrigin="3.636,-0.524" Canvas.Left="108" Width="80"  ></TextBox>
-                                </Canvas>
-                            </GroupBox>
-                            <GroupBox Header="Прирост" Height="100" Width="200" HorizontalAlignment="Center" Padding="0" FontSize="20" FontWeight="Bold" >
+                        <Border Grid.Column="0" Grid.Row="3" BorderBrush="Black" BorderThickness="4" Margin="3" CornerRadius="15" >
+                            <Canvas>
+                                <Label Padding="0"  Content="Увольнение ученых" FontSize="16" FontStyle="Oblique" FontWeight="Bold" HorizontalAlignment="Center" Height="23" Width="163" Canvas.Left="38"/>
+                                <Slider Padding="0" AutoToolTipPrecision="0" AutoToolTipPlacement="TopLeft" Height="26" Width="160" Maximum="100" TickPlacement="TopLeft"  Name="s5" Canvas.Left="4" Canvas.Top="26" />
+                                <Label Width="45" Height="20" Padding="0" Content="10000" Canvas.Left="166" Canvas.Top="29" ></Label>
+                                <Label Padding="0" Content="Количество" FontSize="14" FontStyle="Oblique" FontWeight="Bold" HorizontalAlignment="Left" Height="18" Width="87" Canvas.Top="54"/>
+                                <TextBlock Padding="0"  Width="79" Height="22" Text="{Binding ElementName=s5, Path=Value, UpdateSourceTrigger=PropertyChanged, StringFormat={}{0:0}}" Canvas.Left="93" Canvas.Top="52"/>
+                                <Label Padding="0" Content="Стоимость" FontSize="14" FontStyle="Oblique" FontWeight="Bold" HorizontalAlignment="Left" Height="18" Width="87" Canvas.Top="80"></Label>
+                                <TextBlock Padding="0" Width="80" Height="18" Text="{Binding ElementName=s5, Path=Value, UpdateSourceTrigger=PropertyChanged, StringFormat={}{0:0}}" Canvas.Left="93" Canvas.Top="79"/>
+                                <Button Content="OK" FontWeight="Bold" Canvas.Left="179" Canvas.Top="54">
+                                    <Button.Template>
+                                        <ControlTemplate TargetType="Button">
+                                            <Grid Height="44" Width="44" RenderTransformOrigin="0.231,0.455">
+                                                <Ellipse Fill="Green"/>
+                                                <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                            </Grid>
+                                        </ControlTemplate>
+                                    </Button.Template>
+                                </Button>
+                            </Canvas>
+                        </Border>
+
+                        <Border Grid.Column="1" Grid.Row="3" BorderBrush="Black" BorderThickness="4" Margin="3" CornerRadius="15" Grid.ColumnSpan="2" >
+                            <Canvas>
+                                <Label Padding="0"  Content="Увольнение солдат" FontSize="16" FontStyle="Oblique" FontWeight="Bold" HorizontalAlignment="Center" Height="23" Width="165" RenderTransformOrigin="0.5,0.5" Canvas.Left="38">
+                                    <Label.RenderTransform>
+                                        <TransformGroup>
+                                            <ScaleTransform/>
+                                            <SkewTransform/>
+                                            <RotateTransform Angle="-0.028"/>
+                                            <TranslateTransform/>
+                                        </TransformGroup>
+                                    </Label.RenderTransform>
+                                </Label>
+                                <Slider Padding="0" AutoToolTipPrecision="0" AutoToolTipPlacement="TopLeft" Height="26" Width="160" Maximum="100" TickPlacement="TopLeft"  Name="s6" Canvas.Left="4" Canvas.Top="26" />
+                                <Label Width="45" Height="20" Padding="0" Content="10000" Canvas.Left="166" Canvas.Top="29" ></Label>
+                                <Label Padding="0" Content="Количество" FontSize="14" FontStyle="Oblique" FontWeight="Bold" HorizontalAlignment="Left" Height="18" Width="87" Canvas.Top="54"/>
+                                <TextBlock Padding="0"  Width="79" Height="22" Text="{Binding ElementName=s6, Path=Value, UpdateSourceTrigger=PropertyChanged, StringFormat={}{0:0}}" Canvas.Left="93" Canvas.Top="52"/>
+                                <Label Padding="0" Content="Стоимость" FontSize="14" FontStyle="Oblique" FontWeight="Bold" HorizontalAlignment="Left" Height="18" Width="87" Canvas.Top="80"></Label>
+                                <TextBlock Padding="0" Width="80" Height="18" Text="{Binding ElementName=s6, Path=Value, UpdateSourceTrigger=PropertyChanged, StringFormat={}{0:0}}" Canvas.Left="93" Canvas.Top="79"/>
+                                <Button Content="OK" FontWeight="Bold" Canvas.Left="179" Canvas.Top="54">
+                                    <Button.Template>
+                                        <ControlTemplate TargetType="Button">
+                                            <Grid Height="44" Width="44" RenderTransformOrigin="0.231,0.455">
+                                                <Ellipse Fill="Green"/>
+                                                <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                            </Grid>
+                                        </ControlTemplate>
+                                    </Button.Template>
+                                </Button>
+                            </Canvas>
+                        </Border>
+
+                        <Border Grid.Column="3" Grid.Row="0" Grid.RowSpan="4" BorderBrush="Black" BorderThickness="4" Margin="6,3,0,3" CornerRadius="15" Grid.ColumnSpan="2">
+                            <StackPanel>
+                                <GroupBox Header="Ваши ресурсы" Height="265" Width="200" HorizontalAlignment="Center" Padding="0" FontSize="20" FontWeight="Bold" >
+                                    <Canvas >
+                                        <Label Content="Население:" FontSize="15" FontWeight="Bold" Canvas.Left="10" Canvas.Top="2"/>
+                                        <TextBox Text="1000" HorizontalContentAlignment="Center" IsReadOnly="True" FontWeight="Bold" VerticalAlignment="Center" Canvas.Top="1" RenderTransformOrigin="3.636,-0.524" Canvas.Left="108" Width="80"  ></TextBox>
+                                        <Label Padding="0" FontWeight="Normal" Content="Крестьян:" FontSize="15" Canvas.Top="32" Canvas.Left="22" Height="23"></Label>
+                                        <TextBlock Text="1000" FontWeight="Normal"  VerticalAlignment="Center" Canvas.Top="30" Canvas.Left="108"  ></TextBlock>
+                                        <Label Padding="0" Content="Ученых:" FontWeight="Normal" FontSize="15" Canvas.Top="55" Canvas.Left="33" Height="23"></Label>
+                                        <TextBlock Text="1000" VerticalAlignment="Center" FontWeight="Normal" Canvas.Top="51" Canvas.Left="108"  ></TextBlock>
+                                        <Label Padding="0" Content="Солдат:" FontSize="15" FontWeight="Normal" Canvas.Top="78" Canvas.Left="36" Height="23"></Label>
+                                        <TextBlock Text="1000" VerticalAlignment="Center" FontWeight="Normal" Canvas.Top="74" Canvas.Left="108" RenderTransformOrigin="0.029,0.476"  ></TextBlock>
+                                        <Label Content="Територия:" FontSize="15" FontWeight="Bold" Canvas.Top="97" Canvas.Left="7"></Label>
+                                        <TextBox Text="1000" HorizontalContentAlignment="Center" IsReadOnly="True" FontWeight="Bold" VerticalAlignment="Center" Canvas.Top="98" RenderTransformOrigin="3.636,-0.524" Canvas.Left="108" Width="80"  ></TextBox>
+                                        <TextBlock TextAlignment="Right" Text="Макс население:" FontSize="15" Canvas.Top="125" Canvas.Left="10" Height="40" Width="83" TextWrapping="Wrap"></TextBlock>
+                                        <TextBox Text="1000" HorizontalContentAlignment="Center" IsReadOnly="True" FontWeight="Bold" VerticalAlignment="Center" Canvas.Top="132" RenderTransformOrigin="3.636,-0.524" Canvas.Left="108" Width="80"  ></TextBox>
+                                        <TextBlock TextAlignment="Right" Text="Деньги:" FontSize="15" Canvas.Top="172" Canvas.Left="15" Height="23" Width="83" TextWrapping="Wrap"></TextBlock>
+                                        <TextBox Text="1000" HorizontalContentAlignment="Center" IsReadOnly="True" FontWeight="Bold" VerticalAlignment="Center" Canvas.Top="166" RenderTransformOrigin="3.636,-0.524" Canvas.Left="108" Width="80"  ></TextBox>
+                                        <TextBlock TextAlignment="Right" Text="Зерно:" FontSize="15" Canvas.Top="206" Canvas.Left="15" Height="23" Width="83" TextWrapping="Wrap"></TextBlock>
+                                        <TextBox Text="1000" HorizontalContentAlignment="Center" IsReadOnly="True" FontWeight="Bold" VerticalAlignment="Center" Canvas.Top="200" RenderTransformOrigin="3.636,-0.524" Canvas.Left="108" Width="80"  ></TextBox>
+                                    </Canvas>
+                                </GroupBox>
+                                <GroupBox Header="Прирост" Height="100" Width="200" HorizontalAlignment="Center" Padding="0" FontSize="20" FontWeight="Bold" >
+                                    <Canvas>
+                                        <TextBlock TextAlignment="Right" Text="Зерно:" FontSize="15"  Height="23" Width="83" TextWrapping="Wrap" Canvas.Left="10" Canvas.Top="10"></TextBlock>
+                                        <TextBox Text="1000" HorizontalContentAlignment="Center" IsReadOnly="True" FontWeight="Bold" VerticalAlignment="Center" RenderTransformOrigin="3.636,-0.524" Canvas.Left="108" Width="80" Height="32"  />
+                                        <TextBlock TextAlignment="Right" Text="Население:" FontSize="15" Height="23" Width="83" TextWrapping="Wrap" Canvas.Top="42" Canvas.Left="20"></TextBlock>
+                                        <TextBox Text="1000" HorizontalContentAlignment="Center" IsReadOnly="True" FontWeight="Bold" VerticalAlignment="Center"  RenderTransformOrigin="3.636,-0.524" Canvas.Left="108" Width="80" Canvas.Top="34"  ></TextBox>
+                                    </Canvas>
+                                </GroupBox>
+                                <GroupBox Header="Расходы" Height="90" Width="200" HorizontalAlignment="Center" Padding="0" FontSize="20" FontWeight="Bold" >
+                                    <WrapPanel>
+                                        <TextBlock Margin="10 0 0 0" TextAlignment="Right" FontSize="15"  Text="Наука:"></TextBlock>
+                                        <TextBlock Margin="50 0 0 0 " TextAlignment="Right" FontSize="15" Text="Армия:"></TextBlock>
+                                        <TextBox Text="1000" Margin="10 5 0 0" IsReadOnly="True" VerticalAlignment="Center" HorizontalContentAlignment="Center" Width="74"></TextBox>
+                                        <TextBox Text="1000" Margin="20 5 0 0" IsReadOnly="True" VerticalAlignment="Center" HorizontalContentAlignment="Center" Width="74"></TextBox>
+                                    </WrapPanel>
+                                </GroupBox>
+                                <GroupBox Header="Баланс" Height="67" Width="200" HorizontalAlignment="Center" Padding="0" FontSize="20" FontWeight="Bold" Margin="16,0,17,0" >
+                                    <TextBox IsReadOnly="True" Text="1000" VerticalAlignment="Center" HorizontalContentAlignment="Center" Width="100" ></TextBox>
+                                </GroupBox>
+                            </StackPanel>
+                        </Border>
+
+                    </Grid>
+                </TabItem>
+
+                <TabItem Header="Наука">
+                    <Grid   >
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="366*" />
+                            <ColumnDefinition Width="139*" />
+                            <ColumnDefinition Width="227*"/>
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition />
+                            <RowDefinition />
+                            <RowDefinition />
+                            <RowDefinition />
+                        </Grid.RowDefinitions>
+
+                        <Rectangle Grid.ColumnSpan="3" Grid.RowSpan="4" Margin="-5,-58,-5,-5" >
+                            <Rectangle.Fill>
+                                <LinearGradientBrush>
+                                    <GradientStop Color="LightCyan" Offset="0"></GradientStop>
+                                    <GradientStop Color="LightBlue" Offset="0.2"></GradientStop>
+                                    <GradientStop Color="LightGray" Offset="0.5"></GradientStop>
+                                    <GradientStop Color="Gray" Offset="0.8"></GradientStop>
+                                </LinearGradientBrush>
+                            </Rectangle.Fill>
+                        </Rectangle>
+                        <Border Grid.Column="0" Grid.Row="0"  BorderBrush="Gray" BorderThickness="2" Margin="0,0,6,6" CornerRadius="15" >
+                            <Canvas>
+                                <TextBlock Text="Незанятые ученые: " Canvas.Top="20" Canvas.Left="20" Foreground="DarkRed" FontWeight="Bold" FontSize="18"></TextBlock>
+                                <TextBlock Text="5000" Canvas.Left="214" Canvas.Top="23" Width="74" FontWeight="Bold"></TextBlock>
+                                <Button Background="LightGray" Content="Убрать всех" FontWeight="Bold" Canvas.Top="66" Canvas.Left="20" Width="130">
+
+                                </Button>
+                            </Canvas>
+
+                        </Border>
+
+                        <Border Grid.Column="0" Grid.Row="1"  BorderBrush="Gray" BorderThickness="2" Margin="0,18,6,0" CornerRadius="15">
+                            <Canvas Margin="4,6,-4,-6">
+                                <Label Padding="0" FontSize="16" FontStyle="Oblique" FontWeight="Bold" HorizontalAlignment="Center" Content="Плотность населения" Canvas.Left="89" Canvas.Top="-32"></Label>
+                                <TextBlock Padding="0"  Text="Текущий уровень" Canvas.Top="-5" RenderTransformOrigin="0.523,-0.36"/>
+                                <TextBlock Padding="0"  FontWeight="Medium" Text="0" Canvas.Left="138" Canvas.Top="-5" RenderTransformOrigin="0,0.54"></TextBlock>
+                                <TextBlock Padding="0"  Text="Нужно ученых" Canvas.Top="15"/>
+                                <TextBlock Padding="0"  FontWeight="Medium" Text="0" Canvas.Left="138" Canvas.Top="15"></TextBlock>
+                                <TextBox Text="1" HorizontalContentAlignment="Center" Padding="0" Canvas.Left="31" Canvas.Top="41" Width="81" IsReadOnly="True"></TextBox>
+                                <ProgressBar Padding="0" Foreground="Blue"  Value="{Binding ElementName=TB, Path=Text, StringFormat={}{0:0}}" Name="PB" Orientation="Vertical" Minimum="0" Maximum="100" Height="91" Width="52"  Canvas.Left="200"/>
+                                <TextBlock Text="{Binding ElementName=PB, Path=Value, StringFormat={}{0:0}%}" HorizontalAlignment="Center" VerticalAlignment="Center" Canvas.Left="215" Canvas.Top="32" />
+                                <TextBox Padding="0" Name="TB" Canvas.Left="257" Canvas.Top="64" Width="55" RenderTransformOrigin="0.5,0.5" Height="27"></TextBox>
+                                <TextBlock Padding="0" Text="Откроют в течении " Canvas.Top="70"/>
+                                <TextBlock Padding="0" Text="0 " Canvas.Left="148" Canvas.Top="70"></TextBlock>
+                                <TextBlock Padding="0" Text="лет." Canvas.Left="167" Canvas.Top="70"></TextBlock>
+                                <Button Content="За 1 год" Canvas.Left="257" Width="89"/>
+                                <Button Content="Max" Canvas.Left="304" Canvas.Top="32" Width="41"></Button>
+                                <Button Content="Min" Canvas.Left="257" Canvas.Top="32" Height="27" Width="42"></Button>
+                                <Button Content="+"  Canvas.Left="329" Canvas.Top="64" RenderTransformOrigin="-0.294,0.481"></Button>
+                                <Button Content="-"  Canvas.Left="317" Canvas.Top="64"></Button>
+                            </Canvas>
+                        </Border>
+
+                        <Border Grid.Column="1" Grid.Row="1"  BorderBrush="Gray" BorderThickness="2" Margin="0,18,6,0" CornerRadius="15" Grid.ColumnSpan="2">
+                            <Canvas Margin="4,6,-4,-6">
+                                <Label Padding="0" FontSize="16" FontStyle="Oblique" FontWeight="Bold" HorizontalAlignment="Center" Content="Денежная система" Canvas.Left="89" Canvas.Top="-32"></Label>
+                                <TextBlock Padding="0"  Text="Текущий уровень" Canvas.Top="-5" RenderTransformOrigin="0.523,-0.36"/>
+                                <TextBlock Padding="0"  FontWeight="Medium" Text="0" Canvas.Left="138" Canvas.Top="-5" RenderTransformOrigin="0,0.54"></TextBlock>
+                                <TextBlock Padding="0"  Text="Нужно ученых" Canvas.Top="15"/>
+                                <TextBlock Padding="0"  FontWeight="Medium" Text="0" Canvas.Left="138" Canvas.Top="15"></TextBlock>
+                                <TextBox Text="1" HorizontalContentAlignment="Center" Padding="0" Canvas.Left="31" Canvas.Top="41" Width="81" IsReadOnly="True"></TextBox>
+                                <ProgressBar Padding="0" Foreground="Blue"  Value="{Binding ElementName=TB1, Path=Text, StringFormat={}{0:0}}" Name="PB1" Orientation="Vertical" Minimum="0" Maximum="100" Height="91" Width="52"  Canvas.Left="200"/>
+                                <TextBlock Text="{Binding ElementName=PB1, Path=Value, StringFormat={}{0:0}%}" HorizontalAlignment="Center" VerticalAlignment="Center" Canvas.Left="215" Canvas.Top="32" />
+                                <TextBox Padding="0" Name="TB1" Canvas.Left="257" Canvas.Top="64" Width="55" RenderTransformOrigin="0.5,0.5" Height="27"></TextBox>
+                                <TextBlock Padding="0" Text="Откроют в течении " Canvas.Top="70"/>
+                                <TextBlock Padding="0" Text="0 " Canvas.Left="148" Canvas.Top="70"></TextBlock>
+                                <TextBlock Padding="0" Text="лет." Canvas.Left="167" Canvas.Top="70"></TextBlock>
+                                <Button Content="За 1 год" Canvas.Left="257" Width="89"/>
+                                <Button Content="Max" Canvas.Left="304" Canvas.Top="32" Width="41"></Button>
+                                <Button Content="Min" Canvas.Left="257" Canvas.Top="32" Height="27" Width="42"></Button>
+                                <Button Content="+"  Canvas.Left="329" Canvas.Top="64" RenderTransformOrigin="-0.294,0.481"></Button>
+                                <Button Content="-"  Canvas.Left="317" Canvas.Top="64" RenderTransformOrigin="-1.25,0.593"></Button>
+                            </Canvas>
+                        </Border>
+
+                        <Border Grid.Column="0" Grid.Row="2"  BorderBrush="Gray" BorderThickness="2" Margin="0,18,6,0" CornerRadius="15">
+                            <Canvas Margin="4,6,-4,-6">
+                                <Label Padding="0" FontSize="16" FontStyle="Oblique" FontWeight="Bold" HorizontalAlignment="Center" Content="Рост населения: " Canvas.Left="89" Canvas.Top="-32"></Label>
+                                <TextBlock Padding="0"  Text="Текущий уровень" Canvas.Top="-5" RenderTransformOrigin="0.523,-0.36"/>
+                                <TextBlock Padding="0"  FontWeight="Medium" Text="0" Canvas.Left="138" Canvas.Top="-5" RenderTransformOrigin="0,0.54"></TextBlock>
+                                <TextBlock Padding="0"  Text="Нужно ученых" Canvas.Top="15"/>
+                                <TextBlock Padding="0"  FontWeight="Medium" Text="0" Canvas.Left="138" Canvas.Top="15"></TextBlock>
+                                <TextBox Text="1" HorizontalContentAlignment="Center" Padding="0" Canvas.Left="31" Canvas.Top="41" Width="81" IsReadOnly="True"></TextBox>
+                                <ProgressBar Padding="0" Foreground="Red"  Value="{Binding ElementName=TB2, Path=Text, StringFormat={}{0:0}}" Name="PB2" Orientation="Vertical" Minimum="0" Maximum="100" Height="91" Width="52"  Canvas.Left="200"/>
+                                <TextBlock Text="{Binding ElementName=PB2, Path=Value, StringFormat={}{0:0}%}" HorizontalAlignment="Center" VerticalAlignment="Center" Canvas.Left="215" Canvas.Top="32" />
+                                <TextBox Padding="0" Name="TB2" Canvas.Left="257" Canvas.Top="64" Width="55" RenderTransformOrigin="0.5,0.5" Height="27"></TextBox>
+                                <TextBlock Padding="0" Text="Откроют в течении " Canvas.Top="70"/>
+                                <TextBlock Padding="0" Text="0 " Canvas.Left="148" Canvas.Top="70"></TextBlock>
+                                <TextBlock Padding="0" Text="лет." Canvas.Left="167" Canvas.Top="70"></TextBlock>
+                                <Button Content="За 1 год" Canvas.Left="257" Width="89"/>
+                                <Button Content="Max" Canvas.Left="304" Canvas.Top="32" Width="41"></Button>
+                                <Button Content="Min" Canvas.Left="257" Canvas.Top="32" Height="27" Width="42"></Button>
+                                <Button Content="+"  Canvas.Left="329" Canvas.Top="64" RenderTransformOrigin="-0.294,0.481"></Button>
+                                <Button Content="-"  Canvas.Left="317" Canvas.Top="64"></Button>
+                            </Canvas>
+                        </Border>
+
+                        <Border Grid.Column="1" Grid.Row="2"  BorderBrush="Gray" BorderThickness="2" Margin="0,18,6,0" CornerRadius="15" Grid.ColumnSpan="2">
+                            <Canvas Margin="4,6,-4,-6">
+                                <Label Padding="0" FontSize="16" FontStyle="Oblique" FontWeight="Bold" HorizontalAlignment="Center" Content="Военная мощь" Canvas.Left="89" Canvas.Top="-32"></Label>
+                                <TextBlock Padding="0"  Text="Текущий уровень" Canvas.Top="-5" RenderTransformOrigin="0.523,-0.36"/>
+                                <TextBlock Padding="0"  FontWeight="Medium" Text="0" Canvas.Left="138" Canvas.Top="-5" RenderTransformOrigin="0,0.54"></TextBlock>
+                                <TextBlock Padding="0"  Text="Нужно ученых" Canvas.Top="15"/>
+                                <TextBlock Padding="0"  FontWeight="Medium" Text="0" Canvas.Left="138" Canvas.Top="15"></TextBlock>
+                                <TextBox Text="1" HorizontalContentAlignment="Center" Padding="0" Canvas.Left="31" Canvas.Top="41" Width="81" IsReadOnly="True"></TextBox>
+                                <ProgressBar Padding="0" Foreground="Blue"  Value="{Binding ElementName=TB3, Path=Text, StringFormat={}{0:0}}" Name="PB3" Orientation="Vertical" Minimum="0" Maximum="100" Height="91" Width="52"  Canvas.Left="200"/>
+                                <TextBlock Text="{Binding ElementName=PB3, Path=Value, StringFormat={}{0:0}%}" HorizontalAlignment="Center" VerticalAlignment="Center" Canvas.Left="215" Canvas.Top="32" />
+                                <TextBox Padding="0" Name="TB3" Canvas.Left="257" Canvas.Top="64" Width="55" RenderTransformOrigin="0.5,0.5" Height="27"></TextBox>
+                                <TextBlock Padding="0" Text="Откроют в течении " Canvas.Top="70"/>
+                                <TextBlock Padding="0" Text="0 " Canvas.Left="148" Canvas.Top="70"></TextBlock>
+                                <TextBlock Padding="0" Text="лет." Canvas.Left="167" Canvas.Top="70"></TextBlock>
+                                <Button Content="За 1 год" Canvas.Left="257" Width="89"/>
+                                <Button Content="Max" Canvas.Left="304" Canvas.Top="32" Width="41"></Button>
+                                <Button Content="Min" Canvas.Left="257" Canvas.Top="32" Height="27" Width="42"></Button>
+                                <Button Content="+"  Canvas.Left="329" Canvas.Top="64" RenderTransformOrigin="-0.294,0.481"></Button>
+                                <Button Content="-"  Canvas.Left="317" Canvas.Top="64"></Button>
+                            </Canvas>
+                        </Border>
+
+                        <Border Grid.Column="0" Grid.Row="3"  BorderBrush="Gray" BorderThickness="2" Margin="0,18,6,0" CornerRadius="15">
+                            <Canvas Margin="4,6,-4,-6">
+                                <Label Padding="0" FontSize="16" FontStyle="Oblique" FontWeight="Bold" HorizontalAlignment="Center" Content="Сельское хозяйство" Canvas.Left="89" Canvas.Top="-32"></Label>
+                                <TextBlock Padding="0"  Text="Текущий уровень" Canvas.Top="-5" RenderTransformOrigin="0.523,-0.36"/>
+                                <TextBlock Padding="0"  FontWeight="Medium" Text="0" Canvas.Left="138" Canvas.Top="-5" RenderTransformOrigin="0,0.54"></TextBlock>
+                                <TextBlock Padding="0"  Text="Нужно ученых" Canvas.Top="15"/>
+                                <TextBlock Padding="0"  FontWeight="Medium" Text="0" Canvas.Left="138" Canvas.Top="15"></TextBlock>
+                                <TextBox Text="1" HorizontalContentAlignment="Center" Padding="0" Canvas.Left="31" Canvas.Top="41" Width="81" IsReadOnly="True"></TextBox>
+                                <ProgressBar Padding="0" Foreground="Blue"  Value="{Binding ElementName=TB4, Path=Text, StringFormat={}{0:0}}" Name="PB4" Orientation="Vertical" Minimum="0" Maximum="100" Height="91" Width="52"  Canvas.Left="200"/>
+                                <TextBlock Text="{Binding ElementName=PB4, Path=Value, StringFormat={}{0:0}%}" HorizontalAlignment="Center" VerticalAlignment="Center" Canvas.Left="215" Canvas.Top="32" />
+                                <TextBox Padding="0" Name="TB4" Canvas.Left="257" Canvas.Top="64" Width="55" RenderTransformOrigin="0.5,0.5" Height="27"></TextBox>
+                                <TextBlock Padding="0" Text="Откроют в течении " Canvas.Top="70"/>
+                                <TextBlock Padding="0" Text="0 " Canvas.Left="148" Canvas.Top="70"></TextBlock>
+                                <TextBlock Padding="0" Text="лет." Canvas.Left="167" Canvas.Top="70"></TextBlock>
+                                <Button Content="За 1 год" Canvas.Left="257" Width="89"/>
+                                <Button Content="Max" Canvas.Left="304" Canvas.Top="32" Width="41"></Button>
+                                <Button Content="Min" Canvas.Left="257" Canvas.Top="32" Height="27" Width="42"></Button>
+                                <Button Content="+"  Canvas.Left="329" Canvas.Top="64" RenderTransformOrigin="-0.294,0.481"></Button>
+                                <Button Content="-"  Canvas.Left="317" Canvas.Top="64"></Button>
+                            </Canvas>
+                        </Border>
+
+                        <Border Grid.Column="1" Grid.Row="3"  BorderBrush="Gray" BorderThickness="2" Margin="0,18,6,0" CornerRadius="15" Grid.ColumnSpan="2">
+                            <Canvas Margin="4,6,-4,-6">
+                                <Label Padding="0" FontSize="16" FontStyle="Oblique" FontWeight="Bold" HorizontalAlignment="Center" Content="Научный потенциал" Canvas.Left="89" Canvas.Top="-32"></Label>
+                                <TextBlock Padding="0"  Text="Текущий уровень" Canvas.Top="-5" RenderTransformOrigin="0.523,-0.36"/>
+                                <TextBlock Padding="0"  FontWeight="Medium" Text="0" Canvas.Left="138" Canvas.Top="-5" RenderTransformOrigin="0,0.54"></TextBlock>
+                                <TextBlock Padding="0"  Text="Нужно ученых" Canvas.Top="15"/>
+                                <TextBlock Padding="0"  FontWeight="Medium" Text="0" Canvas.Left="138" Canvas.Top="15"></TextBlock>
+                                <TextBox Text="1" HorizontalContentAlignment="Center" Padding="0" Canvas.Left="31" Canvas.Top="41" Width="81" IsReadOnly="True"></TextBox>
+                                <ProgressBar Padding="0" Foreground="Blue"  Value="{Binding ElementName=TB5, Path=Text, StringFormat={}{0:0}}" Name="PB5" Orientation="Vertical" Minimum="0" Maximum="100" Height="91" Width="52"  Canvas.Left="200"/>
+                                <TextBlock Text="{Binding ElementName=PB5, Path=Value, StringFormat={}{0:0}%}" HorizontalAlignment="Center" VerticalAlignment="Center" Canvas.Left="215" Canvas.Top="32" />
+                                <TextBox Padding="0" Name="TB5" Canvas.Left="257" Canvas.Top="64" Width="55" RenderTransformOrigin="0.5,0.5" Height="27"></TextBox>
+                                <TextBlock Padding="0" Text="Откроют в течении " Canvas.Top="70"/>
+                                <TextBlock Padding="0" Text="0 " Canvas.Left="148" Canvas.Top="70"></TextBlock>
+                                <TextBlock Padding="0" Text="лет." Canvas.Left="167" Canvas.Top="70"></TextBlock>
+                                <Button Content="За 1 год" Canvas.Left="257" Width="89"/>
+                                <Button Content="Max" Canvas.Left="304" Canvas.Top="32" Width="41"></Button>
+                                <Button Content="Min" Canvas.Left="257" Canvas.Top="32" Height="27" Width="42"></Button>
+                                <Button Content="+"  Canvas.Left="329" Canvas.Top="64"></Button>
+                                <Button Content="-"  Canvas.Left="317" Canvas.Top="64"></Button>
+                            </Canvas>
+                        </Border>
+
+                    </Grid>
+                </TabItem>
+
+                <TabItem Header="Границы">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="180*" />
+                            <ColumnDefinition Width="41*"/>
+                            <ColumnDefinition Width="274*" />
+                            <ColumnDefinition Width="247*" />
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition />
+                            <RowDefinition />
+                            <RowDefinition />
+                        </Grid.RowDefinitions>
+
+                        <Rectangle Grid.ColumnSpan="4" Grid.RowSpan="3" Margin="-5,-58,-5,-5">
+                            <Rectangle.Fill>
+                                <LinearGradientBrush>
+                                    <GradientStop Color="LightBlue" Offset="0"></GradientStop>
+                                    <GradientStop Color="LightGray" Offset="0.5"></GradientStop>
+                                    <GradientStop Color="Gray" Offset="0.9"></GradientStop>
+                                </LinearGradientBrush>
+                            </Rectangle.Fill>
+                        </Rectangle>
+
+                        <StackPanel  Grid.Column="0" Grid.Row="0" Grid.RowSpan="2" Grid.ColumnSpan="2" >
+                            <GroupBox Height="84">
                                 <Canvas>
-                                    <TextBlock TextAlignment="Right" Text="Зерно:" FontSize="15"  Height="23" Width="83" TextWrapping="Wrap" Canvas.Left="10" Canvas.Top="9"></TextBlock>
-                                    <TextBox Text="1000" HorizontalContentAlignment="Center" IsReadOnly="True" FontWeight="Bold" VerticalAlignment="Center" RenderTransformOrigin="3.636,-0.524" Canvas.Left="108" Width="80" Canvas.Top="3"  ></TextBox>
-                                    <TextBlock TextAlignment="Right" Text="Население:" FontSize="15" Height="23" Width="83" TextWrapping="Wrap" Canvas.Top="43" Canvas.Left="10"></TextBlock>
-                                    <TextBox Text="1000" HorizontalContentAlignment="Center" IsReadOnly="True" FontWeight="Bold" VerticalAlignment="Center"  RenderTransformOrigin="3.636,-0.524" Canvas.Left="108" Width="80" Canvas.Top="37"  ></TextBox>
+                                    <TextBlock FontWeight="Bold" FontSize="16" Text="Солдат в защите:" Canvas.Top="10" Canvas.Left="3"/>
+                                    <TextBlock Text="100" Foreground="DarkRed" FontWeight="Bold" Canvas.Left="148" Canvas.Top="10" RenderTransformOrigin="1.058,0.619" Width="48"></TextBlock>
+                                    <Button FontWeight="Bold" Foreground="DarkRed" Content="Отдыхать" Canvas.Left="121" Canvas.Top="36"></Button>
                                 </Canvas>
                             </GroupBox>
-                            <GroupBox Header="Расходы" Height="90" Width="200" HorizontalAlignment="Center" Padding="0" FontSize="20" FontWeight="Bold" >
-                                <WrapPanel>
-                                    <TextBlock Margin="10 0 0 0" TextAlignment="Right" FontSize="15"  Text="Наука:"></TextBlock>
-                                    <TextBlock Margin="50 0 0 0 " TextAlignment="Right" FontSize="15" Text="Армия:"></TextBlock>
-                                    <TextBox Text="1000" Margin="10 5 0 0" IsReadOnly="True" VerticalAlignment="Center" HorizontalContentAlignment="Center" Width="74"></TextBox>
-                                    <TextBox Text="1000" Margin="20 5 0 0" IsReadOnly="True" VerticalAlignment="Center" HorizontalContentAlignment="Center" Width="74"></TextBox>
-                                </WrapPanel>
+                            <GroupBox Height="270">
+                                <Canvas>
+
+                                </Canvas>
                             </GroupBox>
-                            <GroupBox Header="Баланс" Height="60" Width="200" HorizontalAlignment="Center" Padding="0" FontSize="20" FontWeight="Bold" >
-                                <TextBox IsReadOnly="True" Text="1000" VerticalAlignment="Center" HorizontalContentAlignment="Center" Width="100" ></TextBox>
-                            </GroupBox>
-                        </StackPanel>
-                    </Border>
-                </Grid>
-            </TabItem>
+                        </StackPanel >
 
-            <TabItem Header="Наука">
-                <Grid   >
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="366*" />
-                        <ColumnDefinition Width="139*" />
-                        <ColumnDefinition Width="227*"/>
-                    </Grid.ColumnDefinitions>
-                    <Grid.RowDefinitions>
-                        <RowDefinition />
-                        <RowDefinition />
-                        <RowDefinition />
-                        <RowDefinition />
-                    </Grid.RowDefinitions>
-
-                    <Rectangle Grid.ColumnSpan="3" Grid.RowSpan="4" >
-                        <Rectangle.Fill>
-                            <LinearGradientBrush>
-                                <GradientStop Color="LightCyan" Offset="0"></GradientStop>
-                                <GradientStop Color="LightBlue" Offset="0.2"></GradientStop>
-                                <GradientStop Color="LightGray" Offset="0.5"></GradientStop>
-                                <GradientStop Color="Gray" Offset="0.8"></GradientStop>
-                            </LinearGradientBrush>
-                        </Rectangle.Fill>
-                    </Rectangle>
-                    <Border Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="3" BorderBrush="Gray" BorderThickness="2" Margin="0,0,6,6" CornerRadius="15" >
-                        <Canvas>
-                            <TextBlock Text="Незанятые ученые: " Canvas.Top="20" Canvas.Left="20" FontWeight="Bold" FontSize="18"></TextBlock>
-                            <TextBox Text="5000" Canvas.Left="218" Canvas.Top="17" IsReadOnly="True" Width="74"></TextBox>
-                            <Button Content="Убрать всех" Canvas.Top="60" Canvas.Left="32"/>
-                        </Canvas>
-
-                    </Border>
-
-
-                    <Border Grid.Column="0" Grid.Row="1"  BorderBrush="Gray" BorderThickness="2" Margin="0,18,6,0" CornerRadius="15">
-                        <Canvas Margin="4,6,-4,-6">
-                            <Label Padding="0" FontSize="16" FontStyle="Oblique" FontWeight="Bold" HorizontalAlignment="Center" Content="Плотность населения" Canvas.Left="89" Canvas.Top="-32"></Label>
-                            <TextBlock Padding="0"  Text="Текущий уровень" Canvas.Top="-5" RenderTransformOrigin="0.523,-0.36"/>
-                            <TextBlock Padding="0"  FontWeight="Medium" Text="0" Canvas.Left="138" Canvas.Top="-5" RenderTransformOrigin="0,0.54"></TextBlock>
-                            <TextBlock Padding="0"  Text="Нужно ученых" Canvas.Top="15"/>
-                            <TextBlock Padding="0"  FontWeight="Medium" Text="0" Canvas.Left="138" Canvas.Top="15"></TextBlock>
-                            <TextBox Text="1" HorizontalContentAlignment="Center" Padding="0" Canvas.Left="31" Canvas.Top="41" Width="81" IsReadOnly="True"></TextBox>
-                            <ProgressBar Padding="0" Foreground="Blue"  Value="{Binding ElementName=TB, Path=Text, StringFormat={}{0:0}}" Name="PB" Orientation="Vertical" Minimum="0" Maximum="100" Height="91" Width="52"  Canvas.Left="200"/>
-                            <TextBlock Text="{Binding ElementName=PB, Path=Value, StringFormat={}{0:0}%}" HorizontalAlignment="Center" VerticalAlignment="Center" Canvas.Left="215" Canvas.Top="32" />
-                            <TextBox Padding="0" Name="TB" Canvas.Left="257" Canvas.Top="64" Width="55" RenderTransformOrigin="0.5,0.5" Height="27"></TextBox>
-                            <TextBlock Padding="0" Text="Откроют в течении " Canvas.Top="70"/>
-                            <TextBlock Padding="0" Text="0 " Canvas.Left="148" Canvas.Top="70"></TextBlock>
-                            <TextBlock Padding="0" Text="лет." Canvas.Left="167" Canvas.Top="70"></TextBlock>
-                            <Button Content="За 1 год" Canvas.Left="257" Width="89"/>
-                            <Button Content="Max" Canvas.Left="304" Canvas.Top="32" Width="41"></Button>
-                            <Button Content="Min" Canvas.Left="257" Canvas.Top="32" Height="27" Width="42"></Button>
-                            <Button Content="+"  Canvas.Left="316" Canvas.Top="64" RenderTransformOrigin="-0.294,0.481"></Button>
-                            <Button Content="-"  Canvas.Left="333" Canvas.Top="64"></Button>
-                        </Canvas>
-                    </Border>
-
-                    <Border Grid.Column="1" Grid.Row="1"  BorderBrush="Gray" BorderThickness="2" Margin="0,18,6,0" CornerRadius="15" Grid.ColumnSpan="2">
-                        <Canvas Margin="4,6,-4,-6">
-                            <Label Padding="0" FontSize="16" FontStyle="Oblique" FontWeight="Bold" HorizontalAlignment="Center" Content="Денежная система" Canvas.Left="89" Canvas.Top="-32"></Label>
-                            <TextBlock Padding="0"  Text="Текущий уровень" Canvas.Top="-5" RenderTransformOrigin="0.523,-0.36"/>
-                            <TextBlock Padding="0"  FontWeight="Medium" Text="0" Canvas.Left="138" Canvas.Top="-5" RenderTransformOrigin="0,0.54"></TextBlock>
-                            <TextBlock Padding="0"  Text="Нужно ученых" Canvas.Top="15"/>
-                            <TextBlock Padding="0"  FontWeight="Medium" Text="0" Canvas.Left="138" Canvas.Top="15"></TextBlock>
-                            <TextBox Text="1" HorizontalContentAlignment="Center" Padding="0" Canvas.Left="31" Canvas.Top="41" Width="81" IsReadOnly="True"></TextBox>
-                            <ProgressBar Padding="0" Foreground="Blue"  Value="{Binding ElementName=TB1, Path=Text, StringFormat={}{0:0}}" Name="PB1" Orientation="Vertical" Minimum="0" Maximum="100" Height="91" Width="52"  Canvas.Left="200"/>
-                            <TextBlock Text="{Binding ElementName=PB1, Path=Value, StringFormat={}{0:0}%}" HorizontalAlignment="Center" VerticalAlignment="Center" Canvas.Left="215" Canvas.Top="32" />
-                            <TextBox Padding="0" Name="TB1" Canvas.Left="257" Canvas.Top="64" Width="55" RenderTransformOrigin="0.5,0.5" Height="27"></TextBox>
-                            <TextBlock Padding="0" Text="Откроют в течении " Canvas.Top="70"/>
-                            <TextBlock Padding="0" Text="0 " Canvas.Left="148" Canvas.Top="70"></TextBlock>
-                            <TextBlock Padding="0" Text="лет." Canvas.Left="167" Canvas.Top="70"></TextBlock>
-                            <Button Content="За 1 год" Canvas.Left="257" Width="89"/>
-                            <Button Content="Max" Canvas.Left="304" Canvas.Top="32" Width="41"></Button>
-                            <Button Content="Min" Canvas.Left="257" Canvas.Top="32" Height="27" Width="42"></Button>
-                            <Button Content="+"  Canvas.Left="316" Canvas.Top="64" RenderTransformOrigin="-0.294,0.481"></Button>
-                            <Button Content="-"  Canvas.Left="333" Canvas.Top="64"></Button>
-                        </Canvas>
-                    </Border>
-
-                    <Border Grid.Column="0" Grid.Row="2"  BorderBrush="Gray" BorderThickness="2" Margin="0,18,6,0" CornerRadius="15">
-                        <Canvas Margin="4,6,-4,-6">
-                            <Label Padding="0" FontSize="16" FontStyle="Oblique" FontWeight="Bold" HorizontalAlignment="Center" Content="Рост населения: " Canvas.Left="89" Canvas.Top="-32"></Label>
-                            <TextBlock Padding="0"  Text="Текущий уровень" Canvas.Top="-5" RenderTransformOrigin="0.523,-0.36"/>
-                            <TextBlock Padding="0"  FontWeight="Medium" Text="0" Canvas.Left="138" Canvas.Top="-5" RenderTransformOrigin="0,0.54"></TextBlock>
-                            <TextBlock Padding="0"  Text="Нужно ученых" Canvas.Top="15"/>
-                            <TextBlock Padding="0"  FontWeight="Medium" Text="0" Canvas.Left="138" Canvas.Top="15"></TextBlock>
-                            <TextBox Text="1" HorizontalContentAlignment="Center" Padding="0" Canvas.Left="31" Canvas.Top="41" Width="81" IsReadOnly="True"></TextBox>
-                            <ProgressBar Padding="0" Foreground="Red"  Value="{Binding ElementName=TB2, Path=Text, StringFormat={}{0:0}}" Name="PB2" Orientation="Vertical" Minimum="0" Maximum="100" Height="91" Width="52"  Canvas.Left="200"/>
-                            <TextBlock Text="{Binding ElementName=PB2, Path=Value, StringFormat={}{0:0}%}" HorizontalAlignment="Center" VerticalAlignment="Center" Canvas.Left="215" Canvas.Top="32" />
-                            <TextBox Padding="0" Name="TB2" Canvas.Left="257" Canvas.Top="64" Width="55" RenderTransformOrigin="0.5,0.5" Height="27"></TextBox>
-                            <TextBlock Padding="0" Text="Откроют в течении " Canvas.Top="70"/>
-                            <TextBlock Padding="0" Text="0 " Canvas.Left="148" Canvas.Top="70"></TextBlock>
-                            <TextBlock Padding="0" Text="лет." Canvas.Left="167" Canvas.Top="70"></TextBlock>
-                            <Button Content="За 1 год" Canvas.Left="257" Width="89"/>
-                            <Button Content="Max" Canvas.Left="304" Canvas.Top="32" Width="41"></Button>
-                            <Button Content="Min" Canvas.Left="257" Canvas.Top="32" Height="27" Width="42"></Button>
-                            <Button Content="+"  Canvas.Left="316" Canvas.Top="64" RenderTransformOrigin="-0.294,0.481"></Button>
-                            <Button Content="-"  Canvas.Left="333" Canvas.Top="64"></Button>
-                        </Canvas>
-                    </Border>
-
-                    <Border Grid.Column="1" Grid.Row="2"  BorderBrush="Gray" BorderThickness="2" Margin="0,18,6,0" CornerRadius="15" Grid.ColumnSpan="2">
-                        <Canvas Margin="4,6,-4,-6">
-                            <Label Padding="0" FontSize="16" FontStyle="Oblique" FontWeight="Bold" HorizontalAlignment="Center" Content="Военная мощь" Canvas.Left="89" Canvas.Top="-32"></Label>
-                            <TextBlock Padding="0"  Text="Текущий уровень" Canvas.Top="-5" RenderTransformOrigin="0.523,-0.36"/>
-                            <TextBlock Padding="0"  FontWeight="Medium" Text="0" Canvas.Left="138" Canvas.Top="-5" RenderTransformOrigin="0,0.54"></TextBlock>
-                            <TextBlock Padding="0"  Text="Нужно ученых" Canvas.Top="15"/>
-                            <TextBlock Padding="0"  FontWeight="Medium" Text="0" Canvas.Left="138" Canvas.Top="15"></TextBlock>
-                            <TextBox Text="1" HorizontalContentAlignment="Center" Padding="0" Canvas.Left="31" Canvas.Top="41" Width="81" IsReadOnly="True"></TextBox>
-                            <ProgressBar Padding="0" Foreground="Blue"  Value="{Binding ElementName=TB3, Path=Text, StringFormat={}{0:0}}" Name="PB3" Orientation="Vertical" Minimum="0" Maximum="100" Height="91" Width="52"  Canvas.Left="200"/>
-                            <TextBlock Text="{Binding ElementName=PB3, Path=Value, StringFormat={}{0:0}%}" HorizontalAlignment="Center" VerticalAlignment="Center" Canvas.Left="215" Canvas.Top="32" />
-                            <TextBox Padding="0" Name="TB3" Canvas.Left="257" Canvas.Top="64" Width="55" RenderTransformOrigin="0.5,0.5" Height="27"></TextBox>
-                            <TextBlock Padding="0" Text="Откроют в течении " Canvas.Top="70"/>
-                            <TextBlock Padding="0" Text="0 " Canvas.Left="148" Canvas.Top="70"></TextBlock>
-                            <TextBlock Padding="0" Text="лет." Canvas.Left="167" Canvas.Top="70"></TextBlock>
-                            <Button Content="За 1 год" Canvas.Left="257" Width="89"/>
-                            <Button Content="Max" Canvas.Left="304" Canvas.Top="32" Width="41"></Button>
-                            <Button Content="Min" Canvas.Left="257" Canvas.Top="32" Height="27" Width="42"></Button>
-                            <Button Content="+"  Canvas.Left="316" Canvas.Top="64" RenderTransformOrigin="-0.294,0.481"></Button>
-                            <Button Content="-"  Canvas.Left="333" Canvas.Top="64"></Button>
-                        </Canvas>
-                    </Border>
-
-                    <Border Grid.Column="0" Grid.Row="3"  BorderBrush="Gray" BorderThickness="2" Margin="0,18,6,0" CornerRadius="15">
-                        <Canvas Margin="4,6,-4,-6">
-                            <Label Padding="0" FontSize="16" FontStyle="Oblique" FontWeight="Bold" HorizontalAlignment="Center" Content="Сельское хозяйство" Canvas.Left="89" Canvas.Top="-32"></Label>
-                            <TextBlock Padding="0"  Text="Текущий уровень" Canvas.Top="-5" RenderTransformOrigin="0.523,-0.36"/>
-                            <TextBlock Padding="0"  FontWeight="Medium" Text="0" Canvas.Left="138" Canvas.Top="-5" RenderTransformOrigin="0,0.54"></TextBlock>
-                            <TextBlock Padding="0"  Text="Нужно ученых" Canvas.Top="15"/>
-                            <TextBlock Padding="0"  FontWeight="Medium" Text="0" Canvas.Left="138" Canvas.Top="15"></TextBlock>
-                            <TextBox Text="1" HorizontalContentAlignment="Center" Padding="0" Canvas.Left="31" Canvas.Top="41" Width="81" IsReadOnly="True"></TextBox>
-                            <ProgressBar Padding="0" Foreground="Blue"  Value="{Binding ElementName=TB4, Path=Text, StringFormat={}{0:0}}" Name="PB4" Orientation="Vertical" Minimum="0" Maximum="100" Height="91" Width="52"  Canvas.Left="200"/>
-                            <TextBlock Text="{Binding ElementName=PB4, Path=Value, StringFormat={}{0:0}%}" HorizontalAlignment="Center" VerticalAlignment="Center" Canvas.Left="215" Canvas.Top="32" />
-                            <TextBox Padding="0" Name="TB4" Canvas.Left="257" Canvas.Top="64" Width="55" RenderTransformOrigin="0.5,0.5" Height="27"></TextBox>
-                            <TextBlock Padding="0" Text="Откроют в течении " Canvas.Top="70"/>
-                            <TextBlock Padding="0" Text="0 " Canvas.Left="148" Canvas.Top="70"></TextBlock>
-                            <TextBlock Padding="0" Text="лет." Canvas.Left="167" Canvas.Top="70"></TextBlock>
-                            <Button Content="За 1 год" Canvas.Left="257" Width="89"/>
-                            <Button Content="Max" Canvas.Left="304" Canvas.Top="32" Width="41"></Button>
-                            <Button Content="Min" Canvas.Left="257" Canvas.Top="32" Height="27" Width="42"></Button>
-                            <Button Content="+"  Canvas.Left="316" Canvas.Top="64" RenderTransformOrigin="-0.294,0.481"></Button>
-                            <Button Content="-"  Canvas.Left="333" Canvas.Top="64"></Button>
-                        </Canvas>
-                    </Border>
-
-                    <Border Grid.Column="1" Grid.Row="3"  BorderBrush="Gray" BorderThickness="2" Margin="0,18,6,0" CornerRadius="15" Grid.ColumnSpan="2">
-                        <Canvas Margin="4,6,-4,-6">
-                            <Label Padding="0" FontSize="16" FontStyle="Oblique" FontWeight="Bold" HorizontalAlignment="Center" Content="Научный потенциал" Canvas.Left="89" Canvas.Top="-32"></Label>
-                            <TextBlock Padding="0"  Text="Текущий уровень" Canvas.Top="-5" RenderTransformOrigin="0.523,-0.36"/>
-                            <TextBlock Padding="0"  FontWeight="Medium" Text="0" Canvas.Left="138" Canvas.Top="-5" RenderTransformOrigin="0,0.54"></TextBlock>
-                            <TextBlock Padding="0"  Text="Нужно ученых" Canvas.Top="15"/>
-                            <TextBlock Padding="0"  FontWeight="Medium" Text="0" Canvas.Left="138" Canvas.Top="15"></TextBlock>
-                            <TextBox Text="1" HorizontalContentAlignment="Center" Padding="0" Canvas.Left="31" Canvas.Top="41" Width="81" IsReadOnly="True"></TextBox>
-                            <ProgressBar Padding="0" Foreground="Blue"  Value="{Binding ElementName=TB5, Path=Text, StringFormat={}{0:0}}" Name="PB5" Orientation="Vertical" Minimum="0" Maximum="100" Height="91" Width="52"  Canvas.Left="200"/>
-                            <TextBlock Text="{Binding ElementName=PB5, Path=Value, StringFormat={}{0:0}%}" HorizontalAlignment="Center" VerticalAlignment="Center" Canvas.Left="215" Canvas.Top="32" />
-                            <TextBox Padding="0" Name="TB5" Canvas.Left="257" Canvas.Top="64" Width="55" RenderTransformOrigin="0.5,0.5" Height="27"></TextBox>
-                            <TextBlock Padding="0" Text="Откроют в течении " Canvas.Top="70"/>
-                            <TextBlock Padding="0" Text="0 " Canvas.Left="148" Canvas.Top="70"></TextBlock>
-                            <TextBlock Padding="0" Text="лет." Canvas.Left="167" Canvas.Top="70"></TextBlock>
-                            <Button Content="За 1 год" Canvas.Left="257" Width="89"/>
-                            <Button Content="Max" Canvas.Left="304" Canvas.Top="32" Width="41"></Button>
-                            <Button Content="Min" Canvas.Left="257" Canvas.Top="32" Height="27" Width="42"></Button>
-                            <Button Content="+"  Canvas.Left="329" Canvas.Top="64"></Button>
-                            <Button Content="-"  Canvas.Left="317" Canvas.Top="64"></Button>
-                        </Canvas>
-                    </Border>
-
-                </Grid>
-            </TabItem>
-
-            <TabItem Header="Границы">
-                <Grid>
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="109*" />
-                        <ColumnDefinition Width="135*" />
-                        <ColumnDefinition Width="122*" />
-                    </Grid.ColumnDefinitions>
-                    <Grid.RowDefinitions>
-                        <RowDefinition />
-                        <RowDefinition />
-                        <RowDefinition />
-                    </Grid.RowDefinitions>
-
-                    <Rectangle Grid.ColumnSpan="3" Grid.RowSpan="3">
-                        <Rectangle.Fill>
-                            <LinearGradientBrush>
-                                <GradientStop Color="LightBlue" Offset="0"></GradientStop>
-                                <GradientStop Color="LightGray" Offset="0.5"></GradientStop>
-                                <GradientStop Color="Gray" Offset="0.9"></GradientStop>
-                            </LinearGradientBrush>
-                        </Rectangle.Fill>
-                    </Rectangle>
-
-                    <StackPanel  Grid.Column="0" Grid.Row="0" Grid.RowSpan="2" >
-                        <GroupBox Height="84">
+                        <GroupBox Grid.Column="0" Grid.Row="2" Grid.ColumnSpan="4">
                             <Canvas>
-                                <TextBlock FontWeight="Bold" FontSize="16" Text="Солдат в защите:" Canvas.Top="10" Canvas.Left="3"/>
-                                <TextBlock Text="100" Foreground="DarkRed" FontWeight="Bold" Canvas.Left="148" Canvas.Top="10" RenderTransformOrigin="1.058,0.619" Width="48"></TextBlock>
-                                <Button FontWeight="Bold" Foreground="DarkRed" Content="Отдыхать" Canvas.Left="121" Canvas.Top="36"></Button>
+                                <DataGrid>
+                                    <DataGrid.Columns>
+                                        <DataGridTextColumn  Header="Имя"/>
+                                        <DataGridTextColumn Header="Возраст"/>
+                                        <DataGridTextColumn Header="Скорость"/>
+                                        <DataGridTextColumn Header="Дух"/>
+                                        <DataGridTextColumn Header="Приказ"/>
+                                        <DataGridTextColumn Header="Солдаты"/>
+                                    </DataGrid.Columns>
+                                </DataGrid>
                             </Canvas>
                         </GroupBox>
-                        <GroupBox Height="270">
-                            <Canvas>
 
+                        <Border Grid.Column="2" Grid.Row="0" Grid.ColumnSpan="2" Grid.RowSpan="2" >
+                            <Canvas Name="canvas" Background="LightBlue" Height="356">
+                                <Path Stretch="Fill" Fill="Red"  Stroke="Black"  StrokeThickness="5"  Data="M 0,0 A 170,170 170 1 1 1,1 Z" Canvas.Left="88" Canvas.Top="10"/>
                             </Canvas>
-                        </GroupBox>
-                    </StackPanel >
+                        </Border>
+                    </Grid>
+                </TabItem>
 
-                    <GroupBox Grid.Column="0" Grid.Row="2" Grid.ColumnSpan="3">
-                        <Canvas>
-                            <DataGrid>
-                                <DataGrid.Columns>
-                                    <DataGridTextColumn  Header="Имя"/>
-                                    <DataGridTextColumn Header="Возраст"/>
-                                    <DataGridTextColumn Header="Скорость"/>
-                                    <DataGridTextColumn Header="Дух"/>
-                                    <DataGridTextColumn Header="Приказ"/>
-                                    <DataGridTextColumn Header="Солдаты"/>
-                                </DataGrid.Columns>
-                            </DataGrid>
-                        </Canvas>
-                    </GroupBox>
+                <TabItem Header="Ганералы">
+                    <Grid >
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="298*" />
+                            <ColumnDefinition Width="217*" />
+                            <ColumnDefinition Width="217*" />
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="95*" />
+                            <RowDefinition Height="438*" />
+                        </Grid.RowDefinitions>
 
+                        <Rectangle Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="3" Grid.RowSpan="2" Margin="-5,-58,-5,-5">
+                            <Rectangle.Fill>
+                                <LinearGradientBrush>
+                                    <GradientStop Color="LightBlue" Offset="0"></GradientStop>
+                                    <GradientStop Color="LightGray" Offset="0.5"></GradientStop>
+                                    <GradientStop Color="Gray" Offset="0.9"></GradientStop>
+                                </LinearGradientBrush>
+                            </Rectangle.Fill>
+                        </Rectangle>
 
-
-                    <!--<Polygon Points="0 0 0 178 244 178 244 0"  Fill="Red" ></Polygon>
-                            <Polygon Points="244 0 488 0 488 178 244 178"  Fill="Blue" ></Polygon>
-                            <Polygon Points="0 178 244 178 244 356 0 356"  Fill="Green" ></Polygon>
-                            <Polygon Points=" 244 178 488 178 488 356 244 356"  Fill="Yellow" ></Polygon>-->
-
-                    <Border Grid.Column="1" Grid.Row="0" Grid.ColumnSpan="2" Grid.RowSpan="2" >
-                        <Canvas Name="canvas" Background="LightBlue" Height="356">
-
-                            <Path Stretch="Fill" Fill="Red"  Stroke="Black"  StrokeThickness="5"  Data="M 0,0 A 170,170 170 1 1 1,1 Z" Canvas.Left="88" Canvas.Top="10"/>
-
-                        </Canvas>
-
-                    </Border>
-                </Grid>
-            </TabItem>
-
-            <TabItem Header="Ганералы">
-                <Grid >
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="298*" />
-                        <ColumnDefinition Width="217*" />
-                        <ColumnDefinition Width="217*" />
-                    </Grid.ColumnDefinitions>
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="95*" />
-                        <RowDefinition Height="438*" />
-                    </Grid.RowDefinitions>
-
-                    <Rectangle Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="3" Grid.RowSpan="2">
-                        <Rectangle.Fill>
-                            <LinearGradientBrush>
-                                <GradientStop Color="LightBlue" Offset="0"></GradientStop>
-                                <GradientStop Color="LightGray" Offset="0.5"></GradientStop>
-                                <GradientStop Color="Gray" Offset="0.9"></GradientStop>
-                            </LinearGradientBrush>
-                        </Rectangle.Fill>
-                    </Rectangle>
-
-                    <TextBlock Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="3" Text="Здесь вы можете нанять себе генерала !"
+                        <TextBlock Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="3" Text="Здесь вы можете нанять себе генерала !"
                         Foreground="DarkBlue" FontSize="32" FontStyle="Oblique" FontWeight="Bold" HorizontalAlignment="Center" VerticalAlignment="Center" Height="37" Margin="53,26,10,32" Width="669"     
                                ></TextBlock>
 
-                    <Image Grid.Column="0" Grid.Row="1" Margin="10"></Image>
+                        <Image Grid.Column="0" Grid.Row="1" Margin="10" Source="C:\Users\student.STEP\Source\Repos\GeneralsGame\GeneralsClient\Pictures\image_general.jpg"></Image>
 
-                    <GroupBox Grid.Column="1" Grid.Row="1" Margin="10,0,10,10" Padding="0 30 0 10 ">
-                        <StackPanel Margin="0 10 0 0">
+                        <GroupBox Grid.Column="1" Grid.Row="1" Margin="10,0,10,10" Padding="0 30 0 10 ">
+                            <StackPanel Margin="0 10 0 0">
+                                <Border Height="100" BorderBrush="Black" BorderThickness="2" CornerRadius="15">
+                                    <Canvas>
+                                        <TextBlock Text="15" FontSize="16" Canvas.Left="10" Canvas.Top="19"/>
+                                        <TextBlock FontWeight="Bold" Text="Возраст" Canvas.Left="59" Canvas.Top="10"/>
+                                        <TextBlock Text="60" Canvas.Left="154" Canvas.Top="19"/>
+                                        <Slider Padding="0" AutoToolTipPrecision="0" AutoToolTipPlacement="TopLeft" Height="26" Width="160" Maximum="60" Minimum="15" TickPlacement="TopLeft"  x:Name="s_age" Canvas.Left="11" Canvas.Top="40" />
+                                        <TextBlock Foreground="Blue" Text="{Binding Value, ElementName=s_age, StringFormat=\{0:0\}, UpdateSourceTrigger=PropertyChanged}" Canvas.Left="80" Canvas.Top="66"/>
+                                    </Canvas>
+                                </Border>
 
-                            <Border Height="100" BorderBrush="Black" BorderThickness="2" CornerRadius="15">
-                                <Canvas>
-                                    <TextBlock Text="15" FontSize="16" Canvas.Left="10" Canvas.Top="19"/>
-                                    <TextBlock FontWeight="Bold" Text="Возраст" Canvas.Left="59" Canvas.Top="10"/>
-                                    <TextBlock Text="60" Canvas.Left="154" Canvas.Top="19"/>
-                                    <Slider Padding="0" AutoToolTipPrecision="0" AutoToolTipPlacement="TopLeft" Height="26" Width="160" Maximum="60" Minimum="15" TickPlacement="TopLeft"  x:Name="s_age" Canvas.Left="11" Canvas.Top="40" />
-                                    <TextBlock Foreground="Blue" Text="{Binding Value, ElementName=s_age, StringFormat=\{0:0\}, UpdateSourceTrigger=PropertyChanged}" Canvas.Left="80" Canvas.Top="66"/>
-                                </Canvas>
-                            </Border>
+                                <Border Height="100" BorderBrush="Black" BorderThickness="2" CornerRadius="15" Margin="0 20 0 0">
+                                    <Canvas>
+                                        <TextBlock Text="1" FontSize="16" Canvas.Left="10" Canvas.Top="19"/>
+                                        <TextBlock FontWeight="Bold" Text="Мастерство" Canvas.Left="40" Canvas.Top="10"/>
+                                        <TextBlock Text="30" Canvas.Left="154" Canvas.Top="19"/>
+                                        <Slider Padding="0" AutoToolTipPrecision="0" AutoToolTipPlacement="TopLeft" Height="26" Width="160" Maximum="30" Minimum="1" TickPlacement="TopLeft"  x:Name="s_master" Canvas.Left="11" Canvas.Top="40" />
+                                        <TextBlock Foreground="Blue" Text="{Binding Value, ElementName=s_master, StringFormat=\{0:0\}, UpdateSourceTrigger=PropertyChanged}" Canvas.Left="80" Canvas.Top="66"/>
+                                    </Canvas>
+                                </Border>
 
-                            <Border Height="100" BorderBrush="Black" BorderThickness="2" CornerRadius="15" Margin="0 20 0 0">
-                                <Canvas>
-                                    <TextBlock Text="1" FontSize="16" Canvas.Left="10" Canvas.Top="19"/>
-                                    <TextBlock FontWeight="Bold" Text="Мастерство" Canvas.Left="40" Canvas.Top="10"/>
-                                    <TextBlock Text="30" Canvas.Left="154" Canvas.Top="19"/>
-                                    <Slider Padding="0" AutoToolTipPrecision="0" AutoToolTipPlacement="TopLeft" Height="26" Width="160" Maximum="30" Minimum="1" TickPlacement="TopLeft"  x:Name="s_master" Canvas.Left="11" Canvas.Top="40" />
-                                    <TextBlock Foreground="Blue" Text="{Binding Value, ElementName=s_master, StringFormat=\{0:0\}, UpdateSourceTrigger=PropertyChanged}" Canvas.Left="80" Canvas.Top="66"/>
-                                </Canvas>
-                            </Border>
+                                <Border Height="100" BorderBrush="Black" BorderThickness="2" CornerRadius="15" Margin="0 20 0 0">
+                                    <Canvas>
+                                        <TextBlock Text="1" FontSize="16" Canvas.Left="10" Canvas.Top="19"/>
+                                        <TextBlock FontWeight="Bold" Text="Скорость" Canvas.Left="52" Canvas.Top="10"/>
+                                        <TextBlock Text="100" Canvas.Left="145" Canvas.Top="19" RenderTransformOrigin="0.077,0.619"/>
+                                        <Slider Padding="0" AutoToolTipPrecision="0" AutoToolTipPlacement="TopLeft" Height="26" Width="160" Maximum="100" Minimum="1" TickPlacement="TopLeft"  x:Name="s_speed" Canvas.Left="11" Canvas.Top="40" />
+                                        <TextBlock Foreground="Blue" Text="{Binding Value, ElementName=s_speed, StringFormat=\{0:0\}, UpdateSourceTrigger=PropertyChanged}" Canvas.Left="80" Canvas.Top="66"/>
+                                    </Canvas>
+                                </Border>
 
-                            <Border Height="100" BorderBrush="Black" BorderThickness="2" CornerRadius="15" Margin="0 20 0 0">
-                                <Canvas>
-                                    <TextBlock Text="1" FontSize="16" Canvas.Left="10" Canvas.Top="19"/>
-                                    <TextBlock FontWeight="Bold" Text="Скорость" Canvas.Left="52" Canvas.Top="10"/>
-                                    <TextBlock Text="100" Canvas.Left="145" Canvas.Top="19" RenderTransformOrigin="0.077,0.619"/>
-                                    <Slider Padding="0" AutoToolTipPrecision="0" AutoToolTipPlacement="TopLeft" Height="26" Width="160" Maximum="100" Minimum="1" TickPlacement="TopLeft"  x:Name="s_speed" Canvas.Left="11" Canvas.Top="40" />
-                                    <TextBlock Foreground="Blue" Text="{Binding Value, ElementName=s_speed, StringFormat=\{0:0\}, UpdateSourceTrigger=PropertyChanged}" Canvas.Left="80" Canvas.Top="66"/>
-                                </Canvas>
-                            </Border>
-                        </StackPanel>
-                    </GroupBox>
+                            </StackPanel>
+                        </GroupBox>
 
-                    <GroupBox Grid.Column="2" Grid.Row="1" Margin="0,0,0,10">
-                        <StackPanel Margin="0,10,0,4">
-                            <TextBlock Margin="0 50 0 0" Text="Имя генерала" FontWeight="Bold" HorizontalAlignment="Center"></TextBlock>
-                            <TextBox Margin="15,10,15,0"></TextBox>
-                            <TextBlock Margin="0 45 0 0" Text="Такой генерал обойдеться вам в: " FontWeight="Bold" HorizontalAlignment="Center" TextWrapping = "Wrap" TextAlignment="Center"></TextBlock>
-                            <TextBlock Margin="15 10 15 0" Text="123456" FontSize="42" FontWeight="Bold" Foreground="DarkRed" HorizontalAlignment="Center" TextAlignment="Center"></TextBlock>
-                            <Button Margin="15 10 15 0" Height="114">
-                                <Button.Background>
-                                    <ImageBrush ImageSource="\Pictures\image_general.jpg"/>
-                                </Button.Background>
-                                <TextBlock Text="Нанимаем" FontWeight="Bold"/>
-                            </Button>
-                            <!--<Border Height="152">
-                                <GroupBox Margin="0">
-                                    <StackPanel>
-                                        <Image Margin="15 10 15 0" Source="\Pictures\image_general.jpg" Height="100" Width="175" Canvas.Left="15" Canvas.Top="10"></Image>
-                                        <Button Margin="15 5 15 0" Content="Нанимаем"/>
-                                    </StackPanel>
-                                </GroupBox>
-                            </Border>-->
-                        </StackPanel>
-                    </GroupBox>
-
-
-
-
-
-                </Grid>
-
-            </TabItem>
-        </TabControl>
-
+                        <GroupBox Grid.Column="2" Grid.Row="1" Margin="0,0,0,10">
+                            <StackPanel Margin="0,10,0,4">
+                                <TextBlock Margin="0 50 0 0" Text="Имя генерала" FontWeight="Bold" HorizontalAlignment="Center"></TextBlock>
+                                <TextBox Margin="15,10,15,0"></TextBox>
+                                <TextBlock Margin="0 45 0 0" Text="Такой генерал обойдеться вам в: " FontWeight="Bold" HorizontalAlignment="Center" TextWrapping = "Wrap" TextAlignment="Center"></TextBlock>
+                                <TextBlock Margin="15 10 15 0" Text="123456" FontSize="42" FontWeight="Bold" Foreground="DarkRed" HorizontalAlignment="Center" TextAlignment="Center"></TextBlock>
+                                <Button Margin="15 10 15 0" Height="114">
+                                    <Button.Background>
+                                        <ImageBrush ImageSource="C:\Users\student.STEP\Source\Repos\GeneralsGame\GeneralsClient\Pictures\image_general.jpg"/>
+                                    </Button.Background>
+                                    <TextBlock Text="Нанимаем" FontWeight="Bold"/>
+                                </Button>
+                            </StackPanel>
+                        </GroupBox>
+                    </Grid>
+                </TabItem>
+            </TabControl>
+        </DockPanel>
     </Grid>
+    
 </Window>
     
     
