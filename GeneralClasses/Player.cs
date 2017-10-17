@@ -9,6 +9,8 @@ namespace GeneralClasses
     public class Player
     {
         string _Name;
+        public bool IsFinished;
+
         public string Name
         {
             get
@@ -20,6 +22,11 @@ namespace GeneralClasses
         public Player(string Name)
         {
             _Name = Name;
+        }
+
+        public bool IsFinish()
+        {
+            throw new NotImplementedException();
         }
     }
 }
