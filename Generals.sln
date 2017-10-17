@@ -9,8 +9,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GeneralsClient", "GeneralsC
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GeneralClasses", "GeneralClasses\GeneralClasses.csproj", "{E1867B2B-47FB-4EDA-8707-BA2042B9FC5C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Database", "..\..\C# Project\GeneralsGame-master\DataBase\Database.csproj", "{0B35477A-BA1B-4617-AAA2-50B3A766E77B}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -29,10 +27,6 @@ Global
 		{E1867B2B-47FB-4EDA-8707-BA2042B9FC5C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E1867B2B-47FB-4EDA-8707-BA2042B9FC5C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E1867B2B-47FB-4EDA-8707-BA2042B9FC5C}.Release|Any CPU.Build.0 = Release|Any CPU
-		{0B35477A-BA1B-4617-AAA2-50B3A766E77B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{0B35477A-BA1B-4617-AAA2-50B3A766E77B}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{0B35477A-BA1B-4617-AAA2-50B3A766E77B}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{0B35477A-BA1B-4617-AAA2-50B3A766E77B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
