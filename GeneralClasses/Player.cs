@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace GeneralClasses
 {
-    class Player
+    public class Player
     {
         string _Name;
         public string Name

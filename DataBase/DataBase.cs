@@ -7,11 +7,11 @@ using System.Data.SQLite;
 using System.Security.Cryptography;
 using System.Data;
 
-namespace Database
+namespace DataBase
 {
-    public class DataBase
+    public class DB
     {
-        public DataBase(){}
+        public DB() { }
         //Создание базы данных
         public void Create_DataBase()
         {
@@ -55,7 +55,7 @@ namespace Database
             byte[] inputbytes = Encoding.ASCII.GetBytes(password);
             byte[] hashbytes = md5.ComputeHash(inputbytes);
             StringBuilder strBuild = new StringBuilder();
-            for(int i = 0; i < hashbytes.Length; i++)
+            for (int i = 0; i < hashbytes.Length; i++)
                 strBuild.Append(hashbytes[i].ToString("X2"));
             string result = strBuild.ToString();
             SQLiteConnection sql_con = new SQLiteConnection("Data Source=TestDB.db;Version=3;");

@@ -3,9 +3,14 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:engineLogine="clr-namespace:GeneralsClient.ViewModel"
         xmlns:local="clr-namespace:GeneralsClient.View"
         mc:Ignorable="d"
+        
         Title="Вход" Height="199.824" Width="267.543">
+    <Window.DataContext>
+        <engineLogine:LoginEngine></engineLogine:LoginEngine>
+    </Window.DataContext>
     <Grid>
 
         <Rectangle>
@@ -21,11 +26,13 @@
 
         <Canvas>
             <TextBlock Text="Логин" FontWeight="Bold" Canvas.Left="45" Canvas.Top="31"></TextBlock>
-            <TextBox Width="100" Canvas.Left="103" Canvas.Top="25"></TextBox>
-            <TextBlock Text="Пароль" FontWeight="Bold" Canvas.Left="37" Canvas.Top="65"></TextBlock>
-            <TextBox Width="100" Canvas.Left="103" Canvas.Top="59"></TextBox>
-            <Button Content="Зарегестрироваться" FontWeight="Bold" Canvas.Left="10" Canvas.Top="106" Width="130" Height="32"></Button>
-            <Button Content="Играть" FontWeight="Bold" Canvas.Left="181" Canvas.Top="106" Height="32" Width="59" ></Button>
+            <TextBox Width="100" Canvas.Left="103" Canvas.Top="25" Text="{Binding PlayerLogin }"></TextBox>
+            <TextBlock Text="Пароль" FontWeight="Bold" Canvas.Left="37" Canvas.Top="65" ></TextBlock>
+            <TextBox Width="100" Canvas.Left="103" Canvas.Top="59" Text="{Binding Password, Mode=OneWayToSource}"></TextBox>
+            <Button Content="Зарегестрироваться" FontWeight="Bold" Canvas.Left="10" Canvas.Top="106" Width="130" Height="32" 
+                    Command="{Binding Registr}"></Button>
+            <Button Content="Играть" FontWeight="Bold" Canvas.Left="181" Canvas.Top="106" Height="32" Width="59"
+                    Command="{Binding Authorize}"></Button>
         </Canvas>
     </Grid>
 </Window>
