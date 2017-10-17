@@ -6,8 +6,6 @@
         xmlns:engine="clr-namespace:GeneralsClient.ViewModel"
         xmlns:local="clr-namespace:GeneralsClient"
         mc:Ignorable="d"
-
-
         Title="MainWindow" Height="631" Width="760">
     <Window.DataContext>
         <engine:Engine></engine:Engine>
@@ -101,7 +99,7 @@
                                 <TextBlock Padding="0"  Width="79" Height="22" Text="{Binding ElementName=s0, Path=Value, UpdateSourceTrigger=PropertyChanged, StringFormat={}{0:0}}" Canvas.Left="93" Canvas.Top="52"/>
                                 <Label Padding="0" Content="Стоимость" FontSize="14" FontStyle="Oblique" FontWeight="Bold" HorizontalAlignment="Left" Height="18" Width="87" Canvas.Top="80"></Label>
                                 <TextBlock Padding="0" Width="80" Height="18" Text="{Binding ElementName=s0, Path=Value, UpdateSourceTrigger=PropertyChanged, StringFormat={}{0:0}}" Canvas.Left="93" Canvas.Top="79"/>
-                                <Button Content="OK" FontWeight="Bold" Canvas.Left="179" Canvas.Top="54" Click="Button_Click">
+                                <Button Content="OK" FontWeight="Bold" Canvas.Left="179" Canvas.Top="54">
                                     <Button.Template>
                                         <ControlTemplate TargetType="Button">
                                             <Grid Height="44" Width="44" RenderTransformOrigin="0.231,0.455">

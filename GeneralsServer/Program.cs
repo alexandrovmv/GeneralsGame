@@ -5,6 +5,8 @@ using System.Linq;
 using System.ServiceModel;
 using System.Text;
 using System.Threading.Tasks;
+using DataBase;
+using System.IO;
 
 namespace General
 {
@@ -27,12 +29,15 @@ namespace General
             int GetCount();
             [OperationContract]
             void AddUser(string name);
+            [OperationContract]
+            void Registr(string login, string password);
+            [OperationContract]
+            bool Autorise(string login, string password);
 
         }
         public class Game : IGeneral
         {
-
-
+            DB database { get; set; }
             static List<Player> _Players { get; set; }
             public List<Player> Players
             {
@@ -93,11 +98,24 @@ namespace General
                
             }
 
+            public void Registr(string login, string password)
+            {
+                database = new DB();
+                database.Add_User(login, password);
+            }
 
+            public bool Autorise(string login, string password)
+            {
+                database = new DB();
+                return database.Authorization(login, password);
+            }
         }
         static void Main(string[] args)
         {
-
+            DataBase.DB db = new DB();
+            if (!File.Exists("TestDB.db")) {
+                db.Create_DataBase();
+            }
             ServiceHost host = new ServiceHost(typeof(Game));
             host.Open();
             Console.WriteLine("Service is on");

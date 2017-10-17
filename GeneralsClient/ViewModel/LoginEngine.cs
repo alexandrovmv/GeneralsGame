@@ -1,4 +1,6 @@
-﻿using System;
+﻿using GeneralsClient.Model;
+using GeneralsClient.ServiceReference1;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -28,7 +30,12 @@ namespace GeneralsClient.ViewModel
                 if (_Authorize == null)
                 {
                     _Authorize = new RelayCommand(
-                        x => { MessageBox.Show(PlayerLogin); }
+                        x => { bool result = InterClass.gc.Autorise(PlayerLogin, Password);
+                            if (result)
+                                MessageBox.Show("Success");
+                            else
+                                MessageBox.Show("Error");
+                        }
                         );
                 }
                 return _Authorize;
@@ -43,11 +50,13 @@ namespace GeneralsClient.ViewModel
                 {
                     _Registr = new RelayCommand(
                         x => {
-                            MessageBox.Show(Password); }
+                            InterClass.gc.Registr(PlayerLogin, Password);
+                             }
                         );
                 }
                 return _Registr;
             }
         }
+        public LoginEngine() { }
     }
 }

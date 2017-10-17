@@ -69,6 +69,18 @@
   <wsdl:message name="IGeneral_AddUser_OutputMessage">
     <wsdl:part name="parameters" element="tns:AddUserResponse" />
   </wsdl:message>
+  <wsdl:message name="IGeneral_Registr_InputMessage">
+    <wsdl:part name="parameters" element="tns:Registr" />
+  </wsdl:message>
+  <wsdl:message name="IGeneral_Registr_OutputMessage">
+    <wsdl:part name="parameters" element="tns:RegistrResponse" />
+  </wsdl:message>
+  <wsdl:message name="IGeneral_Autorise_InputMessage">
+    <wsdl:part name="parameters" element="tns:Autorise" />
+  </wsdl:message>
+  <wsdl:message name="IGeneral_Autorise_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AutoriseResponse" />
+  </wsdl:message>
   <wsdl:portType name="IGeneral">
     <wsdl:operation name="ReName">
       <wsdl:input wsaw:Action="http://tempuri.org/IGeneral/ReName" message="tns:IGeneral_ReName_InputMessage" />
@@ -89,6 +101,14 @@
     <wsdl:operation name="AddUser">
       <wsdl:input wsaw:Action="http://tempuri.org/IGeneral/AddUser" message="tns:IGeneral_AddUser_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IGeneral/AddUserResponse" message="tns:IGeneral_AddUser_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Registr">
+      <wsdl:input wsaw:Action="http://tempuri.org/IGeneral/Registr" message="tns:IGeneral_Registr_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IGeneral/RegistrResponse" message="tns:IGeneral_Registr_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Autorise">
+      <wsdl:input wsaw:Action="http://tempuri.org/IGeneral/Autorise" message="tns:IGeneral_Autorise_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IGeneral/AutoriseResponse" message="tns:IGeneral_Autorise_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="endpoint1" type="tns:IGeneral">
@@ -133,6 +153,24 @@
     </wsdl:operation>
     <wsdl:operation name="AddUser">
       <soap12:operation soapAction="http://tempuri.org/IGeneral/AddUser" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Registr">
+      <soap12:operation soapAction="http://tempuri.org/IGeneral/Registr" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Autorise">
+      <soap12:operation soapAction="http://tempuri.org/IGeneral/Autorise" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>
