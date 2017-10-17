@@ -1,67 +1,109 @@
-﻿using System;
+﻿using GeneralClasses;
+using System;
 using System.Collections.Generic;
-using System.IO;
 using System.Linq;
-using System.Net;
-using System.Net.Sockets;
+using System.ServiceModel;
 using System.Text;
-using System.Threading;
 using System.Threading.Tasks;
 
-namespace GeneralsServer
+namespace General
 {
-
-    [Serializable]
-    class Some
-    {
-        public string Text { get; set; }
-        public DateTime Date { get; set; }
-    }
     class Program
     {
-        const int port = 20001;
-        static void Main(string[] args)
-        {
-            Console.WriteLine("Это сервер");
-            IPAddress address = IPAddress.Parse("127.0.0.1");
-            IPEndPoint endpoint = new IPEndPoint(address, 11000);
-            TcpListener listener = new TcpListener(endpoint);
-            listener.Start();
-            Console.WriteLine("Ожидаем подключения...");
-            while (true)
-            {
-                TcpClient Handler = listener.AcceptTcpClient();
+        [ServiceContract]
 
-                Console.WriteLine("Подключен");
-                Thread t = new Thread(Handle);
-                t.IsBackground = true;
-                t.Start(Handler);
-            }
+        public interface IGeneral
+        {
+
+            [OperationContract]
+            void ReName(string Oldname, string NewName);
+            [OperationContract]
+            void FinishRound(string name);
+
+            //  List<Player> Players { get; set; }
+            [OperationContract]
+            bool IsFinish();
+            [OperationContract]
+            int GetCount();
+            [OperationContract]
+            void AddUser(string name);
 
         }
-        static void Handle(object parameter)
+        public class Game : IGeneral
         {
-            TcpClient client = (TcpClient)parameter;
-            NetworkStream sr = client.GetStream();
-            StreamReader srr = new StreamReader(sr);
-            while (true)
+
+
+            static List<Player> _Players { get; set; }
+            public List<Player> Players
             {
-                //byte[] bytes = new byte[500];
-                //sr.Read(bytes, 0, 500);
-                //string s = Encoding.Unicode.GetString(bytes);
-
-                string s = srr.ReadLine();
-                Console.WriteLine(s);
-                if (s == "exit")
+                get
                 {
+                    return _Players;
+                }
 
-                    sr.Close();
-                    client.Close();
-                    break;
+                set
+                {
+                    _Players = value;
+                }
+            }
+
+            public void AddUser(string name)
+            {
+                Players.Add(new Player(name));
+
+            }
+            public Game()
+            {
+
+                if (Players == null)
+                {
+                    Players = new List<Player>();
+
                 }
 
             }
+            public int GetCount()
+            {
 
+                return _Players.Count();
+            }
+            public bool IsFinish()
+            {
+
+                foreach (Player p in _Players)
+                {
+
+                    if (!p.IsFinished) return false;
+                }
+
+                return true;
+            }
+
+            public void ReName(string Oldname, string NewName)
+            {
+                Player q = Players.Find(x => x.Name == Oldname);
+               q.Name = NewName;
+           
+
+            }
+
+            public void FinishRound(string name)
+            {
+                Player SelectedPalyer = Players.Find(x => x.Name == name);
+               
+            }
+
+
+        }
+        static void Main(string[] args)
+        {
+
+            ServiceHost host = new ServiceHost(typeof(Game));
+            host.Open();
+            Console.WriteLine("Service is on");
+            Console.ReadKey();
+            host.Close();
+            Console.WriteLine("Service is off");
         }
     }
 }
