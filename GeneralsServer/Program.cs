@@ -82,7 +82,8 @@ namespace General
             public void ReName(string Oldname, string NewName)
             {
                 Player q = Players.Find(x => x.Name == Oldname);
-              //  q.Name = NewName;
+               q.Name = NewName;
+           
 
             }
 

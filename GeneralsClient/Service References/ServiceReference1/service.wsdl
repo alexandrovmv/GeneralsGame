@@ -1,0 +1,155 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="Game" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsp:Policy wsu:Id="endpoint1_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <msb:BinaryEncoding xmlns:msb="http://schemas.microsoft.com/ws/06/2004/mspolicy/netbinary1">
+        </msb:BinaryEncoding>
+        <sp:TransportBinding xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <wsp:Policy>
+            <sp:TransportToken>
+              <wsp:Policy>
+                <msf:WindowsTransportSecurity xmlns:msf="http://schemas.microsoft.com/ws/2006/05/framing/policy">
+                  <msf:ProtectionLevel>EncryptAndSign</msf:ProtectionLevel>
+                </msf:WindowsTransportSecurity>
+              </wsp:Policy>
+            </sp:TransportToken>
+            <sp:AlgorithmSuite>
+              <wsp:Policy>
+                <sp:Basic256>
+                </sp:Basic256>
+              </wsp:Policy>
+            </sp:AlgorithmSuite>
+            <sp:Layout>
+              <wsp:Policy>
+                <sp:Strict>
+                </sp:Strict>
+              </wsp:Policy>
+            </sp:Layout>
+          </wsp:Policy>
+        </sp:TransportBinding>
+        <wsaw:UsingAddressing>
+        </wsaw:UsingAddressing>
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import namespace="http://tempuri.org/" />
+      <xsd:import namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="IGeneral_ReName_InputMessage">
+    <wsdl:part name="parameters" element="tns:ReName" />
+  </wsdl:message>
+  <wsdl:message name="IGeneral_ReName_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ReNameResponse" />
+  </wsdl:message>
+  <wsdl:message name="IGeneral_FinishRound_InputMessage">
+    <wsdl:part name="parameters" element="tns:FinishRound" />
+  </wsdl:message>
+  <wsdl:message name="IGeneral_FinishRound_OutputMessage">
+    <wsdl:part name="parameters" element="tns:FinishRoundResponse" />
+  </wsdl:message>
+  <wsdl:message name="IGeneral_IsFinish_InputMessage">
+    <wsdl:part name="parameters" element="tns:IsFinish" />
+  </wsdl:message>
+  <wsdl:message name="IGeneral_IsFinish_OutputMessage">
+    <wsdl:part name="parameters" element="tns:IsFinishResponse" />
+  </wsdl:message>
+  <wsdl:message name="IGeneral_GetCount_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetCount" />
+  </wsdl:message>
+  <wsdl:message name="IGeneral_GetCount_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetCountResponse" />
+  </wsdl:message>
+  <wsdl:message name="IGeneral_AddUser_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddUser" />
+  </wsdl:message>
+  <wsdl:message name="IGeneral_AddUser_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddUserResponse" />
+  </wsdl:message>
+  <wsdl:portType name="IGeneral">
+    <wsdl:operation name="ReName">
+      <wsdl:input wsaw:Action="http://tempuri.org/IGeneral/ReName" message="tns:IGeneral_ReName_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IGeneral/ReNameResponse" message="tns:IGeneral_ReName_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="FinishRound">
+      <wsdl:input wsaw:Action="http://tempuri.org/IGeneral/FinishRound" message="tns:IGeneral_FinishRound_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IGeneral/FinishRoundResponse" message="tns:IGeneral_FinishRound_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="IsFinish">
+      <wsdl:input wsaw:Action="http://tempuri.org/IGeneral/IsFinish" message="tns:IGeneral_IsFinish_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IGeneral/IsFinishResponse" message="tns:IGeneral_IsFinish_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCount">
+      <wsdl:input wsaw:Action="http://tempuri.org/IGeneral/GetCount" message="tns:IGeneral_GetCount_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IGeneral/GetCountResponse" message="tns:IGeneral_GetCount_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddUser">
+      <wsdl:input wsaw:Action="http://tempuri.org/IGeneral/AddUser" message="tns:IGeneral_AddUser_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IGeneral/AddUserResponse" message="tns:IGeneral_AddUser_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="endpoint1" type="tns:IGeneral">
+    <wsp:PolicyReference URI="#endpoint1_policy">
+    </wsp:PolicyReference>
+    <soap12:binding transport="http://schemas.microsoft.com/soap/tcp" />
+    <wsdl:operation name="ReName">
+      <soap12:operation soapAction="http://tempuri.org/IGeneral/ReName" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FinishRound">
+      <soap12:operation soapAction="http://tempuri.org/IGeneral/FinishRound" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="IsFinish">
+      <soap12:operation soapAction="http://tempuri.org/IGeneral/IsFinish" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCount">
+      <soap12:operation soapAction="http://tempuri.org/IGeneral/GetCount" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddUser">
+      <soap12:operation soapAction="http://tempuri.org/IGeneral/AddUser" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="Game">
+    <wsdl:port name="endpoint1" binding="tns:endpoint1">
+      <soap12:address location="net.tcp://localhost/General/endpoint1" />
+      <wsa10:EndpointReference>
+        <wsa10:Address>net.tcp://localhost/General/endpoint1</wsa10:Address>
+        <Identity xmlns="http://schemas.xmlsoap.org/ws/2006/02/addressingidentity">
+          <Upn>student@step.lan</Upn>
+        </Identity>
+      </wsa10:EndpointReference>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

@@ -17,6 +17,10 @@ namespace GeneralClasses
             {
                 return _Name;
             }
+            set
+            {
+                Name = value;
+            }
         }
         Country country { get; set; }
         public Player(string Name)
