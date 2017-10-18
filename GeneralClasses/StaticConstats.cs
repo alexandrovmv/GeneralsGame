@@ -8,7 +8,10 @@ namespace GeneralClasses
 {
     public class StaticConstats
     {
-        public static int PriceOfScientists = 100;
-        public static int PriceOfSoldiers = 100;
+        public static int PriceOfScientists { get; } = 100;
+        public static int PriceOfSoldiers { get; } = 100;
+        public static int PriceOfSeedsBuy { get; } = 20;
+        public static int PriceOfSeedsSell { get; } = 15;
+
     }
 }

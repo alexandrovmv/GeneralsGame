@@ -41,7 +41,16 @@ namespace General
             int GetMaxCountScietists(string PlayerName);
             [OperationContract]
             int GetMaxCountSoldiers(string PlayerName);
-
+            [OperationContract]
+            int GetMaxCountOfSeeds(string PlayerName);
+            [OperationContract]
+            void BuySeeds(string PlayerName, int Count);
+            [OperationContract]
+            void SellSeeds(string PlayerName, int Count);
+            [OperationContract]
+            void SellSoldiers(string PlayerName, int Count);
+            [OperationContract]
+            void SellScietists(string PlayerName, int Count);
 
 
 
@@ -138,6 +147,12 @@ namespace General
                 SelectedPlayer.country.Soldiers += Count;
             }
 
+            public void BuySeeds(string PlayerName, int Count)
+            {
+                Player SelectedPlayer = Players.Find(x => x.Name == PlayerName);
+                SelectedPlayer.country.Seed += Count;
+                SelectedPlayer.country.Balance -= Count * StaticConstats.PriceOfSeedsBuy;
+            }
             public int GetMaxCountScietists(string PlayerName)
             {
                 int MaxCountOfScietists;
@@ -160,6 +175,34 @@ namespace General
                     MaxCountSoldiers = SelectedPlayer.country.Peasants;
                 }
                 return MaxCountSoldiers;
+            }
+
+            public int GetMaxCountOfSeeds(string PlayerName)
+            {
+                int MaxCountSeeds;
+                Player SelectedPlayer = Players.Find(x => x.Name == PlayerName);
+                MaxCountSeeds = SelectedPlayer.country.Balance / StaticConstats.PriceOfSeedsBuy;
+
+                return MaxCountSeeds;
+            }
+
+            public void SellSeeds(string PlayerName, int Count)
+            {
+                Player SelectedPlayer = Players.Find(x => x.Name == PlayerName);
+                SelectedPlayer.country.Seed -= Count;
+                SelectedPlayer.country.Balance += Count * StaticConstats.PriceOfSeedsSell;
+            }
+
+            public void SellSoldiers(string PlayerName, int Count)
+            {
+                Player SelectedPlayer = Players.Find(x => x.Name == PlayerName);
+                SelectedPlayer.country.Soldiers -= Count;
+            }
+
+            public void SellScietists(string PlayerName, int Count)
+            {
+                Player SelectedPlayer = Players.Find(x => x.Name == PlayerName);
+                SelectedPlayer.country.Scientist -= Count;
             }
         }
         static void Main(string[] args)
