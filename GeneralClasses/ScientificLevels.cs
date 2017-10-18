@@ -8,6 +8,7 @@ namespace GeneralClasses
 {
     public class ScientificLevels
     {
+        //Наверное нужна переменная с незанятыми учеными 
         public int DensityLevel { get; set; }
         public int PeasantIncrementLevel { get; set; }
         public int SeedIcrementLevel { get; set; }
