@@ -8,7 +8,7 @@ using System.Security.Cryptography;
 using System.Data;
 
 namespace DataBase
-{
+{ 
     public class DB
     {
         public DB() { }
@@ -165,6 +165,36 @@ namespace DataBase
             sql_con.Close();
             int wins_count = Convert.ToInt32(DT.Rows[0][2]);
             return wins_count;
+        }
+        public DataTable Return_Table_History()
+        {
+            SQLiteConnection sql_con = new SQLiteConnection("Data Source=TestDB.db;Version=3;");
+            sql_con.Open();
+            SQLiteCommand sql_cmd = sql_con.CreateCommand();
+            string CommandText = $"SELECT * FROM History";
+            SQLiteDataAdapter DB = new SQLiteDataAdapter(CommandText, sql_con);
+            DataSet DS = new DataSet();
+            DS.Reset();
+            DB.Fill(DS);
+            DataTable DT = new DataTable();
+            DT = DS.Tables[0];
+            sql_con.Close();
+            return DT;
+        }
+        public DataTable Return_Table_Users()
+        {
+            SQLiteConnection sql_con = new SQLiteConnection("Data Source=TestDB.db;Version=3;");
+            sql_con.Open();
+            SQLiteCommand sql_cmd = sql_con.CreateCommand();
+            string CommandText = $"SELECT * FROM Users";
+            SQLiteDataAdapter DB = new SQLiteDataAdapter(CommandText, sql_con);
+            DataSet DS = new DataSet();
+            DS.Reset();
+            DB.Fill(DS);
+            DataTable DT = new DataTable();
+            DT = DS.Tables[0];
+            sql_con.Close();
+            return DT;
         }
     }
 }
