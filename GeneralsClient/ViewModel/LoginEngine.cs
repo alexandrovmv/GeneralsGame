@@ -50,8 +50,11 @@ namespace GeneralsClient.ViewModel
                 {
                     _Registr = new RelayCommand(
                         x => {
-                            InterClass.gc.Registr(PlayerLogin, Password);
-                             }
+                            if(InterClass.gc.Registr(PlayerLogin, Password))
+                                MessageBox.Show("Registration success");
+                            else
+                                MessageBox.Show("This login already exists");
+                        }
                         );
                 }
                 return _Registr;
