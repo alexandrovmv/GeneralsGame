@@ -15,8 +15,7 @@ namespace GeneralsClient.ViewModel
         StartGame StartGameWindow { get; set; }
         public Engine()
         {
-            LoginWindow = new Login();
-            LoginWindow.ShowDialog();
+
         }
     }
 }
