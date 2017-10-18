@@ -1,4 +1,5 @@
-﻿using System;
+﻿using GeneralsClient.View;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -22,8 +23,8 @@ namespace GeneralsClient.ViewModel
                     _StartNewGame = new RelayCommand(
                         x =>
                         {
-                            MainWindow Client = new MainWindow();
-                            Client.ShowDialog();
+                            Login l = new Login();
+                            l.ShowDialog();
                         });
                 }
                 return _StartNewGame;

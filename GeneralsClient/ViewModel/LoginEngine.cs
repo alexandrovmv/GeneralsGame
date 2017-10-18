@@ -35,11 +35,13 @@ namespace GeneralsClient.ViewModel
                             if (result)
                             {
                                 MessageBox.Show("Success");
+                                MainWindow m = new MainWindow();
+                                m.ShowDialog();
                                 this.CloseAction();
                             }
                             else
                                 MessageBox.Show("Error");
-                        }
+                           }
                         );
                 }
                 return _Authorize;
