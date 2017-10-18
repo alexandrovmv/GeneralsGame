@@ -8,9 +8,9 @@
         mc:Ignorable="d"
         
         Title="Вход" Height="199.824" Width="267.543">
-    <Window.DataContext>
+    <!--<Window.DataContext>
         <engineLogine:LoginEngine></engineLogine:LoginEngine>
-    </Window.DataContext>
+    </Window.DataContext>-->
     <Grid>
 
         <Rectangle>

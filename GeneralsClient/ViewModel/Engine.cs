@@ -16,15 +16,7 @@ namespace GeneralsClient.ViewModel
         public Engine()
         {
             LoginWindow = new Login();
-            //do
-            //{
             LoginWindow.ShowDialog();
-            //} while (LoginWindow.DialogResult != true);
-
-            //P = new Player("Vasia");
-            //StartGameWindow = new StartGame();
-            //StartGameWindow.ShowDialog();
-
         }
     }
 }

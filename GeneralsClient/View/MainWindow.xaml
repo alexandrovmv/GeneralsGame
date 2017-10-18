@@ -604,9 +604,6 @@
                                 <TextBlock Margin="0 45 0 0" Text="Такой генерал обойдеться вам в: " FontWeight="Bold" HorizontalAlignment="Center" TextWrapping = "Wrap" TextAlignment="Center"></TextBlock>
                                 <TextBlock Margin="15 10 15 0" Text="123456" FontSize="42" FontWeight="Bold" Foreground="DarkRed" HorizontalAlignment="Center" TextAlignment="Center"></TextBlock>
                                 <Button Margin="15 10 15 0" Height="114">
-                                    <Button.Background>
-                                        <ImageBrush ImageSource="C:\Users\student.STEP\Source\Repos\GeneralsGame\GeneralsClient\Pictures\image_general.jpg"/>
-                                    </Button.Background>
                                     <TextBlock Text="Нанимаем" FontWeight="Bold"/>
                                 </Button>
                             </StackPanel>

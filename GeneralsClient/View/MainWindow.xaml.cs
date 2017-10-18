@@ -47,11 +47,9 @@ namespace GeneralsClient
                 {
                     sww.Close();
                     client.Close();
-
                     break;
                 }
             }
-
         }
     }
 }
