@@ -13,29 +13,34 @@ namespace TestDB
 {
     public partial class Form1 : Form
     {
-        DB database;
         public Form1()
         {
             InitializeComponent();
-            database = new DB();
-            database.Create_DataBase();
         }
+
         private void button1_Click(object sender, EventArgs e)
         {
-            string login = textBox1.Text;
-            string pass = textBox2.Text;
-            database.Add_User(login, pass);
-            MessageBox.Show("User succesfully add to database");
+            dataGridView1.DataSource = null;
+            DB db = new DB();
+            DataTable dt = new DataTable();
+            dt = db.Return_Table_Users();
+            dataGridView1.DataSource = dt;
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
-            string login = textBox1.Text;
-            string pass = textBox2.Text;
-            if(database.Authorization(login, pass))
-                MessageBox.Show("Login Success");
-            else
-                MessageBox.Show("Login Error");
+            dataGridView1.DataSource = null;
+            DB db = new DB();
+            DataTable dt = new DataTable();
+            dt = db.Return_Table_History();
+            dataGridView1.DataSource = dt;
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            DB db = new DB();
+            db.Create_DataBase();
+            db.Add_User(textBox1.Text,textBox2.Text);
         }
     }
 }
