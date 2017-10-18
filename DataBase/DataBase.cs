@@ -8,7 +8,7 @@ using System.Security.Cryptography;
 using System.Data;
 
 namespace DataBase
-{
+{ 
     public class DB
     {
         public DB() { }
@@ -19,7 +19,7 @@ namespace DataBase
             SQLiteConnection sql_con = new SQLiteConnection("Data Source=TestDB.db;Version=3;");
             sql_con.Open();
             string sql = @"CREATE TABLE Users(
-                            Login varchar(20) NOT NULL,
+                            Login varchar(20) NOT NULL UNIQUE,
                             Password varchar(40) NOT NULL)";
             SQLiteCommand command = new SQLiteCommand(sql, sql_con);
             command.ExecuteNonQuery();
@@ -32,7 +32,7 @@ namespace DataBase
             sql_con.Close();
         }
         //Регистрация пользователя
-        public void Add_User(string login, string password)
+        public bool Add_User(string login, string password)
         {
             MD5 md5 = MD5.Create();
             byte[] inputbytes = Encoding.ASCII.GetBytes(password);
@@ -43,10 +43,24 @@ namespace DataBase
             string result = strBuild.ToString();
             SQLiteConnection sql_con = new SQLiteConnection("Data Source=TestDB.db;Version=3;");
             sql_con.Open();
-            string sql = $"INSERT INTO Users VALUES ('{login}', '{result}')";
-            SQLiteCommand command = new SQLiteCommand(sql, sql_con);
-            command.ExecuteNonQuery();
-            sql_con.Close();
+            SQLiteCommand sql_cmd = sql_con.CreateCommand();
+            string CommandText = $"SELECT * FROM Users WHERE Login LIKE '{login}'";
+            SQLiteDataAdapter DB = new SQLiteDataAdapter(CommandText, sql_con);
+            DataSet DS = new DataSet();
+            DS.Reset();
+            DB.Fill(DS);
+            DataTable DT = new DataTable();
+            DT = DS.Tables[0];
+            if(DT.Rows.Count != 0)
+                return false;
+            else
+            {
+                string sql = $"INSERT INTO Users VALUES ('{login}', '{result}')";
+                SQLiteCommand command = new SQLiteCommand(sql, sql_con);
+                command.ExecuteNonQuery();
+                sql_con.Close();
+                return true;
+            }
         }
         //Аутентификация пользователя, в случае совпадения в базе данных возвращает true
         public bool Authorization(string login, string password)
@@ -165,6 +179,36 @@ namespace DataBase
             sql_con.Close();
             int wins_count = Convert.ToInt32(DT.Rows[0][2]);
             return wins_count;
+        }
+        public DataTable Return_Table_History()
+        {
+            SQLiteConnection sql_con = new SQLiteConnection("Data Source=TestDB.db;Version=3;");
+            sql_con.Open();
+            SQLiteCommand sql_cmd = sql_con.CreateCommand();
+            string CommandText = $"SELECT * FROM History";
+            SQLiteDataAdapter DB = new SQLiteDataAdapter(CommandText, sql_con);
+            DataSet DS = new DataSet();
+            DS.Reset();
+            DB.Fill(DS);
+            DataTable DT = new DataTable();
+            DT = DS.Tables[0];
+            sql_con.Close();
+            return DT;
+        }
+        public DataTable Return_Table_Users()
+        {
+            SQLiteConnection sql_con = new SQLiteConnection("Data Source=TestDB.db;Version=3;");
+            sql_con.Open();
+            SQLiteCommand sql_cmd = sql_con.CreateCommand();
+            string CommandText = $"SELECT * FROM Users";
+            SQLiteDataAdapter DB = new SQLiteDataAdapter(CommandText, sql_con);
+            DataSet DS = new DataSet();
+            DS.Reset();
+            DB.Fill(DS);
+            DataTable DT = new DataTable();
+            DT = DS.Tables[0];
+            sql_con.Close();
+            return DT;
         }
     }
 }

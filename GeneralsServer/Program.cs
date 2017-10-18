@@ -16,7 +16,6 @@ namespace General
 
         public interface IGeneral
         {
-
             [OperationContract]
             void ReName(string Oldname, string NewName);
             [OperationContract]
@@ -30,7 +29,7 @@ namespace General
             [OperationContract]
             void AddUser(string Name);
             [OperationContract]
-            void Registr(string Login, string Password);
+            bool Registr(string login, string password);
             [OperationContract]
             bool Autorise(string Login, string Password);
             [OperationContract]
@@ -51,9 +50,6 @@ namespace General
             void SellSoldiers(string PlayerName, int Count);
             [OperationContract]
             void SellScietists(string PlayerName, int Count);
-
-
-
         }
         public class Game : IGeneral
         {
@@ -118,10 +114,10 @@ namespace General
                
             }
 
-            public void Registr(string login, string password)
+            public bool Registr(string login, string password)
             {
                 database = new DB();
-                database.Add_User(login, password);
+                return database.Add_User(login, password);
             }
 
             public bool Autorise(string login, string password)

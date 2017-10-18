@@ -46,10 +46,10 @@ namespace GeneralsClient.ServiceReference1 {
         System.Threading.Tasks.Task AddUserAsync(string name);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGeneral/Registr", ReplyAction="http://tempuri.org/IGeneral/RegistrResponse")]
-        void Registr(string login, string password);
+        bool Registr(string login, string password);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGeneral/Registr", ReplyAction="http://tempuri.org/IGeneral/RegistrResponse")]
-        System.Threading.Tasks.Task RegistrAsync(string login, string password);
+        System.Threading.Tasks.Task<bool> RegistrAsync(string login, string password);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGeneral/Autorise", ReplyAction="http://tempuri.org/IGeneral/AutoriseResponse")]
         bool Autorise(string login, string password);
@@ -125,11 +125,11 @@ namespace GeneralsClient.ServiceReference1 {
             return base.Channel.AddUserAsync(name);
         }
         
-        public void Registr(string login, string password) {
-            base.Channel.Registr(login, password);
+        public bool Registr(string login, string password) {
+            return base.Channel.Registr(login, password);
         }
         
-        public System.Threading.Tasks.Task RegistrAsync(string login, string password) {
+        public System.Threading.Tasks.Task<bool> RegistrAsync(string login, string password) {
             return base.Channel.RegistrAsync(login, password);
         }
         
