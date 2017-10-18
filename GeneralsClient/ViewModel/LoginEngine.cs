@@ -13,6 +13,7 @@ namespace GeneralsClient.ViewModel
     {
         public string PlayerLogin { get; set; }
         string _Password { get; set; }
+        public Action CloseAction { get; set; }
         public string Password
         {
             get
@@ -32,7 +33,10 @@ namespace GeneralsClient.ViewModel
                     _Authorize = new RelayCommand(
                         x => { bool result = InterClass.gc.Autorise(PlayerLogin, Password);
                             if (result)
+                            {
                                 MessageBox.Show("Success");
+                                this.CloseAction();
+                            }
                             else
                                 MessageBox.Show("Error");
                         }
