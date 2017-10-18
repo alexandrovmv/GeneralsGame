@@ -30,7 +30,7 @@ namespace General
             [OperationContract]
             void AddUser(string name);
             [OperationContract]
-            void Registr(string login, string password);
+            bool Registr(string login, string password);
             [OperationContract]
             bool Autorise(string login, string password);
 
@@ -98,10 +98,10 @@ namespace General
                
             }
 
-            public void Registr(string login, string password)
+            public bool Registr(string login, string password)
             {
                 database = new DB();
-                database.Add_User(login, password);
+                return database.Add_User(login, password);
             }
 
             public bool Autorise(string login, string password)
