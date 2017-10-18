@@ -25,7 +25,7 @@ namespace GeneralClasses
         public int Soldiers { get; set; }
         //Крестьяне
         public int Peasants{ get; set; }
-        public int maxPeasants { get; set; }
+        //возможно удаление свойства public int maxPeasants { get; set; }
         //Площадь
         public int Teritory{ get; set; }
         //Плотность или максимальное население
@@ -55,6 +55,14 @@ namespace GeneralClasses
             this.Teritory=Teritory;
             this.Seed=Seed;
             Generals= new List<General>();
+        }
+        public Country() {
+            Generals = new List<General>();
+            Teritory = StaticConstats.Teritory;
+            Seed = StaticConstats.StartCountOfSeed;
+            Balance = StaticConstats.StartBalance;
+            Peasants = StaticConstats.StartPeasants;
+            Density = StaticConstats.SpecificDensity * Teritory;
         }
     }
 
