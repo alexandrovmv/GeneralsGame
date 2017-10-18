@@ -28,11 +28,22 @@ namespace General
             [OperationContract]
             int GetCount();
             [OperationContract]
-            void AddUser(string name);
+            void AddUser(string Name);
             [OperationContract]
-            void Registr(string login, string password);
+            void Registr(string Login, string Password);
             [OperationContract]
-            bool Autorise(string login, string password);
+            bool Autorise(string Login, string Password);
+            [OperationContract]
+            void Hierscietisctc(string PlayerName, int Count);
+            [OperationContract]
+            void HireSoldiers(string PlayerName, int Count);
+            [OperationContract]
+            int GetMaxCountScietists(string PlayerName);
+            [OperationContract]
+            int GetMaxCountSoldiers(string PlayerName);
+
+
+
 
         }
         public class Game : IGeneral
@@ -108,6 +119,47 @@ namespace General
             {
                 database = new DB();
                 return database.Authorization(login, password);
+            }
+
+            public void Hierscietisctc(string PlayerName, int Count)
+            {
+                Player SelectedPlayer = Players.Find(x => x.Name == PlayerName);
+                SelectedPlayer.country.Peasants -= Count;
+                SelectedPlayer.country.Balance -= Count * StaticConstats.PriceOfScientists;
+                SelectedPlayer.country.Scientist += Count;
+
+
+            }
+            public void  HireSoldiers(string PlayerName, int Count)
+            {
+                Player SelectedPlayer = Players.Find(x => x.Name == PlayerName);
+                SelectedPlayer.country.Peasants -= Count;
+                SelectedPlayer.country.Balance -= Count * StaticConstats.PriceOfSoldiers;
+                SelectedPlayer.country.Soldiers += Count;
+            }
+
+            public int GetMaxCountScietists(string PlayerName)
+            {
+                int MaxCountOfScietists;
+                Player SelectedPlayer = Players.Find(x => x.Name == PlayerName);
+                MaxCountOfScietists = SelectedPlayer.country.Balance / StaticConstats.PriceOfScientists;
+                if(MaxCountOfScietists>SelectedPlayer.country.Peasants)
+                {
+                    MaxCountOfScietists = SelectedPlayer.country.Peasants;
+                }
+              
+                return MaxCountOfScietists;
+            }
+           public int  GetMaxCountSoldiers(string PlayerName)
+            {
+                int MaxCountSoldiers;
+                Player SelectedPlayer = Players.Find(x => x.Name == PlayerName);
+                MaxCountSoldiers = SelectedPlayer.country.Balance / StaticConstats.PriceOfSoldiers;
+                if (MaxCountSoldiers > SelectedPlayer.country.Peasants)
+                {
+                    MaxCountSoldiers = SelectedPlayer.country.Peasants;
+                }
+                return MaxCountSoldiers;
             }
         }
         static void Main(string[] args)

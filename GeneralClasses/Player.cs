@@ -22,7 +22,7 @@ namespace GeneralClasses
                 Name = value;
             }
         }
-        Country country { get; set; }
+     public    Country country { get; set; }
         public Player(string Name)
         {
             _Name = Name;

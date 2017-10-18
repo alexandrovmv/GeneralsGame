@@ -22,7 +22,7 @@ namespace GeneralClasses
         // Общий
         public int Balance { get; set; }
         public int Scientist { get; set; }
-        
+        public int Soldiers { get; set; }
         //Крестьяне
         public int Peasants{ get; set; }
         public int maxPeasants { get; set; }
