@@ -16,7 +16,6 @@ namespace General
 
         public interface IGeneral
         {
-
             [OperationContract]
             void ReName(string Oldname, string NewName);
             [OperationContract]
@@ -28,12 +27,29 @@ namespace General
             [OperationContract]
             int GetCount();
             [OperationContract]
-            void AddUser(string name);
+            void AddUser(string Name);
             [OperationContract]
             bool Registr(string login, string password);
             [OperationContract]
-            bool Autorise(string login, string password);
-
+            bool Autorise(string Login, string Password);
+            [OperationContract]
+            void Hierscietisctc(string PlayerName, int Count);
+            [OperationContract]
+            void HireSoldiers(string PlayerName, int Count);
+            [OperationContract]
+            int GetMaxCountScietists(string PlayerName);
+            [OperationContract]
+            int GetMaxCountSoldiers(string PlayerName);
+            [OperationContract]
+            int GetMaxCountOfSeeds(string PlayerName);
+            [OperationContract]
+            void BuySeeds(string PlayerName, int Count);
+            [OperationContract]
+            void SellSeeds(string PlayerName, int Count);
+            [OperationContract]
+            void SellSoldiers(string PlayerName, int Count);
+            [OperationContract]
+            void SellScietists(string PlayerName, int Count);
         }
         public class Game : IGeneral
         {
@@ -108,6 +124,81 @@ namespace General
             {
                 database = new DB();
                 return database.Authorization(login, password);
+            }
+
+            public void Hierscietisctc(string PlayerName, int Count)
+            {
+                Player SelectedPlayer = Players.Find(x => x.Name == PlayerName);
+                SelectedPlayer.country.Peasants -= Count;
+                SelectedPlayer.country.Balance -= Count * StaticConstats.PriceOfScientists;
+                SelectedPlayer.country.Scientist += Count;
+
+
+            }
+            public void  HireSoldiers(string PlayerName, int Count)
+            {
+                Player SelectedPlayer = Players.Find(x => x.Name == PlayerName);
+                SelectedPlayer.country.Peasants -= Count;
+                SelectedPlayer.country.Balance -= Count * StaticConstats.PriceOfSoldiers;
+                SelectedPlayer.country.Soldiers += Count;
+            }
+
+            public void BuySeeds(string PlayerName, int Count)
+            {
+                Player SelectedPlayer = Players.Find(x => x.Name == PlayerName);
+                SelectedPlayer.country.Seed += Count;
+                SelectedPlayer.country.Balance -= Count * StaticConstats.PriceOfSeedsBuy;
+            }
+            public int GetMaxCountScietists(string PlayerName)
+            {
+                int MaxCountOfScietists;
+                Player SelectedPlayer = Players.Find(x => x.Name == PlayerName);
+                MaxCountOfScietists = SelectedPlayer.country.Balance / StaticConstats.PriceOfScientists;
+                if(MaxCountOfScietists>SelectedPlayer.country.Peasants)
+                {
+                    MaxCountOfScietists = SelectedPlayer.country.Peasants;
+                }
+              
+                return MaxCountOfScietists;
+            }
+           public int  GetMaxCountSoldiers(string PlayerName)
+            {
+                int MaxCountSoldiers;
+                Player SelectedPlayer = Players.Find(x => x.Name == PlayerName);
+                MaxCountSoldiers = SelectedPlayer.country.Balance / StaticConstats.PriceOfSoldiers;
+                if (MaxCountSoldiers > SelectedPlayer.country.Peasants)
+                {
+                    MaxCountSoldiers = SelectedPlayer.country.Peasants;
+                }
+                return MaxCountSoldiers;
+            }
+
+            public int GetMaxCountOfSeeds(string PlayerName)
+            {
+                int MaxCountSeeds;
+                Player SelectedPlayer = Players.Find(x => x.Name == PlayerName);
+                MaxCountSeeds = SelectedPlayer.country.Balance / StaticConstats.PriceOfSeedsBuy;
+
+                return MaxCountSeeds;
+            }
+
+            public void SellSeeds(string PlayerName, int Count)
+            {
+                Player SelectedPlayer = Players.Find(x => x.Name == PlayerName);
+                SelectedPlayer.country.Seed -= Count;
+                SelectedPlayer.country.Balance += Count * StaticConstats.PriceOfSeedsSell;
+            }
+
+            public void SellSoldiers(string PlayerName, int Count)
+            {
+                Player SelectedPlayer = Players.Find(x => x.Name == PlayerName);
+                SelectedPlayer.country.Soldiers -= Count;
+            }
+
+            public void SellScietists(string PlayerName, int Count)
+            {
+                Player SelectedPlayer = Players.Find(x => x.Name == PlayerName);
+                SelectedPlayer.country.Scientist -= Count;
             }
         }
         static void Main(string[] args)
