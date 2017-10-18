@@ -12,6 +12,7 @@ namespace GeneralClasses
         public static int PriceOfSoldiers { get; } = 100;
         public static int PriceOfSeedsBuy { get; } = 20;
         public static int PriceOfSeedsSell { get; } = 15;
+       
 
     }
 }
