@@ -146,6 +146,24 @@ namespace GeneralsClient.ServiceReference1 {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGeneral/GetYearsForPeasantIncrementLevel", ReplyAction="http://tempuri.org/IGeneral/GetYearsForPeasantIncrementLevelResponse")]
         System.Threading.Tasks.Task<int> GetYearsForPeasantIncrementLevelAsync(GeneralClasses.ScientificLevels a, int count);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGeneral/HireGeneral", ReplyAction="http://tempuri.org/IGeneral/HireGeneralResponse")]
+        void HireGeneral(string PlayerName, int Price, string Name, int Age, int Skill, int Speed);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGeneral/HireGeneral", ReplyAction="http://tempuri.org/IGeneral/HireGeneralResponse")]
+        System.Threading.Tasks.Task HireGeneralAsync(string PlayerName, int Price, string Name, int Age, int Skill, int Speed);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGeneral/FireGeneral", ReplyAction="http://tempuri.org/IGeneral/FireGeneralResponse")]
+        void FireGeneral(string PlayerName, string Name);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGeneral/FireGeneral", ReplyAction="http://tempuri.org/IGeneral/FireGeneralResponse")]
+        System.Threading.Tasks.Task FireGeneralAsync(string PlayerName, string Name);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGeneral/GetCountOfGenerals", ReplyAction="http://tempuri.org/IGeneral/GetCountOfGeneralsResponse")]
+        int GetCountOfGenerals(string PlayerName);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGeneral/GetCountOfGenerals", ReplyAction="http://tempuri.org/IGeneral/GetCountOfGeneralsResponse")]
+        System.Threading.Tasks.Task<int> GetCountOfGeneralsAsync(string PlayerName);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -349,6 +367,30 @@ namespace GeneralsClient.ServiceReference1 {
         
         public System.Threading.Tasks.Task<int> GetYearsForPeasantIncrementLevelAsync(GeneralClasses.ScientificLevels a, int count) {
             return base.Channel.GetYearsForPeasantIncrementLevelAsync(a, count);
+        }
+        
+        public void HireGeneral(string PlayerName, int Price, string Name, int Age, int Skill, int Speed) {
+            base.Channel.HireGeneral(PlayerName, Price, Name, Age, Skill, Speed);
+        }
+        
+        public System.Threading.Tasks.Task HireGeneralAsync(string PlayerName, int Price, string Name, int Age, int Skill, int Speed) {
+            return base.Channel.HireGeneralAsync(PlayerName, Price, Name, Age, Skill, Speed);
+        }
+        
+        public void FireGeneral(string PlayerName, string Name) {
+            base.Channel.FireGeneral(PlayerName, Name);
+        }
+        
+        public System.Threading.Tasks.Task FireGeneralAsync(string PlayerName, string Name) {
+            return base.Channel.FireGeneralAsync(PlayerName, Name);
+        }
+        
+        public int GetCountOfGenerals(string PlayerName) {
+            return base.Channel.GetCountOfGenerals(PlayerName);
+        }
+        
+        public System.Threading.Tasks.Task<int> GetCountOfGeneralsAsync(string PlayerName) {
+            return base.Channel.GetCountOfGeneralsAsync(PlayerName);
         }
     }
 }

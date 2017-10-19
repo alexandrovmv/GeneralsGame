@@ -569,7 +569,10 @@
                                         <TextBlock Text="15" FontSize="16" Canvas.Left="10" Canvas.Top="19"/>
                                         <TextBlock FontWeight="Bold" Text="Возраст" Canvas.Left="59" Canvas.Top="10"/>
                                         <TextBlock Text="60" Canvas.Left="154" Canvas.Top="19"/>
-                                        <Slider Padding="0" AutoToolTipPrecision="0" AutoToolTipPlacement="TopLeft" Height="26" Width="160" Maximum="60" Minimum="15" TickPlacement="TopLeft"  x:Name="s_age" Canvas.Left="11" Canvas.Top="40" />
+                                        <Slider Padding="0" AutoToolTipPrecision="0" AutoToolTipPlacement="TopLeft"
+                                                Height="26" Width="160" Maximum="{Binding MaxAge}" Minimum="15" 
+                                                TickPlacement="TopLeft"  x:Name="s_age" Canvas.Left="11"
+                                                Canvas.Top="40" Value="{Binding CurrentAge}" />
                                         <TextBlock Foreground="Blue" Text="{Binding Value, ElementName=s_age, StringFormat=\{0:0\}, UpdateSourceTrigger=PropertyChanged}" Canvas.Left="80" Canvas.Top="66"/>
                                     </Canvas>
                                 </Border>
@@ -579,7 +582,10 @@
                                         <TextBlock Text="1" FontSize="16" Canvas.Left="10" Canvas.Top="19"/>
                                         <TextBlock FontWeight="Bold" Text="Мастерство" Canvas.Left="40" Canvas.Top="10"/>
                                         <TextBlock Text="30" Canvas.Left="154" Canvas.Top="19"/>
-                                        <Slider Padding="0" AutoToolTipPrecision="0" AutoToolTipPlacement="TopLeft" Height="26" Width="160" Maximum="30" Minimum="1" TickPlacement="TopLeft"  x:Name="s_master" Canvas.Left="11" Canvas.Top="40" />
+                                        <Slider Padding="0" AutoToolTipPrecision="0" AutoToolTipPlacement="TopLeft"
+                                                Height="26" Width="160" Maximum="{Binding MaxSkill}" Minimum="1" 
+                                                TickPlacement="TopLeft"  x:Name="s_master" Canvas.Left="11"
+                                                Canvas.Top="40" Value="{Binding CurrentSkill}" />
                                         <TextBlock Foreground="Blue" Text="{Binding Value, ElementName=s_master, StringFormat=\{0:0\}, UpdateSourceTrigger=PropertyChanged}" Canvas.Left="80" Canvas.Top="66"/>
                                     </Canvas>
                                 </Border>
@@ -589,7 +595,10 @@
                                         <TextBlock Text="1" FontSize="16" Canvas.Left="10" Canvas.Top="19"/>
                                         <TextBlock FontWeight="Bold" Text="Скорость" Canvas.Left="52" Canvas.Top="10"/>
                                         <TextBlock Text="100" Canvas.Left="145" Canvas.Top="19" RenderTransformOrigin="0.077,0.619"/>
-                                        <Slider Padding="0" AutoToolTipPrecision="0" AutoToolTipPlacement="TopLeft" Height="26" Width="160" Maximum="100" Minimum="1" TickPlacement="TopLeft"  x:Name="s_speed" Canvas.Left="11" Canvas.Top="40" />
+                                        <Slider Padding="0" AutoToolTipPrecision="0" AutoToolTipPlacement="TopLeft" 
+                                                Height="26" Width="160" Maximum="{Binding MaxSpeed}" Minimum="1" 
+                                                TickPlacement="TopLeft"  x:Name="s_speed" Canvas.Left="11" 
+                                                Canvas.Top="40" Value="{Binding CurrentSpeed}" />
                                         <TextBlock Foreground="Blue" Text="{Binding Value, ElementName=s_speed, StringFormat=\{0:0\}, UpdateSourceTrigger=PropertyChanged}" Canvas.Left="80" Canvas.Top="66"/>
                                     </Canvas>
                                 </Border>
@@ -602,9 +611,9 @@
                                 <TextBlock Margin="0 50 0 0" Text="Имя генерала" FontWeight="Bold" HorizontalAlignment="Center"></TextBlock>
                                 <TextBox Margin="15,10,15,0"></TextBox>
                                 <TextBlock Margin="0 45 0 0" Text="Такой генерал обойдеться вам в: " FontWeight="Bold" HorizontalAlignment="Center" TextWrapping = "Wrap" TextAlignment="Center"></TextBlock>
-                                <TextBlock Margin="15 10 15 0" Text="123456" FontSize="42" FontWeight="Bold" Foreground="DarkRed" HorizontalAlignment="Center" TextAlignment="Center"></TextBlock>
-                                <Button Margin="15 10 15 0" Height="114">
-                                    <TextBlock Text="Нанимаем" FontWeight="Bold"/>
+                                <TextBlock Margin="15 10 15 0" Text="{Binding CurrentGeneralCoast}" FontSize="42" FontWeight="Bold" Foreground="DarkRed" HorizontalAlignment="Center" TextAlignment="Center"></TextBlock>
+                                <Button Margin="15 10 15 0" Height="114" Command="{Binding HireGeneral}">
+                                    <TextBlock Text="Нанимаем" FontWeight="Bold" />
                                 </Button>
                             </StackPanel>
                         </GroupBox>

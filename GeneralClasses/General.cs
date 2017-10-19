@@ -18,6 +18,7 @@ namespace GeneralClasses
         }
         public int Age { get; set; }
         public int Skill { get; set; }
+        public int Speed { get; set; }
       //  public int State { get; set; }
       //  public int Inspiration { get; set; }
         public int Soldiers { get; set; }
@@ -25,11 +26,12 @@ namespace GeneralClasses
         //{
 
         //}
-        public General(string Name, int Age, int Skill)
+        public General(string Name, int Age, int Skill, int Speed)
         {
             _Name = Name;
             this.Age = Age;
             this.Skill = Skill;
+            this.Speed = Speed;
             //Inspiration = 100;
         }
 

@@ -172,6 +172,24 @@
   <wsdl:message name="IGeneral_GetYearsForPeasantIncrementLevel_OutputMessage">
     <wsdl:part name="parameters" element="tns:GetYearsForPeasantIncrementLevelResponse" />
   </wsdl:message>
+  <wsdl:message name="IGeneral_HireGeneral_InputMessage">
+    <wsdl:part name="parameters" element="tns:HireGeneral" />
+  </wsdl:message>
+  <wsdl:message name="IGeneral_HireGeneral_OutputMessage">
+    <wsdl:part name="parameters" element="tns:HireGeneralResponse" />
+  </wsdl:message>
+  <wsdl:message name="IGeneral_FireGeneral_InputMessage">
+    <wsdl:part name="parameters" element="tns:FireGeneral" />
+  </wsdl:message>
+  <wsdl:message name="IGeneral_FireGeneral_OutputMessage">
+    <wsdl:part name="parameters" element="tns:FireGeneralResponse" />
+  </wsdl:message>
+  <wsdl:message name="IGeneral_GetCountOfGenerals_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetCountOfGenerals" />
+  </wsdl:message>
+  <wsdl:message name="IGeneral_GetCountOfGenerals_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetCountOfGeneralsResponse" />
+  </wsdl:message>
   <wsdl:portType name="IGeneral">
     <wsdl:operation name="ReName">
       <wsdl:input wsaw:Action="http://tempuri.org/IGeneral/ReName" message="tns:IGeneral_ReName_InputMessage" />
@@ -260,6 +278,18 @@
     <wsdl:operation name="GetYearsForPeasantIncrementLevel">
       <wsdl:input wsaw:Action="http://tempuri.org/IGeneral/GetYearsForPeasantIncrementLevel" message="tns:IGeneral_GetYearsForPeasantIncrementLevel_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IGeneral/GetYearsForPeasantIncrementLevelResponse" message="tns:IGeneral_GetYearsForPeasantIncrementLevel_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="HireGeneral">
+      <wsdl:input wsaw:Action="http://tempuri.org/IGeneral/HireGeneral" message="tns:IGeneral_HireGeneral_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IGeneral/HireGeneralResponse" message="tns:IGeneral_HireGeneral_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="FireGeneral">
+      <wsdl:input wsaw:Action="http://tempuri.org/IGeneral/FireGeneral" message="tns:IGeneral_FireGeneral_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IGeneral/FireGeneralResponse" message="tns:IGeneral_FireGeneral_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCountOfGenerals">
+      <wsdl:input wsaw:Action="http://tempuri.org/IGeneral/GetCountOfGenerals" message="tns:IGeneral_GetCountOfGenerals_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IGeneral/GetCountOfGeneralsResponse" message="tns:IGeneral_GetCountOfGenerals_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="NetTcpBinding_IGeneral" type="tns:IGeneral">
@@ -457,6 +487,33 @@
     </wsdl:operation>
     <wsdl:operation name="GetYearsForPeasantIncrementLevel">
       <soap12:operation soapAction="http://tempuri.org/IGeneral/GetYearsForPeasantIncrementLevel" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="HireGeneral">
+      <soap12:operation soapAction="http://tempuri.org/IGeneral/HireGeneral" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FireGeneral">
+      <soap12:operation soapAction="http://tempuri.org/IGeneral/FireGeneral" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCountOfGenerals">
+      <soap12:operation soapAction="http://tempuri.org/IGeneral/GetCountOfGenerals" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>

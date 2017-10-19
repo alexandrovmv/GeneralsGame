@@ -188,7 +188,26 @@ namespace GeneralsServer
             int Koef = 100 * a.ScientificLevel / count;
             return Koef;
         }
+        #region Действия с генералом
+        public void HireGeneral(string PlayerName, int Price, string GeneralName, int Age, int Skill, int Speed)
+        {
+            Player SelectedPlayer = Players.Find(x => x.Name == PlayerName);
+            if (SelectedPlayer.country.Generals == null) SelectedPlayer.country.Generals = new List<GeneralClasses.General>();
+            SelectedPlayer.country.Generals.Add(new GeneralClasses.General(GeneralName,Age,Skill,Speed));
+        }
 
-       
+        public void FireGeneral(string PlayerName, string GeneralName)
+        {
+            Player SelectedPlayer = Players.Find(x => x.Name == PlayerName);
+            SelectedPlayer.country.Generals.Remove(
+                SelectedPlayer.country.Generals.Find(x=>{return x.Name == GeneralName; }
+                ));
+        }
+
+        public int GetCountOfGenerals(string PlayerName)
+        {
+            return Players.Find(x => x.Name == PlayerName).country.Generals.Count;
+        }
+        #endregion
     }
 }

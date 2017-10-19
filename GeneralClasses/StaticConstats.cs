@@ -18,7 +18,12 @@ namespace GeneralClasses
         public static int StartBalance { get; } = 10000;
         public static int StartPeasants { get; } = 1000;
         public static int SpecificDensity { get; } = 10;
-       
-      
+        public static int BasePriceOfGeneral { get; } = 5000;
+        public static int MaxAge { get; } = 60;
+        public static int MaxSkill { get; } = 35;
+        public static int MaxSpeed { get; } = 50;
+
+
+
     }
 }

@@ -14,7 +14,6 @@ namespace GeneralsServer
         void ReName(string Oldname, string NewName);
         [OperationContract]
         void FinishRound(string name);
-        //  List<Player> Players { get; set; }
         [OperationContract]
         bool IsFinish();
         [OperationContract]
@@ -56,7 +55,14 @@ namespace GeneralsServer
         int GetYearsForWarArtLevel(GeneralClasses.ScientificLevels a, int count);
         [OperationContract]
         int GetYearsForPeasantIncrementLevel(GeneralClasses.ScientificLevels a, int count);
-      
+        #region Действия с генералом
+        [OperationContract]
+        void HireGeneral(string PlayerName,int Price, string Name,int Age,int Skill,int Speed);
+        [OperationContract]
+        void FireGeneral(string PlayerName, string Name);
+        [OperationContract]
+        int GetCountOfGenerals(string PlayerName);
+        #endregion
 
 
 

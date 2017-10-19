@@ -142,7 +142,9 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="View\Loadpict.jpg" />
+    <Resource Include="View\Loadpict.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Pictures\image_general.jpg">
