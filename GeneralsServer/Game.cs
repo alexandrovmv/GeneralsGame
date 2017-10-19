@@ -157,5 +157,36 @@ namespace GeneralsServer
             Player SelectedPlayer = Players.Find(x => x.Name == PlayerName);
             SelectedPlayer.country.Scientist -= Count;
         }
+        //Просчет количества лет для полного иследования научной галузи
+        public int KoefForDensityLvl(ScientificLevels a, int count)
+        {
+            int Years = (100 * a.DensityLevel) / count * (a.ScientificLevel / 10 + 1);
+            return Years;
+        }
+        public int KoefForPeasantIncrementLevel(ScientificLevels a, int count)
+        {
+            int Years = (100 * a.PeasantIncrementLevel) / count * (a.ScientificLevel / 10 + 1);
+            return Years;
+        }
+        public int KoefForSeedIcrementLevel(ScientificLevels a, int count)
+        {
+            int Years = (100 * a.SeedIcrementLevel) / count * (a.ScientificLevel / 10 + 1);
+            return Years;
+        }
+        public int KoefForEconomyLevel(ScientificLevels a, int count)
+        {
+            int Years = (100 * a.EconomyLevel) / count * (a.ScientificLevel / 10 + 1);
+            return Years;
+        }
+        public int KoefForWarArtLevel(ScientificLevels a, int count)
+        {
+            int Years = (100 * a.WarArtLevel) / count * (a.ScientificLevel / 10 + 1);
+            return Years;
+        }
+        public int KoefNP(ScientificLevels a, int count)
+        {
+            int Koef = 100 * a.ScientificLevel / count;
+            return Koef;
+        }
     }
 }

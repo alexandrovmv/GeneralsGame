@@ -43,5 +43,22 @@ namespace GeneralsServer
         void SellSoldiers(string PlayerName, int Count);
         [OperationContract]
         void SellScietists(string PlayerName, int Count);
+
+        [OperationContract]
+         int KoefNP(GeneralClasses.ScientificLevels a, int count);
+        [OperationContract]
+         int KoefForDensityLvl(GeneralClasses.ScientificLevels a, int count);
+        [OperationContract]
+        int KoefForSeedIcrementLevel(GeneralClasses.ScientificLevels a, int count);
+        [OperationContract]
+        int KoefForEconomyLevel(GeneralClasses.ScientificLevels a, int count);
+        [OperationContract]
+        int KoefForWarArtLevel(GeneralClasses.ScientificLevels a, int count);
+        [OperationContract]
+        int KoefForPeasantIncrementLevel(GeneralClasses.ScientificLevels a, int count);
+
+
+
+
     }
 }
