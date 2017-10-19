@@ -45,17 +45,17 @@ namespace GeneralsServer
         void SellScietists(string PlayerName, int Count);
 
         [OperationContract]
-         int KoefForScientificLevel(GeneralClasses.ScientificLevels a, int count);
+         int GetYearsForScientificLevel(GeneralClasses.ScientificLevels a, int count);
         [OperationContract]
-         int KoefForDensityLvl(GeneralClasses.ScientificLevels a, int count);
+        int GetYearsForDensityLvl(GeneralClasses.ScientificLevels a, int count);
         [OperationContract]
-        int KoefForSeedIcrementLevel(GeneralClasses.ScientificLevels a, int count);
+        int GetYearsForSeedIcrementLevel(GeneralClasses.ScientificLevels a, int count);
         [OperationContract]
-        int KoefForEconomyLevel(GeneralClasses.ScientificLevels a, int count);
+        int GetYearsForEconomyLevel(GeneralClasses.ScientificLevels a, int count);
         [OperationContract]
-        int KoefForWarArtLevel(GeneralClasses.ScientificLevels a, int count);
+        int GetYearsForWarArtLevel(GeneralClasses.ScientificLevels a, int count);
         [OperationContract]
-        int KoefForPeasantIncrementLevel(GeneralClasses.ScientificLevels a, int count);
+        int GetYearsForPeasantIncrementLevel(GeneralClasses.ScientificLevels a, int count);
       
 
 
