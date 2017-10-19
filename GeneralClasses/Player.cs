@@ -26,6 +26,7 @@ namespace GeneralClasses
         public Player(string Name)
         {
             _Name = Name;
+            country = new Country();
         }
 
         public bool IsFinish()

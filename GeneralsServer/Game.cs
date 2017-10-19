@@ -27,8 +27,8 @@ namespace GeneralsServer
 
         public void AddUser(string name)
         {
-            Players.Add(new Player(name));
-
+            Player p = new Player(name);
+            Players.Add(p);
         }
         public Game()
         {
