@@ -37,6 +37,7 @@ namespace GeneralsClient.ViewModel
                                 MessageBox.Show("Success");
                                 MainWindow m = new MainWindow();
                                 m.ShowDialog();
+                                InterClass.PlayerName = PlayerLogin;
                                 this.CloseAction();
                             }
                             else
