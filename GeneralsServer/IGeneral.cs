@@ -45,7 +45,7 @@ namespace GeneralsServer
         void SellScietists(string PlayerName, int Count);
 
         [OperationContract]
-         int KoefNP(GeneralClasses.ScientificLevels a, int count);
+         int KoefForScientificLevel(GeneralClasses.ScientificLevels a, int count);
         [OperationContract]
          int KoefForDensityLvl(GeneralClasses.ScientificLevels a, int count);
         [OperationContract]
@@ -56,7 +56,7 @@ namespace GeneralsServer
         int KoefForWarArtLevel(GeneralClasses.ScientificLevels a, int count);
         [OperationContract]
         int KoefForPeasantIncrementLevel(GeneralClasses.ScientificLevels a, int count);
-
+      
 
 
 

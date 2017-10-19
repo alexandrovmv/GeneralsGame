@@ -183,10 +183,12 @@ namespace GeneralsServer
             int Years = (100 * a.WarArtLevel) / count * (a.ScientificLevel / 10 + 1);
             return Years;
         }
-        public int KoefNP(ScientificLevels a, int count)
+        public int KoefForScientificLevel(ScientificLevels a, int count)
         {
             int Koef = 100 * a.ScientificLevel / count;
             return Koef;
         }
+
+       
     }
 }

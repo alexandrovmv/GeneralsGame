@@ -18,8 +18,8 @@ namespace GeneralClasses
         }
         public int Age { get; set; }
         public int Skill { get; set; }
-        public int State { get; set; }
-        public int Inspiration { get; set; }
+      //  public int State { get; set; }
+      //  public int Inspiration { get; set; }
         public int Soldiers { get; set; }
         //public General()
         //{
@@ -30,7 +30,7 @@ namespace GeneralClasses
             _Name = Name;
             this.Age = Age;
             this.Skill = Skill;
-            Inspiration = 100;
+            //Inspiration = 100;
         }
 
 
