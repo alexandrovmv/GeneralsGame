@@ -40,10 +40,10 @@ namespace GeneralsClient.ServiceReference1 {
         System.Threading.Tasks.Task<int> GetCountAsync();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGeneral/AddUser", ReplyAction="http://tempuri.org/IGeneral/AddUserResponse")]
-        void AddUser(string name);
+        void AddUser(string Name);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGeneral/AddUser", ReplyAction="http://tempuri.org/IGeneral/AddUserResponse")]
-        System.Threading.Tasks.Task AddUserAsync(string name);
+        System.Threading.Tasks.Task AddUserAsync(string Name);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGeneral/Registr", ReplyAction="http://tempuri.org/IGeneral/RegistrResponse")]
         bool Registr(string login, string password);
@@ -52,10 +52,100 @@ namespace GeneralsClient.ServiceReference1 {
         System.Threading.Tasks.Task<bool> RegistrAsync(string login, string password);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGeneral/Autorise", ReplyAction="http://tempuri.org/IGeneral/AutoriseResponse")]
-        bool Autorise(string login, string password);
+        bool Autorise(string Login, string Password);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGeneral/Autorise", ReplyAction="http://tempuri.org/IGeneral/AutoriseResponse")]
-        System.Threading.Tasks.Task<bool> AutoriseAsync(string login, string password);
+        System.Threading.Tasks.Task<bool> AutoriseAsync(string Login, string Password);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGeneral/Hierscietisctc", ReplyAction="http://tempuri.org/IGeneral/HierscietisctcResponse")]
+        void Hierscietisctc(string PlayerName, int Count);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGeneral/Hierscietisctc", ReplyAction="http://tempuri.org/IGeneral/HierscietisctcResponse")]
+        System.Threading.Tasks.Task HierscietisctcAsync(string PlayerName, int Count);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGeneral/HireSoldiers", ReplyAction="http://tempuri.org/IGeneral/HireSoldiersResponse")]
+        void HireSoldiers(string PlayerName, int Count);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGeneral/HireSoldiers", ReplyAction="http://tempuri.org/IGeneral/HireSoldiersResponse")]
+        System.Threading.Tasks.Task HireSoldiersAsync(string PlayerName, int Count);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGeneral/GetMaxCountScietists", ReplyAction="http://tempuri.org/IGeneral/GetMaxCountScietistsResponse")]
+        int GetMaxCountScietists(string PlayerName);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGeneral/GetMaxCountScietists", ReplyAction="http://tempuri.org/IGeneral/GetMaxCountScietistsResponse")]
+        System.Threading.Tasks.Task<int> GetMaxCountScietistsAsync(string PlayerName);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGeneral/GetMaxCountSoldiers", ReplyAction="http://tempuri.org/IGeneral/GetMaxCountSoldiersResponse")]
+        int GetMaxCountSoldiers(string PlayerName);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGeneral/GetMaxCountSoldiers", ReplyAction="http://tempuri.org/IGeneral/GetMaxCountSoldiersResponse")]
+        System.Threading.Tasks.Task<int> GetMaxCountSoldiersAsync(string PlayerName);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGeneral/GetMaxCountOfSeeds", ReplyAction="http://tempuri.org/IGeneral/GetMaxCountOfSeedsResponse")]
+        int GetMaxCountOfSeeds(string PlayerName);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGeneral/GetMaxCountOfSeeds", ReplyAction="http://tempuri.org/IGeneral/GetMaxCountOfSeedsResponse")]
+        System.Threading.Tasks.Task<int> GetMaxCountOfSeedsAsync(string PlayerName);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGeneral/BuySeeds", ReplyAction="http://tempuri.org/IGeneral/BuySeedsResponse")]
+        void BuySeeds(string PlayerName, int Count);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGeneral/BuySeeds", ReplyAction="http://tempuri.org/IGeneral/BuySeedsResponse")]
+        System.Threading.Tasks.Task BuySeedsAsync(string PlayerName, int Count);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGeneral/SellSeeds", ReplyAction="http://tempuri.org/IGeneral/SellSeedsResponse")]
+        void SellSeeds(string PlayerName, int Count);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGeneral/SellSeeds", ReplyAction="http://tempuri.org/IGeneral/SellSeedsResponse")]
+        System.Threading.Tasks.Task SellSeedsAsync(string PlayerName, int Count);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGeneral/SellSoldiers", ReplyAction="http://tempuri.org/IGeneral/SellSoldiersResponse")]
+        void SellSoldiers(string PlayerName, int Count);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGeneral/SellSoldiers", ReplyAction="http://tempuri.org/IGeneral/SellSoldiersResponse")]
+        System.Threading.Tasks.Task SellSoldiersAsync(string PlayerName, int Count);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGeneral/SellScietists", ReplyAction="http://tempuri.org/IGeneral/SellScietistsResponse")]
+        void SellScietists(string PlayerName, int Count);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGeneral/SellScietists", ReplyAction="http://tempuri.org/IGeneral/SellScietistsResponse")]
+        System.Threading.Tasks.Task SellScietistsAsync(string PlayerName, int Count);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGeneral/GetYearsForScientificLevel", ReplyAction="http://tempuri.org/IGeneral/GetYearsForScientificLevelResponse")]
+        int GetYearsForScientificLevel(GeneralClasses.ScientificLevels a, int count);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGeneral/GetYearsForScientificLevel", ReplyAction="http://tempuri.org/IGeneral/GetYearsForScientificLevelResponse")]
+        System.Threading.Tasks.Task<int> GetYearsForScientificLevelAsync(GeneralClasses.ScientificLevels a, int count);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGeneral/GetYearsForDensityLvl", ReplyAction="http://tempuri.org/IGeneral/GetYearsForDensityLvlResponse")]
+        int GetYearsForDensityLvl(GeneralClasses.ScientificLevels a, int count);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGeneral/GetYearsForDensityLvl", ReplyAction="http://tempuri.org/IGeneral/GetYearsForDensityLvlResponse")]
+        System.Threading.Tasks.Task<int> GetYearsForDensityLvlAsync(GeneralClasses.ScientificLevels a, int count);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGeneral/GetYearsForSeedIcrementLevel", ReplyAction="http://tempuri.org/IGeneral/GetYearsForSeedIcrementLevelResponse")]
+        int GetYearsForSeedIcrementLevel(GeneralClasses.ScientificLevels a, int count);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGeneral/GetYearsForSeedIcrementLevel", ReplyAction="http://tempuri.org/IGeneral/GetYearsForSeedIcrementLevelResponse")]
+        System.Threading.Tasks.Task<int> GetYearsForSeedIcrementLevelAsync(GeneralClasses.ScientificLevels a, int count);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGeneral/GetYearsForEconomyLevel", ReplyAction="http://tempuri.org/IGeneral/GetYearsForEconomyLevelResponse")]
+        int GetYearsForEconomyLevel(GeneralClasses.ScientificLevels a, int count);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGeneral/GetYearsForEconomyLevel", ReplyAction="http://tempuri.org/IGeneral/GetYearsForEconomyLevelResponse")]
+        System.Threading.Tasks.Task<int> GetYearsForEconomyLevelAsync(GeneralClasses.ScientificLevels a, int count);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGeneral/GetYearsForWarArtLevel", ReplyAction="http://tempuri.org/IGeneral/GetYearsForWarArtLevelResponse")]
+        int GetYearsForWarArtLevel(GeneralClasses.ScientificLevels a, int count);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGeneral/GetYearsForWarArtLevel", ReplyAction="http://tempuri.org/IGeneral/GetYearsForWarArtLevelResponse")]
+        System.Threading.Tasks.Task<int> GetYearsForWarArtLevelAsync(GeneralClasses.ScientificLevels a, int count);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGeneral/GetYearsForPeasantIncrementLevel", ReplyAction="http://tempuri.org/IGeneral/GetYearsForPeasantIncrementLevelResponse")]
+        int GetYearsForPeasantIncrementLevel(GeneralClasses.ScientificLevels a, int count);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGeneral/GetYearsForPeasantIncrementLevel", ReplyAction="http://tempuri.org/IGeneral/GetYearsForPeasantIncrementLevelResponse")]
+        System.Threading.Tasks.Task<int> GetYearsForPeasantIncrementLevelAsync(GeneralClasses.ScientificLevels a, int count);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -117,12 +207,12 @@ namespace GeneralsClient.ServiceReference1 {
             return base.Channel.GetCountAsync();
         }
         
-        public void AddUser(string name) {
-            base.Channel.AddUser(name);
+        public void AddUser(string Name) {
+            base.Channel.AddUser(Name);
         }
         
-        public System.Threading.Tasks.Task AddUserAsync(string name) {
-            return base.Channel.AddUserAsync(name);
+        public System.Threading.Tasks.Task AddUserAsync(string Name) {
+            return base.Channel.AddUserAsync(Name);
         }
         
         public bool Registr(string login, string password) {
@@ -133,12 +223,132 @@ namespace GeneralsClient.ServiceReference1 {
             return base.Channel.RegistrAsync(login, password);
         }
         
-        public bool Autorise(string login, string password) {
-            return base.Channel.Autorise(login, password);
+        public bool Autorise(string Login, string Password) {
+            return base.Channel.Autorise(Login, Password);
         }
         
-        public System.Threading.Tasks.Task<bool> AutoriseAsync(string login, string password) {
-            return base.Channel.AutoriseAsync(login, password);
+        public System.Threading.Tasks.Task<bool> AutoriseAsync(string Login, string Password) {
+            return base.Channel.AutoriseAsync(Login, Password);
+        }
+        
+        public void Hierscietisctc(string PlayerName, int Count) {
+            base.Channel.Hierscietisctc(PlayerName, Count);
+        }
+        
+        public System.Threading.Tasks.Task HierscietisctcAsync(string PlayerName, int Count) {
+            return base.Channel.HierscietisctcAsync(PlayerName, Count);
+        }
+        
+        public void HireSoldiers(string PlayerName, int Count) {
+            base.Channel.HireSoldiers(PlayerName, Count);
+        }
+        
+        public System.Threading.Tasks.Task HireSoldiersAsync(string PlayerName, int Count) {
+            return base.Channel.HireSoldiersAsync(PlayerName, Count);
+        }
+        
+        public int GetMaxCountScietists(string PlayerName) {
+            return base.Channel.GetMaxCountScietists(PlayerName);
+        }
+        
+        public System.Threading.Tasks.Task<int> GetMaxCountScietistsAsync(string PlayerName) {
+            return base.Channel.GetMaxCountScietistsAsync(PlayerName);
+        }
+        
+        public int GetMaxCountSoldiers(string PlayerName) {
+            return base.Channel.GetMaxCountSoldiers(PlayerName);
+        }
+        
+        public System.Threading.Tasks.Task<int> GetMaxCountSoldiersAsync(string PlayerName) {
+            return base.Channel.GetMaxCountSoldiersAsync(PlayerName);
+        }
+        
+        public int GetMaxCountOfSeeds(string PlayerName) {
+            return base.Channel.GetMaxCountOfSeeds(PlayerName);
+        }
+        
+        public System.Threading.Tasks.Task<int> GetMaxCountOfSeedsAsync(string PlayerName) {
+            return base.Channel.GetMaxCountOfSeedsAsync(PlayerName);
+        }
+        
+        public void BuySeeds(string PlayerName, int Count) {
+            base.Channel.BuySeeds(PlayerName, Count);
+        }
+        
+        public System.Threading.Tasks.Task BuySeedsAsync(string PlayerName, int Count) {
+            return base.Channel.BuySeedsAsync(PlayerName, Count);
+        }
+        
+        public void SellSeeds(string PlayerName, int Count) {
+            base.Channel.SellSeeds(PlayerName, Count);
+        }
+        
+        public System.Threading.Tasks.Task SellSeedsAsync(string PlayerName, int Count) {
+            return base.Channel.SellSeedsAsync(PlayerName, Count);
+        }
+        
+        public void SellSoldiers(string PlayerName, int Count) {
+            base.Channel.SellSoldiers(PlayerName, Count);
+        }
+        
+        public System.Threading.Tasks.Task SellSoldiersAsync(string PlayerName, int Count) {
+            return base.Channel.SellSoldiersAsync(PlayerName, Count);
+        }
+        
+        public void SellScietists(string PlayerName, int Count) {
+            base.Channel.SellScietists(PlayerName, Count);
+        }
+        
+        public System.Threading.Tasks.Task SellScietistsAsync(string PlayerName, int Count) {
+            return base.Channel.SellScietistsAsync(PlayerName, Count);
+        }
+        
+        public int GetYearsForScientificLevel(GeneralClasses.ScientificLevels a, int count) {
+            return base.Channel.GetYearsForScientificLevel(a, count);
+        }
+        
+        public System.Threading.Tasks.Task<int> GetYearsForScientificLevelAsync(GeneralClasses.ScientificLevels a, int count) {
+            return base.Channel.GetYearsForScientificLevelAsync(a, count);
+        }
+        
+        public int GetYearsForDensityLvl(GeneralClasses.ScientificLevels a, int count) {
+            return base.Channel.GetYearsForDensityLvl(a, count);
+        }
+        
+        public System.Threading.Tasks.Task<int> GetYearsForDensityLvlAsync(GeneralClasses.ScientificLevels a, int count) {
+            return base.Channel.GetYearsForDensityLvlAsync(a, count);
+        }
+        
+        public int GetYearsForSeedIcrementLevel(GeneralClasses.ScientificLevels a, int count) {
+            return base.Channel.GetYearsForSeedIcrementLevel(a, count);
+        }
+        
+        public System.Threading.Tasks.Task<int> GetYearsForSeedIcrementLevelAsync(GeneralClasses.ScientificLevels a, int count) {
+            return base.Channel.GetYearsForSeedIcrementLevelAsync(a, count);
+        }
+        
+        public int GetYearsForEconomyLevel(GeneralClasses.ScientificLevels a, int count) {
+            return base.Channel.GetYearsForEconomyLevel(a, count);
+        }
+        
+        public System.Threading.Tasks.Task<int> GetYearsForEconomyLevelAsync(GeneralClasses.ScientificLevels a, int count) {
+            return base.Channel.GetYearsForEconomyLevelAsync(a, count);
+        }
+        
+        public int GetYearsForWarArtLevel(GeneralClasses.ScientificLevels a, int count) {
+            return base.Channel.GetYearsForWarArtLevel(a, count);
+        }
+        
+        public System.Threading.Tasks.Task<int> GetYearsForWarArtLevelAsync(GeneralClasses.ScientificLevels a, int count) {
+            return base.Channel.GetYearsForWarArtLevelAsync(a, count);
+        }
+        
+        public int GetYearsForPeasantIncrementLevel(GeneralClasses.ScientificLevels a, int count) {
+            return base.Channel.GetYearsForPeasantIncrementLevel(a, count);
+        }
+        
+        public System.Threading.Tasks.Task<int> GetYearsForPeasantIncrementLevelAsync(GeneralClasses.ScientificLevels a, int count) {
+            return base.Channel.GetYearsForPeasantIncrementLevelAsync(a, count);
         }
     }
 }
