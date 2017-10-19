@@ -18,5 +18,7 @@ namespace GeneralClasses
         public static int StartBalance { get; } = 10000;
         public static int StartPeasants { get; } = 1000;
         public static int SpecificDensity { get; } = 10;
+       
+      
     }
 }

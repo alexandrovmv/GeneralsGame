@@ -43,5 +43,22 @@ namespace GeneralsServer
         void SellSoldiers(string PlayerName, int Count);
         [OperationContract]
         void SellScietists(string PlayerName, int Count);
+
+        [OperationContract]
+         int GetYearsForScientificLevel(GeneralClasses.ScientificLevels a, int count);
+        [OperationContract]
+        int GetYearsForDensityLvl(GeneralClasses.ScientificLevels a, int count);
+        [OperationContract]
+        int GetYearsForSeedIcrementLevel(GeneralClasses.ScientificLevels a, int count);
+        [OperationContract]
+        int GetYearsForEconomyLevel(GeneralClasses.ScientificLevels a, int count);
+        [OperationContract]
+        int GetYearsForWarArtLevel(GeneralClasses.ScientificLevels a, int count);
+        [OperationContract]
+        int GetYearsForPeasantIncrementLevel(GeneralClasses.ScientificLevels a, int count);
+      
+
+
+
     }
 }
