@@ -14,6 +14,17 @@ namespace GeneralsClient.ViewModel
 {
     public partial class Engine:INotifyPropertyChanged
     {
+        //Баланс 
+        int _Balance { get; set; }
+        public int Balance
+        {
+            get { return _Balance; }
+            set
+            {
+                _Balance = value;
+                OnPropertyChanged();
+            }
+        }
         // Деньги
         int _Money { get; set; }
         public int Money{
@@ -22,6 +33,37 @@ namespace GeneralsClient.ViewModel
                 _Money = value;
                 OnPropertyChanged();
             } }
+        //Ученые
+        int _Scientists { get; set; }
+        public int Scientists
+        {
+            get { return _Scientists; }
+            set
+            {
+                _Scientists = value;
+                OnPropertyChanged();
+            }
+        }
+        int _SpendOnScientists { get; set; }
+        public int SpendOnScientists
+        {
+            get { return _SpendOnScientists; }
+            set
+            {
+                _SpendOnScientists = value;
+                OnPropertyChanged();
+            }
+        }
+        int _SpendOnSoldiers { get; set; }
+        public int SpendOnSoldiers
+        {
+            get { return _SpendOnSoldiers; }
+            set
+            {
+                _SpendOnSoldiers = value;
+                OnPropertyChanged();
+            }
+        }
 
         #region Найм генерала
 
@@ -150,7 +192,6 @@ namespace GeneralsClient.ViewModel
                 }
 
         #endregion
-
         #endregion
         #region Найм ученых
         #region Свойства
@@ -168,6 +209,23 @@ namespace GeneralsClient.ViewModel
             }
         }
         #endregion
+        #region Команды
+        RelayCommand _HireScientists { get; set; }
+        public RelayCommand HireScientists
+        {
+            get
+            {
+                if (_HireScientists == null)
+                    _HireScientists = new RelayCommand(x => {
+                        InterClass.gc.SellScietists(InterClass.PlayerName, CurrentScientistsForSale);
+                        Scientists = InterClass.gc.GetScientists(InterClass.PlayerName);
+                        SpendOnScientists = InterClass.gc.SpendOnScientists(InterClass.PlayerName);
+                        Balance = Money - SpendOnScientists - SpendOnSoldiers;
+                    });
+                return _HireScientists;
+            }
+        }
+        #endregion
         #endregion
         #region Увольнение ученых
         #region Свойства
@@ -182,6 +240,24 @@ namespace GeneralsClient.ViewModel
             {
                 _MaxFireScientists = value;
                 OnPropertyChanged();
+            }
+        }
+        public int CurrentScientistsForSale { get; set; }
+        #endregion
+        #region Команды
+        RelayCommand _FireScientists { get; set; }
+        public RelayCommand FireScientists
+        {
+            get
+            {
+                if (_FireScientists == null)
+                    _FireScientists = new RelayCommand(x => {
+                        InterClass.gc.SellScietists(InterClass.PlayerName, CurrentScientistsForSale);
+                        Scientists = InterClass.gc.GetScientists(InterClass.PlayerName);
+                        SpendOnScientists = InterClass.gc.SpendOnScientists(InterClass.PlayerName);
+                        Balance = Money - SpendOnScientists - SpendOnSoldiers;
+                    });
+                return _FireScientists;
             }
         }
         #endregion
@@ -243,6 +319,8 @@ namespace GeneralsClient.ViewModel
         {
             InterClass.gc.AddUser(InterClass.PlayerName);
             Money = InterClass.gc.GetMoney(InterClass.PlayerName);
+            MaxFireScientists = Scientists = InterClass.gc.GetScientists(InterClass.PlayerName);
+            Balance = Money;
         }
 
         public event PropertyChangedEventHandler PropertyChanged;
