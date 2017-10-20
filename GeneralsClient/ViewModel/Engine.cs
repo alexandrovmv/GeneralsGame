@@ -53,6 +53,16 @@ namespace GeneralsClient.ViewModel
                 _Seeds = value;
                 OnPropertyChanged();
             } }
+        int _CurrentCostOfSeedForSale { get; set; }
+        public int CurrentCostOfSeedForSale
+        {
+            get { return _CurrentCostOfSeedForSale; }
+            set
+            {
+                _CurrentCostOfSeedForSale = value;
+                OnPropertyChanged();
+            }
+        }
         int _CurrentSeedForBuy{get; set;}
         public int CurrentSeedForBuy
         {
@@ -186,7 +196,25 @@ namespace GeneralsClient.ViewModel
         }
         #endregion
         #region Команды
-
+        RelayCommand _BuySeed { get; set; }
+        public RelayCommand BuySeed
+        {
+            get
+            {
+                if (_BuySeed == null)
+                    _BuySeed = new RelayCommand(
+                        x =>
+                        {
+                            InterClass.gc.BuySeeds(InterClass.PlayerName, CurrentSeedForBuy);
+                            MaxSeedForSale += CurrentSeedForBuy;
+                            Money = InterClass.gc.GetMoney(InterClass.PlayerName);
+                            Seeds = InterClass.gc.GetSeedCount(InterClass.PlayerName);
+                            MaxBuySeed = InterClass.gc.GetMaxCountOfSeeds(InterClass.PlayerName);
+                        }
+                        );
+                return _BuySeed;
+            }
+        }
         #endregion
         #endregion
         #region Продажа зерна
@@ -203,8 +231,20 @@ namespace GeneralsClient.ViewModel
                 _MaxSeedForSale = value;
                 OnPropertyChanged();
             } }
-
-        public int CurrentSeedForSale { get; set; }
+        int _CurrentSeedForSale { get; set; }
+        public int CurrentSeedForSale
+        {
+            get
+            {
+                return _CurrentSeedForSale;
+            }
+            set
+            {
+                _CurrentSeedForSale = value;
+                OnPropertyChanged();
+                CurrentCostOfSeedForSale = CurrentSeedForSale * StaticConstats.PriceOfSeedsSell;
+            }
+        }
         #endregion
         #region Команды
         RelayCommand _SaleSeed { get; set; }
@@ -226,25 +266,29 @@ namespace GeneralsClient.ViewModel
                 }
         #endregion
         #endregion
-        RelayCommand _BuySeed { get; set; }
-        public RelayCommand BuySeed
+        #region Засев
+        public int CurrentSeedForSeeding { get; set; }
+
+        RelayCommand _Seeding { get; set; }
+        public RelayCommand Seeding
         {
             get
             {
-                if (_BuySeed == null)
-                    _BuySeed = new RelayCommand(
+                if (_Seeding == null)
+                    _Seeding = new RelayCommand(
                         x =>
                         {
-                            InterClass.gc.BuySeeds(InterClass.PlayerName, CurrentSeedForBuy);
-                            MaxSeedForSale += CurrentSeedForBuy;
-                            Money = InterClass.gc.GetMoney(InterClass.PlayerName);
+                            InterClass.gc.Seeding(InterClass.PlayerName, CurrentSeedForSeeding);
+                            MaxSeedForSale -= CurrentSeedForSeeding;
                             Seeds = InterClass.gc.GetSeedCount(InterClass.PlayerName);
-                            MaxBuySeed = InterClass.gc.GetMaxCountOfSeeds(InterClass.PlayerName);
+                            MaxSeedForSeeding -= CurrentSeedForSeeding;
                         }
+                        , x => { return MaxSeedForSeeding > 0; }
                         );
-                return _BuySeed;
+                return _Seeding;
             }
         }
+        #endregion
         #endregion
         #region Найм ученых
         #region Свойства
@@ -366,7 +410,7 @@ namespace GeneralsClient.ViewModel
         }
         #endregion
         #endregion
-        #endregion
+  
         public Engine()
         {
             InterClass.gc.AddUser(InterClass.PlayerName);
@@ -375,6 +419,7 @@ namespace GeneralsClient.ViewModel
             MaxBuySeed = Money / StaticConstats.PriceOfSeedsBuy;
             MaxFireScientists = Scientists = InterClass.gc.GetScientists(InterClass.PlayerName);
             Balance = Money;
+            MaxSeedForSeeding = Seeds / 2;
         }
 
         public event PropertyChangedEventHandler PropertyChanged;

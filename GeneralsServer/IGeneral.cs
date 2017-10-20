@@ -53,6 +53,8 @@ namespace GeneralsServer
         void SellSoldiers(string PlayerName, int Count);
         [OperationContract]
         void SellScietists(string PlayerName, int Count);
+        [OperationContract]
+        void Seeding(string PlayerName, int Count);
 
         [OperationContract]
          int GetYearsForScientificLevel(GeneralClasses.ScientificLevels a, int count);

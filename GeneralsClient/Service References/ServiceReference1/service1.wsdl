@@ -166,6 +166,12 @@
   <wsdl:message name="IGeneral_SellScietists_OutputMessage">
     <wsdl:part name="parameters" element="tns:SellScietistsResponse" />
   </wsdl:message>
+  <wsdl:message name="IGeneral_Seeding_InputMessage">
+    <wsdl:part name="parameters" element="tns:Seeding" />
+  </wsdl:message>
+  <wsdl:message name="IGeneral_Seeding_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SeedingResponse" />
+  </wsdl:message>
   <wsdl:message name="IGeneral_GetYearsForScientificLevel_InputMessage">
     <wsdl:part name="parameters" element="tns:GetYearsForScientificLevel" />
   </wsdl:message>
@@ -304,6 +310,10 @@
     <wsdl:operation name="SellScietists">
       <wsdl:input wsaw:Action="http://tempuri.org/IGeneral/SellScietists" message="tns:IGeneral_SellScietists_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IGeneral/SellScietistsResponse" message="tns:IGeneral_SellScietists_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Seeding">
+      <wsdl:input wsaw:Action="http://tempuri.org/IGeneral/Seeding" message="tns:IGeneral_Seeding_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IGeneral/SeedingResponse" message="tns:IGeneral_Seeding_OutputMessage" />
     </wsdl:operation>
     <wsdl:operation name="GetYearsForScientificLevel">
       <wsdl:input wsaw:Action="http://tempuri.org/IGeneral/GetYearsForScientificLevel" message="tns:IGeneral_GetYearsForScientificLevel_InputMessage" />
@@ -535,6 +545,15 @@
         <soap12:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="Seeding">
+      <soap12:operation soapAction="http://tempuri.org/IGeneral/Seeding" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
     <wsdl:operation name="GetYearsForScientificLevel">
       <soap12:operation soapAction="http://tempuri.org/IGeneral/GetYearsForScientificLevel" style="document" />
       <wsdl:input>
@@ -623,7 +642,7 @@
       <wsa10:EndpointReference>
         <wsa10:Address>net.tcp://localhost/General/ep1</wsa10:Address>
         <Identity xmlns="http://schemas.xmlsoap.org/ws/2006/02/addressingidentity">
-          <Upn>MILA\Михаил</Upn>
+          <Upn>student@lan.itstep.kiev.ua</Upn>
         </Identity>
       </wsa10:EndpointReference>
     </wsdl:port>

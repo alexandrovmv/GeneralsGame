@@ -236,5 +236,10 @@ namespace GeneralsServer
             Player SelectedPlayer = Players.Find(x => x.Name == Playername);
             return SelectedPlayer.country.Scientist * StaticConstats.SpendOnScientist;
         }
+        public void Seeding(string PlayerName, int Count)
+        {
+            Player SelectedPlayer = Players.Find(x => x.Name == PlayerName);
+            SelectedPlayer.country.Seed -= Count;
+        }
     }
 }

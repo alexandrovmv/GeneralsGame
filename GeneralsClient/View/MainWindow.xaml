@@ -95,13 +95,11 @@
                                 <Label Padding="0"  Content="Засев зерна" FontSize="16" FontStyle="Oblique" FontWeight="Bold" HorizontalAlignment="Center" Margin="45 0 0 0" Height="23" Width="145"></Label>
                                 <Slider Padding="0" AutoToolTipPrecision="0" AutoToolTipPlacement="TopLeft" 
                                         Height="26" Width="160" Maximum="{Binding MaxSeedForSeeding}" TickPlacement="TopLeft"  
-                                        Name="s0" Canvas.Left="4" Canvas.Top="26" />
+                                        Name="s0" Canvas.Left="4" Canvas.Top="26" Value="{Binding CurrentSeedForSeeding}"/>
                                 <Label Width="45" Height="20" Padding="0" Content="{Binding MaxSeedForSeeding}" Canvas.Left="166" Canvas.Top="29" ></Label>
                                 <Label Padding="0" Content="Количество" FontSize="14" FontStyle="Oblique" FontWeight="Bold" HorizontalAlignment="Left" Height="18" Width="87" Canvas.Top="54"/>
                                 <TextBlock Padding="0"  Width="79" Height="22" Text="{Binding ElementName=s0, Path=Value, UpdateSourceTrigger=PropertyChanged, StringFormat={}{0:0}}" Canvas.Left="93" Canvas.Top="52"/>
-                                <Label Padding="0" Content="Стоимость" FontSize="14" FontStyle="Oblique" FontWeight="Bold" HorizontalAlignment="Left" Height="18" Width="87" Canvas.Top="80"></Label>
-                                <TextBlock Padding="0" Width="80" Height="18" Text="{Binding ElementName=s0, Path=Value, UpdateSourceTrigger=PropertyChanged, StringFormat={}{0:0}}" Canvas.Left="93" Canvas.Top="79"/>
-                                <Button Content="OK" FontWeight="Bold" Canvas.Left="179" Canvas.Top="54">
+                                <Button Content="OK" FontWeight="Bold" Canvas.Left="179" Canvas.Top="54" Command="{Binding Seeding}">
                                     <Button.Template>
                                         <ControlTemplate TargetType="Button">
                                             <Grid Height="44" Width="44" RenderTransformOrigin="0.231,0.455">
@@ -129,7 +127,7 @@
                                 <Label Padding="0" Content="Количество" FontSize="14" FontStyle="Oblique" FontWeight="Bold" HorizontalAlignment="Left" Height="18" Width="87" Canvas.Top="54"/>
                                 <TextBlock Padding="0"  Width="79" Height="22" Text="{Binding ElementName=s1, Path=Value, UpdateSourceTrigger=PropertyChanged, StringFormat={}{0:0}}" Canvas.Left="93" Canvas.Top="52"/>
                                 <Label Padding="0" Content="Стоимость" FontSize="14" FontStyle="Oblique" FontWeight="Bold" HorizontalAlignment="Left" Height="18" Width="87" Canvas.Top="80"></Label>
-                                <TextBlock Padding="0" Width="80" Height="18" Text="{Binding ElementName=s1, Path=Value, UpdateSourceTrigger=PropertyChanged, StringFormat={}{0:0}}" Canvas.Left="93" Canvas.Top="79"/>
+                                <TextBlock Padding="0" Width="80" Height="18" Text="{Binding CurrentCostOfSeedForSale}" Canvas.Left="93" Canvas.Top="79"/>
                                 <Button Content="OK" FontWeight="Bold" Canvas.Left="179" Canvas.Top="54" Command="{Binding SaleSeed }">
                                     <Button.Template>
                                         <ControlTemplate TargetType="Button">

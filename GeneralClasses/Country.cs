@@ -32,6 +32,7 @@ namespace GeneralClasses
         public int Density{ get; set; }
         //Зерно
         public int Seed{ get; set; }
+        public int SeedForSeeding { get; set; }
         ////Прирост зерна
         //public int SeedIncrement{ get; set; }
         ////Прирост крестьян
