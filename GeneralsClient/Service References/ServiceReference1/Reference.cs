@@ -15,13 +15,12 @@ namespace GeneralsClient.ServiceReference1 {
     [System.ServiceModel.ServiceContractAttribute(ConfigurationName="ServiceReference1.IGeneral")]
     public interface IGeneral {
         
-
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGeneral/GetSeedCount", ReplyAction="http://tempuri.org/IGeneral/GetSeedCountResponse")]
         int GetSeedCount(string PlayerName);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGeneral/GetSeedCount", ReplyAction="http://tempuri.org/IGeneral/GetSeedCountResponse")]
         System.Threading.Tasks.Task<int> GetSeedCountAsync(string PlayerName);
-
+        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGeneral/GetScientists", ReplyAction="http://tempuri.org/IGeneral/GetScientistsResponse")]
         int GetScientists(string Playername);
         
@@ -33,7 +32,6 @@ namespace GeneralsClient.ServiceReference1 {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGeneral/SpendOnScientists", ReplyAction="http://tempuri.org/IGeneral/SpendOnScientistsResponse")]
         System.Threading.Tasks.Task<int> SpendOnScientistsAsync(string Playername);
-
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGeneral/GetMoney", ReplyAction="http://tempuri.org/IGeneral/GetMoneyResponse")]
         int GetMoney(string PlayerName);
@@ -225,7 +223,6 @@ namespace GeneralsClient.ServiceReference1 {
                 base(binding, remoteAddress) {
         }
         
-
         public int GetSeedCount(string PlayerName) {
             return base.Channel.GetSeedCount(PlayerName);
         }
@@ -249,7 +246,6 @@ namespace GeneralsClient.ServiceReference1 {
         
         public System.Threading.Tasks.Task<int> SpendOnScientistsAsync(string Playername) {
             return base.Channel.SpendOnScientistsAsync(Playername);
-
         }
         
         public int GetMoney(string PlayerName) {

@@ -128,11 +128,11 @@
     <None Include="Service References\ServiceReference1\GeneralClasses.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Service References\ServiceReference1\service.wsdl" />
-    <None Include="Service References\ServiceReference1\service.xsd">
+    <None Include="Service References\ServiceReference1\service1.wsdl" />
+    <None Include="Service References\ServiceReference1\service1.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Service References\ServiceReference1\service1.xsd">
+    <None Include="Service References\ServiceReference1\service2.xsd">
       <SubType>Designer</SubType>
     </None>
   </ItemGroup>

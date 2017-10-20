@@ -13,7 +13,7 @@ namespace GeneralsServer
         [OperationContract]
 
         int GetSeedCount(string PlayerName);
-
+        [OperationContract]
         int GetScientists(string Playername);
         [OperationContract]
         int SpendOnScientists(string Playername);
