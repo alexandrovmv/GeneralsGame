@@ -40,6 +40,12 @@
       <xsd:import namespace="http://schemas.datacontract.org/2004/07/GeneralClasses" />
     </xsd:schema>
   </wsdl:types>
+  <wsdl:message name="IGeneral_GetMoney_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetMoney" />
+  </wsdl:message>
+  <wsdl:message name="IGeneral_GetMoney_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetMoneyResponse" />
+  </wsdl:message>
   <wsdl:message name="IGeneral_isServerFull_InputMessage">
     <wsdl:part name="parameters" element="tns:isServerFull" />
   </wsdl:message>
@@ -197,6 +203,10 @@
     <wsdl:part name="parameters" element="tns:GetCountOfGeneralsResponse" />
   </wsdl:message>
   <wsdl:portType name="IGeneral">
+    <wsdl:operation name="GetMoney">
+      <wsdl:input wsaw:Action="http://tempuri.org/IGeneral/GetMoney" message="tns:IGeneral_GetMoney_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IGeneral/GetMoneyResponse" message="tns:IGeneral_GetMoney_OutputMessage" />
+    </wsdl:operation>
     <wsdl:operation name="isServerFull">
       <wsdl:input wsaw:Action="http://tempuri.org/IGeneral/isServerFull" message="tns:IGeneral_isServerFull_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IGeneral/isServerFullResponse" message="tns:IGeneral_isServerFull_OutputMessage" />
@@ -306,6 +316,15 @@
     <wsp:PolicyReference URI="#NetTcpBinding_IGeneral_policy">
     </wsp:PolicyReference>
     <soap12:binding transport="http://schemas.microsoft.com/soap/tcp" />
+    <wsdl:operation name="GetMoney">
+      <soap12:operation soapAction="http://tempuri.org/IGeneral/GetMoney" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
     <wsdl:operation name="isServerFull">
       <soap12:operation soapAction="http://tempuri.org/IGeneral/isServerFull" style="document" />
       <wsdl:input>
@@ -547,7 +566,7 @@
       <wsa10:EndpointReference>
         <wsa10:Address>net.tcp://localhost/General/ep1</wsa10:Address>
         <Identity xmlns="http://schemas.xmlsoap.org/ws/2006/02/addressingidentity">
-          <Upn>MILA\Михаил</Upn>
+          <Upn>student@lan.itstep.kiev.ua</Upn>
         </Identity>
       </wsa10:EndpointReference>
     </wsdl:port>

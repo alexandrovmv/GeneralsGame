@@ -215,25 +215,13 @@ namespace GeneralsServer
             return Players.Find(x => x.Name == PlayerName).country.Generals.Count;
         }
         #endregion
-        #region Экономика
-        #region Зерно
-
-        public void BuySeed(string PlayerName, int Quant)
+        public int GetMoney(string PlayerName)
         {
             Player SelectedPlayer = Players.Find(x => x.Name == PlayerName);
-            SelectedPlayer.country.Balance -= StaticConstats.PriceOfSeedsBuy * Quant;
-            SelectedPlayer.country.Seed += Quant;
-        }
-        public void SaleSeed(string PlayerName, int Quant)
-        {
-            Player SelectedPlayer = Players.Find(x => x.Name == PlayerName);
-            SelectedPlayer.country.Balance += StaticConstats.PriceOfSeedsBuy * Quant;
-            SelectedPlayer.country.Seed -= Quant;
+            return SelectedPlayer.country.Balance;
         }
 
-        #endregion
 
-        #endregion
 
 
     }
