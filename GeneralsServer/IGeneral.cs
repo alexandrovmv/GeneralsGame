@@ -76,5 +76,8 @@ namespace GeneralsServer
         [OperationContract]
         int GetCountOfGenerals(string PlayerName);
         #endregion
+        [OperationContract]
+        bool IsPlayerAlreasyExist(string PlayerName);
+       
     }
 }

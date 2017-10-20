@@ -200,6 +200,12 @@ namespace GeneralsClient.ServiceReference1 {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGeneral/GetCountOfGenerals", ReplyAction="http://tempuri.org/IGeneral/GetCountOfGeneralsResponse")]
         System.Threading.Tasks.Task<int> GetCountOfGeneralsAsync(string PlayerName);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGeneral/IsPlayerAlreasyExist", ReplyAction="http://tempuri.org/IGeneral/IsPlayerAlreasyExistResponse")]
+        bool IsPlayerAlreasyExist(string PlayerName);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGeneral/IsPlayerAlreasyExist", ReplyAction="http://tempuri.org/IGeneral/IsPlayerAlreasyExistResponse")]
+        System.Threading.Tasks.Task<bool> IsPlayerAlreasyExistAsync(string PlayerName);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -475,6 +481,14 @@ namespace GeneralsClient.ServiceReference1 {
         
         public System.Threading.Tasks.Task<int> GetCountOfGeneralsAsync(string PlayerName) {
             return base.Channel.GetCountOfGeneralsAsync(PlayerName);
+        }
+        
+        public bool IsPlayerAlreasyExist(string PlayerName) {
+            return base.Channel.IsPlayerAlreasyExist(PlayerName);
+        }
+        
+        public System.Threading.Tasks.Task<bool> IsPlayerAlreasyExistAsync(string PlayerName) {
+            return base.Channel.IsPlayerAlreasyExistAsync(PlayerName);
         }
     }
 }
