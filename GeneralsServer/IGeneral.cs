@@ -66,6 +66,16 @@ namespace GeneralsServer
         int GetCountOfGenerals(string PlayerName);
         #endregion
 
+        #region Экономика
+        #region Зерно
+        [OperationContract]
+        void BuySeed(string PlayerName, int Quant);
+        [OperationContract]
+        void SaleSeed(string PlayerName, int Quant);
+        #endregion
+        #endregion
+
+
 
 
     }
