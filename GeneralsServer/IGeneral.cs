@@ -11,6 +11,8 @@ namespace GeneralsServer
     public interface IGeneral
     {
         [OperationContract]
+        int GetSeedCount(string PlayerName);
+        [OperationContract]
         int GetMoney(string PlayerName);
         [OperationContract]
         bool isServerFull();

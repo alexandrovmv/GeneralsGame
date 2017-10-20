@@ -15,13 +15,23 @@ namespace GeneralsClient.ViewModel
     public partial class Engine:INotifyPropertyChanged
     {
         // Деньги
-        int _Money { get; set; }
+        int _Money { get; set; } 
+
         public int Money{
             get { return _Money; }
             set {
                 _Money = value;
                 OnPropertyChanged();
             } }
+        //Зерно 
+        int _Seeds { get; set; }
+        public int Seeds {
+            get { return _Seeds; }
+            set {
+                _Seeds = value;
+                OnPropertyChanged();
+            } }
+
 
         #region Найм генерала
 
@@ -116,7 +126,7 @@ namespace GeneralsClient.ViewModel
         #endregion
         #region Продажа зерна
         #region Свойства
-        static int _MaxSeedForSale { get; set; } = 150;
+        static int _MaxSeedForSale { get; set; }
         public int MaxSeedForSale {
 
             get
@@ -143,6 +153,7 @@ namespace GeneralsClient.ViewModel
                             InterClass.gc.SellSeeds(InterClass.PlayerName, CurrentSeedForSale);
                             MaxSeedForSale -= CurrentSeedForSale;
                             Money = InterClass.gc.GetMoney(InterClass.PlayerName);
+                            Seeds= InterClass.gc.GetSeedCount(InterClass.PlayerName);
                         }
                         );
                 return _SaleSeed;
@@ -243,6 +254,7 @@ namespace GeneralsClient.ViewModel
         {
             InterClass.gc.AddUser(InterClass.PlayerName);
             Money = InterClass.gc.GetMoney(InterClass.PlayerName);
+            MaxSeedForSale= Seeds = InterClass.gc.GetSeedCount(InterClass.PlayerName);
         }
 
         public event PropertyChangedEventHandler PropertyChanged;

@@ -15,6 +15,12 @@ namespace GeneralsClient.ServiceReference1 {
     [System.ServiceModel.ServiceContractAttribute(ConfigurationName="ServiceReference1.IGeneral")]
     public interface IGeneral {
         
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGeneral/GetSeedCount", ReplyAction="http://tempuri.org/IGeneral/GetSeedCountResponse")]
+        int GetSeedCount(string PlayerName);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGeneral/GetSeedCount", ReplyAction="http://tempuri.org/IGeneral/GetSeedCountResponse")]
+        System.Threading.Tasks.Task<int> GetSeedCountAsync(string PlayerName);
+        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGeneral/GetMoney", ReplyAction="http://tempuri.org/IGeneral/GetMoneyResponse")]
         int GetMoney(string PlayerName);
         
@@ -203,6 +209,14 @@ namespace GeneralsClient.ServiceReference1 {
         
         public GeneralClient(System.ServiceModel.Channels.Binding binding, System.ServiceModel.EndpointAddress remoteAddress) : 
                 base(binding, remoteAddress) {
+        }
+        
+        public int GetSeedCount(string PlayerName) {
+            return base.Channel.GetSeedCount(PlayerName);
+        }
+        
+        public System.Threading.Tasks.Task<int> GetSeedCountAsync(string PlayerName) {
+            return base.Channel.GetSeedCountAsync(PlayerName);
         }
         
         public int GetMoney(string PlayerName) {

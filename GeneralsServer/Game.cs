@@ -10,6 +10,12 @@ namespace GeneralsServer
 {
     public class Game : IGeneral
     {
+       public int GetSeedCount(string PlayerName)
+        {
+            Player SelectedPlayer = Players.Find(x => x.Name == PlayerName);
+
+            return SelectedPlayer.country.Seed;
+        }
         DB database { get; set; }
         static List<Player> _Players { get; set; }
         public List<Player> Players
