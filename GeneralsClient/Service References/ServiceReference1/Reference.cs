@@ -87,11 +87,11 @@ namespace GeneralsClient.ServiceReference1 {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGeneral/Autorise", ReplyAction="http://tempuri.org/IGeneral/AutoriseResponse")]
         System.Threading.Tasks.Task<bool> AutoriseAsync(string Login, string Password);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGeneral/Hierscietisctc", ReplyAction="http://tempuri.org/IGeneral/HierscietisctcResponse")]
-        void Hierscietisctc(string PlayerName, int Count);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGeneral/HireScietists", ReplyAction="http://tempuri.org/IGeneral/HireScietistsResponse")]
+        void HireScietists(string PlayerName, int Count);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGeneral/Hierscietisctc", ReplyAction="http://tempuri.org/IGeneral/HierscietisctcResponse")]
-        System.Threading.Tasks.Task HierscietisctcAsync(string PlayerName, int Count);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGeneral/HireScietists", ReplyAction="http://tempuri.org/IGeneral/HireScietistsResponse")]
+        System.Threading.Tasks.Task HireScietistsAsync(string PlayerName, int Count);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGeneral/HireSoldiers", ReplyAction="http://tempuri.org/IGeneral/HireSoldiersResponse")]
         void HireSoldiers(string PlayerName, int Count);
@@ -146,6 +146,12 @@ namespace GeneralsClient.ServiceReference1 {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGeneral/Seeding", ReplyAction="http://tempuri.org/IGeneral/SeedingResponse")]
         System.Threading.Tasks.Task SeedingAsync(string PlayerName, int Count);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGeneral/GetCountOfPeasants", ReplyAction="http://tempuri.org/IGeneral/GetCountOfPeasantsResponse")]
+        int GetCountOfPeasants(string PlayerName);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGeneral/GetCountOfPeasants", ReplyAction="http://tempuri.org/IGeneral/GetCountOfPeasantsResponse")]
+        System.Threading.Tasks.Task<int> GetCountOfPeasantsAsync(string PlayerName);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGeneral/GetYearsForScientificLevel", ReplyAction="http://tempuri.org/IGeneral/GetYearsForScientificLevelResponse")]
         int GetYearsForScientificLevel(GeneralClasses.ScientificLevels a, int count);
@@ -331,12 +337,12 @@ namespace GeneralsClient.ServiceReference1 {
             return base.Channel.AutoriseAsync(Login, Password);
         }
         
-        public void Hierscietisctc(string PlayerName, int Count) {
-            base.Channel.Hierscietisctc(PlayerName, Count);
+        public void HireScietists(string PlayerName, int Count) {
+            base.Channel.HireScietists(PlayerName, Count);
         }
         
-        public System.Threading.Tasks.Task HierscietisctcAsync(string PlayerName, int Count) {
-            return base.Channel.HierscietisctcAsync(PlayerName, Count);
+        public System.Threading.Tasks.Task HireScietistsAsync(string PlayerName, int Count) {
+            return base.Channel.HireScietistsAsync(PlayerName, Count);
         }
         
         public void HireSoldiers(string PlayerName, int Count) {
@@ -409,6 +415,14 @@ namespace GeneralsClient.ServiceReference1 {
         
         public System.Threading.Tasks.Task SeedingAsync(string PlayerName, int Count) {
             return base.Channel.SeedingAsync(PlayerName, Count);
+        }
+        
+        public int GetCountOfPeasants(string PlayerName) {
+            return base.Channel.GetCountOfPeasants(PlayerName);
+        }
+        
+        public System.Threading.Tasks.Task<int> GetCountOfPeasantsAsync(string PlayerName) {
+            return base.Channel.GetCountOfPeasantsAsync(PlayerName);
         }
         
         public int GetYearsForScientificLevel(GeneralClasses.ScientificLevels a, int count) {

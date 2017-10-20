@@ -14,6 +14,17 @@ namespace GeneralsClient.ViewModel
 {
     public partial class Engine : INotifyPropertyChanged
     {
+        //Крестьяни
+        int _Peasants { get; set; }
+        public int Peasants
+        {
+            get { return _Peasants; }
+            set
+            {
+                _Peasants = value;
+                OnPropertyChanged();
+            }
+        }
         //Баланс 
         int _Balance { get; set; }
         public int Balance
@@ -258,7 +269,8 @@ namespace GeneralsClient.ViewModel
                             InterClass.gc.SellSeeds(InterClass.PlayerName, CurrentSeedForSale);
                             MaxSeedForSale -= CurrentSeedForSale;
                             Money = InterClass.gc.GetMoney(InterClass.PlayerName);
-                            Seeds= InterClass.gc.GetSeedCount(InterClass.PlayerName);
+                            Seeds = InterClass.gc.GetSeedCount(InterClass.PlayerName);
+                            MaxScientists = Money / StaticConstats.PriceOfScientists; 
                         }
                         );
                 return _SaleSeed;
@@ -292,7 +304,7 @@ namespace GeneralsClient.ViewModel
         #endregion
         #region Найм ученых
         #region Свойства
-        static int _MaxScientists { get; set; } = 150;
+        static int _MaxScientists { get; set; }
         public int MaxScientists
         {
             get
@@ -305,6 +317,46 @@ namespace GeneralsClient.ViewModel
                 OnPropertyChanged();
             }
         }
+        int _CurrentSpendOnScientists { get; set; }
+        public int CurrentSpendOnScientists
+        {
+            get
+            {
+                return _CurrentSpendOnScientists;
+            }
+            set
+            {
+                _CurrentSpendOnScientists = value;
+                OnPropertyChanged();
+            }
+        }
+        int _CurrentCostOfScientists { get; set; }
+        public int CurrentCostOfScientists
+        {
+            get
+            {
+                return _CurrentCostOfScientists;
+            }
+            set
+            {
+                _CurrentCostOfScientists = value;
+                OnPropertyChanged();
+            }
+        }
+        int _CurrentCountOfScientists { get; set; }
+        public int CurrentCountOfScientists
+        {
+            get
+            {
+                return _CurrentCountOfScientists;
+            }
+            set
+            {
+                _CurrentCountOfScientists = value;
+                OnPropertyChanged();
+                CurrentCostOfScientists = CurrentCountOfScientists * StaticConstats.PriceOfScientists;
+            }
+        }
         #endregion
         #region Команды
         RelayCommand _HireScientists { get; set; }
@@ -314,10 +366,13 @@ namespace GeneralsClient.ViewModel
             {
                 if (_HireScientists == null)
                     _HireScientists = new RelayCommand(x => {
-                        InterClass.gc.SellScietists(InterClass.PlayerName, CurrentScientistsForSale);
+                        InterClass.gc.HireScietists(InterClass.PlayerName, CurrentCountOfScientists);
                         Scientists = InterClass.gc.GetScientists(InterClass.PlayerName);
                         SpendOnScientists = InterClass.gc.SpendOnScientists(InterClass.PlayerName);
+                        Money = InterClass.gc.GetMoney(InterClass.PlayerName);
                         Balance = Money - SpendOnScientists - SpendOnSoldiers;
+                        MaxFireScientists = Scientists;
+                        Peasants -= CurrentCountOfScientists;
                     });
                 return _HireScientists;
             }
@@ -353,7 +408,9 @@ namespace GeneralsClient.ViewModel
                         Scientists = InterClass.gc.GetScientists(InterClass.PlayerName);
                         SpendOnScientists = InterClass.gc.SpendOnScientists(InterClass.PlayerName);
                         Balance = Money - SpendOnScientists - SpendOnSoldiers;
-                    });
+                        MaxFireScientists -= CurrentScientistsForSale;
+                        Peasants += CurrentScientistsForSale;
+                    }, x => { return MaxFireScientists > 0; });
                 return _FireScientists;
             }
         }
@@ -424,7 +481,9 @@ namespace GeneralsClient.ViewModel
             MaxFireScientists = Scientists = InterClass.gc.GetScientists(InterClass.PlayerName);
             Balance = Money;
             MaxSeedForSeeding = Seeds / 2;
-             }
+            MaxScientists = Money / StaticConstats.PriceOfScientists;
+            Peasants = InterClass.gc.GetCountOfPeasants(InterClass.PlayerName);
+            }
         }
 
         public event PropertyChangedEventHandler PropertyChanged;
