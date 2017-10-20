@@ -224,7 +224,7 @@ namespace GeneralsClient.ViewModel
                 return _SaleSeed;
             }
                 }
-
+        #endregion
         #endregion
         RelayCommand _BuySeed { get; set; }
         public RelayCommand BuySeed
