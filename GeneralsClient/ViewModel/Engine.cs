@@ -333,9 +333,7 @@ namespace GeneralsClient.ViewModel
         {
             InterClass.gc.AddUser(InterClass.PlayerName);
             Money = InterClass.gc.GetMoney(InterClass.PlayerName);
-
             MaxSeedForSale= Seeds = InterClass.gc.GetSeedCount(InterClass.PlayerName);
-
             MaxFireScientists = Scientists = InterClass.gc.GetScientists(InterClass.PlayerName);
             Balance = Money;
         }
