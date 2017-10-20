@@ -12,7 +12,7 @@ using System.Windows;
 
 namespace GeneralsClient.ViewModel
 {
-    public partial class Engine:INotifyPropertyChanged
+    public partial class Engine : INotifyPropertyChanged
     {
         //Баланс 
         int _Balance { get; set; }
@@ -25,10 +25,20 @@ namespace GeneralsClient.ViewModel
                 OnPropertyChanged();
             }
         }
+        int _CurrentCostSeeds { get; set; }
+        public int CurrentCostSeeds
+        {
+            get { return _CurrentCostSeeds; }
+            set
+            {
+                _CurrentCostSeeds = value;
+                OnPropertyChanged();
+            }
+        }
         // Деньги
-        int _Money { get; set; } 
+        int _Money { get; set; }
 
-        public int Money{
+        public int Money {
             get { return _Money; }
             set {
                 _Money = value;
@@ -43,8 +53,17 @@ namespace GeneralsClient.ViewModel
                 _Seeds = value;
                 OnPropertyChanged();
             } }
-
-
+        int _CurrentSeedForBuy{get; set;}
+        public int CurrentSeedForBuy
+        {
+            get { return _CurrentSeedForBuy; }
+            set
+            {
+                _CurrentSeedForBuy = value;
+                OnPropertyChanged();
+                CurrentCostSeeds = _CurrentSeedForBuy * StaticConstats.PriceOfSeedsBuy;
+            }
+        }
         //Ученые
         int _Scientists { get; set; }
         public int Scientists
@@ -76,8 +95,6 @@ namespace GeneralsClient.ViewModel
                 OnPropertyChanged();
             }
         }
-
-
         #region Найм генерала
 
         #region Свойства
@@ -168,6 +185,9 @@ namespace GeneralsClient.ViewModel
             }
         }
         #endregion
+        #region Команды
+
+        #endregion
         #endregion
         #region Продажа зерна
         #region Свойства
@@ -206,6 +226,25 @@ namespace GeneralsClient.ViewModel
                 }
 
         #endregion
+        RelayCommand _BuySeed { get; set; }
+        public RelayCommand BuySeed
+        {
+            get
+            {
+                if (_BuySeed == null)
+                    _BuySeed = new RelayCommand(
+                        x =>
+                        {
+                            InterClass.gc.BuySeeds(InterClass.PlayerName, CurrentSeedForBuy);
+                            MaxSeedForSale += CurrentSeedForBuy;
+                            Money = InterClass.gc.GetMoney(InterClass.PlayerName);
+                            Seeds = InterClass.gc.GetSeedCount(InterClass.PlayerName);
+                            MaxBuySeed = InterClass.gc.GetMaxCountOfSeeds(InterClass.PlayerName);
+                        }
+                        );
+                return _BuySeed;
+            }
+        }
         #endregion
         #region Найм ученых
         #region Свойства
@@ -328,13 +367,12 @@ namespace GeneralsClient.ViewModel
         #endregion
         #endregion
         #endregion
-
         public Engine()
         {
             InterClass.gc.AddUser(InterClass.PlayerName);
             Money = InterClass.gc.GetMoney(InterClass.PlayerName);
-            MaxSeedForSale= Seeds = InterClass.gc.GetSeedCount(InterClass.PlayerName);
-            
+            MaxSeedForSale = Seeds = InterClass.gc.GetSeedCount(InterClass.PlayerName);
+            MaxBuySeed = Money / StaticConstats.PriceOfSeedsBuy;
             MaxFireScientists = Scientists = InterClass.gc.GetScientists(InterClass.PlayerName);
             Balance = Money;
         }
