@@ -229,9 +229,11 @@ namespace GeneralsClient.ServiceReference1 {
         public int GetSeedCount(string PlayerName) {
             return base.Channel.GetSeedCount(PlayerName);
         }
-        
-        public System.Threading.Tasks.Task<int> GetSeedCountAsync(string PlayerName) {
+
+        public System.Threading.Tasks.Task<int> GetSeedCountAsync(string PlayerName)
+        {
             return base.Channel.GetSeedCountAsync(PlayerName);
+        }
 
         public int GetScientists(string Playername) {
             return base.Channel.GetScientists(Playername);
