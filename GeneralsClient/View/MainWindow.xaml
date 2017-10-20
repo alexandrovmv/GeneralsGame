@@ -93,8 +93,10 @@
                         <Border Grid.Column="0" Grid.Row="0" BorderBrush="Black" BorderThickness="4" Margin="3" CornerRadius="15">
                             <Canvas>
                                 <Label Padding="0"  Content="Засев зерна" FontSize="16" FontStyle="Oblique" FontWeight="Bold" HorizontalAlignment="Center" Margin="45 0 0 0" Height="23" Width="145"></Label>
-                                <Slider Padding="0" AutoToolTipPrecision="0" AutoToolTipPlacement="TopLeft" Height="26" Width="160" Maximum="100" TickPlacement="TopLeft"  Name="s0" Canvas.Left="4" Canvas.Top="26" />
-                                <Label Width="45" Height="20" Padding="0" Content="10000" Canvas.Left="166" Canvas.Top="29" ></Label>
+                                <Slider Padding="0" AutoToolTipPrecision="0" AutoToolTipPlacement="TopLeft" 
+                                        Height="26" Width="160" Maximum="{Binding MaxSeedForSeeding}" TickPlacement="TopLeft"  
+                                        Name="s0" Canvas.Left="4" Canvas.Top="26" />
+                                <Label Width="45" Height="20" Padding="0" Content="{Binding MaxSeedForSeeding}" Canvas.Left="166" Canvas.Top="29" ></Label>
                                 <Label Padding="0" Content="Количество" FontSize="14" FontStyle="Oblique" FontWeight="Bold" HorizontalAlignment="Left" Height="18" Width="87" Canvas.Top="54"/>
                                 <TextBlock Padding="0"  Width="79" Height="22" Text="{Binding ElementName=s0, Path=Value, UpdateSourceTrigger=PropertyChanged, StringFormat={}{0:0}}" Canvas.Left="93" Canvas.Top="52"/>
                                 <Label Padding="0" Content="Стоимость" FontSize="14" FontStyle="Oblique" FontWeight="Bold" HorizontalAlignment="Left" Height="18" Width="87" Canvas.Top="80"></Label>
@@ -144,8 +146,10 @@
                         <Border Grid.Column="1" Grid.Row="1" BorderBrush="Black" BorderThickness="4" Margin="3" CornerRadius="15" Grid.ColumnSpan="2" >
                             <Canvas>
                                 <Label Padding="0"  Content="Покупка зерна" FontSize="16" FontStyle="Oblique" FontWeight="Bold" HorizontalAlignment="Center" Margin="45 0 0 0" Height="23" Width="145"></Label>
-                                <Slider Padding="0" AutoToolTipPrecision="0" AutoToolTipPlacement="TopLeft" Height="26" Width="160" Maximum="100" TickPlacement="TopLeft"  Name="s2" Canvas.Left="4" Canvas.Top="26" />
-                                <Label Width="45" Height="20" Padding="0" Content="10000" Canvas.Left="166" Canvas.Top="29" ></Label>
+                                <Slider Padding="0" AutoToolTipPrecision="0" AutoToolTipPlacement="TopLeft" 
+                                        Height="26" Width="160" Maximum="{Binding MaxBuySeed}" TickPlacement="TopLeft"  
+                                        Name="s2" Canvas.Left="4" Canvas.Top="26" />
+                                <Label Width="45" Height="20" Padding="0" Content="{Binding MaxBuySeed}" Canvas.Left="166" Canvas.Top="29" ></Label>
                                 <Label Padding="0" Content="Количество" FontSize="14" FontStyle="Oblique" FontWeight="Bold" HorizontalAlignment="Left" Height="18" Width="87" Canvas.Top="54"/>
                                 <TextBlock Padding="0"  Width="79" Height="22" Text="{Binding ElementName=s2, Path=Value, UpdateSourceTrigger=PropertyChanged, StringFormat={}{0:0}}" Canvas.Left="93" Canvas.Top="52"/>
                                 <Label Padding="0" Content="Стоимость" FontSize="14" FontStyle="Oblique" FontWeight="Bold" HorizontalAlignment="Left" Height="18" Width="87" Canvas.Top="80"></Label>
@@ -166,8 +170,10 @@
                         <Border Grid.Column="0" Grid.Row="2" BorderBrush="Black" BorderThickness="4" Margin="3" CornerRadius="15" >
                             <Canvas>
                                 <Label Padding="0"  Content="Найм ученых" FontSize="16" FontStyle="Oblique" FontWeight="Bold" HorizontalAlignment="Center" Margin="45 0 0 0" Height="23" Width="145"></Label>
-                                <Slider Padding="0" AutoToolTipPrecision="0" AutoToolTipPlacement="TopLeft" Height="26" Width="160" Maximum="100" TickPlacement="TopLeft"  Name="s3" Canvas.Left="4" Canvas.Top="26" />
-                                <Label Width="45" Height="20" Padding="0" Content="10000" Canvas.Left="166" Canvas.Top="29" ></Label>
+                                <Slider Padding="0" AutoToolTipPrecision="0" AutoToolTipPlacement="TopLeft" 
+                                        Height="26" Width="160" Maximum="{Binding MaxScientists}" TickPlacement="TopLeft"  
+                                        Name="s3" Canvas.Left="4" Canvas.Top="26" />
+                                <Label Width="45" Height="20" Padding="0" Content="{Binding MaxScientists}" Canvas.Left="166" Canvas.Top="29" ></Label>
                                 <Label Padding="0" Content="Количество" FontSize="14" FontStyle="Oblique" FontWeight="Bold" HorizontalAlignment="Left" Height="18" Width="87" Canvas.Top="54"/>
                                 <TextBlock Padding="0"  Width="79" Height="22" Text="{Binding ElementName=s3, Path=Value, UpdateSourceTrigger=PropertyChanged, StringFormat={}{0:0}}" Canvas.Left="93" Canvas.Top="52"/>
                                 <Label Padding="0" Content="Стоимость" FontSize="14" FontStyle="Oblique" FontWeight="Bold" HorizontalAlignment="Left" Height="18" Width="87" Canvas.Top="80"></Label>
@@ -188,8 +194,10 @@
                         <Border Grid.Column="1" Grid.Row="2" BorderBrush="Black" BorderThickness="4" Margin="3" CornerRadius="15" Grid.ColumnSpan="2" >
                             <Canvas>
                                 <Label Padding="0"  Content="Найм солдат" FontSize="16" FontStyle="Oblique" FontWeight="Bold" HorizontalAlignment="Center" Margin="45 0 0 0" Height="23" Width="145"></Label>
-                                <Slider Padding="0" AutoToolTipPrecision="0" AutoToolTipPlacement="TopLeft" Height="26" Width="160" Maximum="100" TickPlacement="TopLeft"  Name="s4" Canvas.Left="4" Canvas.Top="26" />
-                                <Label Width="45" Height="20" Padding="0" Content="10000" Canvas.Left="166" Canvas.Top="29" ></Label>
+                                <Slider Padding="0" AutoToolTipPrecision="0" AutoToolTipPlacement="TopLeft" 
+                                        Height="26" Width="160" Maximum="{Binding MaxSoldiers}" TickPlacement="TopLeft"  
+                                        Name="s4" Canvas.Left="4" Canvas.Top="26" />
+                                <Label Width="45" Height="20" Padding="0" Content="{Binding MaxSoldiers}" Canvas.Left="166" Canvas.Top="29" ></Label>
                                 <Label Padding="0" Content="Количество" FontSize="14" FontStyle="Oblique" FontWeight="Bold" HorizontalAlignment="Left" Height="18" Width="87" Canvas.Top="54"/>
                                 <TextBlock Padding="0"  Width="79" Height="22" Text="{Binding ElementName=s4, Path=Value, UpdateSourceTrigger=PropertyChanged, StringFormat={}{0:0}}" Canvas.Left="93" Canvas.Top="52"/>
                                 <Label Padding="0" Content="Стоимость" FontSize="14" FontStyle="Oblique" FontWeight="Bold" HorizontalAlignment="Left" Height="18" Width="87" Canvas.Top="80"></Label>
@@ -210,8 +218,10 @@
                         <Border Grid.Column="0" Grid.Row="3" BorderBrush="Black" BorderThickness="4" Margin="3" CornerRadius="15" >
                             <Canvas>
                                 <Label Padding="0"  Content="Увольнение ученых" FontSize="16" FontStyle="Oblique" FontWeight="Bold" HorizontalAlignment="Center" Height="23" Width="163" Canvas.Left="38"/>
-                                <Slider Padding="0" AutoToolTipPrecision="0" AutoToolTipPlacement="TopLeft" Height="26" Width="160" Maximum="100" TickPlacement="TopLeft"  Name="s5" Canvas.Left="4" Canvas.Top="26" />
-                                <Label Width="45" Height="20" Padding="0" Content="10000" Canvas.Left="166" Canvas.Top="29" ></Label>
+                                <Slider Padding="0" AutoToolTipPrecision="0" AutoToolTipPlacement="TopLeft" 
+                                        Height="26" Width="160" Maximum="{Binding MaxFireScientists}" TickPlacement="TopLeft"  
+                                        Name="s5" Canvas.Left="4" Canvas.Top="26" />
+                                <Label Width="45" Height="20" Padding="0" Content="{Binding MaxFireScientists}" Canvas.Left="166" Canvas.Top="29" ></Label>
                                 <Label Padding="0" Content="Количество" FontSize="14" FontStyle="Oblique" FontWeight="Bold" HorizontalAlignment="Left" Height="18" Width="87" Canvas.Top="54"/>
                                 <TextBlock Padding="0"  Width="79" Height="22" Text="{Binding ElementName=s5, Path=Value, UpdateSourceTrigger=PropertyChanged, StringFormat={}{0:0}}" Canvas.Left="93" Canvas.Top="52"/>
                                 <Label Padding="0" Content="Стоимость" FontSize="14" FontStyle="Oblique" FontWeight="Bold" HorizontalAlignment="Left" Height="18" Width="87" Canvas.Top="80"></Label>
@@ -241,8 +251,10 @@
                                         </TransformGroup>
                                     </Label.RenderTransform>
                                 </Label>
-                                <Slider Padding="0" AutoToolTipPrecision="0" AutoToolTipPlacement="TopLeft" Height="26" Width="160" Maximum="100" TickPlacement="TopLeft"  Name="s6" Canvas.Left="4" Canvas.Top="26" />
-                                <Label Width="45" Height="20" Padding="0" Content="10000" Canvas.Left="166" Canvas.Top="29" ></Label>
+                                <Slider Padding="0" AutoToolTipPrecision="0" AutoToolTipPlacement="TopLeft" 
+                                        Height="26" Width="160" Maximum="{Binding MaxFireSoldiers}" TickPlacement="TopLeft"  
+                                        Name="s6" Canvas.Left="4" Canvas.Top="26" />
+                                <Label Width="45" Height="20" Padding="0" Content="{Binding MaxFireSoldiers}" Canvas.Left="166" Canvas.Top="29" ></Label>
                                 <Label Padding="0" Content="Количество" FontSize="14" FontStyle="Oblique" FontWeight="Bold" HorizontalAlignment="Left" Height="18" Width="87" Canvas.Top="54"/>
                                 <TextBlock Padding="0"  Width="79" Height="22" Text="{Binding ElementName=s6, Path=Value, UpdateSourceTrigger=PropertyChanged, StringFormat={}{0:0}}" Canvas.Left="93" Canvas.Top="52"/>
                                 <Label Padding="0" Content="Стоимость" FontSize="14" FontStyle="Oblique" FontWeight="Bold" HorizontalAlignment="Left" Height="18" Width="87" Canvas.Top="80"></Label>
