@@ -11,9 +11,13 @@ namespace GeneralsServer
     public interface IGeneral
     {
         [OperationContract]
+
+        int GetSeedCount(string PlayerName);
+
         int GetScientists(string Playername);
         [OperationContract]
         int SpendOnScientists(string Playername);
+
         [OperationContract]
         int GetMoney(string PlayerName);
         [OperationContract]

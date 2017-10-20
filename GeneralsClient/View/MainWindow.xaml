@@ -291,7 +291,7 @@
                                         <TextBlock TextAlignment="Right" Text="Деньги:" FontSize="15" Canvas.Top="172" Canvas.Left="15" Height="23" Width="83" TextWrapping="Wrap"></TextBlock>
                                         <TextBox Text="{Binding Money}" HorizontalContentAlignment="Center" IsReadOnly="True" FontWeight="Bold" VerticalAlignment="Center" Canvas.Top="166" RenderTransformOrigin="3.636,-0.524" Canvas.Left="108" Width="80"  ></TextBox>
                                         <TextBlock TextAlignment="Right" Text="Зерно:" FontSize="15" Canvas.Top="206" Canvas.Left="15" Height="23" Width="83" TextWrapping="Wrap"></TextBlock>
-                                        <TextBox Text="1000" HorizontalContentAlignment="Center" IsReadOnly="True" FontWeight="Bold" VerticalAlignment="Center" Canvas.Top="200" RenderTransformOrigin="3.636,-0.524" Canvas.Left="108" Width="80"  ></TextBox>
+                                        <TextBox Text="{Binding Seeds}" HorizontalContentAlignment="Center" IsReadOnly="True" FontWeight="Bold" VerticalAlignment="Center" Canvas.Top="200" RenderTransformOrigin="3.636,-0.524" Canvas.Left="108" Width="80"  ></TextBox>
                                     </Canvas>
                                 </GroupBox>
                                 <GroupBox Header="Прирост" Height="100" Width="200" HorizontalAlignment="Center" Padding="0" FontSize="20" FontWeight="Bold" >
