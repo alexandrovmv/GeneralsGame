@@ -417,6 +417,7 @@ namespace GeneralsClient.ViewModel
         
           if(!InterClass.gc.IsPlayerAlreasyExist(InterClass.PlayerName))
             {
+
             InterClass.gc.AddUser(InterClass.PlayerName);
             Money = InterClass.gc.GetMoney(InterClass.PlayerName);
             MaxSeedForSale = Seeds = InterClass.gc.GetSeedCount(InterClass.PlayerName);
@@ -425,6 +426,7 @@ namespace GeneralsClient.ViewModel
             Balance = Money;
             MaxSeedForSeeding = Seeds / 2;
              }
+
         }
 
         public event PropertyChangedEventHandler PropertyChanged;

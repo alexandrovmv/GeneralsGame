@@ -78,6 +78,8 @@ namespace GeneralsServer
         #endregion
         [OperationContract]
         bool IsPlayerAlreasyExist(string PlayerName);
-       
+        [OperationContract]
+        void DeleteSelectedPlayer(string PlayerName);
+
     }
 }
