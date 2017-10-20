@@ -379,8 +379,10 @@ namespace GeneralsClient.ViewModel
                 MaxBuySeed = Money / StaticConstats.PriceOfSeedsBuy;
                 MaxFireScientists = Scientists = InterClass.gc.GetScientists(InterClass.PlayerName);
                 Balance = Money;
+               
+                
             }
-           
+            MessageBox.Show(Convert.ToString(InterClass.gc.GetCount()));
         }
 
         public event PropertyChangedEventHandler PropertyChanged;

@@ -243,10 +243,10 @@ namespace GeneralsServer
             foreach (Player item in Players)
             {
                 if (item.Name == PlayerName)
-                    return false;
+                    return true;
             }
 
-            return true;
+            return false;
 
         }
     }
