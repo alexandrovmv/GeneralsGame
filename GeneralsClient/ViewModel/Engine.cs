@@ -14,6 +14,17 @@ namespace GeneralsClient.ViewModel
 {
     public partial class Engine : INotifyPropertyChanged
     {
+        //Солдаты
+        int _Soldiers { get; set; }
+        public int Soldiers
+        {
+            get { return _Soldiers; }
+            set
+            {
+                _Soldiers = value;
+                OnPropertyChanged();
+            }
+        }
         //Крестьяни
         int _Peasants { get; set; }
         public int Peasants
@@ -373,6 +384,8 @@ namespace GeneralsClient.ViewModel
                         Balance = Money - SpendOnScientists - SpendOnSoldiers;
                         MaxFireScientists = Scientists;
                         Peasants -= CurrentCountOfScientists;
+                        MaxSoldiers = Money / StaticConstats.PriceOfSoldiers;
+                        MaxScientists = Money / StaticConstats.PriceOfScientists;
                     });
                 return _HireScientists;
             }
@@ -435,7 +448,7 @@ namespace GeneralsClient.ViewModel
         #endregion
         #region Найм солдат
         #region Свойства
-        static int _MaxSoldiers { get; set; } = 150;
+        static int _MaxSoldiers { get; set; }
         public int MaxSoldiers
         {
             get
@@ -446,6 +459,67 @@ namespace GeneralsClient.ViewModel
             {
                 _MaxSoldiers = value;
                 OnPropertyChanged();
+            }
+        }
+        int _CurrentSpendOnSoldiers { get; set; }
+        public int CurrentSpendOnSoldiers
+        {
+            get
+            {
+                return _CurrentSpendOnSoldiers;
+            }
+            set
+            {
+                _CurrentSpendOnSoldiers = value;
+                OnPropertyChanged();
+            }
+        }
+        int _CurrentCostOfSoldiers { get; set; }
+        public int CurrentCostOfSoldiers
+        {
+            get
+            {
+                return _CurrentCostOfSoldiers;
+            }
+            set
+            {
+                _CurrentCostOfSoldiers = value;
+                OnPropertyChanged();
+            }
+        }
+        int _CurrentCountOfSoldiers { get; set; }
+        public int CurrentCountOfSoldiers
+        {
+            get
+            {
+                return _CurrentCountOfSoldiers;
+            }
+            set
+            {
+                _CurrentCountOfSoldiers = value;
+                OnPropertyChanged();
+                CurrentCostOfSoldiers = CurrentCountOfSoldiers * StaticConstats.PriceOfSoldiers;
+            }
+        }
+        #endregion
+        #region Команды
+        RelayCommand _HireSoldiers { get; set; }
+        public RelayCommand HireSoldiers
+        {
+            get
+            {
+                if (_HireSoldiers == null)
+                    _HireSoldiers = new RelayCommand(x => {
+                        InterClass.gc.HireSoldiers(InterClass.PlayerName, CurrentCountOfSoldiers);
+                        Soldiers = InterClass.gc.GetCountOfSoldiers(InterClass.PlayerName);
+                        SpendOnSoldiers = InterClass.gc.GetSpendOnSoldiers(InterClass.PlayerName);
+                        Money = InterClass.gc.GetMoney(InterClass.PlayerName);
+                        Balance = Money - SpendOnScientists - SpendOnSoldiers;
+                        MaxSoldiers -= CurrentCountOfSoldiers;
+                        MaxFireSoldiers = Soldiers;
+                        Peasants -= CurrentCountOfSoldiers;
+                    });
+                return _HireSoldiers;
             }
         }
         #endregion
@@ -465,26 +539,49 @@ namespace GeneralsClient.ViewModel
                 OnPropertyChanged();
             }
         }
+        public int CurrentSoldiersForSale { get; set; }
+        #region Команды
+        RelayCommand _FireSoldiers { get; set; }
+        public RelayCommand FireSoldiers
+        {
+            get
+            {
+                if (_FireSoldiers == null)
+                    _FireSoldiers = new RelayCommand(x => {
+                        InterClass.gc.SellSoldiers(InterClass.PlayerName, CurrentSoldiersForSale);
+                        Soldiers = InterClass.gc.GetCountOfSoldiers(InterClass.PlayerName);
+                        SpendOnSoldiers = InterClass.gc.GetSpendOnSoldiers(InterClass.PlayerName);
+                        Balance = Money - SpendOnScientists - SpendOnSoldiers;
+                        MaxFireSoldiers -= CurrentSoldiersForSale;
+                        Peasants += CurrentSoldiersForSale;
+                        MaxSoldiers = Money / StaticConstats.PriceOfSoldiers;
+                        MaxScientists = Money / StaticConstats.PriceOfScientists;
+                    }, x => { return MaxFireSoldiers > 0; });
+                return _FireSoldiers;
+            }
+        }
         #endregion
         #endregion
+#endregion
 
-  
+
         public Engine()
         {
         
           if(!InterClass.gc.IsPlayerAlreasyExist(InterClass.PlayerName))
             {
-
-            InterClass.gc.AddUser(InterClass.PlayerName);
-            Money = InterClass.gc.GetMoney(InterClass.PlayerName);
-            MaxSeedForSale = Seeds = InterClass.gc.GetSeedCount(InterClass.PlayerName);
-            MaxBuySeed = Money / StaticConstats.PriceOfSeedsBuy;
-            MaxFireScientists = Scientists = InterClass.gc.GetScientists(InterClass.PlayerName);
-            Balance = Money;
-            MaxSeedForSeeding = Seeds / 2;
-
-            MaxScientists = Money / StaticConstats.PriceOfScientists;
-            Peasants = InterClass.gc.GetCountOfPeasants(InterClass.PlayerName);
+                InterClass.gc.AddUser(InterClass.PlayerName);
+                Money = InterClass.gc.GetMoney(InterClass.PlayerName);
+                MaxSeedForSale = Seeds = InterClass.gc.GetSeedCount(InterClass.PlayerName);
+                MaxBuySeed = Money / StaticConstats.PriceOfSeedsBuy;
+                MaxFireScientists = Scientists = InterClass.gc.GetScientists(InterClass.PlayerName);
+                Balance = Money;
+                MaxSeedForSeeding = Seeds / 2;
+                MaxScientists = Money / StaticConstats.PriceOfScientists;
+                Scientists = InterClass.gc.GetScientists(InterClass.PlayerName);
+                Peasants = InterClass.gc.GetCountOfPeasants(InterClass.PlayerName);
+                MaxSoldiers = Money / StaticConstats.PriceOfSoldiers;
+                MaxFireSoldiers = Soldiers = InterClass.gc.GetCountOfSoldiers(InterClass.PlayerName);
             }
 
         }

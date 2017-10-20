@@ -263,5 +263,15 @@ namespace GeneralsServer
         {
             Players.Remove(Players.Find(x => x.Name == PlayerName));
         }
+       public int GetCountOfSoldiers(string PlayerName)
+       {
+            Player SelectedPlayer = Players.Find(x => x.Name == PlayerName);
+            return SelectedPlayer.country.Soldiers;
+       }
+       public int GetSpendOnSoldiers(string PlayerName)
+       {
+            Player SelectedPlayer = Players.Find(x => x.Name == PlayerName);
+            return SelectedPlayer.country.Soldiers * StaticConstats.SpendOnSoldier;
+        }
     }
 }

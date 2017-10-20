@@ -153,6 +153,18 @@ namespace GeneralsClient.ServiceReference1 {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGeneral/GetCountOfPeasants", ReplyAction="http://tempuri.org/IGeneral/GetCountOfPeasantsResponse")]
         System.Threading.Tasks.Task<int> GetCountOfPeasantsAsync(string PlayerName);
         
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGeneral/GetCountOfSoldiers", ReplyAction="http://tempuri.org/IGeneral/GetCountOfSoldiersResponse")]
+        int GetCountOfSoldiers(string PlayerName);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGeneral/GetCountOfSoldiers", ReplyAction="http://tempuri.org/IGeneral/GetCountOfSoldiersResponse")]
+        System.Threading.Tasks.Task<int> GetCountOfSoldiersAsync(string PlayerName);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGeneral/GetSpendOnSoldiers", ReplyAction="http://tempuri.org/IGeneral/GetSpendOnSoldiersResponse")]
+        int GetSpendOnSoldiers(string PlayerName);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGeneral/GetSpendOnSoldiers", ReplyAction="http://tempuri.org/IGeneral/GetSpendOnSoldiersResponse")]
+        System.Threading.Tasks.Task<int> GetSpendOnSoldiersAsync(string PlayerName);
+        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGeneral/GetYearsForScientificLevel", ReplyAction="http://tempuri.org/IGeneral/GetYearsForScientificLevelResponse")]
         int GetYearsForScientificLevel(GeneralClasses.ScientificLevels a, int count);
         
@@ -212,6 +224,12 @@ namespace GeneralsClient.ServiceReference1 {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGeneral/IsPlayerAlreasyExist", ReplyAction="http://tempuri.org/IGeneral/IsPlayerAlreasyExistResponse")]
         System.Threading.Tasks.Task<bool> IsPlayerAlreasyExistAsync(string PlayerName);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGeneral/DeleteSelectedPlayer", ReplyAction="http://tempuri.org/IGeneral/DeleteSelectedPlayerResponse")]
+        void DeleteSelectedPlayer(string PlayerName);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGeneral/DeleteSelectedPlayer", ReplyAction="http://tempuri.org/IGeneral/DeleteSelectedPlayerResponse")]
+        System.Threading.Tasks.Task DeleteSelectedPlayerAsync(string PlayerName);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -425,6 +443,22 @@ namespace GeneralsClient.ServiceReference1 {
             return base.Channel.GetCountOfPeasantsAsync(PlayerName);
         }
         
+        public int GetCountOfSoldiers(string PlayerName) {
+            return base.Channel.GetCountOfSoldiers(PlayerName);
+        }
+        
+        public System.Threading.Tasks.Task<int> GetCountOfSoldiersAsync(string PlayerName) {
+            return base.Channel.GetCountOfSoldiersAsync(PlayerName);
+        }
+        
+        public int GetSpendOnSoldiers(string PlayerName) {
+            return base.Channel.GetSpendOnSoldiers(PlayerName);
+        }
+        
+        public System.Threading.Tasks.Task<int> GetSpendOnSoldiersAsync(string PlayerName) {
+            return base.Channel.GetSpendOnSoldiersAsync(PlayerName);
+        }
+        
         public int GetYearsForScientificLevel(GeneralClasses.ScientificLevels a, int count) {
             return base.Channel.GetYearsForScientificLevel(a, count);
         }
@@ -503,6 +537,14 @@ namespace GeneralsClient.ServiceReference1 {
         
         public System.Threading.Tasks.Task<bool> IsPlayerAlreasyExistAsync(string PlayerName) {
             return base.Channel.IsPlayerAlreasyExistAsync(PlayerName);
+        }
+        
+        public void DeleteSelectedPlayer(string PlayerName) {
+            base.Channel.DeleteSelectedPlayer(PlayerName);
+        }
+        
+        public System.Threading.Tasks.Task DeleteSelectedPlayerAsync(string PlayerName) {
+            return base.Channel.DeleteSelectedPlayerAsync(PlayerName);
         }
     }
 }
