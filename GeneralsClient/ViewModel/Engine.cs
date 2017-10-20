@@ -87,6 +87,8 @@ namespace GeneralsClient.ViewModel
 
         #endregion
 
+
+
         #region Экономика
         #region Продажа зерна
         #region Свойства
@@ -107,6 +109,7 @@ namespace GeneralsClient.ViewModel
 
         #endregion
         #endregion
+
         public Engine()
         {
             InterClass.gc.AddUser(InterClass.PlayerName);
