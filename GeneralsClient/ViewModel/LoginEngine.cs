@@ -24,21 +24,30 @@ namespace GeneralsClient.ViewModel
                 _Password = value.GetHashCode().ToString();
             } }
         //Команды для кнопок Войти и Зарегестрироватся
-        // Необходимо вызывать функции службы
+        
         RelayCommand _Authorize { get; set; }
         public RelayCommand Authorize {
             get {
                 if (_Authorize == null)
                 {
                     _Authorize = new RelayCommand(
-                        x => { bool result = InterClass.gc.Autorise(PlayerLogin, Password);
+                        x => {
+                            bool result = InterClass.gc.Autorise(PlayerLogin, Password);
                             if (result)
                             {
-                                MessageBox.Show("Success");
-                                MainWindow m = new MainWindow();
-                                m.ShowDialog();
-                                InterClass.PlayerName = PlayerLogin;
-                                this.CloseAction();
+                                if (!InterClass.gc.isServerFull())
+                                {
+                                    MessageBox.Show("Success");
+                                    MainWindow m = new MainWindow();
+                                    m.ShowDialog();
+                                    InterClass.PlayerName = PlayerLogin;
+                                    this.CloseAction();
+                                }
+                                else
+                                {
+                                    MessageBox.Show("Сервер переполнен");
+                                }
+                            
                             }
                             else
                                 MessageBox.Show("Error");

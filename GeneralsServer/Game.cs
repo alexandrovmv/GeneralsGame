@@ -83,6 +83,12 @@ namespace GeneralsServer
             return database.Authorization(login, password);
         }
 
+        public bool isServerFull()
+        {
+            if (Players.Count < 4) return false;
+            return true;
+        }
+
         public void Hierscietisctc(string PlayerName, int Count)
         {
             Player SelectedPlayer = Players.Find(x => x.Name == PlayerName);
@@ -208,6 +214,8 @@ namespace GeneralsServer
         {
             return Players.Find(x => x.Name == PlayerName).country.Generals.Count;
         }
+
+
         #endregion
     }
 }

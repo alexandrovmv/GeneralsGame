@@ -15,6 +15,12 @@ namespace GeneralsClient.ServiceReference1 {
     [System.ServiceModel.ServiceContractAttribute(ConfigurationName="ServiceReference1.IGeneral")]
     public interface IGeneral {
         
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGeneral/isServerFull", ReplyAction="http://tempuri.org/IGeneral/isServerFullResponse")]
+        bool isServerFull();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGeneral/isServerFull", ReplyAction="http://tempuri.org/IGeneral/isServerFullResponse")]
+        System.Threading.Tasks.Task<bool> isServerFullAsync();
+        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGeneral/ReName", ReplyAction="http://tempuri.org/IGeneral/ReNameResponse")]
         void ReName(string Oldname, string NewName);
         
@@ -191,6 +197,14 @@ namespace GeneralsClient.ServiceReference1 {
         
         public GeneralClient(System.ServiceModel.Channels.Binding binding, System.ServiceModel.EndpointAddress remoteAddress) : 
                 base(binding, remoteAddress) {
+        }
+        
+        public bool isServerFull() {
+            return base.Channel.isServerFull();
+        }
+        
+        public System.Threading.Tasks.Task<bool> isServerFullAsync() {
+            return base.Channel.isServerFullAsync();
         }
         
         public void ReName(string Oldname, string NewName) {

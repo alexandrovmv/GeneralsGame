@@ -11,6 +11,8 @@ namespace GeneralsServer
     public interface IGeneral
     {
         [OperationContract]
+        bool isServerFull();
+        [OperationContract]
         void ReName(string Oldname, string NewName);
         [OperationContract]
         void FinishRound(string name);
