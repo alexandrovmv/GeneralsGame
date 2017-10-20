@@ -141,6 +141,12 @@ namespace GeneralsClient.ServiceReference1 {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGeneral/SellScietists", ReplyAction="http://tempuri.org/IGeneral/SellScietistsResponse")]
         System.Threading.Tasks.Task SellScietistsAsync(string PlayerName, int Count);
         
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGeneral/Seeding", ReplyAction="http://tempuri.org/IGeneral/SeedingResponse")]
+        void Seeding(string PlayerName, int Count);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGeneral/Seeding", ReplyAction="http://tempuri.org/IGeneral/SeedingResponse")]
+        System.Threading.Tasks.Task SeedingAsync(string PlayerName, int Count);
+        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGeneral/GetYearsForScientificLevel", ReplyAction="http://tempuri.org/IGeneral/GetYearsForScientificLevelResponse")]
         int GetYearsForScientificLevel(GeneralClasses.ScientificLevels a, int count);
         
@@ -395,6 +401,14 @@ namespace GeneralsClient.ServiceReference1 {
         
         public System.Threading.Tasks.Task SellScietistsAsync(string PlayerName, int Count) {
             return base.Channel.SellScietistsAsync(PlayerName, Count);
+        }
+        
+        public void Seeding(string PlayerName, int Count) {
+            base.Channel.Seeding(PlayerName, Count);
+        }
+        
+        public System.Threading.Tasks.Task SeedingAsync(string PlayerName, int Count) {
+            return base.Channel.SeedingAsync(PlayerName, Count);
         }
         
         public int GetYearsForScientificLevel(GeneralClasses.ScientificLevels a, int count) {
