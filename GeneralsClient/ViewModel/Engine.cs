@@ -86,13 +86,34 @@ namespace GeneralsClient.ViewModel
         #endregion
 
         #endregion
+
+        #region Экономика
+        #region Продажа зерна
+        #region Свойства
+        static int _MaxSeedForSale { get; set; }
+        public int MaxSeedForSale {
+
+            get
+            {
+                return _MaxSeedForSale;
+            }
+            set
+            {
+                _MaxSeedForSale = value;
+                OnPropertyChanged();
+            } }
+
+        #endregion
+
+        #endregion
+        #endregion
         public Engine()
         {
             InterClass.gc.AddUser(InterClass.PlayerName);
         }
 
         public event PropertyChangedEventHandler PropertyChanged;
-        public void OnPropertyChanged([CallerMemberName]string prop = "")
+        public void OnPropertyChanged([CallerMemberName] string prop = "")
         {
             if (PropertyChanged != null)
                 PropertyChanged(this, new PropertyChangedEventArgs(prop));
