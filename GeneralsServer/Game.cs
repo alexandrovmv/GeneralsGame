@@ -236,6 +236,7 @@ namespace GeneralsServer
             Player SelectedPlayer = Players.Find(x => x.Name == Playername);
             return SelectedPlayer.country.Scientist * StaticConstats.SpendOnScientist;
         }
+        //если Игрок стаким именем уже есть метод возвращает фолс 
         public bool IsPlayerAlreasyExist(string PlayerName)
         {
 

@@ -366,15 +366,21 @@ namespace GeneralsClient.ViewModel
         }
         #endregion
         #endregion
-        #endregion
+      
         public Engine()
         {
-            InterClass.gc.AddUser(InterClass.PlayerName);
-            Money = InterClass.gc.GetMoney(InterClass.PlayerName);
-            MaxSeedForSale = Seeds = InterClass.gc.GetSeedCount(InterClass.PlayerName);
-            MaxBuySeed = Money / StaticConstats.PriceOfSeedsBuy;
-            MaxFireScientists = Scientists = InterClass.gc.GetScientists(InterClass.PlayerName);
-            Balance = Money;
+
+          if(!InterClass.gc.IsPlayerAlreasyExist(InterClass.PlayerName))
+            {
+                
+                InterClass.gc.AddUser(InterClass.PlayerName);
+                Money = InterClass.gc.GetMoney(InterClass.PlayerName);
+                MaxSeedForSale = Seeds = InterClass.gc.GetSeedCount(InterClass.PlayerName);
+                MaxBuySeed = Money / StaticConstats.PriceOfSeedsBuy;
+                MaxFireScientists = Scientists = InterClass.gc.GetScientists(InterClass.PlayerName);
+                Balance = Money;
+            }
+           
         }
 
         public event PropertyChangedEventHandler PropertyChanged;

@@ -220,6 +220,12 @@
   <wsdl:message name="IGeneral_GetCountOfGenerals_OutputMessage">
     <wsdl:part name="parameters" element="tns:GetCountOfGeneralsResponse" />
   </wsdl:message>
+  <wsdl:message name="IGeneral_IsPlayerAlreasyExist_InputMessage">
+    <wsdl:part name="parameters" element="tns:IsPlayerAlreasyExist" />
+  </wsdl:message>
+  <wsdl:message name="IGeneral_IsPlayerAlreasyExist_OutputMessage">
+    <wsdl:part name="parameters" element="tns:IsPlayerAlreasyExistResponse" />
+  </wsdl:message>
   <wsdl:portType name="IGeneral">
     <wsdl:operation name="GetSeedCount">
       <wsdl:input wsaw:Action="http://tempuri.org/IGeneral/GetSeedCount" message="tns:IGeneral_GetSeedCount_InputMessage" />
@@ -340,6 +346,10 @@
     <wsdl:operation name="GetCountOfGenerals">
       <wsdl:input wsaw:Action="http://tempuri.org/IGeneral/GetCountOfGenerals" message="tns:IGeneral_GetCountOfGenerals_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IGeneral/GetCountOfGeneralsResponse" message="tns:IGeneral_GetCountOfGenerals_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="IsPlayerAlreasyExist">
+      <wsdl:input wsaw:Action="http://tempuri.org/IGeneral/IsPlayerAlreasyExist" message="tns:IGeneral_IsPlayerAlreasyExist_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IGeneral/IsPlayerAlreasyExistResponse" message="tns:IGeneral_IsPlayerAlreasyExist_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="NetTcpBinding_IGeneral" type="tns:IGeneral">
@@ -616,6 +626,15 @@
         <soap12:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="IsPlayerAlreasyExist">
+      <soap12:operation soapAction="http://tempuri.org/IGeneral/IsPlayerAlreasyExist" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
   </wsdl:binding>
   <wsdl:service name="Game">
     <wsdl:port name="NetTcpBinding_IGeneral" binding="tns:NetTcpBinding_IGeneral">
@@ -623,7 +642,7 @@
       <wsa10:EndpointReference>
         <wsa10:Address>net.tcp://localhost/General/ep1</wsa10:Address>
         <Identity xmlns="http://schemas.xmlsoap.org/ws/2006/02/addressingidentity">
-          <Upn>MILA\Михаил</Upn>
+          <Upn>student@lan.itstep.kiev.ua</Upn>
         </Identity>
       </wsa10:EndpointReference>
     </wsdl:port>
