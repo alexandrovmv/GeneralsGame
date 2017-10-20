@@ -11,6 +11,7 @@ namespace GeneralClasses
         public static int PriceOfScientists { get; } = 100;
         public static int SpendOnScientist { get; } = 3;
         public static int PriceOfSoldiers { get; } = 100;
+        public static int SpendOnSoldier { get; } = 5;
         public static int PriceOfSeedsBuy { get; } = 20;
         public static int PriceOfSeedsSell { get; } = 15;
         public static int Teritory { get; } = 1000;

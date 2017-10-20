@@ -195,13 +195,13 @@
                                 <Label Padding="0"  Content="Найм солдат" FontSize="16" FontStyle="Oblique" FontWeight="Bold" HorizontalAlignment="Center" Margin="45 0 0 0" Height="23" Width="145"></Label>
                                 <Slider Padding="0" AutoToolTipPrecision="0" AutoToolTipPlacement="TopLeft" 
                                         Height="26" Width="160" Maximum="{Binding MaxSoldiers}" TickPlacement="TopLeft"  
-                                        Name="s4" Canvas.Left="4" Canvas.Top="26" />
+                                        Name="s4" Canvas.Left="4" Canvas.Top="26" Value="{Binding CurrentCountOfSoldiers}"/>
                                 <Label Width="45" Height="20" Padding="0" Content="{Binding MaxSoldiers}" Canvas.Left="166" Canvas.Top="29" ></Label>
                                 <Label Padding="0" Content="Количество" FontSize="14" FontStyle="Oblique" FontWeight="Bold" HorizontalAlignment="Left" Height="18" Width="87" Canvas.Top="54"/>
                                 <TextBlock Padding="0"  Width="79" Height="22" Text="{Binding ElementName=s4, Path=Value, UpdateSourceTrigger=PropertyChanged, StringFormat={}{0:0}}" Canvas.Left="93" Canvas.Top="52"/>
                                 <Label Padding="0" Content="Стоимость" FontSize="14" FontStyle="Oblique" FontWeight="Bold" HorizontalAlignment="Left" Height="18" Width="87" Canvas.Top="80"></Label>
-                                <TextBlock Padding="0" Width="80" Height="18" Text="{Binding ElementName=s4, Path=Value, UpdateSourceTrigger=PropertyChanged, StringFormat={}{0:0}}" Canvas.Left="93" Canvas.Top="79"/>
-                                <Button Content="OK" FontWeight="Bold" Canvas.Left="179" Canvas.Top="54">
+                                <TextBlock Padding="0" Width="80" Height="18" Text="{Binding CurrentCostOfSoldiers}" Canvas.Left="93" Canvas.Top="79"/>
+                                <Button Content="OK" FontWeight="Bold" Canvas.Left="179" Canvas.Top="54" Command="{Binding HireSoldiers}">
                                     <Button.Template>
                                         <ControlTemplate TargetType="Button">
                                             <Grid Height="44" Width="44" RenderTransformOrigin="0.231,0.455">
@@ -250,11 +250,11 @@
                                 </Label>
                                 <Slider Padding="0" AutoToolTipPrecision="0" AutoToolTipPlacement="TopLeft" 
                                         Height="26" Width="160" Maximum="{Binding MaxFireSoldiers}" TickPlacement="TopLeft"  
-                                        Name="s6" Canvas.Left="4" Canvas.Top="26" />
+                                        Name="s6" Canvas.Left="4" Canvas.Top="26" Value="{Binding CurrentCountOfSoldiers}" />
                                 <Label Width="45" Height="20" Padding="0" Content="{Binding MaxFireSoldiers}" Canvas.Left="166" Canvas.Top="29" ></Label>
                                 <Label Padding="0" Content="Количество" FontSize="14" FontStyle="Oblique" FontWeight="Bold" HorizontalAlignment="Left" Height="18" Width="87" Canvas.Top="54"/>
                                 <TextBlock Padding="0"  Width="79" Height="22" Text="{Binding ElementName=s6, Path=Value, UpdateSourceTrigger=PropertyChanged, StringFormat={}{0:0}}" Canvas.Left="93" Canvas.Top="52"/>
-                                <Button Content="OK" FontWeight="Bold" Canvas.Left="179" Canvas.Top="54">
+                                <Button Content="OK" FontWeight="Bold" Canvas.Left="179" Canvas.Top="54" Command="{Binding FireSoldiers}">
                                     <Button.Template>
                                         <ControlTemplate TargetType="Button">
                                             <Grid Height="44" Width="44" RenderTransformOrigin="0.231,0.455">
@@ -278,7 +278,7 @@
                                         <Label Padding="0" Content="Ученых:" FontWeight="Normal" FontSize="15" Canvas.Top="55" Canvas.Left="33" Height="23"></Label>
                                         <TextBlock Text="{Binding Scientists}" VerticalAlignment="Center" FontWeight="Normal" Canvas.Top="51" Canvas.Left="108"  ></TextBlock>
                                         <Label Padding="0" Content="Солдат:" FontSize="15" FontWeight="Normal" Canvas.Top="78" Canvas.Left="36" Height="23"></Label>
-                                        <TextBlock Text="1000" VerticalAlignment="Center" FontWeight="Normal" Canvas.Top="74" Canvas.Left="108" RenderTransformOrigin="0.029,0.476"  ></TextBlock>
+                                        <TextBlock Text="{Binding Soldiers}" VerticalAlignment="Center" FontWeight="Normal" Canvas.Top="74" Canvas.Left="108" RenderTransformOrigin="0.029,0.476"  ></TextBlock>
                                         <Label Content="Територия:" FontSize="15" FontWeight="Bold" Canvas.Top="97" Canvas.Left="7"></Label>
                                         <TextBox Text="1000" HorizontalContentAlignment="Center" IsReadOnly="True" FontWeight="Bold" VerticalAlignment="Center" Canvas.Top="98" RenderTransformOrigin="3.636,-0.524" Canvas.Left="108" Width="80"  ></TextBox>
                                         <TextBlock TextAlignment="Right" Text="Макс население:" FontSize="15" Canvas.Top="125" Canvas.Left="10" Height="40" Width="83" TextWrapping="Wrap"></TextBlock>
@@ -302,7 +302,7 @@
                                         <TextBlock Margin="10 0 0 0" TextAlignment="Right" FontSize="15"  Text="Наука:"></TextBlock>
                                         <TextBlock Margin="50 0 0 0 " TextAlignment="Right" FontSize="15" Text="Армия:"></TextBlock>
                                         <TextBox Text="{Binding SpendOnScientists}" Margin="10 5 0 0" IsReadOnly="True" VerticalAlignment="Center" HorizontalContentAlignment="Center" Width="74"></TextBox>
-                                        <TextBox Text="1000" Margin="20 5 0 0" IsReadOnly="True" VerticalAlignment="Center" HorizontalContentAlignment="Center" Width="74"></TextBox>
+                                        <TextBox Text="{Binding SpendOnSoldiers}" Margin="20 5 0 0" IsReadOnly="True" VerticalAlignment="Center" HorizontalContentAlignment="Center" Width="74"></TextBox>
                                     </WrapPanel>
                                 </GroupBox>
                                 <GroupBox Header="Баланс" Height="67" Width="200" HorizontalAlignment="Center" Padding="0" FontSize="20" FontWeight="Bold" Margin="16,0,17,0" >

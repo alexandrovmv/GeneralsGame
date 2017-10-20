@@ -178,6 +178,18 @@
   <wsdl:message name="IGeneral_GetCountOfPeasants_OutputMessage">
     <wsdl:part name="parameters" element="tns:GetCountOfPeasantsResponse" />
   </wsdl:message>
+  <wsdl:message name="IGeneral_GetCountOfSoldiers_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetCountOfSoldiers" />
+  </wsdl:message>
+  <wsdl:message name="IGeneral_GetCountOfSoldiers_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetCountOfSoldiersResponse" />
+  </wsdl:message>
+  <wsdl:message name="IGeneral_GetSpendOnSoldiers_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetSpendOnSoldiers" />
+  </wsdl:message>
+  <wsdl:message name="IGeneral_GetSpendOnSoldiers_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetSpendOnSoldiersResponse" />
+  </wsdl:message>
   <wsdl:message name="IGeneral_GetYearsForScientificLevel_InputMessage">
     <wsdl:part name="parameters" element="tns:GetYearsForScientificLevel" />
   </wsdl:message>
@@ -237,6 +249,12 @@
   </wsdl:message>
   <wsdl:message name="IGeneral_IsPlayerAlreasyExist_OutputMessage">
     <wsdl:part name="parameters" element="tns:IsPlayerAlreasyExistResponse" />
+  </wsdl:message>
+  <wsdl:message name="IGeneral_DeleteSelectedPlayer_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteSelectedPlayer" />
+  </wsdl:message>
+  <wsdl:message name="IGeneral_DeleteSelectedPlayer_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteSelectedPlayerResponse" />
   </wsdl:message>
   <wsdl:portType name="IGeneral">
     <wsdl:operation name="GetSeedCount">
@@ -331,6 +349,14 @@
       <wsdl:input wsaw:Action="http://tempuri.org/IGeneral/GetCountOfPeasants" message="tns:IGeneral_GetCountOfPeasants_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IGeneral/GetCountOfPeasantsResponse" message="tns:IGeneral_GetCountOfPeasants_OutputMessage" />
     </wsdl:operation>
+    <wsdl:operation name="GetCountOfSoldiers">
+      <wsdl:input wsaw:Action="http://tempuri.org/IGeneral/GetCountOfSoldiers" message="tns:IGeneral_GetCountOfSoldiers_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IGeneral/GetCountOfSoldiersResponse" message="tns:IGeneral_GetCountOfSoldiers_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSpendOnSoldiers">
+      <wsdl:input wsaw:Action="http://tempuri.org/IGeneral/GetSpendOnSoldiers" message="tns:IGeneral_GetSpendOnSoldiers_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IGeneral/GetSpendOnSoldiersResponse" message="tns:IGeneral_GetSpendOnSoldiers_OutputMessage" />
+    </wsdl:operation>
     <wsdl:operation name="GetYearsForScientificLevel">
       <wsdl:input wsaw:Action="http://tempuri.org/IGeneral/GetYearsForScientificLevel" message="tns:IGeneral_GetYearsForScientificLevel_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IGeneral/GetYearsForScientificLevelResponse" message="tns:IGeneral_GetYearsForScientificLevel_OutputMessage" />
@@ -370,6 +396,10 @@
     <wsdl:operation name="IsPlayerAlreasyExist">
       <wsdl:input wsaw:Action="http://tempuri.org/IGeneral/IsPlayerAlreasyExist" message="tns:IGeneral_IsPlayerAlreasyExist_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IGeneral/IsPlayerAlreasyExistResponse" message="tns:IGeneral_IsPlayerAlreasyExist_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteSelectedPlayer">
+      <wsdl:input wsaw:Action="http://tempuri.org/IGeneral/DeleteSelectedPlayer" message="tns:IGeneral_DeleteSelectedPlayer_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IGeneral/DeleteSelectedPlayerResponse" message="tns:IGeneral_DeleteSelectedPlayer_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="NetTcpBinding_IGeneral" type="tns:IGeneral">
@@ -583,6 +613,24 @@
         <soap12:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="GetCountOfSoldiers">
+      <soap12:operation soapAction="http://tempuri.org/IGeneral/GetCountOfSoldiers" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSpendOnSoldiers">
+      <soap12:operation soapAction="http://tempuri.org/IGeneral/GetSpendOnSoldiers" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
     <wsdl:operation name="GetYearsForScientificLevel">
       <soap12:operation soapAction="http://tempuri.org/IGeneral/GetYearsForScientificLevel" style="document" />
       <wsdl:input>
@@ -666,6 +714,15 @@
     </wsdl:operation>
     <wsdl:operation name="IsPlayerAlreasyExist">
       <soap12:operation soapAction="http://tempuri.org/IGeneral/IsPlayerAlreasyExist" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteSelectedPlayer">
+      <soap12:operation soapAction="http://tempuri.org/IGeneral/DeleteSelectedPlayer" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>

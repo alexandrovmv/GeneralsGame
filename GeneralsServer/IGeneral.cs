@@ -57,6 +57,11 @@ namespace GeneralsServer
         void Seeding(string PlayerName, int Count);
         [OperationContract]
         int GetCountOfPeasants(string PlayerName);
+        [OperationContract]
+        int GetCountOfSoldiers(string PlayerName);
+        [OperationContract]
+        int GetSpendOnSoldiers(string PlayerName);
+
 
         [OperationContract]
          int GetYearsForScientificLevel(GeneralClasses.ScientificLevels a, int count);
