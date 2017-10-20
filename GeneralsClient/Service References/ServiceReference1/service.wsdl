@@ -40,6 +40,18 @@
       <xsd:import namespace="http://schemas.datacontract.org/2004/07/GeneralClasses" />
     </xsd:schema>
   </wsdl:types>
+  <wsdl:message name="IGeneral_GetScientists_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetScientists" />
+  </wsdl:message>
+  <wsdl:message name="IGeneral_GetScientists_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetScientistsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IGeneral_SpendOnScientists_InputMessage">
+    <wsdl:part name="parameters" element="tns:SpendOnScientists" />
+  </wsdl:message>
+  <wsdl:message name="IGeneral_SpendOnScientists_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SpendOnScientistsResponse" />
+  </wsdl:message>
   <wsdl:message name="IGeneral_GetMoney_InputMessage">
     <wsdl:part name="parameters" element="tns:GetMoney" />
   </wsdl:message>
@@ -203,6 +215,14 @@
     <wsdl:part name="parameters" element="tns:GetCountOfGeneralsResponse" />
   </wsdl:message>
   <wsdl:portType name="IGeneral">
+    <wsdl:operation name="GetScientists">
+      <wsdl:input wsaw:Action="http://tempuri.org/IGeneral/GetScientists" message="tns:IGeneral_GetScientists_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IGeneral/GetScientistsResponse" message="tns:IGeneral_GetScientists_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SpendOnScientists">
+      <wsdl:input wsaw:Action="http://tempuri.org/IGeneral/SpendOnScientists" message="tns:IGeneral_SpendOnScientists_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IGeneral/SpendOnScientistsResponse" message="tns:IGeneral_SpendOnScientists_OutputMessage" />
+    </wsdl:operation>
     <wsdl:operation name="GetMoney">
       <wsdl:input wsaw:Action="http://tempuri.org/IGeneral/GetMoney" message="tns:IGeneral_GetMoney_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IGeneral/GetMoneyResponse" message="tns:IGeneral_GetMoney_OutputMessage" />
@@ -316,6 +336,24 @@
     <wsp:PolicyReference URI="#NetTcpBinding_IGeneral_policy">
     </wsp:PolicyReference>
     <soap12:binding transport="http://schemas.microsoft.com/soap/tcp" />
+    <wsdl:operation name="GetScientists">
+      <soap12:operation soapAction="http://tempuri.org/IGeneral/GetScientists" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SpendOnScientists">
+      <soap12:operation soapAction="http://tempuri.org/IGeneral/SpendOnScientists" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
     <wsdl:operation name="GetMoney">
       <soap12:operation soapAction="http://tempuri.org/IGeneral/GetMoney" style="document" />
       <wsdl:input>
