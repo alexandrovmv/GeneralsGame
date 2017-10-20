@@ -36,7 +36,7 @@ namespace GeneralsServer
         [OperationContract]
         bool Autorise(string Login, string Password);
         [OperationContract]
-        void Hierscietisctc(string PlayerName, int Count);
+        void HireScietists(string PlayerName, int Count);
         [OperationContract]
         void HireSoldiers(string PlayerName, int Count);
         [OperationContract]
@@ -55,6 +55,8 @@ namespace GeneralsServer
         void SellScietists(string PlayerName, int Count);
         [OperationContract]
         void Seeding(string PlayerName, int Count);
+        [OperationContract]
+        int GetCountOfPeasants(string PlayerName);
 
         [OperationContract]
          int GetYearsForScientificLevel(GeneralClasses.ScientificLevels a, int count);

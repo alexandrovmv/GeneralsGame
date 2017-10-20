@@ -160,7 +160,7 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
-  <xs:element name="Hierscietisctc">
+  <xs:element name="HireScietists">
     <xs:complexType>
       <xs:sequence>
         <xs:element minOccurs="0" name="PlayerName" nillable="true" type="xs:string" />
@@ -168,7 +168,7 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
-  <xs:element name="HierscietisctcResponse">
+  <xs:element name="HireScietistsResponse">
     <xs:complexType>
       <xs:sequence />
     </xs:complexType>
@@ -291,6 +291,20 @@
   <xs:element name="SeedingResponse">
     <xs:complexType>
       <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetCountOfPeasants">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="PlayerName" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetCountOfPeasantsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="GetCountOfPeasantsResult" type="xs:int" />
+      </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="GetYearsForScientificLevel">

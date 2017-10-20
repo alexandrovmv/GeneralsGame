@@ -171,13 +171,13 @@
                                 <Label Padding="0"  Content="Найм ученых" FontSize="16" FontStyle="Oblique" FontWeight="Bold" HorizontalAlignment="Center" Margin="45 0 0 0" Height="23" Width="145"></Label>
                                 <Slider Padding="0" AutoToolTipPrecision="0" AutoToolTipPlacement="TopLeft" 
                                         Height="26" Width="160" Maximum="{Binding MaxScientists}" TickPlacement="TopLeft"  
-                                        Name="s3" Canvas.Left="4" Canvas.Top="26" />
+                                        Name="s3" Canvas.Left="4" Canvas.Top="26" Value="{Binding CurrentCountOfScientists}"/>
                                 <Label Width="45" Height="20" Padding="0" Content="{Binding MaxScientists}" Canvas.Left="166" Canvas.Top="29" ></Label>
                                 <Label Padding="0" Content="Количество" FontSize="14" FontStyle="Oblique" FontWeight="Bold" HorizontalAlignment="Left" Height="18" Width="87" Canvas.Top="54"/>
                                 <TextBlock Padding="0"  Width="79" Height="22" Text="{Binding ElementName=s3, Path=Value, UpdateSourceTrigger=PropertyChanged, StringFormat={}{0:0}}" Canvas.Left="93" Canvas.Top="52"/>
                                 <Label Padding="0" Content="Стоимость" FontSize="14" FontStyle="Oblique" FontWeight="Bold" HorizontalAlignment="Left" Height="18" Width="87" Canvas.Top="80"></Label>
-                                <TextBlock Padding="0" Width="80" Height="18" Text="{Binding ElementName=s3, Path=Value, UpdateSourceTrigger=PropertyChanged, StringFormat={}{0:0}}" Canvas.Left="93" Canvas.Top="79"/>
-                                <Button Content="OK" FontWeight="Bold" Canvas.Left="179" Canvas.Top="54">
+                                <TextBlock Padding="0" Width="80" Height="18" Text="{Binding CurrentCostOfScientists}" Canvas.Left="93" Canvas.Top="79"/>
+                                <Button Content="OK" FontWeight="Bold" Canvas.Left="179" Canvas.Top="54" Command="{Binding HireScientists}">
                                     <Button.Template>
                                         <ControlTemplate TargetType="Button">
                                             <Grid Height="44" Width="44" RenderTransformOrigin="0.231,0.455">
@@ -219,13 +219,11 @@
                                 <Label Padding="0"  Content="Увольнение ученых" FontSize="16" FontStyle="Oblique" FontWeight="Bold" HorizontalAlignment="Center" Height="23" Width="163" Canvas.Left="38"/>
                                 <Slider Padding="0" AutoToolTipPrecision="0" AutoToolTipPlacement="TopLeft" 
                                         Height="26" Width="160" Maximum="{Binding MaxFireScientists}" TickPlacement="TopLeft"  
-                                        Name="s5" Canvas.Left="4" Canvas.Top="26" />
+                                        Name="s5" Canvas.Left="4" Canvas.Top="26" Value="{Binding CurrentScientistsForSale}"/>
                                 <Label Width="45" Height="20" Padding="0" Content="{Binding MaxFireScientists}" Canvas.Left="166" Canvas.Top="29" ></Label>
                                 <Label Padding="0" Content="Количество" FontSize="14" FontStyle="Oblique" FontWeight="Bold" HorizontalAlignment="Left" Height="18" Width="87" Canvas.Top="54"/>
                                 <TextBlock Padding="0"  Width="79" Height="22" Text="{Binding ElementName=s5, Path=Value, UpdateSourceTrigger=PropertyChanged, StringFormat={}{0:0}}" Canvas.Left="93" Canvas.Top="52"/>
-                                <Label Padding="0" Content="Стоимость" FontSize="14" FontStyle="Oblique" FontWeight="Bold" HorizontalAlignment="Left" Height="18" Width="87" Canvas.Top="80"></Label>
-                                <TextBlock Padding="0" Width="80" Height="18" Text="{Binding ElementName=s5, Path=Value, UpdateSourceTrigger=PropertyChanged, StringFormat={}{0:0}}" Canvas.Left="93" Canvas.Top="79"/>
-                                <Button Content="OK" FontWeight="Bold" Canvas.Left="179" Canvas.Top="54">
+                                <Button Content="OK" FontWeight="Bold" Canvas.Left="179" Canvas.Top="54" Command="{Binding FireScientists}">
                                     <Button.Template>
                                         <ControlTemplate TargetType="Button">
                                             <Grid Height="44" Width="44" RenderTransformOrigin="0.231,0.455">
@@ -256,8 +254,6 @@
                                 <Label Width="45" Height="20" Padding="0" Content="{Binding MaxFireSoldiers}" Canvas.Left="166" Canvas.Top="29" ></Label>
                                 <Label Padding="0" Content="Количество" FontSize="14" FontStyle="Oblique" FontWeight="Bold" HorizontalAlignment="Left" Height="18" Width="87" Canvas.Top="54"/>
                                 <TextBlock Padding="0"  Width="79" Height="22" Text="{Binding ElementName=s6, Path=Value, UpdateSourceTrigger=PropertyChanged, StringFormat={}{0:0}}" Canvas.Left="93" Canvas.Top="52"/>
-                                <Label Padding="0" Content="Стоимость" FontSize="14" FontStyle="Oblique" FontWeight="Bold" HorizontalAlignment="Left" Height="18" Width="87" Canvas.Top="80"></Label>
-                                <TextBlock Padding="0" Width="80" Height="18" Text="{Binding ElementName=s6, Path=Value, UpdateSourceTrigger=PropertyChanged, StringFormat={}{0:0}}" Canvas.Left="93" Canvas.Top="79"/>
                                 <Button Content="OK" FontWeight="Bold" Canvas.Left="179" Canvas.Top="54">
                                     <Button.Template>
                                         <ControlTemplate TargetType="Button">
@@ -278,7 +274,7 @@
                                         <Label Content="Население:" FontSize="15" FontWeight="Bold" Canvas.Left="10" Canvas.Top="2"/>
                                         <TextBox Text="1000" HorizontalContentAlignment="Center" IsReadOnly="True" FontWeight="Bold" VerticalAlignment="Center" Canvas.Top="1" RenderTransformOrigin="3.636,-0.524" Canvas.Left="108" Width="80"  ></TextBox>
                                         <Label Padding="0" FontWeight="Normal" Content="Крестьян:" FontSize="15" Canvas.Top="32" Canvas.Left="22" Height="23"></Label>
-                                        <TextBlock Text="1000" FontWeight="Normal"  VerticalAlignment="Center" Canvas.Top="30" Canvas.Left="108"  ></TextBlock>
+                                        <TextBlock Text="{Binding Peasants}" FontWeight="Normal"  VerticalAlignment="Center" Canvas.Top="30" Canvas.Left="108"  ></TextBlock>
                                         <Label Padding="0" Content="Ученых:" FontWeight="Normal" FontSize="15" Canvas.Top="55" Canvas.Left="33" Height="23"></Label>
                                         <TextBlock Text="{Binding Scientists}" VerticalAlignment="Center" FontWeight="Normal" Canvas.Top="51" Canvas.Left="108"  ></TextBlock>
                                         <Label Padding="0" Content="Солдат:" FontSize="15" FontWeight="Normal" Canvas.Top="78" Canvas.Left="36" Height="23"></Label>

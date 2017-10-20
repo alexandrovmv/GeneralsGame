@@ -48,7 +48,6 @@ namespace GeneralsServer
         }
         public int GetCount()
         {
-
             return _Players.Count();
         }
         public bool IsFinish()
@@ -95,7 +94,7 @@ namespace GeneralsServer
             return true;
         }
 
-        public void Hierscietisctc(string PlayerName, int Count)
+        public void HireScietists(string PlayerName, int Count)
         {
             Player SelectedPlayer = Players.Find(x => x.Name == PlayerName);
             SelectedPlayer.country.Peasants -= Count;
@@ -246,7 +245,6 @@ namespace GeneralsServer
        
         public bool IsPlayerAlreasyExist(string PlayerName)
         {
-
             foreach (Player item in Players)
             {
                 if (item.Name == PlayerName)
@@ -254,7 +252,11 @@ namespace GeneralsServer
             }
 
             return false;
-
+        }
+        public int GetCountOfPeasants(string PlayerName)
+        {
+            Player SelectedPlayer = Players.Find(x => x.Name == PlayerName);
+            return SelectedPlayer.country.Peasants;
         }
 
         public void DeleteSelectedPlayer(string PlayerName)
