@@ -86,6 +86,7 @@ namespace GeneralsClient.ViewModel
         #endregion
 
         #endregion
+
         public Engine()
         {
             InterClass.gc.AddUser(InterClass.PlayerName);
