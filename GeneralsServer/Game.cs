@@ -242,8 +242,7 @@ namespace GeneralsServer
             SelectedPlayer.country.Seed -= Count;
             
         }
-
-        //если Игрок стаким именем уже есть метод возвращает фолс 
+       
         public bool IsPlayerAlreasyExist(string PlayerName)
         {
             foreach (Player item in Players)
@@ -251,12 +250,18 @@ namespace GeneralsServer
                 if (item.Name == PlayerName)
                     return true;
             }
+
             return false;
         }
         public int GetCountOfPeasants(string PlayerName)
         {
             Player SelectedPlayer = Players.Find(x => x.Name == PlayerName);
             return SelectedPlayer.country.Peasants;
+        }
+
+        public void DeleteSelectedPlayer(string PlayerName)
+        {
+            Players.Remove(Players.Find(x => x.Name == PlayerName));
         }
     }
 }

@@ -38,6 +38,7 @@ namespace GeneralsClient.ViewModel
                                 if (!InterClass.gc.isServerFull())
                                 {
                                     MessageBox.Show("Success");
+                                  
                                     InterClass.PlayerName = PlayerLogin;
                                     this.CloseAction();
                                     MainWindow m = new MainWindow();
