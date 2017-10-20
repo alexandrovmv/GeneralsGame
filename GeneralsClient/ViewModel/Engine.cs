@@ -86,13 +86,28 @@ namespace GeneralsClient.ViewModel
         #endregion
 
         #endregion
-
-
-
         #region Экономика
+        #region Засев зерна
+        #region Свойства
+        static int _MaxSeedForSeeding { get; set; } = 150;
+        public int MaxSeedForSeeding
+        {
+
+            get
+            {
+                return _MaxSeedForSeeding;
+            }
+            set
+            {
+                _MaxSeedForSeeding = value;
+                OnPropertyChanged();
+            }
+        }
+        #endregion
+        #endregion
         #region Продажа зерна
         #region Свойства
-        static int _MaxSeedForSale { get; set; }
+        static int _MaxSeedForSale { get; set; } = 150;
         public int MaxSeedForSale {
 
             get
@@ -107,6 +122,91 @@ namespace GeneralsClient.ViewModel
 
         #endregion
 
+        #endregion
+        #region Найм ученых
+        #region Свойства
+        static int _MaxScientists { get; set; } = 150;
+        public int MaxScientists
+        {
+            get
+            {
+                return _MaxScientists;
+            }
+            set
+            {
+                _MaxScientists = value;
+                OnPropertyChanged();
+            }
+        }
+        #endregion
+        #endregion
+        #region Увольнение ученых
+        #region Свойства
+        static int _MaxFireScientists { get; set; } = 150;
+        public int MaxFireScientists
+        {
+            get
+            {
+                return _MaxFireScientists;
+            }
+            set
+            {
+                _MaxFireScientists = value;
+                OnPropertyChanged();
+            }
+        }
+        #endregion
+        #endregion
+        #region Покупка зерна
+        #region Свойства
+        static int _MaxBuySeed { get; set; } = 150;
+        public int MaxBuySeed
+        {
+            get
+            {
+                return _MaxBuySeed;
+            }
+            set
+            {
+                _MaxBuySeed = value;
+                OnPropertyChanged();
+            }
+        }
+        #endregion
+        #endregion
+        #region Найм солдат
+        #region Свойства
+        static int _MaxSoldiers { get; set; } = 150;
+        public int MaxSoldiers
+        {
+            get
+            {
+                return _MaxSoldiers;
+            }
+            set
+            {
+                _MaxSoldiers = value;
+                OnPropertyChanged();
+            }
+        }
+        #endregion
+        #endregion
+        #region Увольнение солдат
+        #region Свойства
+        static int _MaxFireSoldiers { get; set; } = 150;
+        public int MaxFireSoldiers
+        {
+            get
+            {
+                return _MaxFireSoldiers;
+            }
+            set
+            {
+                _MaxFireSoldiers = value;
+                OnPropertyChanged();
+            }
+        }
+        #endregion
         #endregion
         #endregion
 
