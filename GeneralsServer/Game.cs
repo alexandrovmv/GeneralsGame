@@ -226,9 +226,15 @@ namespace GeneralsServer
             Player SelectedPlayer = Players.Find(x => x.Name == PlayerName);
             return SelectedPlayer.country.Balance;
         }
-
-
-
-
+        public int GetScientists(string Playername)
+        {
+            Player SelectedPlayer = Players.Find(x => x.Name == Playername);
+            return SelectedPlayer.country.Scientist;
+        }
+        public int SpendOnScientists(string Playername)
+        {
+            Player SelectedPlayer = Players.Find(x => x.Name == Playername);
+            return SelectedPlayer.country.Scientist * StaticConstats.SpendOnScientist;
+        }
     }
 }

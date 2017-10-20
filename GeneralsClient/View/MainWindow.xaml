@@ -281,7 +281,7 @@
                                         <Label Padding="0" FontWeight="Normal" Content="Крестьян:" FontSize="15" Canvas.Top="32" Canvas.Left="22" Height="23"></Label>
                                         <TextBlock Text="1000" FontWeight="Normal"  VerticalAlignment="Center" Canvas.Top="30" Canvas.Left="108"  ></TextBlock>
                                         <Label Padding="0" Content="Ученых:" FontWeight="Normal" FontSize="15" Canvas.Top="55" Canvas.Left="33" Height="23"></Label>
-                                        <TextBlock Text="1000" VerticalAlignment="Center" FontWeight="Normal" Canvas.Top="51" Canvas.Left="108"  ></TextBlock>
+                                        <TextBlock Text="{Binding Scientists}" VerticalAlignment="Center" FontWeight="Normal" Canvas.Top="51" Canvas.Left="108"  ></TextBlock>
                                         <Label Padding="0" Content="Солдат:" FontSize="15" FontWeight="Normal" Canvas.Top="78" Canvas.Left="36" Height="23"></Label>
                                         <TextBlock Text="1000" VerticalAlignment="Center" FontWeight="Normal" Canvas.Top="74" Canvas.Left="108" RenderTransformOrigin="0.029,0.476"  ></TextBlock>
                                         <Label Content="Територия:" FontSize="15" FontWeight="Bold" Canvas.Top="97" Canvas.Left="7"></Label>
@@ -306,12 +306,12 @@
                                     <WrapPanel>
                                         <TextBlock Margin="10 0 0 0" TextAlignment="Right" FontSize="15"  Text="Наука:"></TextBlock>
                                         <TextBlock Margin="50 0 0 0 " TextAlignment="Right" FontSize="15" Text="Армия:"></TextBlock>
-                                        <TextBox Text="1000" Margin="10 5 0 0" IsReadOnly="True" VerticalAlignment="Center" HorizontalContentAlignment="Center" Width="74"></TextBox>
+                                        <TextBox Text="{Binding SpendOnScientists}" Margin="10 5 0 0" IsReadOnly="True" VerticalAlignment="Center" HorizontalContentAlignment="Center" Width="74"></TextBox>
                                         <TextBox Text="1000" Margin="20 5 0 0" IsReadOnly="True" VerticalAlignment="Center" HorizontalContentAlignment="Center" Width="74"></TextBox>
                                     </WrapPanel>
                                 </GroupBox>
                                 <GroupBox Header="Баланс" Height="67" Width="200" HorizontalAlignment="Center" Padding="0" FontSize="20" FontWeight="Bold" Margin="16,0,17,0" >
-                                    <TextBox IsReadOnly="True" Text="{Binding Money}" VerticalAlignment="Center" HorizontalContentAlignment="Center" Width="100" ></TextBox>
+                                    <TextBox IsReadOnly="True" Text="{Binding Balance}" VerticalAlignment="Center" HorizontalContentAlignment="Center" Width="100" ></TextBox>
                                 </GroupBox>
                             </StackPanel>
                         </Border>

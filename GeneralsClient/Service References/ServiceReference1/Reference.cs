@@ -15,11 +15,25 @@ namespace GeneralsClient.ServiceReference1 {
     [System.ServiceModel.ServiceContractAttribute(ConfigurationName="ServiceReference1.IGeneral")]
     public interface IGeneral {
         
+
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGeneral/GetSeedCount", ReplyAction="http://tempuri.org/IGeneral/GetSeedCountResponse")]
         int GetSeedCount(string PlayerName);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGeneral/GetSeedCount", ReplyAction="http://tempuri.org/IGeneral/GetSeedCountResponse")]
         System.Threading.Tasks.Task<int> GetSeedCountAsync(string PlayerName);
+
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGeneral/GetScientists", ReplyAction="http://tempuri.org/IGeneral/GetScientistsResponse")]
+        int GetScientists(string Playername);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGeneral/GetScientists", ReplyAction="http://tempuri.org/IGeneral/GetScientistsResponse")]
+        System.Threading.Tasks.Task<int> GetScientistsAsync(string Playername);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGeneral/SpendOnScientists", ReplyAction="http://tempuri.org/IGeneral/SpendOnScientistsResponse")]
+        int SpendOnScientists(string Playername);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGeneral/SpendOnScientists", ReplyAction="http://tempuri.org/IGeneral/SpendOnScientistsResponse")]
+        System.Threading.Tasks.Task<int> SpendOnScientistsAsync(string Playername);
+
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGeneral/GetMoney", ReplyAction="http://tempuri.org/IGeneral/GetMoneyResponse")]
         int GetMoney(string PlayerName);
@@ -211,12 +225,29 @@ namespace GeneralsClient.ServiceReference1 {
                 base(binding, remoteAddress) {
         }
         
+
         public int GetSeedCount(string PlayerName) {
             return base.Channel.GetSeedCount(PlayerName);
         }
         
         public System.Threading.Tasks.Task<int> GetSeedCountAsync(string PlayerName) {
             return base.Channel.GetSeedCountAsync(PlayerName);
+
+        public int GetScientists(string Playername) {
+            return base.Channel.GetScientists(Playername);
+        }
+        
+        public System.Threading.Tasks.Task<int> GetScientistsAsync(string Playername) {
+            return base.Channel.GetScientistsAsync(Playername);
+        }
+        
+        public int SpendOnScientists(string Playername) {
+            return base.Channel.SpendOnScientists(Playername);
+        }
+        
+        public System.Threading.Tasks.Task<int> SpendOnScientistsAsync(string Playername) {
+            return base.Channel.SpendOnScientistsAsync(Playername);
+
         }
         
         public int GetMoney(string PlayerName) {
