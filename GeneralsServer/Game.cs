@@ -249,5 +249,10 @@ namespace GeneralsServer
             return false;
 
         }
+
+        public void DeleteSelectedPlayer(string PlayerName)
+        {
+            Players.Remove(Players.Find(x => x.Name == PlayerName));
+        }
     }
 }
