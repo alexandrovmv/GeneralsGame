@@ -122,7 +122,7 @@
                                 <Slider Padding="0" AutoToolTipPrecision="0"
                                         AutoToolTipPlacement="TopLeft" Height="26" 
                                         Width="160" Maximum="{Binding MaxSeedForSale}" TickPlacement="TopLeft" 
-                                        Name="s1" Canvas.Left="4" Canvas.Top="26" 
+                                        Name="s1" Canvas.Left="4" Canvas.Top="26" Value="{Binding CurrentSeedForSale}"
                                         
                                         />
                                 <Label Width="45" Height="20" Padding="0" Content="{Binding MaxSeedForSale}" Canvas.Left="166" Canvas.Top="29" ></Label>
@@ -130,7 +130,7 @@
                                 <TextBlock Padding="0"  Width="79" Height="22" Text="{Binding ElementName=s1, Path=Value, UpdateSourceTrigger=PropertyChanged, StringFormat={}{0:0}}" Canvas.Left="93" Canvas.Top="52"/>
                                 <Label Padding="0" Content="Стоимость" FontSize="14" FontStyle="Oblique" FontWeight="Bold" HorizontalAlignment="Left" Height="18" Width="87" Canvas.Top="80"></Label>
                                 <TextBlock Padding="0" Width="80" Height="18" Text="{Binding ElementName=s1, Path=Value, UpdateSourceTrigger=PropertyChanged, StringFormat={}{0:0}}" Canvas.Left="93" Canvas.Top="79"/>
-                                <Button Content="OK" FontWeight="Bold" Canvas.Left="179" Canvas.Top="54">
+                                <Button Content="OK" FontWeight="Bold" Canvas.Left="179" Canvas.Top="54" Command="{Binding SaleSeed }">
                                     <Button.Template>
                                         <ControlTemplate TargetType="Button">
                                             <Grid Height="44" Width="44" RenderTransformOrigin="0.231,0.455">
@@ -289,7 +289,7 @@
                                         <TextBlock TextAlignment="Right" Text="Макс население:" FontSize="15" Canvas.Top="125" Canvas.Left="10" Height="40" Width="83" TextWrapping="Wrap"></TextBlock>
                                         <TextBox Text="1000" HorizontalContentAlignment="Center" IsReadOnly="True" FontWeight="Bold" VerticalAlignment="Center" Canvas.Top="132" RenderTransformOrigin="3.636,-0.524" Canvas.Left="108" Width="80"  ></TextBox>
                                         <TextBlock TextAlignment="Right" Text="Деньги:" FontSize="15" Canvas.Top="172" Canvas.Left="15" Height="23" Width="83" TextWrapping="Wrap"></TextBlock>
-                                        <TextBox Text="1000" HorizontalContentAlignment="Center" IsReadOnly="True" FontWeight="Bold" VerticalAlignment="Center" Canvas.Top="166" RenderTransformOrigin="3.636,-0.524" Canvas.Left="108" Width="80"  ></TextBox>
+                                        <TextBox Text="{Binding Money}" HorizontalContentAlignment="Center" IsReadOnly="True" FontWeight="Bold" VerticalAlignment="Center" Canvas.Top="166" RenderTransformOrigin="3.636,-0.524" Canvas.Left="108" Width="80"  ></TextBox>
                                         <TextBlock TextAlignment="Right" Text="Зерно:" FontSize="15" Canvas.Top="206" Canvas.Left="15" Height="23" Width="83" TextWrapping="Wrap"></TextBlock>
                                         <TextBox Text="1000" HorizontalContentAlignment="Center" IsReadOnly="True" FontWeight="Bold" VerticalAlignment="Center" Canvas.Top="200" RenderTransformOrigin="3.636,-0.524" Canvas.Left="108" Width="80"  ></TextBox>
                                     </Canvas>
@@ -311,7 +311,7 @@
                                     </WrapPanel>
                                 </GroupBox>
                                 <GroupBox Header="Баланс" Height="67" Width="200" HorizontalAlignment="Center" Padding="0" FontSize="20" FontWeight="Bold" Margin="16,0,17,0" >
-                                    <TextBox IsReadOnly="True" Text="1000" VerticalAlignment="Center" HorizontalContentAlignment="Center" Width="100" ></TextBox>
+                                    <TextBox IsReadOnly="True" Text="{Binding Money}" VerticalAlignment="Center" HorizontalContentAlignment="Center" Width="100" ></TextBox>
                                 </GroupBox>
                             </StackPanel>
                         </Border>

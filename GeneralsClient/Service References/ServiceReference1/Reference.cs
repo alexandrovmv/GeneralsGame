@@ -15,6 +15,12 @@ namespace GeneralsClient.ServiceReference1 {
     [System.ServiceModel.ServiceContractAttribute(ConfigurationName="ServiceReference1.IGeneral")]
     public interface IGeneral {
         
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGeneral/GetMoney", ReplyAction="http://tempuri.org/IGeneral/GetMoneyResponse")]
+        int GetMoney(string PlayerName);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGeneral/GetMoney", ReplyAction="http://tempuri.org/IGeneral/GetMoneyResponse")]
+        System.Threading.Tasks.Task<int> GetMoneyAsync(string PlayerName);
+        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGeneral/isServerFull", ReplyAction="http://tempuri.org/IGeneral/isServerFullResponse")]
         bool isServerFull();
         
@@ -197,6 +203,14 @@ namespace GeneralsClient.ServiceReference1 {
         
         public GeneralClient(System.ServiceModel.Channels.Binding binding, System.ServiceModel.EndpointAddress remoteAddress) : 
                 base(binding, remoteAddress) {
+        }
+        
+        public int GetMoney(string PlayerName) {
+            return base.Channel.GetMoney(PlayerName);
+        }
+        
+        public System.Threading.Tasks.Task<int> GetMoneyAsync(string PlayerName) {
+            return base.Channel.GetMoneyAsync(PlayerName);
         }
         
         public bool isServerFull() {
