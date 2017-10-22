@@ -15,11 +15,35 @@ namespace GeneralsClient.ServiceReference1 {
     [System.ServiceModel.ServiceContractAttribute(ConfigurationName="ServiceReference1.IGeneral")]
     public interface IGeneral {
         
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGeneral/GetTerritorySize", ReplyAction="http://tempuri.org/IGeneral/GetTerritorySizeResponse")]
+        int GetTerritorySize(string PlayerName);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGeneral/GetTerritorySize", ReplyAction="http://tempuri.org/IGeneral/GetTerritorySizeResponse")]
+        System.Threading.Tasks.Task<int> GetTerritorySizeAsync(string PlayerName);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGeneral/GetMaxPeopleCount", ReplyAction="http://tempuri.org/IGeneral/GetMaxPeopleCountResponse")]
+        int GetMaxPeopleCount(string PlayerName);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGeneral/GetMaxPeopleCount", ReplyAction="http://tempuri.org/IGeneral/GetMaxPeopleCountResponse")]
+        System.Threading.Tasks.Task<int> GetMaxPeopleCountAsync(string PlayerName);
+        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGeneral/GetSeedCount", ReplyAction="http://tempuri.org/IGeneral/GetSeedCountResponse")]
         int GetSeedCount(string PlayerName);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGeneral/GetSeedCount", ReplyAction="http://tempuri.org/IGeneral/GetSeedCountResponse")]
         System.Threading.Tasks.Task<int> GetSeedCountAsync(string PlayerName);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGeneral/GetSeedIncrement", ReplyAction="http://tempuri.org/IGeneral/GetSeedIncrementResponse")]
+        int GetSeedIncrement(string PlayerName);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGeneral/GetSeedIncrement", ReplyAction="http://tempuri.org/IGeneral/GetSeedIncrementResponse")]
+        System.Threading.Tasks.Task<int> GetSeedIncrementAsync(string PlayerName);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGeneral/GetPeopleIncrement", ReplyAction="http://tempuri.org/IGeneral/GetPeopleIncrementResponse")]
+        int GetPeopleIncrement(string PlayerName);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGeneral/GetPeopleIncrement", ReplyAction="http://tempuri.org/IGeneral/GetPeopleIncrementResponse")]
+        System.Threading.Tasks.Task<int> GetPeopleIncrementAsync(string PlayerName);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGeneral/GetScientists", ReplyAction="http://tempuri.org/IGeneral/GetScientistsResponse")]
         int GetScientists(string Playername);
@@ -230,6 +254,12 @@ namespace GeneralsClient.ServiceReference1 {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGeneral/DeleteSelectedPlayer", ReplyAction="http://tempuri.org/IGeneral/DeleteSelectedPlayerResponse")]
         System.Threading.Tasks.Task DeleteSelectedPlayerAsync(string PlayerName);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGeneral/GetScientificLevel", ReplyAction="http://tempuri.org/IGeneral/GetScientificLevelResponse")]
+        int GetScientificLevel(string PlayerName, GeneralClasses.ScientificLevelType LevelType);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGeneral/GetScientificLevel", ReplyAction="http://tempuri.org/IGeneral/GetScientificLevelResponse")]
+        System.Threading.Tasks.Task<int> GetScientificLevelAsync(string PlayerName, GeneralClasses.ScientificLevelType LevelType);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -259,12 +289,44 @@ namespace GeneralsClient.ServiceReference1 {
                 base(binding, remoteAddress) {
         }
         
+        public int GetTerritorySize(string PlayerName) {
+            return base.Channel.GetTerritorySize(PlayerName);
+        }
+        
+        public System.Threading.Tasks.Task<int> GetTerritorySizeAsync(string PlayerName) {
+            return base.Channel.GetTerritorySizeAsync(PlayerName);
+        }
+        
+        public int GetMaxPeopleCount(string PlayerName) {
+            return base.Channel.GetMaxPeopleCount(PlayerName);
+        }
+        
+        public System.Threading.Tasks.Task<int> GetMaxPeopleCountAsync(string PlayerName) {
+            return base.Channel.GetMaxPeopleCountAsync(PlayerName);
+        }
+        
         public int GetSeedCount(string PlayerName) {
             return base.Channel.GetSeedCount(PlayerName);
         }
         
         public System.Threading.Tasks.Task<int> GetSeedCountAsync(string PlayerName) {
             return base.Channel.GetSeedCountAsync(PlayerName);
+        }
+        
+        public int GetSeedIncrement(string PlayerName) {
+            return base.Channel.GetSeedIncrement(PlayerName);
+        }
+        
+        public System.Threading.Tasks.Task<int> GetSeedIncrementAsync(string PlayerName) {
+            return base.Channel.GetSeedIncrementAsync(PlayerName);
+        }
+        
+        public int GetPeopleIncrement(string PlayerName) {
+            return base.Channel.GetPeopleIncrement(PlayerName);
+        }
+        
+        public System.Threading.Tasks.Task<int> GetPeopleIncrementAsync(string PlayerName) {
+            return base.Channel.GetPeopleIncrementAsync(PlayerName);
         }
         
         public int GetScientists(string Playername) {
@@ -545,6 +607,14 @@ namespace GeneralsClient.ServiceReference1 {
         
         public System.Threading.Tasks.Task DeleteSelectedPlayerAsync(string PlayerName) {
             return base.Channel.DeleteSelectedPlayerAsync(PlayerName);
+        }
+        
+        public int GetScientificLevel(string PlayerName, GeneralClasses.ScientificLevelType LevelType) {
+            return base.Channel.GetScientificLevel(PlayerName, LevelType);
+        }
+        
+        public System.Threading.Tasks.Task<int> GetScientificLevelAsync(string PlayerName, GeneralClasses.ScientificLevelType LevelType) {
+            return base.Channel.GetScientificLevelAsync(PlayerName, LevelType);
         }
     }
 }

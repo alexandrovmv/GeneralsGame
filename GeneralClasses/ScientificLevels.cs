@@ -21,4 +21,5 @@ namespace GeneralClasses
         }
 
     }
+    public enum ScientificLevelType { Density,PeasantIncrement,SeedIncrement,Economy,WarArt,Scientific}
 }

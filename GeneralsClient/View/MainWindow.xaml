@@ -218,9 +218,9 @@
                             <Canvas>
                                 <Label Padding="0"  Content="Увольнение ученых" FontSize="16" FontStyle="Oblique" FontWeight="Bold" HorizontalAlignment="Center" Height="23" Width="163" Canvas.Left="38"/>
                                 <Slider Padding="0" AutoToolTipPrecision="0" AutoToolTipPlacement="TopLeft" 
-                                        Height="26" Width="160" Maximum="{Binding MaxFireScientists}" TickPlacement="TopLeft"  
+                                        Height="26" Width="160" Maximum="{Binding Scientists}" TickPlacement="TopLeft"  
                                         Name="s5" Canvas.Left="4" Canvas.Top="26" Value="{Binding CurrentScientistsForSale}"/>
-                                <Label Width="45" Height="20" Padding="0" Content="{Binding MaxFireScientists}" Canvas.Left="166" Canvas.Top="29" ></Label>
+                                <Label Width="45" Height="20" Padding="0" Content="{Binding Scientists}" Canvas.Left="166" Canvas.Top="29" ></Label>
                                 <Label Padding="0" Content="Количество" FontSize="14" FontStyle="Oblique" FontWeight="Bold" HorizontalAlignment="Left" Height="18" Width="87" Canvas.Top="54"/>
                                 <TextBlock Padding="0"  Width="79" Height="22" Text="{Binding ElementName=s5, Path=Value, UpdateSourceTrigger=PropertyChanged, StringFormat={}{0:0}}" Canvas.Left="93" Canvas.Top="52"/>
                                 <Button Content="OK" FontWeight="Bold" Canvas.Left="179" Canvas.Top="54" Command="{Binding FireScientists}">
@@ -249,9 +249,9 @@
                                     </Label.RenderTransform>
                                 </Label>
                                 <Slider Padding="0" AutoToolTipPrecision="0" AutoToolTipPlacement="TopLeft" 
-                                        Height="26" Width="160" Maximum="{Binding MaxFireSoldiers}" TickPlacement="TopLeft"  
-                                        Name="s6" Canvas.Left="4" Canvas.Top="26" Value="{Binding CurrentCountOfSoldiers}" />
-                                <Label Width="45" Height="20" Padding="0" Content="{Binding MaxFireSoldiers}" Canvas.Left="166" Canvas.Top="29" ></Label>
+                                        Height="26" Width="160" Maximum="{Binding Soldiers}" TickPlacement="TopLeft"  
+                                        Name="s6" Canvas.Left="4" Canvas.Top="26" Value="{Binding CurrentSoldiersForSale}" />
+                                <Label Width="45" Height="20" Padding="0" Content="{Binding Soldiers}" Canvas.Left="166" Canvas.Top="29" ></Label>
                                 <Label Padding="0" Content="Количество" FontSize="14" FontStyle="Oblique" FontWeight="Bold" HorizontalAlignment="Left" Height="18" Width="87" Canvas.Top="54"/>
                                 <TextBlock Padding="0"  Width="79" Height="22" Text="{Binding ElementName=s6, Path=Value, UpdateSourceTrigger=PropertyChanged, StringFormat={}{0:0}}" Canvas.Left="93" Canvas.Top="52"/>
                                 <Button Content="OK" FontWeight="Bold" Canvas.Left="179" Canvas.Top="54" Command="{Binding FireSoldiers}">
@@ -272,7 +272,7 @@
                                 <GroupBox Header="Ваши ресурсы" Height="265" Width="200" HorizontalAlignment="Center" Padding="0" FontSize="20" FontWeight="Bold" >
                                     <Canvas >
                                         <Label Content="Население:" FontSize="15" FontWeight="Bold" Canvas.Left="10" Canvas.Top="2"/>
-                                        <TextBox Text="1000" HorizontalContentAlignment="Center" IsReadOnly="True" FontWeight="Bold" VerticalAlignment="Center" Canvas.Top="1" RenderTransformOrigin="3.636,-0.524" Canvas.Left="108" Width="80"  ></TextBox>
+                                        <TextBox Text="{Binding People}" HorizontalContentAlignment="Center" IsReadOnly="True" FontWeight="Bold" VerticalAlignment="Center" Canvas.Top="1" RenderTransformOrigin="3.636,-0.524" Canvas.Left="108" Width="80"  ></TextBox>
                                         <Label Padding="0" FontWeight="Normal" Content="Крестьян:" FontSize="15" Canvas.Top="32" Canvas.Left="22" Height="23"></Label>
                                         <TextBlock Text="{Binding Peasants}" FontWeight="Normal"  VerticalAlignment="Center" Canvas.Top="30" Canvas.Left="108"  ></TextBlock>
                                         <Label Padding="0" Content="Ученых:" FontWeight="Normal" FontSize="15" Canvas.Top="55" Canvas.Left="33" Height="23"></Label>
@@ -280,9 +280,9 @@
                                         <Label Padding="0" Content="Солдат:" FontSize="15" FontWeight="Normal" Canvas.Top="78" Canvas.Left="36" Height="23"></Label>
                                         <TextBlock Text="{Binding Soldiers}" VerticalAlignment="Center" FontWeight="Normal" Canvas.Top="74" Canvas.Left="108" RenderTransformOrigin="0.029,0.476"  ></TextBlock>
                                         <Label Content="Територия:" FontSize="15" FontWeight="Bold" Canvas.Top="97" Canvas.Left="7"></Label>
-                                        <TextBox Text="1000" HorizontalContentAlignment="Center" IsReadOnly="True" FontWeight="Bold" VerticalAlignment="Center" Canvas.Top="98" RenderTransformOrigin="3.636,-0.524" Canvas.Left="108" Width="80"  ></TextBox>
+                                        <TextBox Text="{Binding Territoty}" HorizontalContentAlignment="Center" IsReadOnly="True" FontWeight="Bold" VerticalAlignment="Center" Canvas.Top="98" RenderTransformOrigin="3.636,-0.524" Canvas.Left="108" Width="80"  ></TextBox>
                                         <TextBlock TextAlignment="Right" Text="Макс население:" FontSize="15" Canvas.Top="125" Canvas.Left="10" Height="40" Width="83" TextWrapping="Wrap"></TextBlock>
-                                        <TextBox Text="1000" HorizontalContentAlignment="Center" IsReadOnly="True" FontWeight="Bold" VerticalAlignment="Center" Canvas.Top="132" RenderTransformOrigin="3.636,-0.524" Canvas.Left="108" Width="80"  ></TextBox>
+                                        <TextBox Text="{Binding MaxPeople}" HorizontalContentAlignment="Center" IsReadOnly="True" FontWeight="Bold" VerticalAlignment="Center" Canvas.Top="132" RenderTransformOrigin="3.636,-0.524" Canvas.Left="108" Width="80"  ></TextBox>
                                         <TextBlock TextAlignment="Right" Text="Деньги:" FontSize="15" Canvas.Top="172" Canvas.Left="15" Height="23" Width="83" TextWrapping="Wrap"></TextBlock>
                                         <TextBox Text="{Binding Money}" HorizontalContentAlignment="Center" IsReadOnly="True" FontWeight="Bold" VerticalAlignment="Center" Canvas.Top="166" RenderTransformOrigin="3.636,-0.524" Canvas.Left="108" Width="80"  ></TextBox>
                                         <TextBlock TextAlignment="Right" Text="Зерно:" FontSize="15" Canvas.Top="206" Canvas.Left="15" Height="23" Width="83" TextWrapping="Wrap"></TextBlock>
@@ -292,9 +292,9 @@
                                 <GroupBox Header="Прирост" Height="100" Width="200" HorizontalAlignment="Center" Padding="0" FontSize="20" FontWeight="Bold" >
                                     <Canvas>
                                         <TextBlock TextAlignment="Right" Text="Зерно:" FontSize="15"  Height="23" Width="83" TextWrapping="Wrap" Canvas.Left="10" Canvas.Top="10"></TextBlock>
-                                        <TextBox Text="1000" HorizontalContentAlignment="Center" IsReadOnly="True" FontWeight="Bold" VerticalAlignment="Center" RenderTransformOrigin="3.636,-0.524" Canvas.Left="108" Width="80" Height="32"  />
+                                        <TextBox Text="{Binding SeedIncrement}" HorizontalContentAlignment="Center" IsReadOnly="True" FontWeight="Bold" VerticalAlignment="Center" RenderTransformOrigin="3.636,-0.524" Canvas.Left="108" Width="80" Height="32"  />
                                         <TextBlock TextAlignment="Right" Text="Население:" FontSize="15" Height="23" Width="83" TextWrapping="Wrap" Canvas.Top="42" Canvas.Left="20"></TextBlock>
-                                        <TextBox Text="1000" HorizontalContentAlignment="Center" IsReadOnly="True" FontWeight="Bold" VerticalAlignment="Center"  RenderTransformOrigin="3.636,-0.524" Canvas.Left="108" Width="80" Canvas.Top="34"  ></TextBox>
+                                        <TextBox Text="{Binding PeopleIcrement}" HorizontalContentAlignment="Center" IsReadOnly="True" FontWeight="Bold" VerticalAlignment="Center"  RenderTransformOrigin="3.636,-0.524" Canvas.Left="108" Width="80" Canvas.Top="34"  ></TextBox>
                                     </Canvas>
                                 </GroupBox>
                                 <GroupBox Header="Расходы" Height="90" Width="200" HorizontalAlignment="Center" Padding="0" FontSize="20" FontWeight="Bold" >

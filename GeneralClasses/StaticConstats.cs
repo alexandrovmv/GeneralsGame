@@ -24,6 +24,9 @@ namespace GeneralClasses
         public static int MaxAge { get; } = 60;
         public static int MaxSkill { get; } = 35;
         public static int MaxSpeed { get; } = 50;
+        public static int PeoplePerSquare { get; } = 5;
+        public static double SeedIncrementKoefPerScientLevel { get; } = 1.3;
+        public static double PeopleIncrementKoefPerScientLevel { get; } = 0.2;
 
 
 

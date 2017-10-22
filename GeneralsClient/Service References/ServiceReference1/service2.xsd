@@ -1,6 +1,34 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <xs:schema xmlns:tns="http://tempuri.org/" elementFormDefault="qualified" targetNamespace="http://tempuri.org/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
   <xs:import namespace="http://schemas.datacontract.org/2004/07/GeneralClasses" />
+  <xs:element name="GetTerritorySize">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="PlayerName" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetTerritorySizeResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="GetTerritorySizeResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetMaxPeopleCount">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="PlayerName" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetMaxPeopleCountResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="GetMaxPeopleCountResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
   <xs:element name="GetSeedCount">
     <xs:complexType>
       <xs:sequence>
@@ -12,6 +40,34 @@
     <xs:complexType>
       <xs:sequence>
         <xs:element minOccurs="0" name="GetSeedCountResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetSeedIncrement">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="PlayerName" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetSeedIncrementResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="GetSeedIncrementResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetPeopleIncrement">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="PlayerName" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetPeopleIncrementResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="GetPeopleIncrementResult" type="xs:int" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -493,6 +549,21 @@
   <xs:element name="DeleteSelectedPlayerResponse">
     <xs:complexType>
       <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetScientificLevel">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="PlayerName" nillable="true" type="xs:string" />
+        <xs:element xmlns:q7="http://schemas.datacontract.org/2004/07/GeneralClasses" minOccurs="0" name="LevelType" type="q7:ScientificLevelType" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetScientificLevelResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="GetScientificLevelResult" type="xs:int" />
+      </xs:sequence>
     </xs:complexType>
   </xs:element>
 </xs:schema>
