@@ -239,7 +239,8 @@ namespace GeneralsClient.ViewModel
         public int PeopleIcrement { get { return _PeopleIcrement; } set { _PeopleIcrement = value; OnPropertyChanged(); } }
         #region Засев
         #region Свойства
-        public int CurrentSeedForSeeding { get; set; }
+        public int _CurrentSeedForSeeding { get; set; }
+        public int CurrentSeedForSeeding { get { return _CurrentSeedForSeeding; } set { _CurrentSeedForSeeding = value; OnPropertyChanged(); } }
         static int _MaxSeedForSeeding { get; set; }
         public int MaxSeedForSeeding
         {
@@ -447,7 +448,8 @@ namespace GeneralsClient.ViewModel
         #endregion
         #region Увольнение ученых
         #region Свойства
-        public int CurrentScientistsForSale { get; set; }
+        int _CurrentScientistsForSale { get; set; }
+        public int CurrentScientistsForSale { get { return _CurrentScientistsForSale; } set { _CurrentScientistsForSale = value;OnPropertyChanged(); } }
         #endregion  
         #region Команды
         RelayCommand _FireScientists { get; set; }
@@ -544,7 +546,8 @@ namespace GeneralsClient.ViewModel
         #region Увольнение солдат
         #region Свойства
 
-        public int CurrentSoldiersForSale { get; set; }
+        public int _CurrentSoldiersForSale { get; set; }
+        public int CurrentSoldiersForSale { get { return _CurrentSoldiersForSale; } set { _CurrentSoldiersForSale = value; OnPropertyChanged(); } }
         #region Команды
         RelayCommand _FireSoldiers { get; set; }
         public RelayCommand FireSoldiers
@@ -594,7 +597,14 @@ namespace GeneralsClient.ViewModel
             MaxPeople = ServiceClient.GetMaxPeopleCount(PlayerName);
             SeedIncrement = ServiceClient.GetSeedIncrement(PlayerName);
             PeopleIcrement = ServiceClient.GetPeopleIncrement(PlayerName);
-
+            CurrentSeedForSeeding = 0;
+            CurrentSeedForSale = 0;
+            CurrentSeedForBuy = 0;
+            CurrentCountOfScientists = 0;
+            CurrentCountOfSoldiers = 0;
+            CurrentScientistsForSale = 0;
+            CurrentSoldiersForSale = 0;
+            CurrentSeedForSeeding = 0;
         }
 
         public Engine()
