@@ -1,4 +1,5 @@
-﻿using System;
+﻿using GeneralClasses;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.ServiceModel;
@@ -11,7 +12,15 @@ namespace GeneralsServer
     public interface IGeneral
     {
         [OperationContract]
+        int GetTerritorySize(string PlayerName);
+        [OperationContract]
+        int GetMaxPeopleCount(string PlayerName);
+        [OperationContract]
         int GetSeedCount(string PlayerName);
+        [OperationContract]
+        int GetSeedIncrement(string PlayerName);
+        [OperationContract]
+        int GetPeopleIncrement(string PlayerName);
         [OperationContract]
         int GetScientists(string Playername);
         [OperationContract]
@@ -61,8 +70,6 @@ namespace GeneralsServer
         int GetCountOfSoldiers(string PlayerName);
         [OperationContract]
         int GetSpendOnSoldiers(string PlayerName);
-
-
         [OperationContract]
          int GetYearsForScientificLevel(GeneralClasses.ScientificLevels a, int count);
         [OperationContract]
@@ -87,6 +94,11 @@ namespace GeneralsServer
         bool IsPlayerAlreasyExist(string PlayerName);
         [OperationContract]
         void DeleteSelectedPlayer(string PlayerName);
+
+        #region Методы для работы с уровнями науки
+        [OperationContract]
+        int GetScientificLevel(string PlayerName, ScientificLevelType LevelType);
+        #endregion
 
     }
 }

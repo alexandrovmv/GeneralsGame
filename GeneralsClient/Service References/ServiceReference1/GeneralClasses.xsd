@@ -11,4 +11,15 @@
     </xs:sequence>
   </xs:complexType>
   <xs:element name="ScientificLevels" nillable="true" type="tns:ScientificLevels" />
+  <xs:simpleType name="ScientificLevelType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Density" />
+      <xs:enumeration value="PeasantIncrement" />
+      <xs:enumeration value="SeedIncrement" />
+      <xs:enumeration value="Economy" />
+      <xs:enumeration value="WarArt" />
+      <xs:enumeration value="Scientific" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="ScientificLevelType" nillable="true" type="tns:ScientificLevelType" />
 </xs:schema>

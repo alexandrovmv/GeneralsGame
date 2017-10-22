@@ -59,11 +59,13 @@ namespace GeneralClasses
         }
         public Country() {
             Generals = new List<General>();
-            Teritory = StaticConstats.Teritory;
+            Teritory = StaticConstats.Teritory/StaticConstats.CountOfPlayers;
             Seed = StaticConstats.StartCountOfSeed;
             Balance = StaticConstats.StartBalance;
             Peasants = StaticConstats.StartPeasants;
             Density = StaticConstats.SpecificDensity * Teritory;
+            Generals = new List<General>();
+            ScienceLevels = new ScientificLevels();
         }
     }
 

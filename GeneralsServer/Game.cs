@@ -13,7 +13,6 @@ namespace GeneralsServer
        public int GetSeedCount(string PlayerName)
         {
             Player SelectedPlayer = Players.Find(x => x.Name == PlayerName);
-
             return SelectedPlayer.country.Seed;
         }
         DB database { get; set; }
@@ -66,14 +65,12 @@ namespace GeneralsServer
         {
             Player q = Players.Find(x => x.Name == Oldname);
             q.Name = NewName;
-
-
         }
 
         public void FinishRound(string name)
         {
             Player SelectedPalyer = Players.Find(x => x.Name == name);
-
+            SelectedPalyer.IsFinished = true;
         }
 
         public bool Registr(string login, string password)
@@ -156,17 +153,27 @@ namespace GeneralsServer
             SelectedPlayer.country.Seed -= Count;
             SelectedPlayer.country.Balance += Count * StaticConstats.PriceOfSeedsSell;
         }
-
+        /// <summary>
+        /// Метод переводит солдат в крестьян
+        /// </summary>
+        /// <param name="PlayerName"></param>
+        /// <param name="Count"></param>
         public void SellSoldiers(string PlayerName, int Count)
         {
             Player SelectedPlayer = Players.Find(x => x.Name == PlayerName);
             SelectedPlayer.country.Soldiers -= Count;
+            SelectedPlayer.country.Peasants += Count;
         }
-
+        /// <summary>
+        /// Метод переводит ученых в крестьян
+        /// </summary>
+        /// <param name="PlayerName"></param>
+        /// <param name="Count"></param>
         public void SellScietists(string PlayerName, int Count)
         {
             Player SelectedPlayer = Players.Find(x => x.Name == PlayerName);
             SelectedPlayer.country.Scientist -= Count;
+            SelectedPlayer.country.Peasants += Count;
         }
         //Просчет количества лет для полного иследования научной галузи
         public int GetYearsForDensityLvl(ScientificLevels a, int count)
@@ -240,7 +247,7 @@ namespace GeneralsServer
         {
             Player SelectedPlayer = Players.Find(x => x.Name == PlayerName);
             SelectedPlayer.country.Seed -= Count;
-            
+            SelectedPlayer.country.SeedForSeeding += Count;
         }
        
         public bool IsPlayerAlreasyExist(string PlayerName)
@@ -273,5 +280,62 @@ namespace GeneralsServer
             Player SelectedPlayer = Players.Find(x => x.Name == PlayerName);
             return SelectedPlayer.country.Soldiers * StaticConstats.SpendOnSoldier;
         }
+
+        #region Методы для работы с уровнями науки
+        public int GetScientificLevel(string PlayerName, ScientificLevelType LevelType)
+        {
+            int result = 0;
+            Player SelectedPlayer = Players.Find(x => x.Name == PlayerName);
+            switch (LevelType)
+            {
+                case ScientificLevelType.Density:
+                    result = SelectedPlayer.country.ScienceLevels.DensityLevel;
+                    break;
+                case ScientificLevelType.PeasantIncrement:
+                    result = SelectedPlayer.country.ScienceLevels.PeasantIncrementLevel;
+                    break;
+                case ScientificLevelType.SeedIncrement:
+                    result = SelectedPlayer.country.ScienceLevels.SeedIcrementLevel;
+                    break;
+                case ScientificLevelType.Economy:
+                    result = SelectedPlayer.country.ScienceLevels.EconomyLevel;
+                    break;
+                case ScientificLevelType.WarArt:
+                    result = SelectedPlayer.country.ScienceLevels.WarArtLevel;
+                    break;
+                case ScientificLevelType.Scientific:
+                    result = SelectedPlayer.country.ScienceLevels.ScientificLevel;
+                    break;
+            }
+
+            return result;
+        }
+
+        public int GetSeedIncrement(string PlayerName)
+        {
+            Player SelectedPlayer = Players.Find(x => x.Name == PlayerName);
+            return (int)(SelectedPlayer.country.SeedForSeeding*StaticConstats.SeedIncrementKoefPerScientLevel*SelectedPlayer.country.ScienceLevels.SeedIcrementLevel);
+        }
+
+        public int GetPeopleIncrement(string PlayerName)
+        {
+            Player SelectedPlayer = Players.Find(x => x.Name == PlayerName);
+            int result;
+            result = (int)(SelectedPlayer.country.Peasants * StaticConstats.PeopleIncrementKoefPerScientLevel * SelectedPlayer.country.ScienceLevels.PeasantIncrementLevel);
+            return result;
+        }
+
+        public int GetMaxPeopleCount(string PlayerName)
+        {
+            Player SelectedPlayer = Players.Find(x => x.Name == PlayerName);
+            return SelectedPlayer.country.ScienceLevels.DensityLevel * SelectedPlayer.country.Teritory * StaticConstats.PeoplePerSquare;
+        }
+
+        public int GetTerritorySize(string PlayerName)
+        {
+            Player SelectedPlayer = Players.Find(x => x.Name == PlayerName);
+            return SelectedPlayer.country.Teritory;
+        }
+        #endregion
     }
 }

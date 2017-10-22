@@ -15,6 +15,23 @@ namespace GeneralsClient.ViewModel
 {
     public partial class Engine : INotifyPropertyChanged
     {
+ 
+        int _Territoty{ get; set; }
+        /// <summary>
+        ///  Возвращает размер территории страны
+        /// </summary>
+        public int Territoty
+        {
+            get
+            {
+                return _Territoty;
+            }
+            set
+            {
+                _Territoty = value;
+                OnPropertyChanged();
+            }
+        }
         /// <summary>
         ///  Возвращает имя игрока. Инициализируется при авторизации.
         /// </summary>
@@ -34,7 +51,7 @@ namespace GeneralsClient.ViewModel
                 OnPropertyChanged();
             }
         }
-        //Крестьяни
+        //Крестьяне
         int _Peasants { get; set; }
         public int Peasants
         {
@@ -98,17 +115,7 @@ namespace GeneralsClient.ViewModel
                 OnPropertyChanged();
             }
         }
-        int _CurrentSeedForBuy{get; set;}
-        public int CurrentSeedForBuy
-        {
-            get { return _CurrentSeedForBuy; }
-            set
-            {
-                _CurrentSeedForBuy = value;
-                OnPropertyChanged();
-                CurrentCostSeeds = _CurrentSeedForBuy * StaticConstats.PriceOfSeedsBuy;
-            }
-        }
+ 
         //Ученые
         int _Scientists { get; set; }
         public int Scientists
@@ -130,6 +137,7 @@ namespace GeneralsClient.ViewModel
                 OnPropertyChanged();
             }
         }
+        //Солдаты
         int _SpendOnSoldiers { get; set; }
         public int SpendOnSoldiers
         {
@@ -140,6 +148,18 @@ namespace GeneralsClient.ViewModel
                 OnPropertyChanged();
             }
         }
+        //Население
+        public int _People { get; set; }
+        /// <summary>
+        /// Возвращает общее количество населения Крестьяне + Солдаты + Ученые
+        /// </summary>
+        public int People { get { return _People; } set { _People = value; OnPropertyChanged(); } }
+
+        int _MaxPeople { get; set; }
+        /// <summary>
+        /// Возвращает максимальное количество населения.
+        /// </summary>
+        public int MaxPeople { get { return _MaxPeople; } set { _MaxPeople = value;OnPropertyChanged(); } }
         #region Найм генерала
 
         #region Свойства
@@ -213,12 +233,16 @@ namespace GeneralsClient.ViewModel
 
         #endregion
         #region Экономика
-        #region Покупка зерна
+        int _SeedIncrement { get; set; }
+        public int SeedIncrement { get { return _SeedIncrement; } set { _SeedIncrement = value;OnPropertyChanged(); } }
+        int _PeopleIcrement { get; set; }
+        public int PeopleIcrement { get { return _PeopleIcrement; } set { _PeopleIcrement = value; OnPropertyChanged(); } }
+        #region Засев
         #region Свойства
+        public int CurrentSeedForSeeding { get; set; }
         static int _MaxSeedForSeeding { get; set; }
         public int MaxSeedForSeeding
         {
-
             get
             {
                 return _MaxSeedForSeeding;
@@ -227,6 +251,54 @@ namespace GeneralsClient.ViewModel
             {
                 _MaxSeedForSeeding = value;
                 OnPropertyChanged();
+            }
+        }
+        #endregion
+        #region Команда
+        RelayCommand _Seeding { get; set; }
+        public RelayCommand Seeding
+        {
+            get
+            {
+                if (_Seeding == null)
+                    _Seeding = new RelayCommand(
+                        x =>
+                        {
+                            ServiceClient.Seeding(PlayerName, CurrentSeedForSeeding);
+                            MaxSeedForSeeding -= CurrentSeedForSeeding;
+                            RefreshTabEconomic();
+                        }
+                        , x => { return MaxSeedForSeeding > 0; }
+                        );
+                return _Seeding;
+            }
+        }
+        #endregion
+        #endregion
+        #region Покупка зерна
+        #region Свойства
+        static int _MaxBuySeed { get; set; }
+        public int MaxBuySeed
+        {
+            get
+            {
+                return _MaxBuySeed;
+            }
+            set
+            {
+                _MaxBuySeed = value;
+                OnPropertyChanged();
+            }
+        }
+        int _CurrentSeedForBuy { get; set; }
+        public int CurrentSeedForBuy
+        {
+            get { return _CurrentSeedForBuy; }
+            set
+            {
+                _CurrentSeedForBuy = value;
+                OnPropertyChanged();
+                CurrentCostSeeds = _CurrentSeedForBuy * StaticConstats.PriceOfSeedsBuy;
             }
         }
         #endregion
@@ -297,33 +369,13 @@ namespace GeneralsClient.ViewModel
                 }
         #endregion
         #endregion
-        #region Засев
-        public int CurrentSeedForSeeding { get; set; }
-
-        RelayCommand _Seeding { get; set; }
-        public RelayCommand Seeding
-        {
-            get
-            {
-                if (_Seeding == null)
-                    _Seeding = new RelayCommand(
-                        x =>
-                        {
-                            InterClass.gc.Seeding(InterClass.PlayerName, CurrentSeedForSeeding);
-                            MaxSeedForSale -= CurrentSeedForSeeding;
-                            Seeds = InterClass.gc.GetSeedCount(InterClass.PlayerName);
-                            MaxSeedForSeeding -= CurrentSeedForSeeding;
-                        }
-                        , x => { return MaxSeedForSeeding > 0; }
-                        );
-                return _Seeding;
-            }
-        }
-        #endregion
-        #endregion
+    
         #region Найм ученых
         #region Свойства
         static int _MaxScientists { get; set; }
+        /// <summary>
+        /// Возвращает максимальное количество ученых для найма.
+        /// </summary>
         public int MaxScientists
         {
             get
@@ -396,7 +448,7 @@ namespace GeneralsClient.ViewModel
         #region Увольнение ученых
         #region Свойства
         public int CurrentScientistsForSale { get; set; }
-        #endregion
+        #endregion  
         #region Команды
         RelayCommand _FireScientists { get; set; }
         public RelayCommand FireScientists
@@ -405,37 +457,20 @@ namespace GeneralsClient.ViewModel
             {
                 if (_FireScientists == null)
                     _FireScientists = new RelayCommand(x => {
-                        InterClass.gc.SellScietists(InterClass.PlayerName, CurrentScientistsForSale);
-                        Scientists = InterClass.gc.GetScientists(InterClass.PlayerName);
-                        SpendOnScientists = InterClass.gc.SpendOnScientists(InterClass.PlayerName);
-                        Balance = Money - SpendOnScientists - SpendOnSoldiers;
-                       
-                        Peasants += CurrentScientistsForSale;
+                        InterClass.gc.SellScietists(PlayerName, CurrentScientistsForSale);
+                        RefreshTabEconomic();                
                     }, x => { return Scientists > 0; });
                 return _FireScientists;
             }
         }
         #endregion
         #endregion
-        #region Покупка зерна
-        #region Свойства
-        static int _MaxBuySeed { get; set; } = 150;
-        public int MaxBuySeed
-        {
-            get
-            {
-                return _MaxBuySeed;
-            }
-            set
-            {
-                _MaxBuySeed = value;
-                OnPropertyChanged();
-            }
-        }
-        #endregion
-        #endregion
+  
         #region Найм солдат
         #region Свойства
+        /// <summary>
+        /// Возвращает максимальное количество солдат для найма
+        /// </summary>
         static int _MaxSoldiers { get; set; }
         public int MaxSoldiers
         {
@@ -498,14 +533,8 @@ namespace GeneralsClient.ViewModel
             {
                 if (_HireSoldiers == null)
                     _HireSoldiers = new RelayCommand(x => {
-                        InterClass.gc.HireSoldiers(InterClass.PlayerName, CurrentCountOfSoldiers);
-                        Soldiers = InterClass.gc.GetCountOfSoldiers(InterClass.PlayerName);
-                        SpendOnSoldiers = InterClass.gc.GetSpendOnSoldiers(InterClass.PlayerName);
-                        Money = InterClass.gc.GetMoney(InterClass.PlayerName);
-                        Balance = Money - SpendOnScientists - SpendOnSoldiers;
-                        MaxSoldiers -= CurrentCountOfSoldiers;
-                        MaxFireSoldiers = Soldiers;
-                        Peasants -= CurrentCountOfSoldiers;
+                        ServiceClient.HireSoldiers(PlayerName, CurrentCountOfSoldiers);
+                        RefreshTabEconomic();
                     });
                 return _HireSoldiers;
             }
@@ -514,19 +543,7 @@ namespace GeneralsClient.ViewModel
         #endregion
         #region Увольнение солдат
         #region Свойства
-        static int _MaxFireSoldiers { get; set; } = 150;
-        public int MaxFireSoldiers
-        {
-            get
-            {
-                return _MaxFireSoldiers;
-            }
-            set
-            {
-                _MaxFireSoldiers = value;
-                OnPropertyChanged();
-            }
-        }
+
         public int CurrentSoldiersForSale { get; set; }
         #region Команды
         RelayCommand _FireSoldiers { get; set; }
@@ -540,14 +557,15 @@ namespace GeneralsClient.ViewModel
                         Soldiers = InterClass.gc.GetCountOfSoldiers(InterClass.PlayerName);
                         SpendOnSoldiers = InterClass.gc.GetSpendOnSoldiers(InterClass.PlayerName);
                         Balance = Money - SpendOnScientists - SpendOnSoldiers;
-                        MaxFireSoldiers -= CurrentSoldiersForSale;
+                        Soldiers -= CurrentSoldiersForSale;
                         Peasants += CurrentSoldiersForSale;
                         MaxSoldiers = Money / StaticConstats.PriceOfSoldiers;
                         MaxScientists = Money / StaticConstats.PriceOfScientists;
-                    }, x => { return MaxFireSoldiers > 0; });
+                    }, x => { return Soldiers > 0; });
                 return _FireSoldiers;
             }
         }
+        #endregion
         #endregion
         #endregion
         #endregion
@@ -557,6 +575,7 @@ namespace GeneralsClient.ViewModel
         /// </summary>
         void RefreshTabEconomic()
         {
+            Territoty = ServiceClient.GetTerritorySize(PlayerName);
             Money = ServiceClient.GetMoney(PlayerName);
             MaxBuySeed = Money / StaticConstats.PriceOfSeedsBuy;
             MaxSoldiers = Money / StaticConstats.PriceOfSoldiers;
@@ -564,12 +583,18 @@ namespace GeneralsClient.ViewModel
 
             Peasants = ServiceClient.GetCountOfPeasants(PlayerName);
             Scientists = Scientists = ServiceClient.GetScientists(PlayerName);
-            MaxFireSoldiers = Soldiers = ServiceClient.GetCountOfSoldiers(PlayerName);
+            Soldiers = Soldiers = ServiceClient.GetCountOfSoldiers(PlayerName);
             MaxSeedForSale = Seeds = ServiceClient.GetSeedCount(PlayerName);
 
             SpendOnScientists = ServiceClient.GetScientists(PlayerName) * StaticConstats.SpendOnScientist;
             SpendOnSoldiers = ServiceClient.GetCountOfSoldiers(PlayerName) * StaticConstats.SpendOnSoldier;
             Balance = Money - SpendOnScientists - SpendOnSoldiers;
+            People = Soldiers + Scientists + Peasants;
+
+            MaxPeople = ServiceClient.GetMaxPeopleCount(PlayerName);
+            SeedIncrement = ServiceClient.GetSeedIncrement(PlayerName);
+            PeopleIcrement = ServiceClient.GetPeopleIncrement(PlayerName);
+
         }
 
         public Engine()
