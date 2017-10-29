@@ -27,6 +27,7 @@ namespace GeneralClasses
         public static int PeoplePerSquare { get; } = 5;
         public static double SeedIncrementKoefPerScientLevel { get; } = 1.3;
         public static double PeopleIncrementKoefPerScientLevel { get; } = 0.2;
+        public static int ScientistPerLevel { get; } = 20;
 
 
 

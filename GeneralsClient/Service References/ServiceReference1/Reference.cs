@@ -260,6 +260,12 @@ namespace GeneralsClient.ServiceReference1 {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGeneral/GetScientificLevel", ReplyAction="http://tempuri.org/IGeneral/GetScientificLevelResponse")]
         System.Threading.Tasks.Task<int> GetScientificLevelAsync(string PlayerName, GeneralClasses.ScientificLevelType LevelType);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGeneral/GetScientificLevels", ReplyAction="http://tempuri.org/IGeneral/GetScientificLevelsResponse")]
+        GeneralClasses.ScientificLevel[] GetScientificLevels(string PlayerName);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGeneral/GetScientificLevels", ReplyAction="http://tempuri.org/IGeneral/GetScientificLevelsResponse")]
+        System.Threading.Tasks.Task<GeneralClasses.ScientificLevel[]> GetScientificLevelsAsync(string PlayerName);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -615,6 +621,14 @@ namespace GeneralsClient.ServiceReference1 {
         
         public System.Threading.Tasks.Task<int> GetScientificLevelAsync(string PlayerName, GeneralClasses.ScientificLevelType LevelType) {
             return base.Channel.GetScientificLevelAsync(PlayerName, LevelType);
+        }
+        
+        public GeneralClasses.ScientificLevel[] GetScientificLevels(string PlayerName) {
+            return base.Channel.GetScientificLevels(PlayerName);
+        }
+        
+        public System.Threading.Tasks.Task<GeneralClasses.ScientificLevel[]> GetScientificLevelsAsync(string PlayerName) {
+            return base.Channel.GetScientificLevelsAsync(PlayerName);
         }
     }
 }

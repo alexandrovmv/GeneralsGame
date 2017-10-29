@@ -1,6 +1,7 @@
 ﻿using GeneralClasses;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.ServiceModel;
 using System.Text;
@@ -98,6 +99,8 @@ namespace GeneralsServer
         #region Методы для работы с уровнями науки
         [OperationContract]
         int GetScientificLevel(string PlayerName, ScientificLevelType LevelType);
+        [OperationContract]
+        ObservableCollection<ScientificLevel> GetScientificLevels(string PlayerName);
         #endregion
 
     }

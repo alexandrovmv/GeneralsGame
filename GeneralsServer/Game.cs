@@ -2,6 +2,7 @@
 using GeneralClasses;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -289,22 +290,22 @@ namespace GeneralsServer
             switch (LevelType)
             {
                 case ScientificLevelType.Density:
-                    result = SelectedPlayer.country.ScienceLevels.DensityLevel;
+                    result = SelectedPlayer.country.ScienceLevels[(int)ScientificLevelType.Density].Level;
                     break;
                 case ScientificLevelType.PeasantIncrement:
-                    result = SelectedPlayer.country.ScienceLevels.PeasantIncrementLevel;
+                    result = SelectedPlayer.country.ScienceLevels[(int)ScientificLevelType.PeasantIncrement].Level;
                     break;
                 case ScientificLevelType.SeedIncrement:
-                    result = SelectedPlayer.country.ScienceLevels.SeedIcrementLevel;
+                    result = SelectedPlayer.country.ScienceLevels[(int)ScientificLevelType.SeedIncrement].Level;
                     break;
                 case ScientificLevelType.Economy:
-                    result = SelectedPlayer.country.ScienceLevels.EconomyLevel;
+                    result = SelectedPlayer.country.ScienceLevels[(int)ScientificLevelType.Economy].Level;
                     break;
                 case ScientificLevelType.WarArt:
-                    result = SelectedPlayer.country.ScienceLevels.WarArtLevel;
+                    result = SelectedPlayer.country.ScienceLevels[(int)ScientificLevelType.WarArt].Level;
                     break;
                 case ScientificLevelType.Scientific:
-                    result = SelectedPlayer.country.ScienceLevels.ScientificLevel;
+                    result = SelectedPlayer.country.ScienceLevels[(int)ScientificLevelType.Scientific].Level;
                     break;
             }
 
@@ -314,27 +315,33 @@ namespace GeneralsServer
         public int GetSeedIncrement(string PlayerName)
         {
             Player SelectedPlayer = Players.Find(x => x.Name == PlayerName);
-            return (int)(SelectedPlayer.country.SeedForSeeding*StaticConstats.SeedIncrementKoefPerScientLevel*SelectedPlayer.country.ScienceLevels.SeedIcrementLevel);
+            return (int)(SelectedPlayer.country.SeedForSeeding*StaticConstats.SeedIncrementKoefPerScientLevel*SelectedPlayer.country.ScienceLevels[(int)ScientificLevelType.SeedIncrement].Level);
         }
 
         public int GetPeopleIncrement(string PlayerName)
         {
             Player SelectedPlayer = Players.Find(x => x.Name == PlayerName);
             int result;
-            result = (int)(SelectedPlayer.country.Peasants * StaticConstats.PeopleIncrementKoefPerScientLevel * SelectedPlayer.country.ScienceLevels.PeasantIncrementLevel);
+            result = (int)(SelectedPlayer.country.Peasants * StaticConstats.PeopleIncrementKoefPerScientLevel * SelectedPlayer.country.ScienceLevels[(int)ScientificLevelType.PeasantIncrement].Level);
             return result;
         }
 
         public int GetMaxPeopleCount(string PlayerName)
         {
             Player SelectedPlayer = Players.Find(x => x.Name == PlayerName);
-            return SelectedPlayer.country.ScienceLevels.DensityLevel * SelectedPlayer.country.Teritory * StaticConstats.PeoplePerSquare;
+            return SelectedPlayer.country.ScienceLevels[(int)ScientificLevelType.Density].Level * SelectedPlayer.country.Teritory * StaticConstats.PeoplePerSquare;
         }
 
         public int GetTerritorySize(string PlayerName)
         {
             Player SelectedPlayer = Players.Find(x => x.Name == PlayerName);
             return SelectedPlayer.country.Teritory;
+        }
+
+        public ObservableCollection<ScientificLevel> GetScientificLevels(string PlayerName)
+        {
+            Player SelectedPlayer = Players.Find(x => x.Name == PlayerName);
+            return SelectedPlayer.country.ScienceLevels;
         }
         #endregion
     }

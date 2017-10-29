@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -9,7 +10,7 @@ namespace GeneralClasses
     public class Country
     {
         //Уровни науки
-        public ScientificLevels ScienceLevels;     
+        public ObservableCollection<ScientificLevel> ScienceLevels { get; set; }  
 
         string _Name;
         public string Name
@@ -43,14 +44,22 @@ namespace GeneralClasses
         //Генералы
         public List<General> Generals{ get; set; }
 
+        void InitScientificLevels()
+        {
+            ScienceLevels = new ObservableCollection<ScientificLevel>();
+            for(int i=0;i < Enum.GetNames(typeof(ScientificLevelType)).Length; i++)
+            {
+                ScienceLevels.Add(new ScientificLevel { Level = i+1, ScienceType = (ScientificLevelType)i,CurrentProgress=(i+1)*10 });
+            }
+        }
         public Country(string Name, int Balance, int Peasants, int Teritory, int Seed)
         {
-            ScienceLevels = new ScientificLevels();
+            InitScientificLevels();
             _Name = Name;
             //Начальное количество денег
             this.Balance=Balance;
-            //Начальная плотность населения 10 человек на единицу площади. В дальнейшем будет увелдичиватся в зависимости от уровня науки в стране
-            this.Density = ScienceLevels.DensityLevel*10;
+            //Начальная плотность населения 10 человек на единицу площади. В дальнейшем будет увеличиватся в зависимости от уровня науки в стране
+            this.Density = ScienceLevels[(int)ScientificLevelType.Density].Level*10;
             // начальное колдичество крестьян
             this.Peasants=Peasants;
             this.Teritory=Teritory;
@@ -58,14 +67,14 @@ namespace GeneralClasses
             Generals= new List<General>();
         }
         public Country() {
+            InitScientificLevels();
             Generals = new List<General>();
             Teritory = StaticConstats.Teritory/StaticConstats.CountOfPlayers;
             Seed = StaticConstats.StartCountOfSeed;
             Balance = StaticConstats.StartBalance;
             Peasants = StaticConstats.StartPeasants;
-            Density = StaticConstats.SpecificDensity * Teritory;
-            Generals = new List<General>();
-            ScienceLevels = new ScientificLevels();
+            //Начальная плотность населения 10 человек на единицу площади. В дальнейшем будет увеличиватся в зависимости от уровня науки в стране
+            this.Density = ScienceLevels[(int)ScientificLevelType.Density].Level * StaticConstats.SpecificDensity;
         }
     }
 
