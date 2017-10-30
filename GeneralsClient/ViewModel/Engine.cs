@@ -460,7 +460,8 @@ namespace GeneralsClient.ViewModel
                 if (_FireScientists == null)
                     _FireScientists = new RelayCommand(x => {
                         InterClass.gc.SellScietists(PlayerName, CurrentScientistsForSale);
-                        RefreshTabEconomic();                
+                        RefreshTabEconomic();
+                       
                     }, x => { return Scientists > 0; });
                 return _FireScientists;
             }
@@ -556,9 +557,9 @@ namespace GeneralsClient.ViewModel
             {
                 if (_FireSoldiers == null)
                     _FireSoldiers = new RelayCommand(x => {
-                        InterClass.gc.SellSoldiers(InterClass.PlayerName, CurrentSoldiersForSale);
-                        Soldiers = InterClass.gc.GetCountOfSoldiers(InterClass.PlayerName);
-                        SpendOnSoldiers = InterClass.gc.GetSpendOnSoldiers(InterClass.PlayerName);
+                        ServiceClient.SellSoldiers(PlayerName, CurrentSoldiersForSale);
+                        Soldiers = ServiceClient.GetCountOfSoldiers(PlayerName);
+                        SpendOnSoldiers = ServiceClient.GetSpendOnSoldiers(PlayerName);
                         Balance = Money - SpendOnScientists - SpendOnSoldiers;
                         Soldiers -= CurrentSoldiersForSale;
                         Peasants += CurrentSoldiersForSale;
@@ -596,7 +597,7 @@ namespace GeneralsClient.ViewModel
 
             MaxPeople = ServiceClient.GetMaxPeopleCount(PlayerName);
             SeedIncrement = ServiceClient.GetSeedIncrement(PlayerName);
-            PeopleIcrement = ServiceClient.GetPeopleIncrement(PlayerName);
+            PeopleIcrement = ServiceClient.GetPeopleIncrement(PlayerName);           
             CurrentSeedForSeeding = 0;
             CurrentSeedForSale = 0;
             CurrentSeedForBuy = 0;
@@ -605,6 +606,8 @@ namespace GeneralsClient.ViewModel
             CurrentScientistsForSale = 0;
             CurrentSoldiersForSale = 0;
             CurrentSeedForSeeding = 0;
+
+            RefreshScientificTab();
         }
 
         public Engine()

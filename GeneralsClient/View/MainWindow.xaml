@@ -341,7 +341,7 @@
                         <Border Grid.Column="0" Grid.Row="0"  BorderBrush="Gray" BorderThickness="2" Margin="0,0,6,6" CornerRadius="15" >
                             <Canvas>
                                 <TextBlock Text="Незанятые ученые: " Canvas.Top="20" Canvas.Left="20" Foreground="DarkRed" FontWeight="Bold" FontSize="18"></TextBlock>
-                                <TextBlock Text="5000" Canvas.Left="214" Canvas.Top="23" Width="74" FontWeight="Bold"></TextBlock>
+                                <TextBlock Text="{Binding FreeScientists}" Canvas.Left="214" Canvas.Top="23" Width="74" FontWeight="Bold"></TextBlock>
                                 <Button Background="LightGray" Content="Убрать всех" FontWeight="Bold" Canvas.Top="66" Canvas.Left="20" Width="130">
 
                                 </Button>
@@ -353,11 +353,11 @@
                             <Canvas Margin="4,6,-4,-6">
                                 <Label Padding="0" FontSize="16" FontStyle="Oblique" FontWeight="Bold" HorizontalAlignment="Center" Content="Плотность населения" Canvas.Left="89" Canvas.Top="-32"></Label>
                                 <TextBlock Padding="0"  Text="Текущий уровень" Canvas.Top="-5" RenderTransformOrigin="0.523,-0.36"/>
-                                <TextBlock Padding="0"  FontWeight="Medium" Text="0" Canvas.Left="138" Canvas.Top="-5" RenderTransformOrigin="0,0.54"></TextBlock>
+                                <TextBlock Padding="0"  FontWeight="Medium" Text="{Binding LocalScientificLevels[0].Level}" Canvas.Left="138" Canvas.Top="-5" RenderTransformOrigin="0,0.54"></TextBlock>
                                 <TextBlock Padding="0"  Text="Нужно ученых" Canvas.Top="15"/>
-                                <TextBlock Padding="0"  FontWeight="Medium" Text="0" Canvas.Left="138" Canvas.Top="15"></TextBlock>
-                                <TextBox Text="1" HorizontalContentAlignment="Center" Padding="0" Canvas.Left="31" Canvas.Top="41" Width="81" IsReadOnly="True"></TextBox>
-                                <ProgressBar Padding="0" Foreground="Blue"  Value="{Binding ElementName=TB, Path=Text, StringFormat={}{0:0}}" Name="PB" Orientation="Vertical" Minimum="0" Maximum="100" Height="91" Width="52"  Canvas.Left="200"/>
+                                <TextBlock Padding="0"  FontWeight="Medium" Text="{Binding LocalScientificLevels[0].ScientistOnLevel}" Canvas.Left="138" Canvas.Top="15"></TextBlock>
+                                <TextBox Text="{Binding FreeScientist}" HorizontalContentAlignment="Center" Padding="0" Canvas.Left="31" Canvas.Top="41" Width="81" IsReadOnly="True"></TextBox>
+                                <ProgressBar Padding="0" Foreground="Blue"  Value="{Binding LocalScientificLevels[0].CurrentProgress}" Name="PB" Orientation="Vertical" Minimum="0" Maximum="100" Height="91" Width="52"  Canvas.Left="200"/>
                                 <TextBlock Text="{Binding ElementName=PB, Path=Value, StringFormat={}{0:0}%}" HorizontalAlignment="Center" VerticalAlignment="Center" Canvas.Left="215" Canvas.Top="32" />
                                 <TextBox Padding="0" Name="TB" Canvas.Left="257" Canvas.Top="64" Width="55" RenderTransformOrigin="0.5,0.5" Height="27"></TextBox>
                                 <TextBlock Padding="0" Text="Откроют в течении " Canvas.Top="70"/>
@@ -375,11 +375,11 @@
                             <Canvas Margin="4,6,-4,-6">
                                 <Label Padding="0" FontSize="16" FontStyle="Oblique" FontWeight="Bold" HorizontalAlignment="Center" Content="Денежная система" Canvas.Left="89" Canvas.Top="-32"></Label>
                                 <TextBlock Padding="0"  Text="Текущий уровень" Canvas.Top="-5" RenderTransformOrigin="0.523,-0.36"/>
-                                <TextBlock Padding="0"  FontWeight="Medium" Text="0" Canvas.Left="138" Canvas.Top="-5" RenderTransformOrigin="0,0.54"></TextBlock>
+                                <TextBlock Padding="0"  FontWeight="Medium" Text="{Binding LocalScientificLevels[3].Level}" Canvas.Left="138" Canvas.Top="-5" RenderTransformOrigin="0,0.54"></TextBlock>
                                 <TextBlock Padding="0"  Text="Нужно ученых" Canvas.Top="15"/>
-                                <TextBlock Padding="0"  FontWeight="Medium" Text="0" Canvas.Left="138" Canvas.Top="15"></TextBlock>
+                                <TextBlock Padding="0"  FontWeight="Medium" Text="{Binding LocalScientificLevels[3].ScientistOnLevel}" Canvas.Left="138" Canvas.Top="15"></TextBlock>
                                 <TextBox Text="1" HorizontalContentAlignment="Center" Padding="0" Canvas.Left="31" Canvas.Top="41" Width="81" IsReadOnly="True"></TextBox>
-                                <ProgressBar Padding="0" Foreground="Blue"  Value="{Binding ElementName=TB1, Path=Text, StringFormat={}{0:0}}" Name="PB1" Orientation="Vertical" Minimum="0" Maximum="100" Height="91" Width="52"  Canvas.Left="200"/>
+                                <ProgressBar Padding="0" Foreground="Blue" Value="{Binding LocalScientificLevels[3].CurrentProgress}" Name="PB1" Orientation="Vertical" Minimum="0" Maximum="100" Height="91" Width="52"  Canvas.Left="200"/>
                                 <TextBlock Text="{Binding ElementName=PB1, Path=Value, StringFormat={}{0:0}%}" HorizontalAlignment="Center" VerticalAlignment="Center" Canvas.Left="215" Canvas.Top="32" />
                                 <TextBox Padding="0" Name="TB1" Canvas.Left="257" Canvas.Top="64" Width="55" RenderTransformOrigin="0.5,0.5" Height="27"></TextBox>
                                 <TextBlock Padding="0" Text="Откроют в течении " Canvas.Top="70"/>
@@ -397,11 +397,11 @@
                             <Canvas Margin="4,6,-4,-6">
                                 <Label Padding="0" FontSize="16" FontStyle="Oblique" FontWeight="Bold" HorizontalAlignment="Center" Content="Рост населения: " Canvas.Left="89" Canvas.Top="-32"></Label>
                                 <TextBlock Padding="0"  Text="Текущий уровень" Canvas.Top="-5" RenderTransformOrigin="0.523,-0.36"/>
-                                <TextBlock Padding="0"  FontWeight="Medium" Text="0" Canvas.Left="138" Canvas.Top="-5" RenderTransformOrigin="0,0.54"></TextBlock>
+                                <TextBlock Padding="0"  FontWeight="Medium" Text="{Binding LocalScientificLevels[1].Level}" Canvas.Left="138" Canvas.Top="-5" RenderTransformOrigin="0,0.54"></TextBlock>
                                 <TextBlock Padding="0"  Text="Нужно ученых" Canvas.Top="15"/>
-                                <TextBlock Padding="0"  FontWeight="Medium" Text="0" Canvas.Left="138" Canvas.Top="15"></TextBlock>
+                                <TextBlock Padding="0"  FontWeight="Medium" Text="{Binding LocalScientificLevels[1].ScientistOnLevel}" Canvas.Left="138" Canvas.Top="15"></TextBlock>
                                 <TextBox Text="1" HorizontalContentAlignment="Center" Padding="0" Canvas.Left="31" Canvas.Top="41" Width="81" IsReadOnly="True"></TextBox>
-                                <ProgressBar Padding="0" Foreground="Red"  Value="{Binding ElementName=TB2, Path=Text, StringFormat={}{0:0}}" Name="PB2" Orientation="Vertical" Minimum="0" Maximum="100" Height="91" Width="52"  Canvas.Left="200"/>
+                                <ProgressBar Padding="0" Foreground="Red" Value="{Binding LocalScientificLevels[1].CurrentProgress}" Name="PB2" Orientation="Vertical" Minimum="0" Maximum="100" Height="91" Width="52"  Canvas.Left="200"/>
                                 <TextBlock Text="{Binding ElementName=PB2, Path=Value, StringFormat={}{0:0}%}" HorizontalAlignment="Center" VerticalAlignment="Center" Canvas.Left="215" Canvas.Top="32" />
                                 <TextBox Padding="0" Name="TB2" Canvas.Left="257" Canvas.Top="64" Width="55" RenderTransformOrigin="0.5,0.5" Height="27"></TextBox>
                                 <TextBlock Padding="0" Text="Откроют в течении " Canvas.Top="70"/>
@@ -419,11 +419,11 @@
                             <Canvas Margin="4,6,-4,-6">
                                 <Label Padding="0" FontSize="16" FontStyle="Oblique" FontWeight="Bold" HorizontalAlignment="Center" Content="Военная мощь" Canvas.Left="89" Canvas.Top="-32"></Label>
                                 <TextBlock Padding="0"  Text="Текущий уровень" Canvas.Top="-5" RenderTransformOrigin="0.523,-0.36"/>
-                                <TextBlock Padding="0"  FontWeight="Medium" Text="0" Canvas.Left="138" Canvas.Top="-5" RenderTransformOrigin="0,0.54"></TextBlock>
+                                <TextBlock Padding="0"  FontWeight="Medium" Text="{Binding LocalScientificLevels[4].Level}" Canvas.Left="138" Canvas.Top="-5" RenderTransformOrigin="0,0.54"></TextBlock>
                                 <TextBlock Padding="0"  Text="Нужно ученых" Canvas.Top="15"/>
-                                <TextBlock Padding="0"  FontWeight="Medium" Text="0" Canvas.Left="138" Canvas.Top="15"></TextBlock>
+                                <TextBlock Padding="0"  FontWeight="Medium" Text="{Binding LocalScientificLevels[4].ScientistOnLevel}" Canvas.Left="138" Canvas.Top="15"></TextBlock>
                                 <TextBox Text="1" HorizontalContentAlignment="Center" Padding="0" Canvas.Left="31" Canvas.Top="41" Width="81" IsReadOnly="True"></TextBox>
-                                <ProgressBar Padding="0" Foreground="Blue"  Value="{Binding ElementName=TB3, Path=Text, StringFormat={}{0:0}}" Name="PB3" Orientation="Vertical" Minimum="0" Maximum="100" Height="91" Width="52"  Canvas.Left="200"/>
+                                <ProgressBar Padding="0" Foreground="Blue"  Value="{Binding LocalScientificLevels[4].CurrentProgress}" Name="PB3" Orientation="Vertical" Minimum="0" Maximum="100" Height="91" Width="52"  Canvas.Left="200"/>
                                 <TextBlock Text="{Binding ElementName=PB3, Path=Value, StringFormat={}{0:0}%}" HorizontalAlignment="Center" VerticalAlignment="Center" Canvas.Left="215" Canvas.Top="32" />
                                 <TextBox Padding="0" Name="TB3" Canvas.Left="257" Canvas.Top="64" Width="55" RenderTransformOrigin="0.5,0.5" Height="27"></TextBox>
                                 <TextBlock Padding="0" Text="Откроют в течении " Canvas.Top="70"/>
@@ -441,11 +441,11 @@
                             <Canvas Margin="4,6,-4,-6">
                                 <Label Padding="0" FontSize="16" FontStyle="Oblique" FontWeight="Bold" HorizontalAlignment="Center" Content="Сельское хозяйство" Canvas.Left="89" Canvas.Top="-32"></Label>
                                 <TextBlock Padding="0"  Text="Текущий уровень" Canvas.Top="-5" RenderTransformOrigin="0.523,-0.36"/>
-                                <TextBlock Padding="0"  FontWeight="Medium" Text="0" Canvas.Left="138" Canvas.Top="-5" RenderTransformOrigin="0,0.54"></TextBlock>
+                                <TextBlock Padding="0"  FontWeight="Medium" Text="{Binding LocalScientificLevels[2].Level}" Canvas.Left="138" Canvas.Top="-5" RenderTransformOrigin="0,0.54"></TextBlock>
                                 <TextBlock Padding="0"  Text="Нужно ученых" Canvas.Top="15"/>
-                                <TextBlock Padding="0"  FontWeight="Medium" Text="0" Canvas.Left="138" Canvas.Top="15"></TextBlock>
+                                <TextBlock Padding="0"  FontWeight="Medium" Text="{Binding LocalScientificLevels[2].ScientistOnLevel}" Canvas.Left="138" Canvas.Top="15"></TextBlock>
                                 <TextBox Text="1" HorizontalContentAlignment="Center" Padding="0" Canvas.Left="31" Canvas.Top="41" Width="81" IsReadOnly="True"></TextBox>
-                                <ProgressBar Padding="0" Foreground="Blue"  Value="{Binding ElementName=TB4, Path=Text, StringFormat={}{0:0}}" Name="PB4" Orientation="Vertical" Minimum="0" Maximum="100" Height="91" Width="52"  Canvas.Left="200"/>
+                                <ProgressBar Padding="0" Foreground="Blue"  Value="{Binding LocalScientificLevels[2].CurrentProgress}" Name="PB4" Orientation="Vertical" Minimum="0" Maximum="100" Height="91" Width="52"  Canvas.Left="200"/>
                                 <TextBlock Text="{Binding ElementName=PB4, Path=Value, StringFormat={}{0:0}%}" HorizontalAlignment="Center" VerticalAlignment="Center" Canvas.Left="215" Canvas.Top="32" />
                                 <TextBox Padding="0" Name="TB4" Canvas.Left="257" Canvas.Top="64" Width="55" RenderTransformOrigin="0.5,0.5" Height="27"></TextBox>
                                 <TextBlock Padding="0" Text="Откроют в течении " Canvas.Top="70"/>
@@ -463,11 +463,11 @@
                             <Canvas Margin="4,6,-4,-6">
                                 <Label Padding="0" FontSize="16" FontStyle="Oblique" FontWeight="Bold" HorizontalAlignment="Center" Content="Научный потенциал" Canvas.Left="89" Canvas.Top="-32"></Label>
                                 <TextBlock Padding="0"  Text="Текущий уровень" Canvas.Top="-5" RenderTransformOrigin="0.523,-0.36"/>
-                                <TextBlock Padding="0"  FontWeight="Medium" Text="0" Canvas.Left="138" Canvas.Top="-5" RenderTransformOrigin="0,0.54"></TextBlock>
+                                <TextBlock Padding="0"  FontWeight="Medium" Text="{Binding LocalScientificLevels[5].Level}" Canvas.Left="138" Canvas.Top="-5" RenderTransformOrigin="0,0.54"></TextBlock>
                                 <TextBlock Padding="0"  Text="Нужно ученых" Canvas.Top="15"/>
-                                <TextBlock Padding="0"  FontWeight="Medium" Text="0" Canvas.Left="138" Canvas.Top="15"></TextBlock>
+                                <TextBlock Padding="0"  FontWeight="Medium" Text="{Binding LocalScientificLevels[5].ScientistOnLevel}" Canvas.Left="138" Canvas.Top="15"></TextBlock>
                                 <TextBox Text="1" HorizontalContentAlignment="Center" Padding="0" Canvas.Left="31" Canvas.Top="41" Width="81" IsReadOnly="True"></TextBox>
-                                <ProgressBar Padding="0" Foreground="Blue"  Value="{Binding ElementName=TB5, Path=Text, StringFormat={}{0:0}}" Name="PB5" Orientation="Vertical" Minimum="0" Maximum="100" Height="91" Width="52"  Canvas.Left="200"/>
+                                <ProgressBar Padding="0" Foreground="Blue"  Value="{Binding LocalScientificLevels[5].CurrentProgress}" Name="PB5" Orientation="Vertical" Minimum="0" Maximum="100" Height="91" Width="52"  Canvas.Left="200"/>
                                 <TextBlock Text="{Binding ElementName=PB5, Path=Value, StringFormat={}{0:0}%}" HorizontalAlignment="Center" VerticalAlignment="Center" Canvas.Left="215" Canvas.Top="32" />
                                 <TextBox Padding="0" Name="TB5" Canvas.Left="257" Canvas.Top="64" Width="55" RenderTransformOrigin="0.5,0.5" Height="27"></TextBox>
                                 <TextBlock Padding="0" Text="Откроют в течении " Canvas.Top="70"/>

@@ -286,6 +286,12 @@
   <wsdl:message name="IGeneral_GetScientificLevel_OutputMessage">
     <wsdl:part name="parameters" element="tns:GetScientificLevelResponse" />
   </wsdl:message>
+  <wsdl:message name="IGeneral_GetScientificLevels_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetScientificLevels" />
+  </wsdl:message>
+  <wsdl:message name="IGeneral_GetScientificLevels_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetScientificLevelsResponse" />
+  </wsdl:message>
   <wsdl:portType name="IGeneral">
     <wsdl:operation name="GetTerritorySize">
       <wsdl:input wsaw:Action="http://tempuri.org/IGeneral/GetTerritorySize" message="tns:IGeneral_GetTerritorySize_InputMessage" />
@@ -450,6 +456,10 @@
     <wsdl:operation name="GetScientificLevel">
       <wsdl:input wsaw:Action="http://tempuri.org/IGeneral/GetScientificLevel" message="tns:IGeneral_GetScientificLevel_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IGeneral/GetScientificLevelResponse" message="tns:IGeneral_GetScientificLevel_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetScientificLevels">
+      <wsdl:input wsaw:Action="http://tempuri.org/IGeneral/GetScientificLevels" message="tns:IGeneral_GetScientificLevels_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IGeneral/GetScientificLevelsResponse" message="tns:IGeneral_GetScientificLevels_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="NetTcpBinding_IGeneral" type="tns:IGeneral">
@@ -818,6 +828,15 @@
     </wsdl:operation>
     <wsdl:operation name="GetScientificLevel">
       <soap12:operation soapAction="http://tempuri.org/IGeneral/GetScientificLevel" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetScientificLevels">
+      <soap12:operation soapAction="http://tempuri.org/IGeneral/GetScientificLevels" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>

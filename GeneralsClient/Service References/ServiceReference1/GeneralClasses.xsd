@@ -22,4 +22,19 @@
     </xs:restriction>
   </xs:simpleType>
   <xs:element name="ScientificLevelType" nillable="true" type="tns:ScientificLevelType" />
+  <xs:complexType name="ArrayOfScientificLevel">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ScientificLevel" nillable="true" type="tns:ScientificLevel" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfScientificLevel" nillable="true" type="tns:ArrayOfScientificLevel" />
+  <xs:complexType name="ScientificLevel">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="CurrentProgress" type="xs:int" />
+      <xs:element minOccurs="0" name="Level" type="xs:int" />
+      <xs:element minOccurs="0" name="ScienceType" type="tns:ScientificLevelType" />
+      <xs:element minOccurs="0" name="ScientistOnWork" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ScientificLevel" nillable="true" type="tns:ScientificLevel" />
 </xs:schema>
